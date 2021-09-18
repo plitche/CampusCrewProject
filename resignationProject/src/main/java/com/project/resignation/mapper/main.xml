@@ -6,8 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="Test">
 
     <select id="testDbProcedure2" resultType="int">
-     CALL test2(#{iReturn, mode=OUT, jdbcType=INTEGER})
-      <!--  select iSeq from test3 where iSeq = 3-->
+       select iSeq from test3 where iSeq = 3
     </select>
 
 </mapper>

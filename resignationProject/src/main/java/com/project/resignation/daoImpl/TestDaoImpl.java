@@ -1,20 +1,21 @@
-package com.project.resignation.serviceImpl;
+package com.project.resignation.daoImpl;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.resignation.dao.TestDao;
-import com.project.resignation.service.TestService;
 
 @Service
-public class TestServiceImpl implements TestService {
+public class TestDaoImpl implements TestDao {
 	
 	@Autowired
-	TestDao testDao;
+	SqlSession sqlsession;
 	
 	@Override
 	public int testServiceMethod1() throws Exception {
-		return testDao.testServiceMethod1();
+		
+		return sqlsession.selectOne("Test.testDbProcedure2");
 	}
 
 }
