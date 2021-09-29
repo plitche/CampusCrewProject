@@ -25,11 +25,10 @@
 	<beans:bean id="pebbleEngine" class="com.project.resignation.common.factory.PebbleEngineFactory" factory-method="instance">
 		<beans:constructor-arg name="loader" 	ref="templateLoader"/>
 		<beans:constructor-arg name="springExtension" 	ref="springExtension"/>
-		<beans:constructor-arg name="cacheActive"  type="boolean" value="false"/>
 	</beans:bean>
 	
 	<beans:bean id="viewResolver" class="com.mitchellbosecke.pebble.spring4.PebbleViewResolver">
-		<beans:property name="prefix" value="/WEB_INF/templates"/>
+		<beans:property name="prefix" value="/WEB-INF/templates"/>
 		<beans:property name="suffix" value=".html"/>
 		<beans:property name="pebbleEngine" ref="pebbleEngine"/>
 	</beans:bean>

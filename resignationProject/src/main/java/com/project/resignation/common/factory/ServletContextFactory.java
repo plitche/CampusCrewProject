@@ -7,7 +7,7 @@ import org.springframework.web.context.ServletContextAware;
 
 public class ServletContextFactory implements FactoryBean<ServletContext>, ServletContextAware {
 
-	    private ServletContext servletContext;
+	private ServletContext servletContext;
 
 	    @Override
 	    public ServletContext getObject() throws Exception {
