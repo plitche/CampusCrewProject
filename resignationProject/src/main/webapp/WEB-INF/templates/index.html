@@ -28,3 +28,21 @@
 	});
 
 </script>
+=======
+    <p> 222Welcome to my home page. My name is {{test}}.222</p>
+    
+    {% if test is empty %}
+	<p>ok</p>
+	{% else %}
+	<p>no</p>
+	{% endif %}
+
+{% endblock %}
+
+{% block script %}
+<script>
+alert({{test}});
+</script>
+{% endblock %}
+
+>>>>>>> 09013a6981cadfa89ddf5fdc01b20d7aa43fc017
