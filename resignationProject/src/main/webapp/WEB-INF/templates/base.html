@@ -1,11 +1,14 @@
 <html>
 <head>
 <title>{% block title %}My Website{% endblock %}</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<!--  부트스트랩 : https://getbootstrap.com/docs/5.1/forms/validation/  -->
+
+<!--  장고 : http://frontend.diffthink.kr/2019/01/book-4-django_13.html -->
 </head>
 <body>	
 	<div id="header">{% block header %}사표프로젝트{% endblock %}</div>
 	<div id="content">{% block content %}{% endblock %}</div>
-	<div id="footer">{% block footer %} Copyright 2021 {% endblock %}
-	</div>
+	<div id="footer">{% block footer %} Copyright 2021 {% endblock %}</div>
 </body>
 </html>
