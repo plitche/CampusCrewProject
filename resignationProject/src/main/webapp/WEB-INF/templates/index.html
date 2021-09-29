@@ -4,11 +4,27 @@
 
 {% block content %}
     <h1> Home </h1>
-    <p> 222Welcome to my home page. My name is {{test}}.222</p>
+    <p> 222Welcome to my home page. My name is {{test}}.22212323</p>
 {% endblock %}
 
-{% if test is empty %}
+{% if test == 3 %}
 <p>ok</p>
 {% else %}
 <p>no</p>
 {% endif %}
+
+
+<script>
+
+	$(function(){
+		
+		var test = {{test}};
+		
+		if (test == 3) {
+			alert("안녕");
+		} else {
+			alert('몰라');
+		}
+	});
+
+</script>
