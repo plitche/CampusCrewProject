@@ -15,6 +15,10 @@
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 	
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="1" />
+	</beans:bean>
+	
 	<beans:bean id="servletContext" class="com.project.resignation.common.factory.ServletContextFactory" />
 
 	<beans:bean id="templateLoader" class="com.mitchellbosecke.pebble.loader.ServletLoader">
@@ -25,12 +29,15 @@
 	<beans:bean id="pebbleEngine" class="com.project.resignation.common.factory.PebbleEngineFactory" factory-method="instance">
 		<beans:constructor-arg name="loader" 	ref="templateLoader"/>
 		<beans:constructor-arg name="springExtension" 	ref="springExtension"/>
+		<beans:constructor-arg name="cacheActive" type="boolean" value="false"/>
 	</beans:bean>
 	
 	<beans:bean id="viewResolver" class="com.mitchellbosecke.pebble.spring4.PebbleViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/templates"/>
 		<beans:property name="suffix" value=".html"/>
+		<beans:property name="order" value="2" />
 		<beans:property name="pebbleEngine" ref="pebbleEngine"/>
+		<beans:property name="exposeSessionAttributes" value="true"/>
 	</beans:bean>
 
 	<context:component-scan base-package="com.project.resignation" />

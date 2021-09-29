@@ -2,7 +2,8 @@
 <head>
 <title>{% block title %}My Website{% endblock %}</title>
 </head>
-<body>
+<body>	
+	<div id="header">{% block header %}사표프로젝트{% endblock %}</div>
 	<div id="content">{% block content %}{% endblock %}</div>
 	<div id="footer">{% block footer %} Copyright 2021 {% endblock %}
 	</div>

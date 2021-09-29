@@ -4,5 +4,11 @@
 
 {% block content %}
     <h1> Home </h1>
-    <p> Welcome to my home page. My name is {{test}}.</p>
+    <p> 222Welcome to my home page. My name is {{test}}.222</p>
 {% endblock %}
+
+{% if test is empty %}
+<p>ok</p>
+{% else %}
+<p>no</p>
+{% endif %}
