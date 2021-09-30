@@ -884,5 +884,3 @@ function globalOpen(openTarget,time,custom){
    if(custom) return $(openTarget).addClass('hide')
    $(openTarget).fadeIn(time);
 };
-
-```
