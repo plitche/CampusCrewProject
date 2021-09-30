@@ -33,7 +33,7 @@
 	</beans:bean>
 	
 	<beans:bean id="viewResolver" class="com.mitchellbosecke.pebble.spring4.PebbleViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/templates"/>
+		<beans:property name="prefix" value="/WEB-INF/templates" />
 		<beans:property name="suffix" value=".html"/>
 		<beans:property name="order" value="2" />
 		<beans:property name="pebbleEngine" ref="pebbleEngine"/>

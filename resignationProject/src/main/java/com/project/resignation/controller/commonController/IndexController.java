@@ -18,7 +18,6 @@ public class IndexController {
 	public String goIndex(Model model) throws Exception {
 		
 		int test = testService.testServiceMethod1();
-		System.out.println(test);;
 		
 		model.addAttribute("test", test);
 		return "index";
