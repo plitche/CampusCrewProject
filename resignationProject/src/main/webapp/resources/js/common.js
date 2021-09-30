@@ -24,9 +24,9 @@ function requestAjaxPOSTTxt(url, data, callback){
 /**
  * requestAjaxPOST_(url, data, callback)
  * Ajax Post Submit
- *@paramurl
-*@paramdata
-*@paramcallback
+ * @paramurl
+ * @paramdata
+ * @paramcallback
 */
 function requestAjaxPOST_(url, data, callback){
 
@@ -884,5 +884,3 @@ function globalOpen(openTarget,time,custom){
    if(custom) return $(openTarget).addClass('hide')
    $(openTarget).fadeIn(time);
 };
-
-```
