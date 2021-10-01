@@ -18,7 +18,7 @@ public class ServletContextFactory implements FactoryBean<ServletContext>, Servl
 	    public Class<?> getObjectType() {
 	        return ServletContext.class;
 	    }
-
+ 
 	    @Override
 	    public boolean isSingleton() {
 	        return true;

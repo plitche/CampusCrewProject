@@ -92,3 +92,54 @@ ul.group > li {
     float: left;
     box-sizing: border-box;
 }
+
+<!-- header 우측 -->
+#header .util {
+    font-size: 13px;
+}
+
+#header .util {
+    position: absolute;
+    top: 19px;
+    right: 80px;
+}
+
+.group {
+    box-sizing: border-box;
+}
+
+ul.group > li {
+    float: left;
+    box-sizing: border-box;
+}
+
+.util li {
+    position: relative;
+}
+
+.util li.btn_launch a {
+    margin-top: 3px;
+    position: relative;
+    width: 136px;
+    height: 34px;
+    line-height: 32px;
+    font-size: 13px;
+    text-align: center;
+    color: #fff;
+    background: #505bf0;
+    font-weight: 600;
+    letter-spacing: -0.56px;
+    border-radius: 18px;
+    border: 1px solid #505bf0;
+    box-sizing: border-box;
+    transition: all 0.5;
+}
+
+.util > ul > li > a {
+    padding: 0 14px;
+}
+
+.util li > a {
+    display: block;
+    z-index: 1;
+}
