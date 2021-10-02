@@ -1,9 +1,20 @@
 @charset "UTF-8";
 
+ul, li {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    display: inline;
+}
+
+/* header 좌측 (로고+탭) */
 #header div#logoWrap {
     display: block;
     position: absolute;
-    left: 70px;
+    left: 52px;
     top: 0;
     width: 60px;
     height: 62px;
@@ -93,7 +104,7 @@ ul.group > li {
     box-sizing: border-box;
 }
 
-<!-- header 우측 -->
+/* header 우측(로그인, 회원가입) */
 #header .util {
     font-size: 13px;
 }
@@ -135,11 +146,89 @@ ul.group > li {
     transition: all 0.5;
 }
 
-.util > ul > li > a {
+.util > ul > li > a:nth-child(1) {
     padding: 0 14px;
 }
+.util > ul > li > a:nth-child(2) {
+    margin-left: 14px;
+}
+
 
 .util li > a {
     display: block;
     z-index: 1;
 }
+ 
+/* footer */
+#footer {
+	position: relative;
+    width: 100%;
+    font-weight: 700;
+    border-top: 1px solid #EFEFEF;
+    text-align: center;
+    padding-top: 10px;
+    position:fixed; 
+    left:0px; 
+    bottom:0px; 
+}
+
+#footer .footer_center_tl {
+    max-width: 1200px;
+    min-width: 1000px;
+    display: inline-block;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+#footer .footer_center_tl .logo {
+    float: left;
+    margin-top:15px;
+}
+
+#footer .footer_center_tl .logo img {
+    width: 55px;
+}
+
+#footer .footer_center_tl .ft_menu {
+    float: right;
+    margin: 20px 0;
+}
+
+#footer .footer_center_tl .ft_menu li {
+    margin: 0px 15px;
+}
+
+#footer .footer_center_tl .ft_menu li a {
+    color: #979797;
+}
+
+#footer .company_info {
+    clear: both;
+    font-family: 'gulim';
+    line-height: 22px;
+    font-size: 12px;
+    text-align: left;
+    color: #b1b1b1;
+}
+
+#footer .footer_center_tl .ft_copyright {
+    float: left;
+    line-height: 50px;
+    padding-bottom: 10px;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
