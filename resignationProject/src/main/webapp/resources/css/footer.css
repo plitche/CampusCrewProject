@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+
+/* footer */
+#footer {
+	position: relative;
+    width: 100%;
+    font-weight: 700;
+    border-top: 1px solid #EFEFEF;
+    text-align: center;
+    padding-top: 10px;
+    position:fixed; 
+    left:0px; 
+    bottom:0px; 
+}
+
+#footer .footer_center_tl {
+    max-width: 1200px;
+    min-width: 1000px;
+    display: inline-block;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+#footer .footer_center_tl .logo {
+    float: left;
+    margin-top:15px;
+}
+
+#footer .footer_center_tl .logo img {
+    width: 55px;
+}
+
+#footer .footer_center_tl .ft_menu {
+    float: right;
+    margin: 20px 0;
+}
+
+#footer .footer_center_tl .ft_menu li {
+    margin: 0px 15px;
+}
+
+#footer .footer_center_tl .ft_menu li a {
+    color: #979797;
+}
+
+#footer .company_info {
+    clear: both;
+    font-family: 'gulim';
+    line-height: 22px;
+    font-size: 12px;
+    text-align: left;
+    color: #b1b1b1;
+}
+
+#footer .footer_center_tl .ft_copyright {
+    float: left;
+    line-height: 50px;
+    padding-bottom: 10px;
+    font-size: 12px;
+}

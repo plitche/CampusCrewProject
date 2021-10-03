@@ -1,228 +1,48 @@
 @charset "UTF-8";
 
-ul, li {
-    list-style: none;
+ .intro .chap4 {
     margin: 0px;
-    padding: 0px;
 }
 
-li {
-    display: inline;
+.intro_chapter.chap4, .intro.chap4 {
+    background-color: #7aefea;
+    padding: 70px 0px;
+    margin-bottom: 0px !important;
 }
 
-/* header 좌측 (로고+탭) */
-#header div#logoWrap {
-    display: block;
-    position: absolute;
-    left: 52px;
-    top: 0;
-    width: 60px;
-    height: 62px;
-    background: url(../img/sapyo_logo-01.png) 50% 50% no-repeat;
-    text-indent: -9999px;
-    z-index: 10;
-    background-size: contain;
-}
-
-#header.sticky {
-    position: fixed;
-    top: 0;
-}
-
-#header {
-    position: relative;
-    width: 100%;
-    min-width: 1200px;
-    height: 65px;
-    box-sizing: border-box;
-    background-color: #fff;
-    transition: 0.5s all;
-    border-bottom: 1px solid #e9e9e9;
-    z-index: 100;
-}
-
-#header div#logoWrap a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-indent: -9999px;
-}
-
-#header .inner {
-    padding: 0 80px;
-}
-
-.inner.maxInner {
-    width: 100%;
-    max-width: 1440px;
-    min-width: 1200px;
-}
-
-.inner {
-    position: relative;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-a, a:link {
-    color: #000;
-    text-decoration: none;
-}
-
-#gnb {
-    position: absolute;
-    top: 0;
-    left: 135px;
-    vertical-align: top;
-}
-
-#gnb > ul {
-    display: inline-block;
-}
-
-#gnb > ul > li > a {
-    padding: 0 15px;
-}
-
-#gnb > ul > li > a {
-    position: relative;
-    padding: 0 20px;
-    display: block;
-    height: 64px;
-    line-height: 64px;
-    font-size: 17px;
-    font-weight: 600;
-    color: #2e3248;
-    letter-spacing: -0.8px;
-}
-
-ul, ol, li {
-    list-style: none;
-}
-
-ul.group > li {
-    float: left;
-    box-sizing: border-box;
-}
-
-/* header 우측(로그인, 회원가입) */
-#header .util {
-    font-size: 13px;
-}
-
-#header .util {
-    position: absolute;
-    top: 19px;
-    right: 80px;
-}
-
-.group {
-    box-sizing: border-box;
-}
-
-ul.group > li {
-    float: left;
-    box-sizing: border-box;
-}
-
-.util li {
-    position: relative;
-}
-
-.util li.btn_launch a {
-    margin-top: 3px;
-    position: relative;
-    width: 136px;
-    height: 34px;
-    line-height: 32px;
-    font-size: 13px;
-    text-align: center;
-    color: #fff;
-    background: #505bf0;
-    font-weight: 600;
-    letter-spacing: -0.56px;
-    border-radius: 18px;
-    border: 1px solid #505bf0;
-    box-sizing: border-box;
-    transition: all 0.5;
-}
-
-.util > ul > li > a:nth-child(1) {
-    padding: 0 14px;
-}
-.util > ul > li > a:nth-child(2) {
-    margin-left: 14px;
-}
-
-
-.util li > a {
-    display: block;
-    z-index: 1;
-}
- 
-/* footer */
-#footer {
-	position: relative;
-    width: 100%;
+.intro_chapter.chap4 .sub_title, .intro.chap4 .sub_title {
+    color: #ffffff;
     font-weight: 700;
-    border-top: 1px solid #EFEFEF;
-    text-align: center;
-    padding-top: 10px;
-    position:fixed; 
-    left:0px; 
-    bottom:0px; 
 }
 
-#footer .footer_center_tl {
-    max-width: 1200px;
-    min-width: 1000px;
-    display: inline-block;
-    width: 100%;
-    margin: 0 auto;
+.intro_chapter .sub_title, .intro .sub_title {
+    font-size: 16px;
+}
+
+.intro_chapter .main_copy, .intro .main_copy {
+    margin: 20px 0px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.intro_chapter .main_copy_desc, .intro .main_copy_desc {
+    font-size: 16px;
+    line-height: 35px;
+}
+
+.intro_chapter.chap4 .start_bt, .intro.chap4 .start_bt {
+    background: #ffffff;
+    box-shadow: 0 2px 3px 0 rgb(0 0 0 / 30%);
+    border-radius: 30px;
     font-size: 14px;
+    font-weight: 700;
+    width: 180px;
+    height: 45px;
+    line-height: 45px;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 25px;
 }
-
-#footer .footer_center_tl .logo {
-    float: left;
-    margin-top:15px;
-}
-
-#footer .footer_center_tl .logo img {
-    width: 55px;
-}
-
-#footer .footer_center_tl .ft_menu {
-    float: right;
-    margin: 20px 0;
-}
-
-#footer .footer_center_tl .ft_menu li {
-    margin: 0px 15px;
-}
-
-#footer .footer_center_tl .ft_menu li a {
-    color: #979797;
-}
-
-#footer .company_info {
-    clear: both;
-    font-family: 'gulim';
-    line-height: 22px;
-    font-size: 12px;
-    text-align: left;
-    color: #b1b1b1;
-}
-
-#footer .footer_center_tl .ft_copyright {
-    float: left;
-    line-height: 50px;
-    padding-bottom: 10px;
-    font-size: 12px;
-}
-
-
-
-
-
 
 
 
