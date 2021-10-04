@@ -101,7 +101,7 @@ ul.group > li {
 
 #header .util {
     position: absolute;
-    top: 19px;
+    top: 14px;
     right: 80px;
 }
 
@@ -113,6 +113,30 @@ ul.group > li {
     float: left;
     box-sizing: border-box;
 }
+
+.util > .group > .join {
+	background: #0057ff;
+	border-radius: 30px;
+	padding: 8px 5px;
+	margin-left:10px;
+	font-weight:600;
+}
+
+.util > .group > .login {
+	background: white;
+	border-radius: 30px;
+	padding: 8px 5px;
+	color: #191919;
+	border : 0.5px solid #e8e8e8;
+	font-weight:600;
+}
+
+
+
+.util > .group > .join > a {
+	color: white;
+}
+
 
 .util li {
     position: relative;

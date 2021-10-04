@@ -5,14 +5,9 @@
 }
 
 .intro_chapter.chap4, .intro.chap4 {
-    background-color: #7aefea;
-    padding: 70px 0px;
+    background-color: #f4f4f4;
+    padding: 50px 0px;
     margin-bottom: 0px !important;
-}
-
-.intro_chapter.chap4 .sub_title, .intro.chap4 .sub_title {
-    color: #ffffff;
-    font-weight: 700;
 }
 
 .intro_chapter .sub_title, .intro .sub_title {
@@ -23,25 +18,28 @@
     margin: 20px 0px;
     font-size: 24px;
     font-weight: 700;
+    color: #303030;
 }
 
 .intro_chapter .main_copy_desc, .intro .main_copy_desc {
     font-size: 16px;
     line-height: 35px;
+    font-weight: 300;
 }
 
 .intro_chapter.chap4 .start_bt, .intro.chap4 .start_bt {
-    background: #ffffff;
+    background: #0057ff;
     box-shadow: 0 2px 3px 0 rgb(0 0 0 / 30%);
     border-radius: 30px;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 600;
     width: 180px;
     height: 45px;
     line-height: 45px;
     display: inline-block;
     cursor: pointer;
     margin-top: 25px;
+    color: white;
 }
 
 
