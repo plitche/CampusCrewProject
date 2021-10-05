@@ -26,6 +26,13 @@
 <link type="text/css" rel="stylesheet" href="resources/css/footer.css" >
 <link type="text/css" rel="stylesheet" href="resources/css/common.css" >
 
+<!--  공통 js  -->
+<script type="text/javascript" charset="utf-8" src="resources/js/common/main.js" ></script>
+
+<script type="text/javascript">
+	test.test2();
+</script>
+
 <body>	
 	<div id="header" class="sticky" style="left:0px;">
 		{% block header %}
@@ -37,21 +44,24 @@
 	      		</a>
 	    	</div>
 			<div id="gnb">
-	      		<ul class="group nav_ul">
+	      		<ul class="group nav_ul"  id="headerNav">
 					<li class="">
-						<a class="" href="">소개</a>
+						<a class=""  href="javascript:void(0);">소개</a>
 					</li>
 	        		<li class="">
-						<a class="" href="">프로젝트/스터디</a>
+						<a class=""  href="javascript:void(0);">프로젝트</a>
 					</li>
 					<li class="">
-						<a class="" href="">토론</a>
+						<a class=""  href="javascript:void(0);">스터디</a>
 					</li>
 					<li class="">
-						<a class="" href="">아이디어투표</a>
+						<a class=""  href="javascript:void(0);">토론</a>
 					</li>
 					<li class="">
-						<a class="" href="">일정</a>
+						<a class=""  href="javascript:void(0);">아이디어투표</a>
+					</li>
+					<li class="">
+						<a class=""  href="javascript:void(0);">일정</a>
 					</li>
 				</ul>
 			</div>
