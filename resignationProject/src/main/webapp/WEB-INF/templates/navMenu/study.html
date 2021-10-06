@@ -1,0 +1,52 @@
+{% extends "common/base" %}
+
+{# 메인페이지 Header #}
+
+{# 메인페이지 내용 #}
+{% block content %}
+{# block안에 Base파일 추가해서 적용시키기 #}
+{% include "indexBase" %}
+
+
+{% endblock %}
+
+{# footer 내용  #} 
+{% block footer %}
+	<div class="intro_chapter chap4">
+		 <div class="main_copy">나만의 회사를 꿈꾸시나요? 지금 당장 사표와 함께 하세요.</div> 
+		 <div class="main_copy_desc">누구나 가슴 속에 하나씩 품고 있는 사표, 사표와 함께라면 현실이 됩니다!</div> 
+		 <span class="start_bt">사표대기자 만나기</span>
+	 </div>
+	<div class="footer_center_tl">
+            <span class="logo"><img src="resources/img/sapyo_logo-01.png"></span>
+            <ul class="ft_menu">
+                <li><a href="/Home/Service">서비스소개</a></li>
+                <li><a href="/etc/policymember">회원약관</a></li>
+                <li><a href="/etc/policyprivacy">개인정보처리방침</a></li>
+                <li><a href="/etc/advertising">광고문의</a></li>
+                <li><a href="/etc/contactus">고객센터</a></li>
+                <li><a target="_blank" href="https://www.facebook.com/beginmate/">페이스북</a></li>
+                <li><a target="_blank" href="https://blog.naver.com/beginmate">블로그</a></li>
+            </ul>
+            <div class="company_info">
+                <strong>(주)사표</strong> &nbsp;|&nbsp;대표이사 나정호 권용수&nbsp;|&nbsp;개인정보관리책임자 권용수(privacy@sapyo.com)<br>
+				서울 강남구 언주로69길 19, 지하1층(역삼동) (주)사표&nbsp;|&nbsp;02-6713-0817 &nbsp;|&nbsp;주말 휴일<br>
+				사업자등록번호 679-87-00428&nbsp;|&nbsp;통신판매업신고번호 제2018-서울강남-02246호(사업자정보확인)&nbsp;|&nbsp;유료직업소개사업등록번호: (국내)제2020-3220237-14-5-00014호<br> 	
+            </div>
+            <span class="ft_copyright">2021 © <strong>Sapyo.</strong> All rights reserved.</span>
+        </div>
+{% endblock %}
+
+
+{# 메인페이지 스크립트 #}
+{% block script %}
+
+<script>
+
+	$(function() {
+		
+	});
+	
+</script>
+
+{% endblock %}
