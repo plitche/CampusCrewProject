@@ -107,15 +107,14 @@ NOCACHE;
 CREATE TABLE tbMember (
 	vcMemberId 			 	VARCHAR(50) 		PRIMARY KEY,
 	vcMemberPw 			 	VARCHAR(30) 		NOT NULL,
-	vcMemberName 		 	VARCHAR(30) 		NOT NULL,
+	vcMemberName 		 	VARCHAR(30) 		NULL,
 	vcMemberNicname	 	VARCHAR(50) 		NOT NULL,
 	vcMemberAddress	 	VARCHAR(50) 		NOT NULL,
 	vcMemberPhone 		 	VARCHAR(30) 		NULL,
-	vcMemberAge 			 	VARCHAR(10) 		NULL,
+	vcMemberAge 			 	VARCHAR(10) 		NOT NULL,
 	vcMemberMBTI 		 	VARCHAR(20) 		NULL,
 	vcMemberTime 		 	VARCHAR(40) 		NOT NULL,
-	vcMemberIntroduce   	VARCHAR(2000) 	NOT NULL,
-	vcMemberEmail 		 	VARCHAR(50) 		UNIQUE NOT NULL,
+	vcMemberIntroduce   	VARCHAR(2000) 	NULL,
 	vcMemberGender		 	VARCHAR(10) 		NOT NULL,
 	vcMemberLink1 		 	VARCHAR(30) 		NULL,
 	vcMemberLink2 		 	VARCHAR(30) 		NULL

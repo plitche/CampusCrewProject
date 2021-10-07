@@ -424,6 +424,7 @@ function getLastDay(year, month) {
 *@paramheight
 */
 function popupWindow(url, name, width, height) {
+	
 
    var top    = (screen.height / 2) - (height / 2);
    var left   = (screen.width / 2) - (width /2);
