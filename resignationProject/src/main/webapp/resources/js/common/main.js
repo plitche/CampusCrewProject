@@ -1,4 +1,4 @@
-var test = (function() {
+var main = (function() {
 	var that = {
 			Init : function() {
 				// 상단 nav 메뉴 세팅
