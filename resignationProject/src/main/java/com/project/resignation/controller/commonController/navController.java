@@ -38,8 +38,6 @@ public class navController {
 			break;
 		}
 
-		System.out.println("!111111111111111111111111111");
-		System.out.println(navigationBtn);
 		return "/navMenu/"+ navigationBtn + "/" + navigationBtn + "Main";
 	}
 	

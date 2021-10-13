@@ -1,1 +1,10 @@
 @charset "UTF-8";
+
+.contentBody {margin: 100px auto; margin-top: 100px;  width: 1280px; }
+.navTitle {margin: 50px 0 40px 0;}
+.filter{}
+.recomandHead{border: 1px solid #9462ef;}
+.recomandMes{background-color: rgba(160, 107, 255, .1); padding: 11px 20px 13px;}
+.recomandMes > p{color: #935cf7; font-size: 1rem; font-weight: 700;}
+.recomandFlex{padding: 12px 26px 15px; white-space: nowrap; flex-direction: row}
+.recomandFlex > div {display: inline-flex; flex-direction: column; width: 266px; margin-right: 26px; cursor: pointer;}
