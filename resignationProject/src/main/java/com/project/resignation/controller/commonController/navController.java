@@ -12,24 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.project.resignation.service.StudyService;
 
-<<<<<<< HEAD
-//@Controller
-//@RequestMapping(value="/navigation")
-//public class navController {
-//
-//	@Autowired
-//	TestService testService; 
-//	
-//	@RequestMapping(value="/{navigationBtn}", method=RequestMethod.GET)
-//	public String goIndex(@PathVariable("navigationBtn") String navigationBtn,
-//									Model model) throws Exception {
-//		
-//		
-//		return navigationBtn;
-//	}
-//	
-//}
-=======
 @Controller
 @RequestMapping(value="/navigation")
 public class navController {
@@ -60,4 +42,4 @@ public class navController {
 	}
 	
 }
->>>>>>> 22d116762ecea77b780f40de214cae319eaf9687
+
