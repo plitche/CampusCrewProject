@@ -1,15 +1,13 @@
 @charset "UTF-8";
 
 /* header 좌측 (로고+탭) */
-#header div#logoWrap {
+#header div#logoWrap > a >img {
     display: block;
     position: absolute;
     left: 52px;
     top: 0;
-    width: 60px;
-    height: 62px;
-    background: url(../img/sapyo_logo-01.png) 50% 50% no-repeat;
-    text-indent: -9999px;
+    width: 62px;
+    margin-top: 15px;
     z-index: 10;
     background-size: contain;
 }

@@ -1,113 +1,101 @@
-<div class="jzS mQ8 un8 TB_" style="display:none;">
-	<div style="margin: 16px 0px; position: relative;">
-		<div data-test-id="signup-default-modal" class="zI7 iyn Hsu"
-			style="width: 484px; background-color: rgb(255, 255, 255); border-radius: 32px; position: relative; text-align: center; margin: auto; min-height: initial; box-shadow: rgba(0, 0, 0, 0.45) 0px 2px 10px; padding-bottom: 55px;">
-			<div class="zI7 iyn Hsu"
-				style="min-height: 400px; padding: 20px 10px 24px;">
-				<div data-test-id="full-page-signup-close-button"
-					class="KO4 MIw QLY jar oy8 p6V rDA zI7 iyn Hsu"
-					style="height: 40px; width: 40px;">
-					<button aria-label="닫기" class="rYa kVc adn yQo czT qrs BG7"
-						tabindex="0" type="button">
-						<div class="x8f INd _O1 gjz mQ8 OGJ YbY"
-							style="height: 40px; width: 40px;">
-							<svg class="gUZ pBj U9O kVc" height="18" width="18"
-								viewBox="0 0 24 24" aria-hidden="true" aria-label="" role="img">
-								<path
-									d="m15.18 12 7.16-7.16c.88-.88.88-2.3 0-3.18-.88-.88-2.3-.88-3.18 0L12 8.82 4.84 1.66c-.88-.88-2.3-.88-3.18 0-.88.88-.88 2.3 0 3.18L8.82 12l-7.16 7.16c-.88.88-.88 2.3 0 3.18.44.44 1.01.66 1.59.66.58 0 1.15-.22 1.59-.66L12 15.18l7.16 7.16c.44.44 1.01.66 1.59.66.58 0 1.15-.22 1.59-.66.88-.88.88-2.3 0-3.18L15.18 12z"></path></svg>
-						</div>
-					</button>
+<div class="joinPopup" style="display:none;">
+	<div class="joinPopupBody">
+		<div style="width:370px; height:2px; background: lightgray;; position: absolute; left: 50%; transform: translateX(-50%); margin-top:45px;"></div>
+		<button aria-label="닫기" id="closeBtn">
+			<img src="resources/img/popup/close.png">
+		</button>
+		<div class="popupLogo" style="width:40px; height: 40px;"></div>
+		<div id="popContent">
+			<div style="margin: 0px auto 15px; text-align: center;">
+				<h3 class="popupTitle">사표 쓰러 오셨나요?</h3>
+				<div style="color:black; font-size:14px;">사표는 새로운 시작입니다!</div>
+			</div>
+			<div class="divInput">
+			<form id="frm">
+				<div class="popupInput">
+					<input type="text" class="pop-input" id="email" placeholder="이메일" />
 				</div>
-				<div class="zI7 iyn Hsu"
-					style="display: block; height: 45px; margin: 5px auto 8px; width: 45px;">
-					<svg height="40" viewBox="-3 -3 82 82" width="40"
-						style="display: block;">
-						<circle cx="38" cy="38" fill="white" r="40"></circle>
-						<path
-							d="M27.5 71c3.3 1 6.7 1.6 10.3 1.6C57 72.6 72.6 57 72.6 37.8 72.6 18.6 57 3 37.8 3 18.6 3 3 18.6 3 37.8c0 14.8 9.3 27.5 22.4 32.5-.3-2.7-.6-7.2 0-10.3l4-17.2s-1-2-1-5.2c0-4.8 3-8.4 6.4-8.4 3 0 4.4 2.2 4.4 5 0 3-2 7.3-3 11.4C35.6 49 38 52 41.5 52c6.2 0 11-6.6 11-16 0-8.3-6-14-14.6-14-9.8 0-15.6 7.3-15.6 15 0 3 1 6 2.6 8 .3.2.3.5.2 1l-1 3.8c0 .6-.4.8-1 .4-4.4-2-7-8.3-7-13.4 0-11 7.8-21 22.8-21 12 0 21.3 8.6 21.3 20 0 12-7.4 21.6-18 21.6-3.4 0-6.7-1.8-7.8-4L32 61.7c-.8 3-3 7-4.5 9.4z"
-							fill="#e60023" fill-rule="evenodd"></path></svg>
+				<div class="popupInput">
+					<input type="text" class="pop-input" id="pw" placeholder="비밀번호" />
 				</div>
-				<div class="zI7 iyn Hsu"
-					style="margin: 0px auto 18px; width: 400px;">
-					<h3
-						style="color: rgb(51, 51, 51); font-size: 36px; font-weight: 600; -webkit-font-smoothing: antialiased; letter-spacing: -1.2px; word-break: break-word;">Pinterest에
-						오신 것을 환영합니다</h3>
+				<div class="popupInput">
+					<input type="text" class="pop-input" id="age" placeholder="나이" />
 				</div>
-				<div class="zI7 iyn Hsu"
-					style="margin: 0px auto 18px; width: 270px;">
-					<div class="J95 m2F zI7 iyn Hsu">
-						<div class="tBJ dyH iFc yTZ pBj tg7 IZT swG">시도해 볼 만한 새로운
-							아이디어 찾기</div>
-					</div>
+			</form>
+				<div class="popupInput">
+					<button id="continueBtn">사표 쓰러가기</button>
 				</div>
-				<div data-test-id="signup-options" class="XiG zI7 iyn Hsu"
-					style="text-align: center; margin: 0px auto;">
-					<div class="zI7 iyn Hsu" style="width: 268px; margin: 0px auto;">
-						<div class="zI7 iyn Hsu">
-							<form data-test-id="registerForm" method="POST" novalidate="">
-								<div data-test-id="emailInputField" class="zI7 iyn Hsu">
-									<fieldset style="position: relative; margin-bottom: 7px;">
-										<span><div class="XiG zI7 iyn Hsu">
-												<input aria-invalid="false" autocomplete="email"
-													class="V86 Hsu tBJ dyH iFc yTZ L4E unP iyn Pve pBj qJc aKM LJB xD4 z-6"
-													id="email" name="id" placeholder="이메일" type="email"
-													value="">
-											</div></span>
-									</fieldset>
-								</div>
-								<div data-test-id="passwordInputField" class="zI7 iyn Hsu">
-									<fieldset style="position: relative;">
-										<span><div class="XiG zI7 iyn Hsu">
-												<input aria-invalid="false" autocomplete="new-password"
-													class="V86 Hsu tBJ dyH iFc yTZ L4E unP iyn Pve pBj qJc aKM LJB xD4 z-6"
-													id="password" name="password" placeholder="비밀번호를 입력하세요"
-													type="password" value="">
-											</div></span>
-									</fieldset>
-								</div>
-								<div data-test-id="password-reset-button" class="zI7 iyn Hsu"></div>
-								<div data-test-id="ageInputField" class="zI7 iyn Hsu">
-									<fieldset style="position: relative; margin-top: 4px;">
-										<span><div class="XiG zI7 iyn Hsu">
-												<input aria-invalid="false" autocomplete="off"
-													class="V86 Hsu tBJ dyH iFc yTZ L4E unP iyn Pve pBj qJc aKM LJB xD4 z-6"
-													id="age" name="age" placeholder="나이" type="text" value="">
-											</div></span>
-									</fieldset>
-								</div>
-								<div data-test-id="registerFormSubmitButton" class="zI7 iyn Hsu">
-									<button aria-label="계속해서 Pinterest 계정 만들기"
-										class="red SignupButton active" type="submit"
-										style="border: 0px; height: 40px; display: inline-block; border-radius: 20px; -webkit-font-smoothing: antialiased; padding: 0px 18px; font-size: 15px; font-weight: bold; cursor: pointer; margin-top: 10px; vertical-align: middle; text-align: center; background-color: rgb(230, 0, 35); color: rgb(255, 255, 255); width: 100%;">
-										<div class="zI7 iyn Hsu">계속하기</div>
-									</button>
-								</div>
-							</form>
-							<p class=""
-								style="margin-bottom: 16px; margin-top: 16px; overflow: hidden; text-align: center; font-size: 14px; color: rgb(51, 51, 51); font-weight: bold;">또는</p>
-							<div class="zI7 iyn Hsu" style="margin-top: 10px;">
-								<div style="position: relative;">
-									<div data-test-id="facebook-connect-button" class="zI7 iyn Hsu">
-										<button aria-label="" class="FacebookConnectButton active"
-											tabindex="-1" type="button"
-											style="border: 0px; height: 40px; display: block; border-radius: 20px; -webkit-font-smoothing: antialiased; padding: 0px 0px 0px 8px; font-size: 15px; font-weight: normal; cursor: pointer; margin-top: 0px; vertical-align: middle; text-align: left; background-clip: padding-box; background-color: rgb(24, 119, 242); position: absolute; transition: opacity 0.2s linear 0s; width: 100%;">
-											<div class="hs0 un8 C9i">
-												<div class="INd qJc xvE zI7 iyn Hsu"
-													style="padding: 4px 3px 3px; height: 24px; width: 24px;">
-													<svg class="gUZ mi-" height="19" width="19"
-														viewBox="0 0 24 24" aria-label="Facebook" role="img">
-														<path
-															d="m17.75 3.984-2.312.001c-1.811 0-2.163.842-2.163 2.077v2.724h4.323l-.563 4.267h-3.76V24H8.769V13.053H5V8.786h3.769V5.64C8.769 1.988 11.05 0 14.383 0c1.596 0 2.967.116 3.367.168v3.816z"></path></svg>
-												</div>
-												<span style="color: rgb(255, 255, 255); display: inline-block; font-family: -apple-system, BlinkMacSystemFont,&amp; quot; Segoe UI&amp;quot; , Roboto , Oxygen-Sans, Ubuntu, Cantarell, &amp;quot; Fira Sans&amp;quot; , &amp; quot; Droid Sans&amp;quot; , &amp; quot; Helvetica Neue&amp;quot; , Helvetica , &amp;quot; ヒラギノ角ゴ Pro W3&amp;quot; , &amp; quot; Hiragino Kaku Gothic Pro&amp;quot; , メイリオ , Meiryo, &amp;quot; ＭＳ Ｐゴシック&amp;quot; , Arial , sans-serif, &amp;quot; Apple Color Emoji&amp;quot; , &amp; quot; Segoe UI Emoji&amp;quot; , &amp; quot; Segoe UI Symbol&amp;quot;; font-size: 16px; font-weight: bold; letter-spacing: 0.1px; line-height: 15px; margin-right: 24px; margin-left: 15px; padding-top: 4px; text-align: center; vertical-align: text-bottom; -webkit-font-smoothing: auto; white-space: normal; width: 88%;">Facebook으로 계속하기</span></div></button><div class="zI7 iyn Hsu" style="height: 40px; text-align: left;"><div class="fb-login-button fb_iframe_widget" data-button-type="continue_with" data-layout="rounded" data-onlogin="checkLoginState" data-scope="public_profile,email,user_birthday,user_friends" data-size="large" data-use-continue-as="true" data-width="268px" login_text="" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=274266067164&amp;button_type=continue_with&amp;container_width=268&amp;layout=rounded&amp;locale=ko_KR&amp;login_text=&amp;scope=public_profile%2Cemail%2Cuser_birthday%2Cuser_friends&amp;sdk=joey&amp;size=large&amp;use_continue_as=true&amp;width=268px"><span style="vertical-align: bottom; width: 268px; height: 40px;"><iframe name="f3b691a3039ad54" height="1000px" data-testid="fb:login_button Facebook Social Plugin" title="fb:login_button Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v2.2/plugins/login_button.php?app_id=274266067164&amp;button_type=continue_with&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df2c85a3eab6e08%26domain%3Dwww.pinterest.co.kr%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fwww.pinterest.co.kr%252Ff3e328de3ae95fc%26relation%3Dparent.parent&amp;container_width=268&amp;layout=rounded&amp;locale=ko_KR&amp;login_text=&amp;scope=public_profile%2Cemail%2Cuser_birthday%2Cuser_friends&amp;sdk=joey&amp;size=large&amp;use_continue_as=true&amp;width=268px" style="border: none; visibility: visible; width: 268px; height: 40px;" class=""></iframe></span></div></div></div></div><div class="zI7 iyn Hsu" style="height: 10px;"></div><div class="zI7 iyn Hsu"><div data-test-id="google-connect-button" class="XiG zI7 iyn Hsu"><div class="zI7 iyn Hsu" style="height: 44px;"><div class="MIw zI7 iyn Hsu" style="width: 100%;"><div class="S9gUrf-YoZ4jf" style="position: relative;"><div></div><iframe src="https://accounts.google.com/gsi/button?size=large&amp;shape=pill&amp;text=continue_with&amp;theme=outline&amp;width=268px&amp;client_id=694505692171-31closf3bcmlt59aeulg2j81ej68j6hk.apps.googleusercontent.com&amp;iframe_id=gsi_546877_522901&amp;as=dia4VaTAZVIy8lNVOkdZOQ" id="gsi_546877_522901" title="Google 계정으로 로그인 버튼" style="display: block; position: relative; top: 0px; left: 0px; height: 44px; width: 288px; border: 0px; margin: -2px -10px;"></iframe></div></div></div></div></div></div></div><div style="margin-top: 16px;"><span class="" style="-webkit-font-smoothing: antialiased; font-size: 11px; font-weight: normal; text-align: center; transition: opacity 0.2s linear 0s; color: rgb(118, 118, 118); width: 224px;"><span>계속 진행하면 Pinterest <a target="_blank" rel="noopener noreferrer" data-test-id="tos" href="/_/_/policy/terms-of-service/">서비스 약관</a>에 동의하고 <a target="_blank" rel="noopener noreferrer" data-test-id="privacy" href="/_/_/policy/privacy-policy/">개인정보 보호정책</a>을 읽었음을 인정하는 것으로 간주됩니다.</span></span></div><div class="Hvp zI7 iyn Hsu"><div class="zI7 iyn Hsu" style="margin: 0px auto 5px; width: fit-content; align-items: baseline;"><div class="Jea mQ8 zI7 iyn Hsu"><button aria-label="" class="noButtonStyles active" data-test-id="login-signup-toggle" type="button" style="background: none; border: none; padding: 0px; text-align: left; display: block; color: rgb(51, 51, 51); margin-left: 5px; font-weight: bold;">이미 회원이신가요? 로그인하기</button></div></div><div class="Jea Rnj mQ8 zI7 iyn Hsu" style="margin: 10px auto 5px; width: fit-content;"><h5 style="float: left; color: rgb(51, 51, 51); font-size: 12px; font-weight: bold; -webkit-font-smoothing: antialiased;">사업체인가요?</h5><a href="https://www.pinterest.com/business/create/" target="_blank" style="cursor: pointer; margin-left: 5px; float: left; color: rgb(51, 51, 51); font-size: 12px;">여기에서 시작하세요!</a></div></div></div></div></div><div data-test-id="create-business-account-button" class="MIw Rym gpV ojN zI7 iyn Hsu" style="height: 62px; width: 100%; border-radius: 0px 0px 8px 8px;"><div aria-disabled="false" class="CCY czT eEj XJa FTD L4E DI9 BG7" role="button" tabindex="0"><div class="gjz hs0 mQ8 un8 C9i" style="height: 100%;"><div class="tBJ dyH iFc yTZ pBj zDA IZT mWe">무료 Business 계정 만들기</div></div></div></div></div></div></div>
+				<div class="popupInput2">
+					<div >또는</div>
+				</div>
+				<div class="popupInput">
+					<button id="naverJoin">네이버로 사표쓰기</button>
+				</div>
+				<div class="popupInput">
+					<button id="kakaoJoin">카카오로 사표쓰기</button>
+				</div>
+				<div class="popupInput3">
+					<div id="agreeContent">사표를 계속 쓰러간다면 서비스약관에 동의하고 개인정보보호정책을 읽었음을 인정하는 것으로 간주합니다.</div>
+				</div>
+				<div class="popupInput4">
+					<div id="alreadyJoin">이미 사표를 쓰셨나요? 로그인하기</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-
-{% block script %}
 <script>
-	$(function() {
-		$('.join').off('click').on('click', function() {
-			$('.jzS').css('display', 'block');
+
+$(function() {
+	
+	$(".join").off('click').on('click', function() {
+		$('.joinPopup').show();
+	});
+	
+	$('#closeBtn').on('click', function() {
+		$('.joinPopup').hide();
+	});
+	
+	$('#continueBtn').off('click').on('click', function() {
+		var email = $('#email').val();
+		var pw = $('#pw').val();
+		var age = $('#age').val();
+		$.ajax({
+			url : 
+			, data : {
+				email : email
+				, pw : pw
+				, age : age
+			}
+			, success : function(data) {
+				
+			}
+			, fail : function(failMsg) {
+				
+			}
 		});
-	})
+	});
+	
+	
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
-{% endblock %}
+
