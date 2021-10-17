@@ -1,8 +1,8 @@
-<div class="joinPopup" style="display:none;">
+<div class="joinPopup" id="joinPopupStep01" style="display:none;">
 	<div class="joinPopupBody">
 		<div style="width:370px; height:2px; background: lightgray;; position: absolute; left: 50%; transform: translateX(-50%); margin-top:45px;"></div>
 		<button aria-label="닫기" id="closeBtn">
-			<img src="resources/img/popup/close.png">
+			<img src="http://localhost:9090/resignation/resources/img/popup/close.png">
 		</button>
 		<div class="popupLogo" style="width:40px; height: 40px;"></div>
 		<div id="popContent">
@@ -44,58 +44,3 @@
 		</div>
 	</div>
 </div>
-
-<script>
-
-$(function() {
-	
-	$(".join").off('click').on('click', function() {
-		$('.joinPopup').show();
-	});
-	
-	$('#closeBtn').on('click', function() {
-		$('.joinPopup').hide();
-	});
-	
-	$('#continueBtn').off('click').on('click', function() {
-		var email = $('#email').val();
-		var pw = $('#pw').val();
-		var age = $('#age').val();
-		$.ajax({
-			url : 
-			, data : {
-				email : email
-				, pw : pw
-				, age : age
-			}
-			, success : function(data) {
-				
-			}
-			, fail : function(failMsg) {
-				
-			}
-		});
-	});
-	
-	
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</script>
-

@@ -1,2 +1,4 @@
 select *
-from tbMember
+from tbMember;
+
+insert into 

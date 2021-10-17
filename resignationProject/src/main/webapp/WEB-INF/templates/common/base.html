@@ -26,6 +26,8 @@
 	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/common/header.css" >
 	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/common/footer.css" >
 	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/common/common.css" >
+	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/common/index.css" >
+	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/popupCss/joinPopup.css">
 	<!--  공통 js  -->
 	<script type="text/javascript" charset="utf-8" src="http://localhost:9090/resignation/resources/js/common/main.js" ></script>
 </head>
@@ -38,8 +40,8 @@
 </script>
 
 <body>	
+	{% block header %}
 	<div id="header" class="sticky" style="left:0px;">
-		{% block header %}
 		
 		<div class="inner maxInner">
 			<div id="logoWrap">
@@ -76,10 +78,14 @@
 		      </ul>
 			</div>
 		</div>
-		{% endblock %}
 	</div>
+	{# 회원가입을 위한 PopupStep #}
+	{% include "popup/join/joinPopupStepInit" %}
+	{% endblock %}
 	<div id="content">
 		{% block content %}
+		
+		
 		{% endblock %}
 	</div>
 	<div id="footer">

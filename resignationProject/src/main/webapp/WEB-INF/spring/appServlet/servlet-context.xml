@@ -40,6 +40,6 @@
 		<beans:property name="exposeSessionAttributes" value="true"/>
 	</beans:bean>
 
-	<context:component-scan base-package="com.project.resignation" />
+	<context:component-scan base-package="com.project.resignation.*" />
 	
 </beans:beans>

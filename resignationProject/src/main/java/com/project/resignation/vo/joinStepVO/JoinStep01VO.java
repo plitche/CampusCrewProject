@@ -1,6 +1,8 @@
-package com.project.resignation.vo.joinStep1VO;
+package com.project.resignation.vo.joinStepVO;
 
-import lombok.ToString;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /*
  * 
@@ -8,8 +10,10 @@ import lombok.ToString;
  * 설명    : 회원가입 시 필요한 첫번째 스텝의 param
  * 
  */
-@ToString
-public class JoinStep1VO {
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class JoinStep01VO {
 
 	// 이메일
 	private String email;
@@ -17,6 +21,5 @@ public class JoinStep1VO {
 	private String pw;
 	// 나이
 	private String age;
-	
 	
 }
