@@ -21,5 +21,11 @@ public class JoinStep01VO {
 	private String pw;
 	// 나이
 	private String age;
+	// 받는 이메일
+	private String vcMemberId;
+	// 받는 비밀번호
+	private String vcMemberPw;
+	// 받는 나이
+	private String vcMemberAge;
 	
 }

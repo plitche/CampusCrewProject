@@ -1,4 +1,6 @@
 select *
 from tbMember;
 
-insert into 
+SELECT vcMemberId
+		FROM tbMember
+		WHERE vcMemberId = 'wjdgh823@naver.com'

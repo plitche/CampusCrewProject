@@ -33,21 +33,17 @@ public class joinController {
 		
 		// 아이디가 존재하면 
 		if (checkResult != null) {
-			System.out.println("아이디가 존재하네? 존재하면 이미 아이디가 존재한다고 뱉어야지");
 			map.put("success", "N");
 		// 아이디가 존재하지 않으면 회원가입시켜준다.
 		} else {
-			System.out.println("아이디가 존재하지 않으니 회원가입시켜라.");
 			int insertResult = joinService.insertMemberInfo(joinStep01VO);
 			// 회원가입이 성공하면
-			if (insertResult == 1) {
+			if (insertResult > 0) {
 				map.put("success", "Y");
+			} else {
+				map.put("success", "F");
 			}
 		}
-		
-		
-		map.put("email", joinStep01VO.getEmail());
-		
 		//model.addAttribute(attributeName, attributeValue);
 		return map;
 	}

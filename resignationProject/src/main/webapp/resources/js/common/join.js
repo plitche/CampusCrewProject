@@ -86,11 +86,18 @@ $(function() {
 						, dataType : 'json'
 						, data : JSON.stringify(sendObj)
 						, success : function(data) {
-							
-							alert('성공했나보지 뭐..' + data.email);
+							if (data.success == "Y") {
+								alert("첫번째 사표수리 완료");
+								// 첫번재 사표수리 완료되면 Step02이동해야한다.
+							} else if (data.success == "N"){
+								alert("이미 가입된 사표수리한 정보입니다.");
+								$('#closeBtn').trigger('click');
+							} else if (data.success == "F") {
+								alert("사표수리 실패");
+							}
 						}
 						, error : function() {
-							alert('실패했나보지 뭐..');
+							alert('실패');
 						}
 					});
 				});
