@@ -56,23 +56,28 @@ $(function() {
 	
 	var util = {
 			
+		// 회원가입 1단계 - 연동로그인 및 간단정보 입력
 		step01 : {
-			
-			init : function() {
+			// step01에서 전역으로 쓸만한 데이터 저장하는 용도
+			info : new Object()
+			, init : function() {
 				
 				util.step01.event();
 				
-			},
-			event : function() {
+			}
+			, event : function() {
 				
 				$('#closeBtn').on('click', function() {
 					$('.joinPopup').hide();
 				});
 				
-				$('#continueBtn').off('click').on('click', function() {
+				$('#joinStep01NextBtn').off('click').on('click', function() {
 					var email = $('#email').val();
 					var pw = $('#pw').val();
 					var age = $('#age').val();
+					
+					// 전역변수로 사용한다.
+					util.step01.info = email;
 					
 					var sendObj = {
 							"email":email
@@ -89,6 +94,7 @@ $(function() {
 							if (data.success == "Y") {
 								alert("첫번째 사표수리 완료");
 								// 첫번재 사표수리 완료되면 Step02이동해야한다.
+								joinStep("02");
 							} else if (data.success == "N"){
 								alert("이미 가입된 사표수리한 정보입니다.");
 								$('#closeBtn').trigger('click');
@@ -105,11 +111,35 @@ $(function() {
 			}
 	
 		},
+		
+		// 회원가입 2단계 - 필요정보동의 설명 
 		step02 : {
 			
+			init : function() {
+				util.step02.event();
+			}
+			, event : function() {
+				$('#joinEmailInfo').text(util.step01.info);
+				
+				$('.joinStep02NextBtn').off('click').on('click', function() {
+					joinStep('03');
+				});
+				
+				// 로그인 버튼 클릭시 로그인 창 열어주는 이벤트 처리해야함
+				
+			}
+			
 		},
+		
+		// 회원가입 3단계 - 성별, 나이, MBTI, 하루 중 여유가 되는 시간 입력
 		step03 : {
 			
+			init : function() {
+				util.step03.event();
+			}
+			, event : function() {
+				
+			}
 		},
 		step04 : {
 			

@@ -29,6 +29,7 @@ public class joinController {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
+		// 가입하려는 이메일이 존재하는지 체크
 		JoinStep01VO checkResult = joinService.checkMember(joinStep01VO);
 		
 		// 아이디가 존재하면 

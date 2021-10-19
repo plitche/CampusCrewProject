@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/* 회원가입 STEP01 - 연동로그인 및 간단정보 입력 */
 .joinPopup {
 	position: absolute;
 	top: 0; 
@@ -17,9 +18,9 @@
 	width: 370px;
 	height: 750px;
 	padding: 12px;
+	border-radius: 5px;
 	text-align: center;
 	background-color: rgb(255, 255, 255);
-	border-radius: 35px 35px 0px 0px;
 	box-shadow: 0 4px 5px 0 rgba(34, 36, 38, 0.3);
 	transform: translateX(-50%) translateY(-50%);
 }
@@ -48,7 +49,7 @@
 }
 
 #popContent {
-	margin-top: 70px;
+	margin-top: 45px;
 }
 
 .popupLogo {
@@ -59,9 +60,9 @@
 }
 
 .popupTitle {
-	margin-top:37px;
+	margin-top:20px;
 	color: rgb(51, 51, 51);
-    font-size: 28px;
+    font-size: 34px;
     font-weight: 600;
     letter-spacing: -1.2px;
     padding-left: 16px;
@@ -92,7 +93,7 @@
 
 .pop-input::placeholder {color:#b6b6b6;}
 
-#continueBtn{
+#joinStep01NextBtn {
 	background: #0057ff;
 	width: 230px;
 	height:40px;
@@ -151,13 +152,92 @@
 	color:#5a5a5a;
 }
 
+/* 회원가입 STEP02 - 필요정보동의 설명  */
 
+.joinPopupBody2 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 500px;
+	height: 550px;
+	padding: 30px;
+	border-radius: 5px;
+	text-align: center;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0 4px 5px 0 rgba(34, 36, 38, 0.3);
+	transform: translateX(-50%) translateY(-50%);
+}
 
+#popContent2 {
+	margin-top: 45px;
+}
 
+.popupTitle2 {
+	margin-top:20px;
+	color: rgb(51, 51, 51);
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -1.2px;
+    padding-left: 16px;
+    padding-right: 16px;
+    -webkit-font-smoothing: antialiased;
+    word-break: break-word;
+}
 
+.divInput2 {
+	margin-top:30px;
+}
 
+.joinStep02NextBtn {
+	border-radius: 30px;
+	background: #0057ff;
+	width: 330px;
+	height: 35px;
+	border:0px;
+	font-size: 14px;
+	font-weight: 600;
+	color: white;
+}
 
+.joinStep02Footer {
+	margin-top: 20px;
+}
 
+#joinStep02Login {
+	font-size:10px;
+	font-weight: 600;
+}
+
+/* 회원가입 STEP03 - 성별, 나이, MBTI, 하루 중 여유가 되는 시간 입력 */
+.joinPopupBody3 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 500px;
+	height: 550px;
+	padding: 30px;
+	border-radius: 5px;
+	text-align: center;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0 4px 5px 0 rgba(34, 36, 38, 0.3);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+#popContent3 {
+	margin-top: 45px;
+}
+
+.popupTitle3 {
+	margin-top:20px;
+	color: rgb(51, 51, 51);
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -1.2px;
+    padding-left: 16px;
+    padding-right: 16px;
+    -webkit-font-smoothing: antialiased;
+    word-break: break-word;
+}
 
 
 
