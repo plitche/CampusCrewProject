@@ -14,8 +14,21 @@
 .filter .filterSelect {max-width: 140px; width: 100px; border:1px solid #bcbccb; border-radius: 4px; height: 40px; font-size: .6875rem;, color: #696980; margin-right: 10px; padding-left: 20px; }
 
 .section {display: block; clear: both;}
-.thumbnail {width: 23.8%; margin: 0 1.6% 30px 0; line-height: 150%; position: relative; float: left; border-radius: 5px; background: #fff; transition: all 0.3s;}
+.study_item_wrap {width: 23%; margin: 30px 1.6% 30px 0; line-height: 150%; position: relative; float: left; border-radius: 5px; background: #fff; transition: all 0.3s;}
 .icon_box{position: absolute; top: -5px; right: 5px; font-size: 0; z-index: 5;}
-.study_item {position: relative; display: block; }
 .thumbnail {position: relative; border-radius: 5px; box-shadow: 0 2px 4px rgb(0 0 0 / 5%); border: 1px solid #f3f3f4; overflow: hidden;}
 .img_box {position: relative; padding-top: 100%; background: #f7f7f7; cursor: pointer;}
+.img_box img {position: absolute; top: 0; left: 0; width: 100%; height: 100%; transform: scale(1); transition: all 1s;}
+.item_info {display: none;  position: absolute; bottom: 4%; left: 0; width: 100%; padding: 0 15% 0 2%; margin-bottom: 0; color: #fff; box-sizing: border-box; z-index: 2}
+.item_info li {font-size: 13px; padding: 0 5px; height: 24px; line-height: 24px; letter-spacing: -0.5px;}
+.item_info button {margin: 0; padding: 0; position: absolute; bottom: 4.5%; right: 3%; widows: 25px; height: 25px; border: none; cursor: pointer; background-color: upset; color: #fff;}
+
+.item_writer_info {position: relative; padding: 10px 0 0 50px; min-height: 60px; box-sizing: border-box;}
+.item_writer_info .profile {position: absolute; top: 10px; left: 0; width: 42px; height: 42px; border: 1px solid #f3f3f4; border-radius: 50%; overflow: hidden;; box-sizing: border-box;}
+.item_writer_info .tit {font-size: 14px; display: inline-block; max-width: 65%; vertical-align: top; line-height: 140%; color: #2d2f39; }
+.item_writer_info .simple_btn_follow {display: inline-block; padding: 5px; height: 19px; line-height: 19px; font-size: 13px; border: none; background: none; vertical-align: top; cursor: pointer; font-weight: 500;}
+.item_writer_info .win_info {font-size: 0; margin-top: 2px;}
+.item_writer_info li {display: inline-block; height: 15px; line-height: 15px; font-size: 12px; font-weight: 500; letter-spacing: -0.5px; vertical-align: top; list-style: none;}
+
+
+
