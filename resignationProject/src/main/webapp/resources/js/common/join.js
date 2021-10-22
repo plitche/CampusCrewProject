@@ -32,13 +32,13 @@ $(function() {
 			util.step03.init();
 			break;
 			
-		// 회원가입 4단계 - 전화번호, 주소 입력
+		// 회원가입 4단계 - 전화번호, 주소, 링크 입력
 		case "04":
 			changeDiv(number);
 			util.step04.init();
 			break;
 			
-		// 자기소개 및 운영하는 블로그 및 인스타그램 링크 입력
+		// 회원가입 5단계 - 관심사
 		case "05":
 			changeDiv(number);
 			util.step05.init();
@@ -74,7 +74,27 @@ $(function() {
 				$('#joinStep01NextBtn').off('click').on('click', function() {
 					var email = $('#email').val();
 					var pw = $('#pw').val();
-					var age = $('#age').val();
+					var nickname = $('#nickname').val();
+					
+					if (email == null || email == '') {
+						alert("이메일정보를 입력해주세요.");
+						return;
+					}
+					
+					if (pw == '') {
+						alert("비밀번호를 입력해주세요.");
+						return;
+					}
+					
+					if (pw.length < 4) {
+						alert('비밀번호 형식이 올바르지 않습니다.');
+						return;
+					}
+					
+					if (nickname == '') {
+						alert('닉네임을 입력해주세요.');
+						return;
+					}
 					
 					// 전역변수로 사용한다.
 					util.step01.info = email;
@@ -82,7 +102,7 @@ $(function() {
 					var sendObj = {
 							"email":email
 							,"pw":pw
-							,"age":age
+							,"nickname":nickname
 					};
 					$.ajax({
 						url :  "/resignation/join/step01"
@@ -92,11 +112,11 @@ $(function() {
 						, data : JSON.stringify(sendObj)
 						, success : function(data) {
 							if (data.success == "Y") {
-								alert("첫번째 사표수리 완료");
+								console.log("첫번째 사표수리 완료");
 								// 첫번재 사표수리 완료되면 Step02이동해야한다.
 								joinStep("02");
 							} else if (data.success == "N"){
-								alert("이미 가입된 사표수리한 정보입니다.");
+								alert("이미 사표수리한 정보입니다.");
 								$('#closeBtn').trigger('click');
 							} else if (data.success == "F") {
 								alert("사표수리 실패");
@@ -139,10 +159,110 @@ $(function() {
 			}
 			, event : function() {
 				
+				$('.joinStep03NextBtn').off('click').on('click', function() {
+					
+					var email = util.step01.info;
+					var age = $('#age').val();
+					var mbti = $('#mbti').val().toUpperCase(); // 대문자로 변경해서 데이터를 넘긴다.
+					var possibleTime1 = $('#possibleTime1').val();
+					var possibleTime2 = $('#possibleTime2').val();
+					
+					if (possibleTime1 == '' || possibleTime2 == '') {
+						alert('여유로운 시간대를 선택해주세요.');
+						return;
+					}
+					
+					var sendObj = {
+							"email":email
+							,"age":age
+							,"mbti":mbti
+							,"possibleTime1":possibleTime1
+							,"possibleTime2":possibleTime2
+					};
+					
+					$.ajax({
+						url :  "/resignation/join/step03"
+						, type : 'post'
+						, contentType : 'application/json; charset=UTF-8'
+						, dataType : 'json'
+						, data : JSON.stringify(sendObj)
+						, success : function(data) {
+							if (data.success == "Y") {
+								console.log("step03정보 업데이트 완료");
+								// 첫번재 사표수리 완료되면 Step04이동해야한다.
+								joinStep("04");
+							} else {
+								console.log("step03정보 업데이트 실패");
+							}
+						}
+						,fail : function(failMsg) {
+							alert('실패');
+						}
+					});
+					
+					
+				});
+				
+				
 			}
 		},
+		
+		// 회원가입 4단계 - 전화번호, 주소, 링크 입력
 		step04 : {
 			
+			init : function() {
+				util.step04.event();
+			}
+			, event : function() {
+				
+				$('#previousBtn').off('click').on('click', function() {
+					joinStep("03");
+				});
+				
+				$('.joinStep04NextBtn').off('click').on('click', function() {
+					
+					var email = util.step01.info;
+					var address = $('#address').val();
+					var link1 = $('#link1').val();
+					var link2 = $('#link2').val();
+					
+					if (address == '') {
+						alert('~동까지만 거주하는 위치를 입력해주세요.');
+						return;
+					}
+					
+					var sendObj = {
+							"email":email
+							,"address":address
+							,"link1":link1
+							,"link2":link2
+					};
+					
+					$.ajax({
+						url :  "/resignation/join/step04"
+						, type : 'post'
+						, contentType : 'application/json; charset=UTF-8'
+						, dataType : 'json'
+						, data : JSON.stringify(sendObj)
+						, success : function(data) {
+							if (data.success == "Y") {
+								console.log("step04정보 업데이트 완료");
+								// 첫번재 사표수리 완료되면 Step02이동해야한다.
+								joinStep("05");
+							} else {
+								console.log("step04정보 업데이트 실패");
+							}
+						}
+						,fail : function(failMsg) {
+							alert('실패');
+						}
+					});
+					
+					
+				});
+				
+			}
+				
 		},
 		step05 : {
 			

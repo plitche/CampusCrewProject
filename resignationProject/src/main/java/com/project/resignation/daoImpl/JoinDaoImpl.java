@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.resignation.dao.JoinDao;
 import com.project.resignation.vo.joinStepVO.JoinStep01VO;
+import com.project.resignation.vo.joinStepVO.JoinStep02VO;
 
 @Service
 public class JoinDaoImpl implements JoinDao {
@@ -21,6 +22,11 @@ public class JoinDaoImpl implements JoinDao {
 	@Override
 	public int insertMemberInfo(JoinStep01VO joinStep01VO) {
 		return sqlsession.insert("Join.insertMemberInfo", joinStep01VO);
+	}
+	
+	@Override
+	public int joinStep02UpdateInfo(JoinStep02VO joinStep02VO) {
+		return sqlsession.update("Join.joinStep02UpdateInfo", joinStep02VO);
 	}
 
 }

@@ -245,7 +245,7 @@
 	border-radius: 30px;
 	background: #0057ff;
 	width: 330px;
-	height: 35px;
+	height: 40px;
 	border:0px;
 	font-size: 14px;
 	font-weight: 600;
@@ -277,7 +277,7 @@
 }
 
 #popContent3 {
-	margin-top: 45px;
+	margin: 57px 0px;
 }
 
 .popupTitle3 {
@@ -292,14 +292,148 @@
     word-break: break-word;
 }
 
+.divInput3 {
+	margin-top:40px;
+}
 
+.joinStep03NextBtn {
+	border-radius: 30px;
+	background: #0057ff;
+	width: 330px;
+	height: 40px;
+	border:0px;
+	font-size: 14px;
+	font-weight: 600;
+	color: white;
+}
 
+.joinStep03Info {
+	margin : 20px 0px;
+}
 
+.joinStep03Content {
+	margin : 30px 0px;
+}
 
+.joinStep03Title {
+	margin:10px 0px;
+	font-weight:700;
+}
 
+.radioBlank > input[type=radio] {
+	margin-right: 10px;
+}
 
+.radioBlank > label {
+	color: gray;
+}
 
+.radioBlank {
+	margin: 0 34px;
+}
 
+.joinStep03Content > #age, .joinStep03Content > #mbti {
+	width:320px;
+	border-radius: 20px;
+	height:40px;
+	padding:15px;
+	border: 1.5px solid lightgray;
+}
+
+.joinStep03Content input[type=time] {
+	width:150px;
+	border-radius: 20px;
+	height:40px;
+	padding:15px;
+	border: 1.5px solid lightgray;
+	color: gray;
+}
+
+/* 회원가입 STEP04 - 전화번호, 주소, 링크 입력 */
+.joinPopupBody4 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 500px;
+	height: 550px;
+	padding: 30px;
+	border-radius: 5px;
+	text-align: center;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0 4px 5px 0 rgba(34, 36, 38, 0.3);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+#previousBtn {
+	float:left;
+	padding:0;
+	border: 0px;
+	border-radius:30px;
+	width:35px;
+	height: 35px;
+	background:0;
+}
+
+#previousBtn > img {
+	width:15px;
+	height: 15px;
+	background-size: contain;
+}
+
+#popContent4 {
+	margin: 57px 0px;
+}
+
+.popupTitle4 {
+	margin-top:20px;
+	color: rgb(51, 51, 51);
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -1.2px;
+    padding-left: 16px;
+    padding-right: 16px;
+    -webkit-font-smoothing: antialiased;
+    word-break: break-word;
+}
+
+.divInput4 {
+	margin-top:40px;
+}
+
+.joinStep04NextBtn {
+	border-radius: 30px;
+	background: #0057ff;
+	width: 330px;
+	height: 40px;
+	border:0px;
+	font-size: 14px;
+	font-weight: 600;
+	color: white;
+}
+
+.joinStep04Info {
+	margin : 20px 0px;
+}
+
+.joinStep04Content {
+	margin : 30px 0px;
+}
+
+.joinStep04Title {
+	margin:10px 0px;
+	font-weight:700;
+}
+
+.joinStep04Content > #address,
+.joinStep04Content > #link1,
+.joinStep04Content > #link2
+{
+	width:320px;
+	border-radius: 20px;
+	height:40px;
+	padding:15px;
+	border: 1.5px solid lightgray;
+}
 
 
 

@@ -13,19 +13,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class JoinStep01VO {
-
-	// 이메일
-	private String email;
-	// 비밀번호
-	private String pw;
-	// 나이
-	private String nickname;
-	// 받는 이메일
-	private String vcMemberId;
-	// 받는 비밀번호
-	private String vcMemberPw;
-	// 받는 나이
-	private String vcMemberNicname;
+public class JoinStep02VO {
 	
+	// step01에서 가입된 이메일정보
+	private String email;
+	// 나이
+	private String age;
+	// MBTI
+	private String mbti;
+	// 여유로운 시간1
+	private String possibleTime1;
+	// 여유로운 시간2
+	private String possibleTime2;
+
 }

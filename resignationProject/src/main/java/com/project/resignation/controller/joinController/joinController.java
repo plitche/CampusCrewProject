@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.resignation.service.JoinService;
 import com.project.resignation.vo.joinStepVO.JoinStep01VO;
+import com.project.resignation.vo.joinStepVO.JoinStep02VO;
 
 @Controller
 @RequestMapping(value="/join")
@@ -27,26 +28,67 @@ public class joinController {
 	@ResponseBody
 	public Map<String, Object> joinStep01(@RequestBody JoinStep01VO joinStep01VO, Model model) throws Exception {
 		
-		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, Object> joinStep1ResultData = new HashMap<String, Object>();
 		
 		// 가입하려는 이메일이 존재하는지 체크
 		JoinStep01VO checkResult = joinService.checkMember(joinStep01VO);
 		
 		// 아이디가 존재하면 
 		if (checkResult != null) {
-			map.put("success", "N");
+			joinStep1ResultData.put("success", "N");
 		// 아이디가 존재하지 않으면 회원가입시켜준다.
 		} else {
 			int insertResult = joinService.insertMemberInfo(joinStep01VO);
 			// 회원가입이 성공하면
 			if (insertResult > 0) {
-				map.put("success", "Y");
+				joinStep1ResultData.put("success", "Y");
 			} else {
-				map.put("success", "F");
+				joinStep1ResultData.put("success", "F");
 			}
 		}
-		//model.addAttribute(attributeName, attributeValue);
-		return map;
+		
+		return joinStep1ResultData;
+		
 	}
+	
+	@RequestMapping(value="/step03",
+							  method=RequestMethod.POST,
+							  produces="application/json; charset=UTF-8")
+	@ResponseBody
+	public Map<String, Object> joinStep02(@RequestBody JoinStep02VO joinStep02VO, Model model) throws Exception {
+		
+		Map<String, Object> joinStep2ResultData = new HashMap<String, Object>();
+		
+		
+		
+		// step02에서 추가적인 정보를 업데이트한다.
+		int updateResult = joinService.joinStep02UpdateInfo(joinStep02VO);
+		
+		// step02의 정보업데이트가 성공하면
+		if (updateResult > 0) {
+			joinStep2ResultData.put("success", "Y");
+		// step02의 정보업데이트가 실패하면
+		} else {
+			joinStep2ResultData.put("success", "N");
+		}
+		
+		return joinStep2ResultData;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

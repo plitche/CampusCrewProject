@@ -23,7 +23,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		vcMemberPhone,
 		vcMemberAge,
 		vcMemberMBTI,
-		vcMemberTime,
+		vcMemberTime1,
+		vcMemberTime2,
 		vcMemberIntroduce,
 		vcMemberGender,
 		vcMemberLink1,
@@ -34,10 +35,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{email},
 		#{pw},
 		'',
+		#{nickname},
 		'',
 		'',
 		'',
-		#{age},
+		'',
 		'',
 		'',
 		'',
@@ -46,5 +48,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		''
 		)
 	</insert>
+	
+	<update id="joinStep02UpdateInfo" parameterType="com.project.resignation.vo.joinStepVO.JoinStep02VO">
+		UPDATE tbMember
+		SET
+		vcMemberAge = #{age}
+		, vcMemberMBTI = #{mbti}
+		, vcMemberTime1 = #{possibleTime1}
+		, vcMemberTime2 = #{possibleTime2}
+		WHERE vcMemberId = #{email}
+	</update>
 
 </mapper>

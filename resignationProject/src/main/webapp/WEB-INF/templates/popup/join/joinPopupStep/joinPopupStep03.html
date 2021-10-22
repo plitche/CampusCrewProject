@@ -6,22 +6,31 @@
 			<div data-test-id="nux-toc-dot" class="INd gfP zI7 iyn Hsu DoneStep"></div>
 			<div data-test-id="nux-toc-dot" class="INd gfP zI7 iyn Hsu step"></div>
 			<div data-test-id="nux-toc-dot" class="INd gfP zI7 iyn Hsu step"></div>
-			<div data-test-id="nux-toc-dot" class="INd gfP zI7 iyn Hsu step"></div>
 		</div>
 		<div id="popContent3">
-			<form>
-				<div>성별</div>
-				<input type="radio" name="gender" id="W" value="W"/><label for="W">여성</label>
-				<input type="radio" name="gender" id="M" value="M"/><label for="M">남성</label>
-				<input type="radio" name="gender" id="N" value="N"/><label for="N">비밀로 하기</label>
-				<div>나이</div>		
-				<input type="text" id="age" placeholder="나이를 입력해주세요."/>	
-				<div>MBTI</div>			
-				<input type="text" id="mbti" placeholder="MBTI를 입력해주세요."/>	
-				<div>여유로운 시간대</div>			
-				<input type='time' value='18:00'/> ~ <input type='time' value='21:00'/>
-			</form>
-			<button>다음</button>
+			<div class="joinStep03Info">
+				<form>
+					<div class="joinStep03Content">
+						<div class="joinStep03Title">나이를 입력해주세요</div>		
+						<input type="text" id="age" placeholder="공개를 원하지 않으시면 비워주세요."/>	
+					</div>
+					<div class="joinStep03Content">
+						<div class="joinStep03Title">MBTI을 입력해주세요</div>			
+						<input type="text" id="mbti" placeholder="모르시면 비워주세요."/>	
+					</div>
+					<div class="joinStep03Content"> 
+						<div class="joinStep03Title"> 여유로운 시간대는 몇 시인가요?</div>			
+						<input type='time' id="possibleTime1" value=''/> ~ <input type='time' id="possibleTime2" value=''/>
+					</div>
+				</form>
+			</div>
+			<div class="divInput3">
+				<div>
+					<button aria-label="다음" class="joinStep03NextBtn" type="button">
+						<div>다음</div>
+					</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
