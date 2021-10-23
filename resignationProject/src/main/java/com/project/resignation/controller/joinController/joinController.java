@@ -51,6 +51,14 @@ public class joinController {
 		
 	}
 	
+	/* 
+	 * 
+	 * step02 같은 경우는 데이터를 주고 받는 단계가 아니라
+	 * 필요정보수집 절차 설명 단계이기에 데이터를 주고 받을 일이 없다.
+	 * step02 없다고 이상하다고 생각하지 말 것.
+	 * 
+	 */
+	
 	@RequestMapping(value="/step03",
 							  method=RequestMethod.POST,
 							  produces="application/json; charset=UTF-8")
