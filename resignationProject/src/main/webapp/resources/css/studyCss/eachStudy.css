@@ -15,10 +15,10 @@
 .writerInfo .writerID {font-size: 14px; color: #666; margin-left: 11.5px; margin-right: 6.5px;}
 .writerInfo .writerConfirm {font-size: 13px; color: #ea6500}
 .writerInfo .lastLoginTxt {font-size: 13px; color: #b7b7c7;}
-.writerInfo .infoHoverMenu{display: none; position: absolute; width: 140px; background-color: #fff; border: 1px solid #ddd; z-index: 555; box-shadow: 2px 2px 5px 0 rgb(0 0 0 /20%);}
-.writerInfo .infoHoverMenu li {width: 100%;}
-.writerInfo .infoHoverMenu li a {display: block; padding: 10px 15px; font-weight: 400; font-size: .875rem; color: #333; width: 100%; text-decoration: none;}
-.writerInfo .infoHoverMenu li a:hover {background-color: gray;}
+.infoHoverMenu{display: none; position: absolute; width: 140px; background-color: #fff; border: 1px solid #ddd; z-index: 555; box-shadow: 2px 2px 5px 0 rgb(0 0 0 /20%);}
+.infoHoverMenu li {width: 100%;}
+.infoHoverMenu li a {display: block; padding: 10px 15px; font-weight: 400; font-size: .875rem; color: #333; width: 100%; text-decoration: none;}
+.infoHoverMenu li a:hover {background-color: gray;}
 .studyStatus {justify-content: center; display: flex;}
 .studyStatus span {background-color: #a06bff; padding: 3px 9px; color: #fff; border-radius: 100px; margin-right: 6px; font-size: .7rem;}
 
@@ -30,3 +30,8 @@
 
 .basicInfoWrap {border-bottom: 1px solid #e6e6e6; padding: 0 20px;}
 .basicInfoWrap p {font-size: 16px; color: #424251; font-weight: 700; display: inline-flex; align-items: center;}
+.writerDetailInfo {display: inline-flex; flex-direction: row;}
+.writerDetailInfo .writerImg {width: 54px; height: 54px; border-radius: 8px; overflow: hidden; margin-right: 14px; flex-shrink: 0; background-color: gray;}
+.writerRightBox .writerID {font-size: 15px; font-weight: 400; color: #61b4c7; position: relative; width: auto; display: inline-flex;}
+
+.writerID .infoHoverMenu{top: 25px; color: #333;}
