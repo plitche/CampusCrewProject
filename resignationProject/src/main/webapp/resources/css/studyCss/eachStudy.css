@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.contentBody { margin: 100px auto; margin-top: 100px;  width: 1280px; height: auto;}
+
+.eachStudyHeader { background-color: #fff; background-position: 50%; padding: 40px 0 44px; position: relative; }
+.eachStudyObject {width:100%; text-align: center; margin-bottom: 28px;}
+.eachStudyObject > div {padding: 8px 20px; border-radius: 2px; border: 1px solid #c5e4ea; background-color: rgba(237, 246, 248, .4); display: inline-block;}
+.eachStudyObject > div > span {color: #5fafc1; font-size: 14px; line-height: 15px;}
+
+.eachStudyTitle {max-width: 1040px; margin: 0 auto; position: relative;}
+.eachStudyTitle h3 {text-align: center; color: #222; font-size: 34px; font-weight: 700; line-height: 34px;}
+.writerInfoWrap {align-items: center; position: relative; display: flex; margin-top: 28px; margin-bottom: 12px; justify-content: center;}
+.writerInfoWrap .writerImg {cursor: pointer; width: 37px; height: 37px; border-radius: 100px; overflow: hidden; background-color: gray;}
+.writerInfo {cursor: pointer;}
+.writerInfo .writerID {font-size: 14px; color: #666; margin-left: 11.5px; margin-right: 6.5px;}
+.writerInfo .writerConfirm {font-size: 13px; color: #ea6500}
+.writerInfo .lastLoginTxt {font-size: 13px; color: #b7b7c7;}
+.infoHoverMenu{display: none; position: absolute; width: 140px; background-color: #fff; border: 1px solid #ddd; z-index: 555; box-shadow: 2px 2px 5px 0 rgb(0 0 0 /20%);}
+.infoHoverMenu li {width: 100%;}
+.infoHoverMenu li a {display: block; padding: 10px 15px; font-weight: 400; font-size: .875rem; color: #333; width: 100%; text-decoration: none;}
+.infoHoverMenu li a:hover {background-color: gray;}
+.studyStatus {justify-content: center; display: flex;}
+.studyStatus span {background-color: #a06bff; padding: 3px 9px; color: #fff; border-radius: 100px; margin-right: 6px; font-size: .7rem;}
+
+.eachStudyBody {max-width: 1200px; width: 100%; display: flex; justify-content: space-between; margin: 0 auto; flex-direction: row;}
+.eachStudyBody .studyRightInfo {max-width: 280px; width: 100%;}
+.eachStudyBody .studyRightInfo > div {width: 100%; padding: 20px; display: inline-flex; flex-direction: column; border: 1px solid #ddd; position: sticky; top: 80px;}
+.heartAndShareWrap {display: inline-flex; justify-content: flex-end; padding-bottom: 24px;}
+.heartAndShareWrap a{margin-right: 6px; width: 92px; height: 36px; border: 1px solid #e0e2e5; align-it: center; justify-content: center; font-size: 13px; cursor: pointer; text-align: center; line-height: 33px;}
+
+.basicInfoWrap {border-bottom: 1px solid #e6e6e6; padding: 0 20px;}
+.basicInfoWrap p {font-size: 16px; color: #424251; font-weight: 700; display: inline-flex; align-items: center;}
+.writerDetailInfo {display: inline-flex; flex-direction: row;}
+.writerDetailInfo .writerImg {width: 54px; height: 54px; border-radius: 8px; overflow: hidden; margin-right: 14px; flex-shrink: 0; background-color: gray;}
+.writerRightBox .writerID {font-size: 15px; font-weight: 400; color: #61b4c7; position: relative; width: auto; display: inline-flex;}
+
+.writerID .infoHoverMenu{top: 25px; color: #333;}

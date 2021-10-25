@@ -16,11 +16,11 @@ public class studyController {
 	@Autowired
 	TestService testService; 
 	
-	@RequestMapping(value="/{navigationBtn}", method=RequestMethod.GET)
-	public String goIndex(@PathVariable("navigationBtn") String navigationBtn,
+	@RequestMapping(value="/{studyNum}", method=RequestMethod.GET)
+	public String goIndex(@PathVariable("studyNum") String studyNum,
 									Model model) throws Exception {
 		
-		return "";
+		return "/navMenu/study/" + studyNum;
 	}
 	
 }

@@ -4,19 +4,6 @@
 <!--  공통 js  -->
 <link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/studyCss/studyMain.css" >
 
-<script>
-	$(document).ready(function() {
-		
-		$('.study_item_wrap').mouseover(function() {
-			$(this).find('.item_info').show();
-		});
-		
-		$('.study_item_wrap').mouseleave(function() {
-			$(this).find('.item_info').hide();
-		});
-	});
-</script>
-
 <div class="contentBody">
 	<div class="study_visual" >
 	</div>
@@ -299,6 +286,17 @@
 <script>
 	$(document).ready(function() {
 		
+		$('.study_item_wrap').mouseover(function() {
+			$(this).find('.item_info').show();
+		});
+		
+		$('.study_item_wrap').mouseleave(function() {
+			$(this).find('.item_info').hide();
+		});
+		
+		$('.study_item').click(function() {
+			location.href="/resignation/study/eachStudy";
+		});
 	});
 </script>
 {% endblock %}

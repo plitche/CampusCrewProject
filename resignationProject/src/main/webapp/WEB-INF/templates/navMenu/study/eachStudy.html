@@ -1,0 +1,103 @@
+{% extends "common/base" %}
+
+{% block content %}
+<!--  공통 js  -->
+<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/studyCss/eachStudy.css" >
+
+<div class="contentBody">
+
+	<div class="eachStudyHeader">
+		<div class="eachStudyObject">
+			<div>
+				<span>[사업준비]엔터테인먼트</span>
+			</div>
+		</div>
+		<div class="eachStudyTitle">
+			<h3>글로벌 숏폼콘텐츠 뷰 스터디</h3>
+			<div class="writerInfoWrap">
+				<div class="writerImg"></div>
+				<span class="writerInfo">
+					<span class="writerID">테라프티</span>
+					<span class="writerConfirm">(휴대폰 인증)</span>
+					<span class="lastLoginTxt">-오늘 로그인</span>
+					<div class="infoHoverMenu">
+						<ul>
+							<li><a>프로필 상세</a></li>
+							<li><a>1:1 대화</a></li>
+							<li><a>프로젝트 지원</a></li>
+						</ul>
+					</div>
+				</span>
+			</div>
+			<div class="studyStatus">
+				<span>모집중</span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="eachStudyBody">
+		<div class="sutdyDetaileInfo">
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		</div>
+		<div class="studyRightInfo">
+			<div>
+				<div class="heartAndShareWrap">
+					<a class="viewsCount">
+						<span>O</span>
+						<span>496</span>
+					</a>
+					<a class="likeCount">
+						<span>X</span>
+						<span>496</span>
+					</a>
+					<a class="shareBtn">
+						<span>T</span>
+						<span>공유</span>
+					</a>
+				</div>
+				<div class="basicInfoWrap">
+					<p>리더 정보</p>
+					<div>
+						<div class="writerDetailInfo">
+							<div class="writerImg"></div>
+							<div class="writerRightBox">
+								<span class="writerID">
+									테라프티
+									<div class="infoHoverMenu">
+										<ul>
+											<li><a>프로필 상세</a></li>
+											<li><a>1:1 대화</a></li>
+											<li><a>프로젝트 지원</a></li>
+										</ul>
+									</div>
+								</span>
+								<span>휴대폰 인증완료</span>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+	$(document).ready(function() {
+		// 작성자 마우스 오버 이벤트
+		$('.writerInfo, .writerRightBox').mouseover(function() {
+			$(this).find('.infoHoverMenu').show();
+		});
+		
+		$('.writerInfo, .writerRightBox').mouseleave(function() {
+			$(this).find('.infoHoverMenu').hide();
+		});
+	});
+</script>
+{% endblock %}
+
