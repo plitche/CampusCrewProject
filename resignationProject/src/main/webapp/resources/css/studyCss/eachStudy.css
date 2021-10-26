@@ -13,7 +13,7 @@
 .writerInfoWrap .writerImg {cursor: pointer; width: 37px; height: 37px; border-radius: 100px; overflow: hidden; background-color: gray;}
 .writerInfo {cursor: pointer;}
 .writerInfo .writerID {font-size: 14px; color: #666; margin-left: 11.5px; margin-right: 6.5px;}
-.writerInfo .writerConfirm {font-size: 13px; color: #ea6500}
+.writerConfirm {font-size: 13px; color: #ea6500}
 .writerInfo .lastLoginTxt {font-size: 13px; color: #b7b7c7;}
 .infoHoverMenu{display: none; position: absolute; width: 140px; background-color: #fff; border: 1px solid #ddd; z-index: 555; box-shadow: 2px 2px 5px 0 rgb(0 0 0 /20%);}
 .infoHoverMenu li {width: 100%;}
@@ -28,10 +28,30 @@
 .heartAndShareWrap {display: inline-flex; justify-content: flex-end; padding-bottom: 24px;}
 .heartAndShareWrap a{margin-right: 6px; width: 92px; height: 36px; border: 1px solid #e0e2e5; align-it: center; justify-content: center; font-size: 13px; cursor: pointer; text-align: center; line-height: 33px;}
 
-.basicInfoWrap {border-bottom: 1px solid #e6e6e6; padding: 0 20px;}
+/* 컨텐츠 바디 부분 */
+.sutdyDetaileInfo {padding: 0 0 40px; position: relative; max-width: 840px; margin: 0; width: 100%; background-color: #fff; overflow: hidden;}
+.sutdyDetaileInfo .memberApplyBox {border: 1px solid #e6e6e6; padding: 29px 24px 16px;}
+.sutdyDetaileInfo .memberApplyBox .tabTit {line-height: 1.4375rem; color: #424251; font-size: 16px; font-weight: 500; padding-bottom: 15px;  margin: 0; border-bottom: 1px solid #e6e6e6;}
+.sutdyDetaileInfo .memberApplyBox ul {margin-top: 16px; list-style: none;}
+.sutdyDetaileInfo .memberApplyBox ul li {display: flex; align-items: center; margin-bottom: 8px; list-style: none;}
+.sutdyDetaileInfo .memberApplyBox ul li .positionTxt {font-size: 15px; line-height: 1.3125rem; color: #424251; margin-right: 30px; width: 221px;}
+.sutdyDetaileInfo .memberApplyBox ul li .positionNum {font-size: 15px; line-height: 1.3125rem; color: #ea6560; margin-right: 34px;}
+.sutdyDetaileInfo .memberApplyBox ul li .positionApplyBtn {font-size: .75rem; color: #81839c; padding: 5px 30px; border: 1px solid #81839c; border-radius: 2px; transition: all .2s; margin-left: 12px;}
+.sutdyDetaileInfo .memberApplyBox ul li .positionApplyBtn:hover {background-color: #42495b; border: 1px solid #42495b; color: #fff;}
+
+/*  작성자 정보 */
+.basicInfoWrap {border-bottom: 1px solid #e6e6e6; padding: 10px 20px;}
 .basicInfoWrap p {font-size: 16px; color: #424251; font-weight: 700; display: inline-flex; align-items: center;}
 .writerDetailInfo {display: inline-flex; flex-direction: row;}
 .writerDetailInfo .writerImg {width: 54px; height: 54px; border-radius: 8px; overflow: hidden; margin-right: 14px; flex-shrink: 0; background-color: gray;}
 .writerRightBox .writerID {font-size: 15px; font-weight: 400; color: #61b4c7; position: relative; width: auto; display: inline-flex;}
 
 .writerID .infoHoverMenu{top: 25px; color: #333;}
+.writerRightBox .writerConfirm {display: block; line-height: 30px;}
+
+.studyPeriod {border-bottom: 1px solid #e6e6e6; padding: 10px 20px;}
+.studyInfoWrap {border-bottom: 1px solid #e6e6e6; padding: 10px 20px; }
+.checkboxTit {font-size: 16px; color: #424251; font-weight: 500; display: inline-flex; flex-direction: row; align-items: center;}
+.tabTxt {font-size: 14px; line-height: 14px; color: #8e8ea2; margin: 10px 0 5px 0;}
+
+
