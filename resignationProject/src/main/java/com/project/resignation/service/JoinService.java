@@ -1,7 +1,7 @@
 package com.project.resignation.service;
 
 import com.project.resignation.vo.joinStepVO.JoinStep01VO;
-import com.project.resignation.vo.joinStepVO.JoinStep02VO;
+import com.project.resignation.vo.joinStepVO.JoinStep03VO;
 
 public interface JoinService {
 	
@@ -12,6 +12,6 @@ public interface JoinService {
 	public int insertMemberInfo(JoinStep01VO joinStep01VO);
 	
 	// 회원가입 Step02 업데이트
-	public int joinStep02UpdateInfo(JoinStep02VO joinStep02VO);
+	public int joinStep03UpdateInfo(JoinStep03VO joinStep02VO);
 	
 }

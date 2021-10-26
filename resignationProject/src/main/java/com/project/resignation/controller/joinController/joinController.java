@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.project.resignation.service.JoinService;
 import com.project.resignation.vo.joinStepVO.JoinStep01VO;
-import com.project.resignation.vo.joinStepVO.JoinStep02VO;
+import com.project.resignation.vo.joinStepVO.JoinStep03VO;
+import com.project.resignation.vo.joinStepVO.JoinStep04VO;
 
 @Controller
 @RequestMapping(value="/join")
@@ -63,24 +65,58 @@ public class joinController {
 							  method=RequestMethod.POST,
 							  produces="application/json; charset=UTF-8")
 	@ResponseBody
-	public Map<String, Object> joinStep02(@RequestBody JoinStep02VO joinStep02VO, Model model) throws Exception {
+	public Map<String, Object> joinStep03(@RequestBody JoinStep03VO joinStep03VO, Model model) throws Exception {
 		
-		Map<String, Object> joinStep2ResultData = new HashMap<String, Object>();
+		Map<String, Object> joinStep3ResultData = new HashMap<String, Object>();
 		
 		
 		
-		// step02에서 추가적인 정보를 업데이트한다.
-		int updateResult = joinService.joinStep02UpdateInfo(joinStep02VO);
+		// step03에서 추가적인 정보를 업데이트한다.
+		int updateResult = joinService.joinStep03UpdateInfo(joinStep03VO);
 		
-		// step02의 정보업데이트가 성공하면
+		// step03의 정보업데이트가 성공하면
 		if (updateResult > 0) {
-			joinStep2ResultData.put("success", "Y");
-		// step02의 정보업데이트가 실패하면
+			joinStep3ResultData.put("success", "Y");
+		// step03의 정보업데이트가 실패하면
 		} else {
-			joinStep2ResultData.put("success", "N");
+			joinStep3ResultData.put("success", "N");
 		}
 		
-		return joinStep2ResultData;
+		return joinStep3ResultData;
+		
+	}
+	
+	@RequestMapping(value="/step04",
+			method=RequestMethod.POST,
+			produces="application/json; charset=UTF-8")
+	@ResponseBody
+	public Map<String, Object> joinStep04(MultipartHttpServletRequest multipartRequest, Model model) throws Exception {
+		
+		Map<String, Object> joinStep4ResultData = new HashMap<String, Object>();
+		
+		String email = multipartRequest.getParameter("email");
+		String address = multipartRequest.getParameter("address");
+		String link1 = multipartRequest.getParameter("link1");
+		String link2 = multipartRequest.getParameter("link2");
+		
+		System.out.println(email);
+		System.out.println(address);
+		System.out.println(link1);
+		System.out.println(link2);
+		
+		
+		// step04에서 추가적인 정보를 업데이트한다.
+		//int updateResult = joinService.joinStep04UpdateInfo(multipartRequest);
+		
+		// step04의 정보업데이트가 성공하면
+		//if (updateResult > 0) {
+		//	joinStep4ResultData.put("success", "Y");
+			// step04의 정보업데이트가 실패하면
+		//} else {
+		//	joinStep4ResultData.put("success", "N");
+		//}
+		
+		return joinStep4ResultData;
 		
 	}
 	

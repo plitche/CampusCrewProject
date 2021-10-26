@@ -7,13 +7,13 @@ import lombok.NoArgsConstructor;
 /*
  * 
  * 작성자 : 나정호
- * 설명    : 회원가입 시 필요한 첫번째 스텝의 param
+ * 설명    : 회원가입 시 필요한 3번째 스텝의 param
  * 
  */
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class JoinStep02VO {
+public class JoinStep03VO {
 	
 	// step01에서 가입된 이메일정보
 	private String email;

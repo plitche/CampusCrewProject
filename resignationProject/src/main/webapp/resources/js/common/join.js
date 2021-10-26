@@ -189,7 +189,7 @@ $(function() {
 						, success : function(data) {
 							if (data.success == "Y") {
 								console.log("step03정보 업데이트 완료");
-								// 첫번재 사표수리 완료되면 Step04이동해야한다.
+								// step03정보 업데이트 완료되면 Step04이동해야한다.
 								joinStep("04");
 							} else {
 								console.log("step03정보 업데이트 실패");
@@ -218,13 +218,22 @@ $(function() {
 				$('#previousBtn').off('click').on('click', function() {
 					joinStep("03");
 				});
-				
-				$('.joinStep04NextBtn').off('click').on('click', function() {
 					
-					var email = util.step01.info;
-					var address = $('#address').val();
-					var link1 = $('#link1').val();
-					var link2 = $('#link2').val();
+				$('.joinStep04NextBtn').off('click').on('click', function(event) {
+					
+					event.preventDefault();
+					
+					var form = $('#joinStep4UpdateForm')[0];
+					var data = new FormData(form);
+					
+					console.log(form);
+					console.log(data);
+					
+					//var email = util.step01.info;
+					//var address = $('#address').val();
+					//var link1 = $('#link1').val();
+					//var link2 = $('#link2').val();
+					//var myprofile = $('#myprofile').val();
 					
 					if (address == '') {
 						alert('~동까지만 거주하는 위치를 입력해주세요.');
@@ -236,6 +245,7 @@ $(function() {
 							,"address":address
 							,"link1":link1
 							,"link2":link2
+							,"myprofile":myprofile
 					};
 					
 					$.ajax({
@@ -247,7 +257,7 @@ $(function() {
 						, success : function(data) {
 							if (data.success == "Y") {
 								console.log("step04정보 업데이트 완료");
-								// 첫번재 사표수리 완료되면 Step02이동해야한다.
+								// step04정보 업데이트 완료되면 Step05로 이동해야한다.
 								joinStep("05");
 							} else {
 								console.log("step04정보 업데이트 실패");
@@ -260,7 +270,6 @@ $(function() {
 					
 					
 				});
-				
 			}
 				
 		},

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.project.resignation.dao.JoinDao;
 import com.project.resignation.service.JoinService;
 import com.project.resignation.vo.joinStepVO.JoinStep01VO;
-import com.project.resignation.vo.joinStepVO.JoinStep02VO;
+import com.project.resignation.vo.joinStepVO.JoinStep03VO;
 
 @Service
 public class JoinServiceImpl implements JoinService{
@@ -25,8 +25,8 @@ public class JoinServiceImpl implements JoinService{
 	}
 	
 	@Override
-	public int joinStep02UpdateInfo(JoinStep02VO joinStep02VO) {
-		return joinDao.joinStep02UpdateInfo(joinStep02VO);
+	public int joinStep03UpdateInfo(JoinStep03VO joinStep03VO) {
+		return joinDao.joinStep03UpdateInfo(joinStep03VO);
 	}
 	
 	
