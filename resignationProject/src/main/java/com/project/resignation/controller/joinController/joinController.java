@@ -9,13 +9,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.project.resignation.service.JoinService;
 import com.project.resignation.vo.joinStepVO.JoinStep01VO;
 import com.project.resignation.vo.joinStepVO.JoinStep03VO;
-import com.project.resignation.vo.joinStepVO.JoinStep04VO;
 
 @Controller
 @RequestMapping(value="/join")
@@ -87,22 +87,25 @@ public class joinController {
 	}
 	
 	@RequestMapping(value="/step04",
-			method=RequestMethod.POST,
-			produces="application/json; charset=UTF-8")
+			method=RequestMethod.POST
+			, consumes ={"multipart/form-data"})
+
 	@ResponseBody
-	public Map<String, Object> joinStep04(MultipartHttpServletRequest multipartRequest, Model model) throws Exception {
+	public Map<String, Object> joinStep04(
+			 @RequestParam(value = "myprofile") MultipartFile myprofile
+		     , @RequestParam(value = "address", required = false) String address
+		     , @RequestParam(value = "link1", required = false) String link1
+		     , @RequestParam(value = "link2", required = false) String link2
+		     , @RequestParam(value = "email", required = false) String email
+			, Model model) throws Exception {
 		
 		Map<String, Object> joinStep4ResultData = new HashMap<String, Object>();
 		
-		String email = multipartRequest.getParameter("email");
-		String address = multipartRequest.getParameter("address");
-		String link1 = multipartRequest.getParameter("link1");
-		String link2 = multipartRequest.getParameter("link2");
-		
-		System.out.println(email);
+		System.out.println(myprofile.getOriginalFilename());
 		System.out.println(address);
 		System.out.println(link1);
 		System.out.println(link2);
+		System.out.println(email);
 		
 		
 		// step04에서 추가적인 정보를 업데이트한다.

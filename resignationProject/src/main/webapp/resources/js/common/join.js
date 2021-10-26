@@ -221,39 +221,37 @@ $(function() {
 					
 				$('.joinStep04NextBtn').off('click').on('click', function(event) {
 					
-					event.preventDefault();
+					var email = util.step01.info;
+					var address = $('#address').val();
+					var link1 = $('#link1').val();
+					var link2 = $('#link2').val();
 					
-					var form = $('#joinStep4UpdateForm')[0];
-					var data = new FormData(form);
-					
-					console.log(form);
-					console.log(data);
-					
-					//var email = util.step01.info;
-					//var address = $('#address').val();
-					//var link1 = $('#link1').val();
-					//var link2 = $('#link2').val();
-					//var myprofile = $('#myprofile').val();
+					if (myprofile.files.length === 0) {
+						alert('프로필사진을 올려주세요.');
+						return;
+					}
 					
 					if (address == '') {
 						alert('~동까지만 거주하는 위치를 입력해주세요.');
 						return;
 					}
 					
-					var sendObj = {
-							"email":email
-							,"address":address
-							,"link1":link1
-							,"link2":link2
-							,"myprofile":myprofile
-					};
+					var form = $('#joinStep4UpdateForm')[0];
+					var formData = new FormData(form);
+					formData.append("email", email);
+					
+					for (let value of formData.values()) {
+						console.log(value);
+					}
 					
 					$.ajax({
 						url :  "/resignation/join/step04"
 						, type : 'post'
-						, contentType : 'application/json; charset=UTF-8'
-						, dataType : 'json'
-						, data : JSON.stringify(sendObj)
+						, enctype: 'multipart/form-data'
+						, cache : false
+						, contentType : false
+						, processData : false
+						, data : formData
 						, success : function(data) {
 							if (data.success == "Y") {
 								console.log("step04정보 업데이트 완료");
