@@ -1,6 +1,7 @@
 package com.project.resignation.daoImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class StudyDaoImpl implements StudyDao {
 	SqlSession sqlsession;
 	
 	@Override
-	public List<Object> goStudyMain() {
+	public List<Map<String, Object>> goStudyMain() {
 		return sqlsession.selectList("Study.getStudyInfoList");
 	}
 }

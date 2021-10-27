@@ -1,6 +1,7 @@
 package com.project.resignation.serviceImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ public class StudyServiceImpl implements StudyService {
 
 	// 스터디 메인 페이지
 	@Override
-	public List<Object> goStudyMain() {
+	public List<Map<String, Object>> goStudyMain() {
 		return studyDao.goStudyMain();
 	}
 	

@@ -1,6 +1,8 @@
 {% extends "common/base" %}
 
 {% block script %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
 <script>
 	$(document).ready(function() {
 		$('.study_item_wrap').mouseover(function() {
@@ -15,19 +17,11 @@
 			location.href="/resignation/study/eachStudy";
 		});
 		
-		var setBanner = function() {
-			var index = 1;
-			setInterval(() => {
-				$('.study_visual img').css('display', 'none');
-				$('#img'+index).css('display', 'block');
-				if (index = 3) {
-					index = 1;
-				} else {
-					index++;
-				}
-			}, 1000);
-		}
-		setBanner();
+		console.log('{{studyList}}');
+	});
+	
+	$(function() {
+		var mySwiper = new Swiper('.swiper-container', {});
 	});
 </script>
 {% endblock %}
@@ -37,12 +31,13 @@
 <link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/studyCss/studyMain.css" >
 
 <div class="contentBody">
-	<div class="study_visual" >
-		<div><img id="img1" src="http://localhost:9090/resignation/resources/assets/images/study/studyBanner1.jpg" alt="스터디 배너 이미지" /></div>
-		<div><img id="img2" src="http://localhost:9090/resignation/resources/assets/images/study/studyBanner2.jpg" alt="스터디 배너 이미지" /></div>
-		<div><img id="img3" src="http://localhost:9090/resignation/resources/assets/images/study/studyBanner3.jpg" alt="스터디 배너 이미지" /></div>
+	<div class="swiper-container">
+		<div class="study_visual swiper-wrapper" >
+			<div class="swiper-slide"><img src="http://localhost:9090/resignation/resources/assets/images/study/studyBanner1.jpg" alt="스터디 배너 이미지" /></div>
+			<div class="swiper-slide"><img src="http://localhost:9090/resignation/resources/assets/images/study/studyBanner2.jpg" alt="스터디 배너 이미지" /></div>
+			<div class="swiper-slide"><img src="http://localhost:9090/resignation/resources/assets/images/study/studyBanner3.jpg" alt="스터디 배너 이미지" /></div>
+		</div>
 	</div>
-	
 	<div class="recomandHead">
 		<div class="recomandMes"><p>[추천] 딱! 당신을 기다리는 프로젝트입니다</p></div>
 		<div class="recomandFlex">

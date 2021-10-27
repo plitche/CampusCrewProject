@@ -2,6 +2,7 @@ package com.project.resignation.controller.commonController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,8 +15,8 @@ import com.project.resignation.service.StudyService;
 
 @Controller
 @RequestMapping(value="/navigation")
-public class navController {
-
+public class NavController {
+	
 	@Autowired
 	StudyService studyService; 
 	
@@ -23,7 +24,7 @@ public class navController {
 	public String goIndex(@PathVariable("navigationBtn") String navigationBtn,
 									Model model) throws Exception {
 		
-		List<Object> test = new ArrayList<>();
+		List<Map<String, Object>> studyList = new ArrayList<Map<String,Object>>();
 		
 		switch(navigationBtn) {
 		case "introduction" :
@@ -33,8 +34,8 @@ public class navController {
 			
 			break;
 		case "study" : 
-			test = studyService.goStudyMain();
-			model.addAttribute("studyTest", test.get(0));
+			studyList = studyService.goStudyMain();
+			model.addAttribute("studyList", studyList);
 			break;
 		}
 
