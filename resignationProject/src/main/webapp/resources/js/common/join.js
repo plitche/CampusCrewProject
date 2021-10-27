@@ -221,6 +221,7 @@ $(function() {
 					
 				$('.joinStep04NextBtn').off('click').on('click', function(event) {
 					
+					var myprofile = $("input[type=file]");
 					var email = util.step01.info;
 					var address = $('#address').val();
 					var link1 = $('#link1').val();
@@ -257,7 +258,7 @@ $(function() {
 								console.log("step04정보 업데이트 완료");
 								// step04정보 업데이트 완료되면 Step05로 이동해야한다.
 								joinStep("05");
-							} else {
+							} else if (data.success == "N"){
 								console.log("step04정보 업데이트 실패");
 							}
 						}

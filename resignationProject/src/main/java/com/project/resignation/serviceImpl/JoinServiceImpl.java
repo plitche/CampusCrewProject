@@ -5,8 +5,10 @@ import org.springframework.stereotype.Service;
 
 import com.project.resignation.dao.JoinDao;
 import com.project.resignation.service.JoinService;
+import com.project.resignation.vo.attachmentVO.AttachmentVO;
 import com.project.resignation.vo.joinStepVO.JoinStep01VO;
 import com.project.resignation.vo.joinStepVO.JoinStep03VO;
+import com.project.resignation.vo.joinStepVO.JoinStep04VO;
 
 @Service
 public class JoinServiceImpl implements JoinService{
@@ -28,6 +30,17 @@ public class JoinServiceImpl implements JoinService{
 	public int joinStep03UpdateInfo(JoinStep03VO joinStep03VO) {
 		return joinDao.joinStep03UpdateInfo(joinStep03VO);
 	}
+	
+	@Override
+	public int joinStep04UpdateInfo(JoinStep04VO joinStep04VO) {
+		return joinDao.joinStep04UpdateInfo(joinStep04VO);
+	}
+
+	@Override
+	public int insertMyProfile(AttachmentVO attachmentVO) {
+		return joinDao.insertMyProfile(attachmentVO);
+	}
+	
 	
 	
 	

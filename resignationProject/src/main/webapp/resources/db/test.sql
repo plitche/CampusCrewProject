@@ -1,6 +1,9 @@
 select *
 from tbMember;
 
+select *
+from tbAttachment;
+
 delete from tbMember;
 
 

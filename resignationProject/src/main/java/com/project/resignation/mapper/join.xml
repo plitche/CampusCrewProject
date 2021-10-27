@@ -58,5 +58,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		, vcMemberTime2 = #{possibleTime2}
 		WHERE vcMemberId = #{email}
 	</update>
+	
+	<update id="joinStep04UpdateInfo" parameterType="com.project.resignation.vo.joinStepVO.JoinStep04VO">
+		UPDATE tbMember
+		SET
+		vcMemberAddress = #{address}
+		, vcMemberLink1 = #{link1}
+		, vcMemberLink2 = #{link2}
+		WHERE vcMemberId = #{email}
+	</update>
+	
+	<insert id="insertMyProfile" parameterType="com.project.resignation.vo.attachmentVO.AttachmentVO">
+		INSERT INTO
+		tbAttachment
+		(
+		iAttachment,
+		nPostReferInfo,
+		nFileType,
+		vcFileName,
+		vcOrgFilename,
+		vcFilePath
+		)
+		VALUES
+		(
+		tbAttachment_SEQ.NEXTVAL,
+		#{email},
+		#{fileType},
+		#{uploadFilename},
+		#{originFilename},
+		#{realPath}
+		)
+	</insert>
+	
 
 </mapper>

@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.resignation.dao.JoinDao;
+import com.project.resignation.vo.attachmentVO.AttachmentVO;
 import com.project.resignation.vo.joinStepVO.JoinStep01VO;
 import com.project.resignation.vo.joinStepVO.JoinStep03VO;
+import com.project.resignation.vo.joinStepVO.JoinStep04VO;
 
 @Service
 public class JoinDaoImpl implements JoinDao {
@@ -27,6 +29,16 @@ public class JoinDaoImpl implements JoinDao {
 	@Override
 	public int joinStep03UpdateInfo(JoinStep03VO joinStep03VO) {
 		return sqlsession.update("Join.joinStep03UpdateInfo", joinStep03VO);
+	}
+	
+	@Override
+	public int joinStep04UpdateInfo(JoinStep04VO joinStep04VO) {
+		return sqlsession.update("Join.joinStep04UpdateInfo", joinStep04VO);
+	}
+	
+	@Override
+	public int insertMyProfile(AttachmentVO attachmentVO) {
+		return sqlsession.insert("Join.insertMyProfile", attachmentVO);
 	}
 
 }

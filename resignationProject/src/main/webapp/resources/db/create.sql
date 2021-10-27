@@ -313,11 +313,11 @@ CREATE TABLE tbDistractor (
 -- 첨부파일
 CREATE TABLE tbAttachment (
 	iAttachment					NUMBER					PRIMARY KEY,
-	nPostReferNo				NUMBER					NOT NULL,
+	nPostReferInfo				VARCHAR(30)			NOT NULL,
 	nFileType					NUMBER					NOT NULL,
 	vcFileName					VARCHAR(100)		NOT NULL,
 	vcOrgFilename				VARCHAR(100)		NOT NULL,
-	vcFilePath					VARCHAR(100)		NOT NULL
+	vcFilePath					VARCHAR(500)		NOT NULL
 );
 
 -- 공유 수
