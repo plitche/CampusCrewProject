@@ -5,8 +5,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="Study">
 
-    <select id="getStudyInfoList" resultType="Integer">
-		select iSeq from test3 where iSeq = 3
+    <select id="getStudyInfoList" resultType="hashmap">
+		SELECT *
+		FROM tbStudy
+		ORDER BY dtRegDate DESC
     </select>
 
 </mapper>

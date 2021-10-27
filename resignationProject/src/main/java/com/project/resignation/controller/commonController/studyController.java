@@ -11,7 +11,7 @@ import com.project.resignation.service.TestService;
 
 @Controller
 @RequestMapping(value="/study")
-public class studyController {
+public class StudyController {
 
 	@Autowired
 	TestService testService; 
