@@ -7,8 +7,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="getStudyInfoList" resultType="hashmap">
 		SELECT *
-		FROM tbStudy
-		ORDER BY dtRegDate DESC
+		FROM tbStudy s join tbMember m
+		on s.vcStudyMakerId = m.vcMemberId 
+		ORDER BY s.dtRegDate DESC
     </select>
 
 </mapper>
