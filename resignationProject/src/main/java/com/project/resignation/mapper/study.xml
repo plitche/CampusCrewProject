@@ -5,11 +5,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="Study">
 
+	<select id="getFilterList" resultType="hashmap">
+	</select>
+
     <select id="getStudyInfoList" resultType="hashmap">
 		SELECT *
 		FROM tbStudy s join tbMember m
-		on s.vcStudyMakerId = m.vcMemberId 
+			on s.vcStudyMakerId = m.vcMemberId 
 		ORDER BY s.dtRegDate DESC
     </select>
 
+	<select id="getStudyInfo" resultType="hashmap">
+		SELECT *
+		FROM tbStudy s join tbMember m
+			on s.vcStudyMakerId = m.vcMemberId		
+	</select>
 </mapper>
