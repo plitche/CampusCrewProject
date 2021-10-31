@@ -364,7 +364,7 @@
 	transform: translateX(-50%) translateY(-50%);
 }
 
-#previousBtn {
+#previousBtn1 {
 	float:left;
 	padding:0;
 	border: 0px;
@@ -374,7 +374,7 @@
 	background:0;
 }
 
-#previousBtn > img {
+#previousBtn1 > img {
 	width:15px;
 	height: 15px;
 	background-size: contain;
@@ -435,6 +435,81 @@
 	border: 1.5px solid lightgray;
 }
 
+/* 회원가입 STEP05 - 관심사 */
+.joinPopupBody5 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 500px;
+	height: 550px;
+	padding: 30px;
+	border-radius: 5px;
+	text-align: center;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0 4px 5px 0 rgba(34, 36, 38, 0.3);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+#previousBtn2 {
+	float:left;
+	padding:0;
+	border: 0px;
+	border-radius:30px;
+	width:35px;
+	height: 35px;
+	background:0;
+}
+
+#previousBtn2 > img {
+	width:15px;
+	height: 15px;
+	background-size: contain;
+}
+
+#popContent5 {
+	margin: 40px 0px;
+}
+
+.popupTitle5 {
+	margin-top:20px;
+	color: rgb(51, 51, 51);
+    font-size: 42px;
+    font-weight: 600;
+    letter-spacing: -1.2px;
+    padding-left: 16px;
+    padding-right: 16px;
+    -webkit-font-smoothing: antialiased;
+    word-break: break-word;
+}
+
+.divInput5 {
+	margin-top:40px;
+}
+
+.joinStep05NextBtn {
+	border-radius: 30px;
+	background: #0057ff;
+	width: 330px;
+	height: 40px;
+	border:0px;
+	font-size: 14px;
+	font-weight: 600;
+	color: white;
+}
+
+.joinStep05Info {
+	margin : 20px 0px;
+}
+
+.joinStep05Content {
+	margin : 30px 0px;
+}
+
+.joinStep05Title {
+	margin:10px 0px;
+	font-weight:700;
+	font-size: 42px;
+}
 
 
 

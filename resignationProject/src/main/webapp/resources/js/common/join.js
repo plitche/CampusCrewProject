@@ -215,7 +215,7 @@ $(function() {
 			}
 			, event : function() {
 				
-				$('#previousBtn').off('click').on('click', function() {
+				$('#previousBtn1').off('click').on('click', function() {
 					joinStep("03");
 				});
 					
@@ -243,11 +243,14 @@ $(function() {
 					
 					$.ajax({
 						url :  "/resignation/join/step04"
+						, enctype: 'multipart/form-data'
 						, type : 'post'
 						, contentType : false
 						, processData : false
+						, dataType : 'json'
 						, data : formData
 						, success : function(dataResult) {
+							console.log(dataResult.result);
 							console.log('성공');
 							if (dataResult.result == "Y") {
 								console.log("step04정보 업데이트 완료");
@@ -268,7 +271,16 @@ $(function() {
 				
 		},
 		step05 : {
-			
+			init : function() {
+				util.step05.event();
+			}
+			, event : function() {
+				
+				$('#previousBtn2').off('click').on('click', function() {
+					joinStep("04");
+				});
+				
+			}
 		}
 		
 	};

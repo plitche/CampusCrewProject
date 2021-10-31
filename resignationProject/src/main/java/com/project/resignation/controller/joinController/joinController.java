@@ -85,7 +85,7 @@ public class joinController {
 		} else {
 			joinStep3ResultData.put("success", "N");
 		}
-		
+		System.out.println(joinStep3ResultData);
 		return joinStep3ResultData;
 		
 	}
@@ -148,6 +148,7 @@ public class joinController {
 				attachmentVO.setRealPath(realPath);
 				joinService.insertMyProfile(attachmentVO);
 				joinStep4ResultData.put("result", "Y");
+				System.out.println(joinStep4ResultData + "1");
 			// 파일이 첨부되지 않았으면
 			} else {
 				AttachmentVO attachmentVO = new AttachmentVO();
@@ -158,14 +159,16 @@ public class joinController {
 				attachmentVO.setRealPath("");
 				joinService.insertMyProfile(attachmentVO);
 				joinStep4ResultData.put("result", "Y");
+				System.out.println(joinStep4ResultData + "2");
 			}
 			// 모든 삽입이 완료 되었을 시에 "Y"
 		// 이메일, 주소, 링크1, 링크2 가 삽입되지 않았다면
 		} else {
 			// 삽입실패 시 "N"
 			joinStep4ResultData.put("result", "N");
+			System.out.println(joinStep4ResultData + "3");
 		}
-		
+		System.out.println(joinStep4ResultData + "4");
 		return joinStep4ResultData;
 		
 	}
