@@ -21,5 +21,10 @@ public class StudyServiceImpl implements StudyService {
 		return studyDao.goStudyMain();
 	}
 	
+	// 각 스터디 페이지 진입시 정보 조회
+	@Override
+	public Map<String, Object> getEachStudyInfo(int iStudyNo) {
+		return studyDao.getEachStudyInfo(iStudyNo);
+	}
 
 }

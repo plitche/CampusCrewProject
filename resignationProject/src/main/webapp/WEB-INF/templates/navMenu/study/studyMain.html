@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
 <script>
+	$(function() {
+		var mySwiper = new Swiper('.swiper-container', {});
+	});
+	
 	$(document).ready(function() {
 		$('.study_item_wrap').mouseover(function() {
 			$(this).find('.item_info').show();
@@ -13,17 +17,13 @@
 			$(this).find('.item_info').hide();
 		});
 		
-		$('.study_item').click(function() {
-			location.href="/resignation/study/eachStudy";
-		});
-		
 		console.log('{{studyList}}');
+		
 	});
 	
-	
-	$(function() {
-		var mySwiper = new Swiper('.swiper-container', {});
-	});
+	var fnGoStudyInfo = function(iStudyNo) {
+		location.href="/resignation/study/eachStudy?iStudyNo=" + iStudyNo;
+	}
 </script>
 {% endblock %}
 
@@ -71,7 +71,7 @@
 				</div>
 				
 				<div class="study_item">
-					<div class="thumbnail">
+					<div class="thumbnail" onclick="fnGoStudyInfo({{studyItem.ISTUDYNO}})">
 						<div class="img_box">
 							<img src="https://cdn.loud.kr/prod/upload/ordersub/b_file1/thumimg2/order_sub_2851786_1_210926231452.jpg" alt="스터디이미지">
 						</div>

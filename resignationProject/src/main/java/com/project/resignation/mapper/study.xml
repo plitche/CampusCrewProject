@@ -5,9 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="Study">
 
+	<!-- 스터디 리스트 페이지 필터링 정보 조회 -->
 	<select id="getFilterList" resultType="hashmap">
 	</select>
 
+	<!-- 스터디 리스트 정보 조회 -->
     <select id="getStudyInfoList" resultType="hashmap">
 		SELECT *
 		FROM tbStudy s join tbMember m
@@ -15,9 +17,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY s.dtRegDate DESC
     </select>
 
-	<select id="getStudyInfo" resultType="hashmap">
+	<!-- 각 스터디 페이지 진입시 정보 조회 -->
+	<select id="getStudyInfo" parameterType="Integer" resultType="hashmap">
 		SELECT *
 		FROM tbStudy s join tbMember m
-			on s.vcStudyMakerId = m.vcMemberId		
+			on s.vcStudyMakerId = m.vcMemberId
 	</select>
+	
+	
 </mapper>

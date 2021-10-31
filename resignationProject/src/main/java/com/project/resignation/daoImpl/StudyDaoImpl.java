@@ -1,6 +1,7 @@
 package com.project.resignation.daoImpl;
 
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,5 +31,12 @@ public class StudyDaoImpl implements StudyDao {
 		}
 		
 		return studyList;
+	}
+	
+	@Override
+	public Map<String, Object> getEachStudyInfo(int iStudyNo) {
+		Map<String, Object> eachStudyInfo = new HashMap<>();
+		eachStudyInfo = sqlsession.selectOne("Study.getEachStudyInfo", iStudyNo);
+		return eachStudyInfo;
 	}
 }

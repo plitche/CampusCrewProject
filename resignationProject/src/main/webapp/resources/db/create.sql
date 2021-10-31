@@ -253,10 +253,10 @@ CREATE TABLE tbSchedule (
 	nDonePercent				NUMBER					NOT NULL
 );
 
--- 프로젝트/스터디 필요 참가자
+-- 프로젝트/스터디 필요 참가자 (몇명이 필요한지에 대한 정보?) (id 널 허용해야될것같)
 CREATE TABLE tbNeedParticipants (
 	iNeedParticipantsNo		NUMBER					PRIMARY KEY,
-	vcNeedParticipantsId		VARCHAR(50)			REFERENCES tbMember(vcMemberId) ON DELETE CASCADE NOT NULL,
+	vcNeedParticipantsId		VARCHAR(50)			REFERENCES tbMember(vcMemberId) ON DELETE CASCADE NULL,
 	nPostReferNo 				NUMBER					NOT NULL,
 	nPostReferType			NUMBER					NOT NULL,
 	dtParticipateDate			DATE						NOT NULL,
