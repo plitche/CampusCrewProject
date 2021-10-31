@@ -92,8 +92,7 @@ public class joinController {
 	
 	@RequestMapping(value="/step04",
 			method=RequestMethod.POST
-			, consumes ={"multipart/form-data"})
-
+			)
 	@ResponseBody
 	public Map<String, Object> joinStep04(
 			 @RequestParam(value = "myprofile") MultipartFile myprofile
@@ -148,6 +147,7 @@ public class joinController {
 				attachmentVO.setOriginFilename(originFilename);
 				attachmentVO.setRealPath(realPath);
 				joinService.insertMyProfile(attachmentVO);
+				joinStep4ResultData.put("result", "Y");
 			// 파일이 첨부되지 않았으면
 			} else {
 				AttachmentVO attachmentVO = new AttachmentVO();
@@ -157,13 +157,13 @@ public class joinController {
 				attachmentVO.setOriginFilename("첨부없음");
 				attachmentVO.setRealPath("");
 				joinService.insertMyProfile(attachmentVO);
+				joinStep4ResultData.put("result", "Y");
 			}
 			// 모든 삽입이 완료 되었을 시에 "Y"
-			joinStep4ResultData.put("success", "Y");
 		// 이메일, 주소, 링크1, 링크2 가 삽입되지 않았다면
 		} else {
 			// 삽입실패 시 "N"
-			joinStep4ResultData.put("success", "N");
+			joinStep4ResultData.put("result", "N");
 		}
 		
 		return joinStep4ResultData;

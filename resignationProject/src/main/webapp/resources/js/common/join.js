@@ -219,9 +219,9 @@ $(function() {
 					joinStep("03");
 				});
 					
-				$('.joinStep04NextBtn').off('click').on('click', function(event) {
+				$('.joinStep04NextBtn').off('click').on('click', function() {
 					
-					var myprofile = $("input[type=file]");
+					var myprofile = $("#myprofile")[0];
 					var email = util.step01.info;
 					var address = $('#address').val();
 					var link1 = $('#link1').val();
@@ -241,24 +241,19 @@ $(function() {
 					var formData = new FormData(form);
 					formData.append("email", email);
 					
-					for (let value of formData.values()) {
-						console.log(value);
-					}
-					
 					$.ajax({
 						url :  "/resignation/join/step04"
 						, type : 'post'
-						, enctype: 'multipart/form-data'
-						, cache : false
 						, contentType : false
 						, processData : false
 						, data : formData
-						, success : function(data) {
-							if (data.success == "Y") {
+						, success : function(dataResult) {
+							console.log('성공');
+							if (dataResult.result == "Y") {
 								console.log("step04정보 업데이트 완료");
 								// step04정보 업데이트 완료되면 Step05로 이동해야한다.
 								joinStep("05");
-							} else if (data.success == "N"){
+							} else if (dataResult.result == "N"){
 								console.log("step04정보 업데이트 실패");
 							}
 						}
