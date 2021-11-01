@@ -39,4 +39,19 @@ public class StudyDaoImpl implements StudyDao {
 		eachStudyInfo = sqlsession.selectOne("Study.getEachStudyInfo", iStudyNo);
 		return eachStudyInfo;
 	}
+	
+	@Override
+	public List<Map<String, Object>> getStudyNeedParticipants(int iStudyNo) {
+		List<Map<String, Object>> needPosition = sqlsession.selectList("Study.getStudyNeedPosition", iStudyNo);
+		List<Map<String, Object>> emptyPosition = sqlsession.selectList("Study.getEmptyStudyPosition", iStudyNo);
+		
+		if (needPosition.size() != emptyPosition.size()) {
+			
+		}
+		
+		Map<String, Object> returnMap = new HashMap<>();
+		
+		
+		return null;
+	}
 }

@@ -12,14 +12,34 @@ INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6�
 INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '서버', '공부합시다' );
 
 -- 스터디 필요 참가자 insert (nPostReferType 1=스터디)
-INSERT INTO tbNeedParticipants VALUES (1, NULL, 1, 1, SYSDATE, '마케팅');
+INSERT INTO tbNeedParticipants VALUES (1, 'ferdy', 1, 1, SYSDATE, '마케팅');
 INSERT INTO tbNeedParticipants VALUES (2, NULL, 1, 1, SYSDATE, '프론트엔드');
 INSERT INTO tbNeedParticipants VALUES (3, NULL, 1, 1, SYSDATE, '프론트엔드');
 INSERT INTO tbNeedParticipants VALUES (4, NULL, 1, 1, SYSDATE, '백엔드');
 INSERT INTO tbNeedParticipants VALUES (5, NULL, 1, 1, SYSDATE, '백엔드');
 
--- 스터디 필요 참가 희망자 insert
+-- 스터디 조회수 insert 
+INSERT INTO tbHit VALUES (tbShare_Seq.nextVal, 1, 1, 120);
 
 
+-- 스터디 참가 희망자 insert
+
+update TBNEEDPARTICIPANTS set vcNeedParticipantsId = 'ferdy' where iNeedParticipantsNo = 1
 
 select * from tbMember
+
+SELECT vcPosition, Count(*)
+		FROM tbNeedParticipants
+		WHERE nPostReferNo = 1
+			and nPostReferType = 1
+		GROUP BY vcPosition
+		ORDER BY vcPosition
+
+				SELECT vcPosition, Count(*)
+		FROM tbNeedParticipants
+		WHERE nPostReferNo = 1
+			and nPostReferType = 1
+			and vcNeedParticipantsId IS NULL
+		GROUP BY vcPosition
+		ORDER BY vcPosition
+		

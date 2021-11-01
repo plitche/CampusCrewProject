@@ -10,4 +10,7 @@ public interface StudyDao {
 	
 	// 각 스터디 페이지 진입시 정보 조회
 	public Map<String, Object> getEachStudyInfo(int iStudyNo);
+	
+	// 각 스터디 페이지 진입 시 필요 인원 정보 조회
+	public List<Map<String, Object>> getStudyNeedParticipants(int iStudyNo);
 }

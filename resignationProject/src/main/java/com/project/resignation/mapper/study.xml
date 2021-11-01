@@ -17,12 +17,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY s.dtRegDate DESC
     </select>
 
-	<!-- 각 스터디 페이지 진입시 정보 조회 -->
+	<!-- 각 스터디 페이지 진입시 스터디/멤버 정보 조회 -->
 	<select id="getStudyInfo" parameterType="Integer" resultType="hashmap">
 		SELECT *
 		FROM tbStudy s join tbMember m
 			on s.vcStudyMakerId = m.vcMemberId
+			join tbHit h
+			on s.iStudyNo = h.nPostReferNo
+		WHERE h.nPostReferType = 1
+			and s.iSutdyNo = #{iStudyNo}
 	</select>
 	
+	<!-- 각 스터디 페이지 진입시 필요 인원 정보 조회 -->
+	<select id="getStudyNeedPosition" parameterType="Integer" resultType="hashmap">
+		SELECT vcPosition, Count(*)
+		FROM tbNeedParticipants
+		WHERE nPostReferNo = #{iStudyNo}
+			and nPostReferType = 1
+		GROUP BY vcPosition
+		ORDER BY vcPosition
+	</select>
+	
+	<select id="getEmptyStudyPosition" parameterType="Integer" resultType="hashMap">
+		SELECT vcPosition, Count(*)
+		FROM tbNeedParticipants
+		WHERE nPostReferNo = #{iStudyNo}
+			and nPostReferType = 1
+			and vcNeedParticipantsId IS NULL
+		GROUP BY vcPosition
+		ORDER BY vcPosition
+	</select>
 	
 </mapper>
