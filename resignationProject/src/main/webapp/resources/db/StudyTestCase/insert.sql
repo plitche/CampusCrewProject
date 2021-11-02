@@ -3,6 +3,8 @@ INSERT INTO tbMember VALUES ('plitche', 'plitche', '권용수', '플리체', '�
 INSERT INTO tbMember VALUES ('ferdy', 'ferdy', '권용수1', '펄디', '서울시 마포구', '010-7721-3031', '30', 'INFJ', '8시', '10시', '잘부탁드립니다', '남자', NULL, NULL);
 
 -- 스터디 insert
+INSERT INTO tbStudy VALUES (1, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '뷰js', '공부합시다' );
+INSERT INTO tbStudy VALUES (2, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '리액트', '공부합시다' );
 INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '뷰js', '공부합시다' );
 INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '리액트', '공부합시다' );
 INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '레디스', '공부합시다' );
@@ -26,20 +28,38 @@ INSERT INTO tbHit VALUES (tbShare_Seq.nextVal, 1, 1, 120);
 
 update TBNEEDPARTICIPANTS set vcNeedParticipantsId = 'ferdy' where iNeedParticipantsNo = 1
 
+
+
 select * from tbMember
 
 SELECT vcPosition, Count(*)
-		FROM tbNeedParticipants
-		WHERE nPostReferNo = 1
-			and nPostReferType = 1
-		GROUP BY vcPosition
-		ORDER BY vcPosition
+FROM tbNeedParticipants
+WHERE nPostReferNo = 1
+	and nPostReferType = 1
+GROUP BY vcPosition
+ORDER BY vcPosition
 
-				SELECT vcPosition, Count(*)
-		FROM tbNeedParticipants
-		WHERE nPostReferNo = 1
-			and nPostReferType = 1
-			and vcNeedParticipantsId IS NULL
-		GROUP BY vcPosition
-		ORDER BY vcPosition
-		
+SELECT vcPosition, Count(*)
+FROM tbNeedParticipants
+WHERE nPostReferNo = 1
+	and nPostReferType = 1
+	and vcNeedParticipantsId IS NULL
+GROUP BY vcPosition
+ORDER BY vcPosition
+
+		SELECT *
+		FROM tbStudy s join tbMember m
+			on s.vcStudyMakerId = m.vcMemberId
+			join tbHit h
+			on s.iStudyNo = h.nPostReferNo
+		WHERE h.nPostReferType = 1
+			and s.iStudyNo = 1
+
+select *
+from tbStudy
+where iStudyNo = 1
+
+
+
+
+

@@ -29,7 +29,7 @@ public class StudyServiceImpl implements StudyService {
 
 	// 각 스터디 페이지 진입 시 필요 인원 정보 조회
 	@Override
-	public List<Map<String, Object>> getStudyNeedParticipants(int iStudyNo) {
-		return studyDao.getStudyNeedParticipants(iStudyNo);
+	public Map<String, Object> getStudyParticipants(int iStudyNo) {
+		return studyDao.getStudyParticipants(iStudyNo);
 	}
 }

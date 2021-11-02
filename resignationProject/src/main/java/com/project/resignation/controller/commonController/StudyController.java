@@ -23,11 +23,23 @@ public class StudyController {
 									Model model) throws Exception {
 	
 		// 각 Study 정보 조회
-		Map<String, Object> studyInfo = studyService.getEachStudyInfo(iStudyNo);
+		try {
+			Map<String, Object> studyInfo = studyService.getEachStudyInfo(iStudyNo);
+			model.addAttribute("studyInfo" , studyInfo);
+			System.out.println(studyInfo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		// Study 모집 인원 및 참여자 정보 조회
-		
-		
+		// 각 Study 필요 참가자 / 참가 희망자 정보 조회
+		try {
+			Map<String, Object> participantsInfo = studyService.getStudyParticipants(iStudyNo);
+			model.addAttribute("participantsInfo" , participantsInfo);
+			System.out.println(participantsInfo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		return "/navMenu/study/eachStudy";
 	}
 	
