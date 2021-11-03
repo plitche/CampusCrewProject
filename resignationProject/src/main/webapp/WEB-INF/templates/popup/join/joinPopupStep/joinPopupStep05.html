@@ -1,5 +1,8 @@
 <div class="joinPopup" id="joinPopupStep05" style="display: none;">
 	<div class="joinPopupBody5" style="width: 500px; height: 580px; border-radius: 35px;">
+		<button aria-label="닫기" id="previousBtn2">
+			<img alt="이전" src="http://localhost:9090/resignation/resources/img/popup/previous.png">
+		</button>
 		<div class="CDp Jea RDc Z2K gjz jar nt5 rDA zI7 iyn Hsu"
 			style="height: 16px; min-height: 16px;">
 			<div data-test-id="nux-toc-dot" class="BsF INd zI7 iyn Hsu DoneStep"></div>
@@ -13,12 +16,12 @@
 				<form id="joinStep5UpdateForm" method="post" enctype="multipart/form-data">
 					<div class="joinStep05Content">
 						<div class="joinStep05Title">관심사를 입력해주세요.</div>	
-						<img alt="관심사 추가" src="http://localhost:9090/resignation/resources/img/popup/plus.png"/>
+						<img alt="관심사 추가" id="plusBtn" src="http://localhost:9090/resignation/resources/img/popup/plus.png"/>
 						<input type="text" id="interest" name="interest" placeholder="관심사?"/>		
 					</div>
 					<div class="joinStep05Content">
 						<div class="joinStep05Title">간단한 자기소개해주세요.</div>	
-						<textarea cols="50" rows="10" ></textarea>	
+						<textarea cols="45" rows="7" style="padding:15px;" placeholder="최대 200자까지 작성가능합니다."></textarea>	
 					</div>
 				</form>
 				</div>

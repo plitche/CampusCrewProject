@@ -88,7 +88,8 @@
 	border-radius: 18px;
 	width:230px;
 	height:45px;	
-	padding:8px 16px;
+	padding-left: 18px;
+	font-size: 14px;
 }
 
 .pop-input::placeholder {color:#b6b6b6;}
@@ -102,7 +103,7 @@
 	border: 0px;
 	color:white;
 	font-weight: 600;
-	font-size:13px;
+	font-size:14px;
 }
 #naverJoin{
 	background: #03c75a;
@@ -113,7 +114,7 @@
 	border: 0px;
 	color:white;
 	font-weight: 400;
-	font-size:13px;
+	font-size:14px;
 }
 #kakaoJoin{
 	background: #f7e317;
@@ -124,7 +125,7 @@
 	border: 0px;
 	color:#381e1f;
 	font-weight: 400;
-	font-size:13px;
+	font-size:14px;
 }
 
 .popupInput3 {
@@ -332,21 +333,25 @@
 	margin: 0 34px;
 }
 
-.joinStep03Content > #age, .joinStep03Content > #mbti {
+.joinStep03Content > #age,
+.joinStep03Content > #mbti {
 	width:320px;
 	border-radius: 20px;
 	height:40px;
-	padding:15px;
+	padding-left:18px;
 	border: 1.5px solid lightgray;
+	font-size: 14px;
 }
 
 .joinStep03Content input[type=time] {
 	width:150px;
 	border-radius: 20px;
 	height:40px;
-	padding:15px;
+	padding-left:15px;
+	padding-right:15px;
 	border: 1.5px solid lightgray;
 	color: gray;
+	font-size: 14px;
 }
 
 /* 회원가입 STEP04 - 전화번호, 주소, 링크 입력 */
@@ -425,13 +430,26 @@
 }
 
 .joinStep04Content > #address,
+.joinStep04Content > #onandoff 
+{
+	margin: 0 10px;
+	width:155px;
+	border-radius: 20px;
+	height:40px;
+	padding-left:15px;
+	border: 1.5px solid lightgray;
+	font-size: 12px;
+	
+}
+
 .joinStep04Content > #link1,
 .joinStep04Content > #link2
 {
+	font-size: 14px;
 	width:320px;
 	border-radius: 20px;
 	height:40px;
-	padding:15px;
+	padding-left:15px;
 	border: 1.5px solid lightgray;
 }
 
@@ -483,13 +501,13 @@
 }
 
 .divInput5 {
-	margin-top:40px;
+	margin-top:35px;
 }
 
 .joinStep05NextBtn {
 	border-radius: 30px;
 	background: #0057ff;
-	width: 330px;
+	width: 390px;
 	height: 40px;
 	border:0px;
 	font-size: 14px;
@@ -510,6 +528,11 @@
 	font-weight:700;
 }
 
+#plusBtn {
+	width:30px;
+	height: 30px;
+	background-size: contain;
+}
 
 
 
