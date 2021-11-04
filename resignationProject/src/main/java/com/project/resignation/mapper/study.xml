@@ -30,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 각 스터디 페이지 진입시 필요 인원 정보 조회 -->
 	<select id="getStudyNeedPosition" parameterType="Integer" resultType="hashmap">
-		SELECT vcPosition, Count(*)
+		SELECT vcPosition, Count(*) as needCount
 		FROM tbNeedParticipants
 		WHERE nPostReferNo = #{iStudyNo}
 			and nPostReferType = 1
@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getEmptyStudyPosition" parameterType="Integer" resultType="hashMap">
-		SELECT vcPosition, Count(*)
+		SELECT vcPosition, Count(*) as applyCount
 		FROM tbNeedParticipants
 		WHERE nPostReferNo = #{iStudyNo}
 			and nPostReferType = 1

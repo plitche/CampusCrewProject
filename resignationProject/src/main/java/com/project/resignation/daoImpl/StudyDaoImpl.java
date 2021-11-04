@@ -36,12 +36,14 @@ public class StudyDaoImpl implements StudyDao {
 	@Override
 	public Map<String, Object> getEachStudyInfo(int iStudyNo) {
 		Map<String, Object> eachStudyInfo = sqlsession.selectOne("Study.getEachStudyInfo", iStudyNo);
-		System.out.println(eachStudyInfo);
+		
+		// todo 게시글 insert시 hit 0으로 insert 시키기
 		return eachStudyInfo;
 	}
 	
 	@Override
 	public Map<String, Object> getStudyParticipants(int iStudyNo) {
+		System.out.println(iStudyNo + "=======================");
 		Map<String, Object> returnMap = new HashMap<>();
 		
 		List<Map<String, Object>> needPosition = sqlsession.selectList("Study.getStudyNeedPosition", iStudyNo);
@@ -51,11 +53,9 @@ public class StudyDaoImpl implements StudyDao {
 			// todo 에러 띄우기
 		}
 		
+		// todo emptyPosition null 일때 처리
 		returnMap.put("needPosition", needPosition);
 		returnMap.put("emptyPosition", emptyPosition);
-		
-		System.out.println(needPosition.get(0));
-		System.out.println(emptyPosition.get(0));
 		
 		return returnMap;
 	}
