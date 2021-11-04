@@ -88,7 +88,7 @@
 	border-radius: 18px;
 	width:230px;
 	height:45px;	
-	padding-left: 18px;
+	padding-left: 22px;
 	font-size: 14px;
 }
 
@@ -338,7 +338,7 @@
 	width:320px;
 	border-radius: 20px;
 	height:40px;
-	padding-left:18px;
+	padding-left:22px;
 	border: 1.5px solid lightgray;
 	font-size: 14px;
 }
@@ -347,7 +347,7 @@
 	width:150px;
 	border-radius: 20px;
 	height:40px;
-	padding-left:15px;
+	padding-left:22px;
 	padding-right:15px;
 	border: 1.5px solid lightgray;
 	color: gray;
@@ -429,17 +429,21 @@
 	font-weight:700;
 }
 
-.joinStep04Content > #address,
-.joinStep04Content > #onandoff 
+.joinStep04Content > #address
 {
-	margin: 0 10px;
-	width:155px;
+	width:320px;
 	border-radius: 20px;
 	height:40px;
-	padding-left:15px;
+	padding-left:22px;
 	border: 1.5px solid lightgray;
 	font-size: 12px;
-	
+	-webkit-appearance:none; /* 화살표 없애기 for chrome*/
+	-moz-appearance:none; /* 화살표 없애기 for firefox*/
+	appearance:none; /* 화살표 없애기 공통*/
+	background-position: 93%;
+    background-size: 10px 5px;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNSA1LjI1bC01LTVoMTBsLTUgNXoiIGZpbGw9IiM0MjQ5NUIiLz48L3N2Zz4=);;
+    background-repeat: no-repeat;
 }
 
 .joinStep04Content > #link1,
@@ -449,7 +453,7 @@
 	width:320px;
 	border-radius: 20px;
 	height:40px;
-	padding-left:15px;
+	padding-left:22px;
 	border: 1.5px solid lightgray;
 }
 
@@ -534,6 +538,38 @@
 	background-size: contain;
 }
 
+.joinStep05Content > #interest {
+	width:385px;
+	border-radius: 20px;
+	height:40px;
+	padding-left:22px;
+	border: 1.5px solid lightgray;
+	font-size: 12px;
+}
+
+.joinStep05Content > #introduce {
+	border-radius: 20px;
+	border: 1.5px solid lightgray;
+}
+
+.tags-input {
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	min-height: 48px;
+	width: 385px;
+	padding: 0 8px;
+	border: 1px solid #d6d8da;
+	border-radius: 6px;
+}
+
+.tags-input > .tagInput {
+	max-width: 100%!important;
+    width: 100%!important;
+    padding: 13px 0!important;
+    border: none!important;
+    height: 50px!important;
+}
 
 
 

@@ -232,6 +232,8 @@ $(function() {
 						return;
 					}
 					
+					alert(address);
+					
 					if (address == '') {
 						alert('~동까지만 거주하는 위치를 입력해주세요.');
 						return;

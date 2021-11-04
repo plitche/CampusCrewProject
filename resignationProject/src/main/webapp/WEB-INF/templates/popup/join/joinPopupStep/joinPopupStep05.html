@@ -15,13 +15,17 @@
 				<div class="joinStep05Info">
 				<form id="joinStep5UpdateForm" method="post" enctype="multipart/form-data">
 					<div class="joinStep05Content">
-						<div class="joinStep05Title">관심사를 입력해주세요.</div>	
-						<img alt="관심사 추가" id="plusBtn" src="http://localhost:9090/resignation/resources/img/popup/plus.png"/>
-						<input type="text" id="interest" name="interest" placeholder="관심사?"/>		
-					</div>
+						<div class="joinStep05Title">관심사를 입력해주세요.</div>
+							<div class="rightWrap">
+								<div class="tags-input">
+									<ul id="tags"></ul>
+									<input type="text" class="tagInput" placeholder="태그는 최대 5개 가능합니다" maxlength="15" value="">
+								</div>
+							</div>
+						</div>
 					<div class="joinStep05Content">
 						<div class="joinStep05Title">간단한 자기소개해주세요.</div>	
-						<textarea cols="45" rows="7" style="padding:15px;" placeholder="최대 200자까지 작성가능합니다."></textarea>	
+						<textarea id ="introduce" cols="45" rows="7" style="padding:15px;" placeholder="최대 200자까지 작성가능합니다."></textarea>	
 					</div>
 				</form>
 				</div>
