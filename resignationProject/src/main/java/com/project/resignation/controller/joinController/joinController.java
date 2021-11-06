@@ -20,6 +20,7 @@ import com.project.resignation.vo.attachmentVO.AttachmentVO;
 import com.project.resignation.vo.joinStepVO.JoinStep01VO;
 import com.project.resignation.vo.joinStepVO.JoinStep03VO;
 import com.project.resignation.vo.joinStepVO.JoinStep04VO;
+import com.project.resignation.vo.joinStepVO.JoinStep05VO;
 
 @Controller
 @RequestMapping(value="/join")
@@ -170,7 +171,34 @@ public class joinController {
 	}
 	
 	
-	
+	@RequestMapping(value="/step05",
+			  method=RequestMethod.POST,
+			  produces="application/json; charset=UTF-8")
+	@ResponseBody
+	public Map<String, Object> joinStep05(@RequestBody JoinStep05VO joinStep05VO, Model model) throws Exception {
+		
+		Map<String, Object> joinStep5ResultData = new HashMap<String, Object>();
+		
+		int insertResult3Interest = joinService.insertInterestTag(joinStep05VO);
+		
+		if (insertResult3Interest > 0) {
+			int updateResult3Introduce = joinService.updateIntroduce(joinStep05VO);
+			if (updateResult3Introduce > 0) {
+				joinStep5ResultData.put("success", "Y");
+			} else {
+				joinStep5ResultData.put("success", "N");
+				System.out.println("소개 삽입실패");
+			}
+			
+		} else {
+			joinStep5ResultData.put("success", "N");
+			System.out.println("흥미분야 삽입실패");
+		}
+		
+		
+		
+		return joinStep5ResultData;
+	}
 	
 	
 	

@@ -232,7 +232,6 @@ $(function() {
 						return;
 					}
 					
-					alert(address);
 					
 					if (address == '') {
 						alert('~동까지만 거주하는 위치를 입력해주세요.');
@@ -282,7 +281,94 @@ $(function() {
 					joinStep("04");
 				});
 				
+				var tagCount = 0;
+				// ID를 가진 input를 가지고 있는 곳에서 키를 누를경우
+				$('.tagInput').off('keydown').on('keydown', function(key) {
+					// enter 키를 눌렀다면
+					if (key.keyCode == 13) {
+						
+						tagCount++;
+						
+						//tagCount = $('#tags > li').length + 1; // enter 누를때마다 tag 개수 파악한다.
+						//console.log(tagCount);
+						$('#tags').append('<li class="tag' +tagCount +'"></li>');
+						$('.tag' + tagCount).append('<span class="tag-title">' + $('.tagInput').val() + '</span>');
+						$('.tag' + tagCount).append('<span class="tag-close-icon">X</span>')
+						$('.tagInput').val('');
+						// 만약 태그의 갯수가 5개이면 입력창을 삭제시켜 입력하지 못하게 한다.
+						if ($('#tags > li').length == 5) {
+							$('.tagInput').hide();
+						} 
+					}
+				});
+				
+				
+				$(document).on('click', '.tag-close-icon', function(){
+					$(this).parent('li').remove();
+					if ($('#tags > li').length != 5) {
+						$('.tagInput').show();
+					} 
+				});
+				
+				// 완료 버튼 클릭 시 데이터를 보내 저장한
+				$('.joinStep05NextBtn').off('click').on('click', function() {
+					
+					// 관심태그 정보를 담는다
+					var tagArray = new Array();
+					var tagLength = $('#tags > li').length;
+					for (var i = 0; i < tagLength; i++) {
+						tagArray.push($('#tags > li > .tag-title').eq(i).text());
+					}
+					
+					console.log(tagArray);
+					console.log(tagArray[0]);
+					console.log(tagArray[1]);
+					console.log(tagArray[2]);
+					console.log(tagArray[3]);
+					console.log(tagArray[4]);
+					
+					var introduce = $('#introduce').val();
+					console.log(introduce);
+					var email = util.step01.info;
+					
+					var sendObj = {
+						"email":email,
+						"introduce":introduce,
+						"field1":tagArray[0] == undefined ? "" : tagArray[0],
+						"field2":tagArray[1] == undefined ? "" : tagArray[1],
+						"field3":tagArray[2] == undefined ? "" : tagArray[2],
+						"field4":tagArray[3] == undefined ? "" : tagArray[3],
+						"field5":tagArray[4] == undefined ? "" : tagArray[4]
+					};
+					
+					
+					console.log(sendObj);
+					
+					$.ajax({
+						url :  "/resignation/join/step05"
+						, type : 'post'
+						, contentType : 'application/json; charset=UTF-8'
+						, dataType : 'json'
+						, data : JSON.stringify(sendObj)
+						, success : function(data) {
+							if (data.success == 'Y') {
+								alert('사표처리가 완료되었습니다. 파트너를 만나보세요!')
+								$('.joinPopup').hide();
+							} else {
+								alert('실패하였습니다.')
+							}
+						}
+						, fail : function(failResult) {
+							
+						}
+					
+					});
+					
+				});
+				
+				
 			}
+			
 		}
 		
 	};

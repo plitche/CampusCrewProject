@@ -89,7 +89,7 @@
 	width:230px;
 	height:45px;	
 	padding-left: 22px;
-	font-size: 14px;
+	font-size: 12px;
 }
 
 .pop-input::placeholder {color:#b6b6b6;}
@@ -103,7 +103,7 @@
 	border: 0px;
 	color:white;
 	font-weight: 600;
-	font-size:14px;
+	font-size:12px;
 }
 #naverJoin{
 	background: #03c75a;
@@ -114,7 +114,7 @@
 	border: 0px;
 	color:white;
 	font-weight: 400;
-	font-size:14px;
+	font-size:12px;
 }
 #kakaoJoin{
 	background: #f7e317;
@@ -125,7 +125,7 @@
 	border: 0px;
 	color:#381e1f;
 	font-weight: 400;
-	font-size:14px;
+	font-size:12px;
 }
 
 .popupInput3 {
@@ -248,7 +248,7 @@
 	width: 330px;
 	height: 40px;
 	border:0px;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 600;
 	color: white;
 }
@@ -303,7 +303,7 @@
 	width: 330px;
 	height: 40px;
 	border:0px;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 600;
 	color: white;
 }
@@ -340,7 +340,7 @@
 	height:40px;
 	padding-left:22px;
 	border: 1.5px solid lightgray;
-	font-size: 14px;
+	font-size: 12px;
 }
 
 .joinStep03Content input[type=time] {
@@ -351,7 +351,7 @@
 	padding-right:15px;
 	border: 1.5px solid lightgray;
 	color: gray;
-	font-size: 14px;
+	font-size: 12px;
 }
 
 /* 회원가입 STEP04 - 전화번호, 주소, 링크 입력 */
@@ -411,7 +411,7 @@
 	width: 330px;
 	height: 40px;
 	border:0px;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 600;
 	color: white;
 }
@@ -449,7 +449,7 @@
 .joinStep04Content > #link1,
 .joinStep04Content > #link2
 {
-	font-size: 14px;
+	font-size: 12px;
 	width:320px;
 	border-radius: 20px;
 	height:40px;
@@ -463,7 +463,7 @@
 	top: 50%;
 	left: 50%;
 	width: 500px;
-	height: 550px;
+	height: auto;
 	padding: 30px;
 	border-radius: 5px;
 	text-align: center;
@@ -549,28 +549,69 @@
 
 .joinStep05Content > #introduce {
 	border-radius: 20px;
-	border: 1.5px solid lightgray;
+	border: 1px solid #d6d8da;
+	font-size: 12px;
+	width:350px;
+}
+
+.rightWrap {
+	text-align: -webkit-center;
 }
 
 .tags-input {
-	display: flex;
 	align-items: flex-start;
 	flex-wrap: wrap;
-	min-height: 48px;
-	width: 385px;
+	height: auto;
+	min-height:40px;
+	width: 350px;
 	padding: 0 8px;
 	border: 1px solid #d6d8da;
 	border-radius: 6px;
+	margin: 0 30px;
+	margin-bottom: 7px;
+}
+
+#tags {
+	-webkit-flex-wrap: wrap;
+	display:flex;
+}
+
+.tags-input {
+	display:flex;
 }
 
 .tags-input > .tagInput {
 	max-width: 100%!important;
     width: 100%!important;
-    padding: 13px 0!important;
+    /*padding: 13px 0!important;*/
     border: none!important;
-    height: 50px!important;
+    height: 36px!important;
+    font-size: 12px;
 }
 
+#tags > li {
+    padding: 4px 12px;
+    font-size: 12px;
+    margin: 0 8px 8px 0;
+    border-radius: 12px;
+    border: 1px solid #0057ff;
+}
+
+.tag-title {
+	color: #0057ff;
+}
+
+.tag-close-icon {
+    margin-left: 8px;
+    color: #0057ff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.tagContent {
+	width: 350px;
+    margin-left: 45px;
+}
 
 
 

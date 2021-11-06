@@ -90,5 +90,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 	</insert>
 	
+	<insert id="insertInterestTag" parameterType="com.project.resignation.vo.joinStepVO.JoinStep05VO">
+		INSERT INTO
+		tbInterestField
+		(
+		vcInterestId,
+		vcField1,
+		vcField2,
+		vcField3,
+		vcField4,
+		vcField5
+		)
+		VALUES
+		(
+		#{email},
+		#{field1},
+		#{field2},
+		#{field3},
+		#{field4},
+		#{field5}
+		)
+	</insert>
+	
+	<update id="updateIntroduce" parameterType="com.project.resignation.vo.joinStepVO.JoinStep05VO">
+		UPDATE tbMember
+		SET
+		vcMemberIntroduce = #{introduce}
+		WHERE vcMemberId = #{email}
+	</update>
+	
 
 </mapper>

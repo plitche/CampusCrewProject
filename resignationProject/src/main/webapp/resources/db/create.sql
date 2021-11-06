@@ -210,8 +210,7 @@ CREATE TABLE tbInterestField (
 	vcField2						VARCHAR(30)			NULL,
 	vcField3						VARCHAR(30)			NULL,
 	vcField4						VARCHAR(30)			NULL,
-	vcField5						VARCHAR(30)			NULL,
-	vcField6						VARCHAR(30)			NULL
+	vcField5						VARCHAR(30)			NULL
 );
 
 -- 프로젝트/스터디 찜리스트

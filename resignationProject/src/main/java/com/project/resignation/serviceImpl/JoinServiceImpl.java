@@ -9,6 +9,7 @@ import com.project.resignation.vo.attachmentVO.AttachmentVO;
 import com.project.resignation.vo.joinStepVO.JoinStep01VO;
 import com.project.resignation.vo.joinStepVO.JoinStep03VO;
 import com.project.resignation.vo.joinStepVO.JoinStep04VO;
+import com.project.resignation.vo.joinStepVO.JoinStep05VO;
 
 @Service
 public class JoinServiceImpl implements JoinService{
@@ -39,6 +40,16 @@ public class JoinServiceImpl implements JoinService{
 	@Override
 	public int insertMyProfile(AttachmentVO attachmentVO) {
 		return joinDao.insertMyProfile(attachmentVO);
+	}
+	
+	@Override
+	public int insertInterestTag(JoinStep05VO joinStep05VO) {
+		return joinDao.insertInterestTag(joinStep05VO);
+	}
+	
+	@Override
+	public int updateIntroduce(JoinStep05VO joinStep05VO) {
+		return joinDao.updateIntroduce(joinStep05VO);
 	}
 	
 	

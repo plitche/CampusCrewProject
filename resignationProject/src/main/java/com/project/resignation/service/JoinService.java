@@ -4,6 +4,7 @@ import com.project.resignation.vo.attachmentVO.AttachmentVO;
 import com.project.resignation.vo.joinStepVO.JoinStep01VO;
 import com.project.resignation.vo.joinStepVO.JoinStep03VO;
 import com.project.resignation.vo.joinStepVO.JoinStep04VO;
+import com.project.resignation.vo.joinStepVO.JoinStep05VO;
 
 public interface JoinService {
 	
@@ -21,4 +22,10 @@ public interface JoinService {
 	
 	// 회원가입 Step04 프로필사진 삽입
 	public int insertMyProfile(AttachmentVO attachmentVO);
+	
+	// 회원가입 Step05 업데이트01 - 흥미분야,관심태그
+	public int insertInterestTag(JoinStep05VO joinStep05VO);
+	
+	// 회원가입 Step05 업데이트02 - 소개
+	public int updateIntroduce(JoinStep05VO joinStep05VO);
 }

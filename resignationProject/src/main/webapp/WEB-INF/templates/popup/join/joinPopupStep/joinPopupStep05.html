@@ -1,5 +1,5 @@
 <div class="joinPopup" id="joinPopupStep05" style="display: none;">
-	<div class="joinPopupBody5" style="width: 500px; height: 580px; border-radius: 35px;">
+	<div class="joinPopupBody5" style="width: 500px; border-radius: 35px;">
 		<button aria-label="닫기" id="previousBtn2">
 			<img alt="이전" src="http://localhost:9090/resignation/resources/img/popup/previous.png">
 		</button>
@@ -13,14 +13,18 @@
 		<div id="popContent5">
 			<div class="joinStep05Info">
 				<div class="joinStep05Info">
-				<form id="joinStep5UpdateForm" method="post" enctype="multipart/form-data">
+				<form id="joinStep5UpdateForm" method="post">
 					<div class="joinStep05Content">
-						<div class="joinStep05Title">관심사를 입력해주세요.</div>
+						<div class="joinStep05Title">관심태그를 입력해주세요.</div>
 							<div class="rightWrap">
 								<div class="tags-input">
-									<ul id="tags"></ul>
+									<input type="text" style="display:none;"/>
 									<input type="text" class="tagInput" placeholder="태그는 최대 5개 가능합니다" maxlength="15" value="">
 								</div>
+							</div>
+							<div class="tagContent">
+								<ul id="tags">
+								</ul>
 							</div>
 						</div>
 					<div class="joinStep05Content">
@@ -40,3 +44,7 @@
 		</div>
 	</div>
 </div>
+
+<script>
+
+</script>

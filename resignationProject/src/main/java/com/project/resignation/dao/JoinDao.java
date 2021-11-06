@@ -4,6 +4,7 @@ import com.project.resignation.vo.attachmentVO.AttachmentVO;
 import com.project.resignation.vo.joinStepVO.JoinStep01VO;
 import com.project.resignation.vo.joinStepVO.JoinStep03VO;
 import com.project.resignation.vo.joinStepVO.JoinStep04VO;
+import com.project.resignation.vo.joinStepVO.JoinStep05VO;
 
 public interface JoinDao {
 	
@@ -16,4 +17,9 @@ public interface JoinDao {
 	public int joinStep04UpdateInfo(JoinStep04VO joinStep04VO);
 	
 	public int insertMyProfile(AttachmentVO attachmentVO);
+	
+	public int insertInterestTag(JoinStep05VO joinStep05VO);
+	
+	public int updateIntroduce(JoinStep05VO joinStep05VO);
+	
 }
