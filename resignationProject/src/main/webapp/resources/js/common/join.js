@@ -2,9 +2,8 @@
  *  회원가입을 위한 js - 회원가입은 팝업 단계형태의 프로세스로 진행
  */
 
-$(function() {
 	
-	var changeDiv = function(openStep) {
+	var joinChangeDiv = function(openStep) {
 		$(".joinPopup").css('display', 'none');
 		
 		$('#joinPopupStep' + openStep).show();
@@ -16,32 +15,32 @@ $(function() {
 		
 		// 회원가입 1단계 - 연동로그인 및 간단정보 입력
 		case "01": 
-			changeDiv(number);
-			util.step01.init();
+			joinChangeDiv(number);
+			joinUtil.step01.init();
 			break;
 			
 		// 회원가입 2단계 - 필요정보동의 설명 
 		case "02":
-			changeDiv(number);
-			util.step02.init();
+			joinChangeDiv(number);
+			joinUtil.step02.init();
 			break;
 			
 		// 회원가입 3단계 - 성별, 나이, MBTI, 하루 중 여유가 되는 시간 입력
 		case "03":
-			changeDiv(number);
-			util.step03.init();
+			joinChangeDiv(number);
+			joinUtil.step03.init();
 			break;
 			
 		// 회원가입 4단계 - 전화번호, 주소, 링크 입력
 		case "04":
-			changeDiv(number);
-			util.step04.init();
+			joinChangeDiv(number);
+			joinUtil.step04.init();
 			break;
 			
 		// 회원가입 5단계 - 관심사
 		case "05":
-			changeDiv(number);
-			util.step05.init();
+			joinChangeDiv(number);
+			joinUtil.step05.init();
 			break;
 		}
 		
@@ -54,7 +53,7 @@ $(function() {
 	
 	
 	
-	var util = {
+	var joinUtil = {
 			
 		// 회원가입 1단계 - 연동로그인 및 간단정보 입력
 		step01 : {
@@ -62,13 +61,35 @@ $(function() {
 			info : new Object()
 			, init : function() {
 				
-				util.step01.event();
+				joinUtil.step01.event();
 				
 			}
 			, event : function() {
 				
+				$('#naverJoin').off('click').on('click', function() {
+					location.href = "https://nid.naver.com/oauth2.0/authorize?response_type=code&amp;svctype=0&amp;redirect_uri=https%3A%2F%2Fsideproject.co.kr%2Foauth&amp;client_id=N6RnBkbkpWeXFM90j_dk&amp;state=Lw%253D%253D%7Cnaver%7CN%7C%7C";
+				});
+				
+				$('#kakaoJoin').off('click').on('click', function() {
+					location.href="https://kauth.kakao.com/oauth/authorize?response_type=code&amp;encode_state=0&amp;redirect_uri=https%3A%2F%2Fsideproject.co.kr%2Foauth&amp;client_id=4522dff1bb2cfbd6ffd857aecca54928&amp;state=Lw%253D%253D%7Ckakao%7CN%7C%7C";
+				});
+				
 				$('#closeBtn').on('click', function() {
 					$('.joinPopup').hide();
+				});
+				
+				var now = new Date();
+				var year = now.getFullYear();
+				var month = now.getMonth();
+				var date = now.getDate();
+				
+				$('#joinYear').text(year);
+				$('#joinMonth').text(month);
+				$('#joinDay').text(date);
+				
+				$(document).on('click', '#alreadyJoin', function() {
+					$('.joinPopup').hide();
+					loginStep("01");
 				});
 				
 				$('#joinStep01NextBtn').off('click').on('click', function() {
@@ -97,7 +118,7 @@ $(function() {
 					}
 					
 					// 전역변수로 사용한다.
-					util.step01.info = email;
+					joinUtil.step01.info = email;
 					
 					var sendObj = {
 							"email":email
@@ -136,10 +157,10 @@ $(function() {
 		step02 : {
 			
 			init : function() {
-				util.step02.event();
+				joinUtil.step02.event();
 			}
 			, event : function() {
-				$('#joinEmailInfo').text(util.step01.info);
+				$('#joinEmailInfo').text(joinUtil.step01.info);
 				
 				$('.joinStep02NextBtn').off('click').on('click', function() {
 					joinStep('03');
@@ -155,13 +176,13 @@ $(function() {
 		step03 : {
 			
 			init : function() {
-				util.step03.event();
+				joinUtil.step03.event();
 			}
 			, event : function() {
 				
 				$('.joinStep03NextBtn').off('click').on('click', function() {
 					
-					var email = util.step01.info;
+					var email = joinUtil.step01.info;
 					var age = $('#age').val();
 					var mbti = $('#mbti').val().toUpperCase(); // 대문자로 변경해서 데이터를 넘긴다.
 					var possibleTime1 = $('#possibleTime1').val();
@@ -211,7 +232,7 @@ $(function() {
 		step04 : {
 			
 			init : function() {
-				util.step04.event();
+				joinUtil.step04.event();
 			}
 			, event : function() {
 				
@@ -222,7 +243,7 @@ $(function() {
 				$('.joinStep04NextBtn').off('click').on('click', function() {
 					
 					var myprofile = $("#myprofile")[0];
-					var email = util.step01.info;
+					var email = joinUtil.step01.info;
 					var address = $('#address').val();
 					var link1 = $('#link1').val();
 					var link2 = $('#link2').val();
@@ -273,7 +294,7 @@ $(function() {
 		},
 		step05 : {
 			init : function() {
-				util.step05.event();
+				joinUtil.step05.event();
 			}
 			, event : function() {
 				
@@ -329,7 +350,7 @@ $(function() {
 					
 					var introduce = $('#introduce').val();
 					console.log(introduce);
-					var email = util.step01.info;
+					var email = joinUtil.step01.info;
 					
 					var sendObj = {
 						"email":email,
@@ -374,4 +395,3 @@ $(function() {
 	};
 	
 	
-});

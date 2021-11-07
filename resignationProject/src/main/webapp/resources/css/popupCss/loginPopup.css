@@ -1,0 +1,163 @@
+@charset "UTF-8";
+
+/* 로그인 STEP01 - 연동로그인 및 로그인 */
+.loginPopup {
+	position: absolute;
+	top: 0; 
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	z-index: 9999;
+}
+
+.loginPopupBody {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 370px;
+	height: 620px;
+	padding: 12px;
+	border-radius: 5px;
+	text-align: center;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0 4px 5px 0 rgba(34, 36, 38, 0.3);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+#closeBtn_login {
+	padding:0;
+	border: 0px;
+	border-radius:30px;
+	width:35px;
+	height: 35px;
+	float:right;
+	background:0;
+}
+
+#closeBtn_login > #hover_circle {
+	width:35px;
+	height: 35px;
+	border-radius: 30px;
+	background: #eeeef2;
+}
+
+#closeBtn_login > img {
+	width:15px;
+	height: 15px;
+	background-size: contain;
+}
+
+#popContentLogin {
+	margin-top: 50px;
+}
+
+.popupLogo {
+	display: block;
+    height: 45px;
+    margin: 5px auto 8px;
+    width: 45px;
+}
+
+.popupTitle {
+	margin-top:20px;
+	color: rgb(51, 51, 51);
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -1.2px;
+    padding-left: 16px;
+    padding-right: 16px;
+    -webkit-font-smoothing: antialiased;
+    word-break: break-word;
+}
+
+.divInput {
+	margin-top:45px;
+}
+
+.popupInput_login {
+	margin-top:8px;
+}
+
+.popupInput2 {
+	margin:15px 0px;
+}
+
+.pop-input-login {
+	border:1.5px solid #e5e5e5;
+	border-radius: 18px;
+	width:230px;
+	height:40px;	
+	padding-left: 22px;
+	font-size: 12px;
+}
+
+.pop-input-login::placeholder {color:#b6b6b6;}
+
+#loginStep01NextBtn {
+	background: #0057ff;
+	width: 230px;
+	height:40px;
+	padding:5px 16px;
+	border-radius: 30px;
+	border: 0px;
+	color:white;
+	font-weight: 500;
+	font-size:12px;
+}
+#naverLogin{
+	background-color: #27d34a !important;
+    border-color: #27d34a !important;
+    background-image: url(https://vendor-cdn.imweb.me/images/naver_login2x.png);
+    background-size: 13px;
+    background-position: 18px 50%;
+    background-repeat: no-repeat;
+	width: 230px;
+	height:40px;
+	padding:5px 16px;
+	border-radius: 30px;
+	border: 0px;
+	color:white;
+	font-weight: 500;
+	font-size:12px;
+}
+#kakaoLogin{
+	background-color: #FFEB00 !important;
+    background-image: url(https://vendor-cdn.imweb.me/images/kakao_icon.png);
+    background-size: 16px;
+    background-position: 16px 50%;
+    background-repeat: no-repeat;
+    color: #3c1e1e !important;
+	width: 230px;
+	height:40px;
+	padding:5px 16px;
+	border-radius: 30px;
+	border: 0px;
+	font-weight: 500;
+	font-size:12px;
+}
+/*
+.popupInput3 {
+	margin-top: 25px;
+	width:250px;
+	margin:20px auto 0px;
+	height:auto;
+}
+*/
+.popupInput4 {
+	margin-top: 10px;
+	width:250px;
+	margin:20px auto 0px;
+	height:auto;
+}
+/*
+#agreeContent{
+	font-size: 8px;
+	color:#cacaca;
+}
+*/
+#goJoin{
+	font-size: 10px;
+	font-weight: 600;
+	color:#5a5a5a;
+}

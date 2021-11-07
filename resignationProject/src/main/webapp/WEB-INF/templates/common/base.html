@@ -28,6 +28,7 @@
 	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/common/common.css" >
 	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/common/index.css" >
 	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/popupCss/joinPopup.css">
+	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/popupCss/loginPopup.css">
 	<!--  공통 js  -->
 	<script type="text/javascript" charset="utf-8" src="http://localhost:9090/resignation/resources/js/common/main.js" ></script>
 </head>
@@ -73,12 +74,21 @@
 			</div>
 			<div class="util">
 		      <ul class="group">
+		      
+		      {% if user is empty %}
 		        <li class="login"><a href="javascript:;">로그인</a></li>
-		  		<li class="join"><a href="javascript:;">회원가입</a></li>
+		  		<li class="join"><a href="javascript:;">사표쓰기</a></li>
+		  	  {% else %}
+		        <li class="login"><a href="javascript:;">로그인</a></li>
+		  		<li class="join"><a href="javascript:;">사표쓰기</a></li>
+		  	  {% endif %}
+		  	  
 		      </ul>
 			</div>
 		</div>
 	</div>
+	{# 로그인을 위한 PopupStep #}
+	{% include "popup/login/loginPopupStepInit" %}
 	{# 회원가입을 위한 PopupStep #}
 	{% include "popup/join/joinPopupStepInit" %}
 	{% endblock %}
@@ -111,16 +121,14 @@
 	{% endblock %}
 	</div>
 </body>
-</html>
 
-{% block script %}
 
 <script>
 
-	$(function() {
-	
-	});
+		
 
 </script>
 
-{% endblock %}
+
+
+</html>

@@ -1,7 +1,5 @@
 package com.project.resignation.vo.joinStepVO;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

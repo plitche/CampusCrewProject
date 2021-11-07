@@ -2,13 +2,12 @@
 	<div class="joinPopupBody">
 		<div style="width:370px; height:1px; background: lightgray;; position: absolute; left: 50%; transform: translateX(-50%); margin-top:45px;"></div>
 		<button aria-label="닫기" id="closeBtn">
-			<img src="http://localhost:9090/resignation/resources/img/popup/close.png">
+			<img src="http://localhost:9090/resignation/resources/img/popup/x.png">
 		</button>
 		<div class="popupLogo" style="width:40px; height: 40px;"></div>
 		<div id="popContent">
 			<div style="margin: 0px auto 15px; text-align: center;">
 				<h3 class="popupTitle">사   표</h3>
-				<div style="color:#414661; font-size:12px;">사표 제출을 원하시면 입력해주세요.</div>
 			</div>
 			<div class="divInput">
 			<form id="frm">
@@ -35,7 +34,13 @@
 					<button id="kakaoJoin">카카오로 사표쓰기</button>
 				</div>
 				<div class="popupInput3">
-					<div id="agreeContent">사표를 계속 쓰러간다면 서비스약관에 동의하고 개인정보보호정책을 읽었음을 인정하는 것으로 간주합니다.</div>
+					<div id="agreeContent">
+						상기 본인은 위의 양식을 작성함으로써
+						<span id="joinYear"></span>년&nbsp;
+						<span id="joinMonth"></span>월&nbsp;
+						<span id="joinDay"></span>일
+						부로 사직하고자 하오니 새로운 인생을 응원합니다.
+					</div>
 				</div>
 				<div class="popupInput4">
 					<div id="alreadyJoin">이미 사표를 쓰셨나요? 로그인하기</div>
@@ -44,3 +49,4 @@
 		</div>
 	</div>
 </div>
+

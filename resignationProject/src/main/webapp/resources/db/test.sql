@@ -8,6 +8,8 @@ delete from tbMember;
 
 delete from tbAttachment;
 
+select * from tbInterestField;
+
 
 
 
