@@ -38,12 +38,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY vcPosition
 	</select>
 	
-	<select id="getEmptyStudyPosition" parameterType="Integer" resultType="hashMap">
+	<select id="getApplyStudyPosition" parameterType="Integer" resultType="hashMap">
 		SELECT vcPosition, Count(*) as applyCount
 		FROM tbNeedParticipants
 		WHERE nPostReferNo = #{iStudyNo}
 			and nPostReferType = 1
-			and vcNeedParticipantsId IS NULL
+			and vcNeedParticipantsId IS NOT NULL
 		GROUP BY vcPosition
 		ORDER BY vcPosition
 	</select>

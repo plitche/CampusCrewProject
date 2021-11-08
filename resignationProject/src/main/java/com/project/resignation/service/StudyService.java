@@ -9,8 +9,8 @@ public interface StudyService {
 	public List<Map<String, Object>> goStudyMain();
 	
 	// 각 스터디 페이지 진입시 정보 조회
-	public Map<String, Object> getEachStudyInfo(int iStudyNo);
+	public Map<String, Object> getEachStudyInfo(int iStudyNo) throws Exception;
 	
 	// 각 스터디 페이지 진입 시 필요 인원 정보 조회
-	public Map<String, Object> getStudyParticipants(int iStudyNo);
+	public List<Map<String, Object>> getStudyParticipants(int iStudyNo);
 }

@@ -1,5 +1,6 @@
 package com.project.resignation.controller.commonController;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,16 +27,14 @@ public class StudyController {
 		try {
 			Map<String, Object> studyInfo = studyService.getEachStudyInfo(iStudyNo);
 			model.addAttribute("studyInfo" , studyInfo);
-			System.out.println(studyInfo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		// 각 Study 필요 참가자 / 참가 희망자 정보 조회
 		try {
-			Map<String, Object> participantsInfo = studyService.getStudyParticipants(iStudyNo);
-			model.addAttribute("participantsInfo" , participantsInfo);
-			System.out.println(participantsInfo);
+			List<Map<String, Object>> participantsInfoList = studyService.getStudyParticipants(iStudyNo);
+			model.addAttribute("participantsInfoList" , participantsInfoList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
