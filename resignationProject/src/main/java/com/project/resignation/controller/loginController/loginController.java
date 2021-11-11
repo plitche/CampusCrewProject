@@ -24,7 +24,7 @@ public class loginController {
 	LoginService loginService;
 	
 	// 이메일 비밀번호 입력 받은 후 존재하는지 체크 한 후 로그인
-	@RequestMapping(value="step01"
+	@RequestMapping(value="/step01"
 							   , method=RequestMethod.POST
 							   , produces="application/json; charset=UTF-8")
 	@ResponseBody
@@ -33,6 +33,23 @@ public class loginController {
 												  , HttpSession session) throws Exception {
 		
 		Map<String, Object> loginResultData = new HashMap<String, Object>();
+		
+		// 로그인 정보와 같은 정보가 있는지 확인한다.
+		LoginStep01VO loginCheckResult = loginService.loginInfoCheck(loginStep01VO);
+		
+		// 같은 정보가 있다면
+		if (loginCheckResult != null) {
+			// 로그인 결과는 성공이다.
+			session.setAttribute("loginUser", loginCheckResult);
+			loginResultData.put("success", "Y");
+			loginResultData.put("User", loginCheckResult);
+		// 같은 정보가 없다면
+		} else {
+			// 로그인 할 수 없는 정보이니 로그인 실패이다.
+			loginResultData.put("success", "N");
+		}
+		
+		
 		
 		return loginResultData;
 		

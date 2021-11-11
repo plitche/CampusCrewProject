@@ -137,7 +137,7 @@
 								// 첫번재 사표수리 완료되면 Step02이동해야한다.
 								joinStep("02");
 							} else if (data.success == "N"){
-								alert("이미 사표수리한 정보입니다.");
+								alert("이미 존재하는 사표수리자 정보입니다..");
 								$('#closeBtn').trigger('click');
 							} else if (data.success == "F") {
 								alert("사표수리 실패");

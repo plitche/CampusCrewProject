@@ -102,7 +102,16 @@
 						, dataType : 'json'
 						, data : JSON.stringify(sendObj)
 						, success : function(data) {
-							
+							// 로그인이 성공했을 시
+							if (data.success == "Y") {
+								alert('로그인되었습니다.');
+								console.log(data.User.loginuser);
+								// 로그인 성공 시 탭을 변경한다.
+								
+							// 로그인 할 수 없는 정보일때
+							} else {
+								alert('로그인정보가 없습니다.');
+							}
 						}
 						, fail : function(failResult) {
 							

@@ -5,11 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="Login">
 
-
-
-
-
-
-
+	<select id="loginInfoCheck" resultType="com.project.resignation.vo.loginStepVO.LoginStep01VO" parameterType="com.project.resignation.vo.loginStepVO.LoginStep01VO">
+		SELECT *
+		FROM tbMember
+		WHERE vcMemberId = #{email}
+		AND vcMemberPw = #{pw}
+	</select>
 
 </mapper>
