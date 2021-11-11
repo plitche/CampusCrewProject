@@ -133,7 +133,8 @@ CREATE TABLE tbProject (
 	nProcess						NUMBER					NOT NULL,
 	nStatus						NUMBER					NOT NULL,
 	vcSubject					VARCHAR(50)			NOT NULL,
-	vcContent					VARCHAR(1000)		NOT NULL
+	vcTitle						VARCHAR(100)			NOT NULL,			
+	vcContent					VARCHAR(1000)			NOT NULL
 );
 
 -- 스터디
@@ -148,7 +149,8 @@ CREATE TABLE tbStudy (
 	nProcess						NUMBER					NOT NULL,
 	nStatus						NUMBER					NOT NULL,
 	vcSubject					VARCHAR(50)			NOT NULL,
-	vcContent					VARCHAR(1000)		NOT NULL
+	vcTitle						VARCHAR(100)			NOT NULL,
+	vcContent					VARCHAR(1000)			NOT NULL
 );
 
 -- 토론

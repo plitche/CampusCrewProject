@@ -11,19 +11,19 @@ INSERT INTO tbMember VALUES ('ferdy', 'ferdy', '권용수1', '펄디', '서울�
 -- 스터디 insert
 select * from tbStudy
 delete from tbStudy
-INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '뷰js', '공부합시다' );
-INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '리액트', '공부합시다' );
-INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '레디스', '공부합시다' );
-INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '엘라스틱서치', '공부합시다' );
-INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '톰켓', '공부합시다' );
-INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, 'nginx', '공부합시다' );
-INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '서버', '공부합시다' );
+INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '뷰js', '뷰js 공부해용!', '공부합시다' );
+INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '리액트', '리액트 공부해용!', '공부합시다' );
+INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '레디스', '레디스 공부해용!', '공부합시다' );
+INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '엘라스틱서치', '엘라스틱서치 공부해용!', '공부합시다' );
+INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '톰켓', '톰켓 공부해용!', '공부합시다' );
+INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, 'nginx', 'nginx', '공부합시다' );
+INSERT INTO tbStudy VALUES (tbStudy_Seq.nextVal, 'plitche', '서울', '오후 6시~8시', SYSDATE, SYSDATE, SYSDATE,  0, 0, '서버', '서버 공부해용!', '공부합시다' );
 
 -- 스터디 필요 참가자 insert (nPostReferType 1=스터디)
 select * from tbNeedParticipants
 delete from tbNeedParticipants
 INSERT INTO tbNeedParticipants VALUES (1, 'ferdy', 1, 1, SYSDATE, '마케팅');
-INSERT INTO tbNeedParticipants VALUES (2, NULL, 1, 1, SYSDATE, '프론트엔드');
+INSERT INTO tbNeedParticipants VALUES (2, 'ferdy', 1, 1, SYSDATE, '프론트엔드');
 INSERT INTO tbNeedParticipants VALUES (3, NULL, 1, 1, SYSDATE, '프론트엔드');
 INSERT INTO tbNeedParticipants VALUES (4, NULL, 1, 1, SYSDATE, '백엔드');
 INSERT INTO tbNeedParticipants VALUES (5, NULL, 1, 1, SYSDATE, '백엔드');
