@@ -82,6 +82,7 @@
 				});
 				
 				$('#loginStep01NextBtn').off('click').on('click', function() {
+					$('#loading').show();
 					
 					var email = $('#email_login').val();
 					var pw = $('#pw_login').val();
@@ -103,6 +104,7 @@
 						, data : JSON.stringify(sendObj)
 						, success : function(data) {
 							// 로그인이 성공했을 시
+							$('#loading').hide();
 							if (data.success == "Y") {
 								alert('로그인되었습니다.');
 								console.log(data.User.loginuser);
