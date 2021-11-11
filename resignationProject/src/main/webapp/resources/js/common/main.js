@@ -10,6 +10,7 @@ var main = (function() {
 				navBtnEvent : function() {
 					// 홈 버튼
 					$("#homeBtn").on("click", function() {
+						$('#loading').show();
 						location.href="/resignation";
 					});
 					

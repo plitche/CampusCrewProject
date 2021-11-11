@@ -29,8 +29,11 @@
 	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/common/index.css" >
 	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/popupCss/joinPopup.css">
 	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/popupCss/loginPopup.css">
+	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/common/detail.css" >
 	<!--  공통 js  -->
 	<script type="text/javascript" charset="utf-8" src="http://localhost:9090/resignation/resources/js/common/main.js" ></script>
+	<script type="text/javascript" charset="utf-8" src="http://localhost:9090/resignation/resources/js/common/common.js" ></script>
+	
 </head>
 
 <script type="text/javascript">
@@ -41,6 +44,13 @@
 </script>
 
 <body>	
+
+	{# loading 화면 #}
+	{% include "common/loading" %}
+	
+	{# alert 화면 #}
+	{% include "common/alertBox" %}
+
 	{% block header %}
 	<div id="header" class="sticky" style="left:0px;">
 		
@@ -82,18 +92,19 @@
 			</div>
 		</div>
 	</div>
+	{% endblock %}
+	
 	{# 로그인을 위한 PopupStep #}
 	{% include "popup/login/loginPopupStepInit" %}
+	
 	{# 회원가입을 위한 PopupStep #}
 	{% include "popup/join/joinPopupStepInit" %}
-	{% endblock %}
-	{# loading 화면 #}
-	{% include "common/loading" %}
+	
 	<div id="content">
-		{% block content %}
+	{% block content %}
+	
 		
-		
-		{% endblock %}
+	{% endblock %}
 	</div>
 	<div id="footer">
 	{% block footer %} 
@@ -122,8 +133,10 @@
 
 <script>
 
+		$('.start_bt').on('click', function() {
+			$('.alert_box').show();
+		});
 		
-
 </script>
 
 
