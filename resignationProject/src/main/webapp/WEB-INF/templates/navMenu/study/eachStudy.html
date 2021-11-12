@@ -24,7 +24,7 @@
 			<div class="writerInfoWrap">
 				<div class="writerImg"></div>
 				<span class="writerInfo">
-					<span class="writerID">{{studyInfo.VCSTUDYMAKERID}}</span>
+					<span class="writerID">{{studyInfo.VCMEMBERNICNAME}}</span>
 					<span class="writerConfirm">(휴대폰 인증)</span>
 					<span class="lastLoginTxt">-오늘 로그인</span>
 					<div class="infoHoverMenu">
@@ -37,7 +37,15 @@
 				</span>
 			</div>
 			<div class="studyStatus">
-				<span>모집중</span>
+				<span>
+					{% if studyInfo.NSTATUS == 0 %}
+						모집중
+					{% elseif studyInfo.NSTATUS == 1 %}
+						모집완료
+					{% else %}
+						????
+					{% endif %}
+				</span>
 			</div>
 		</div>
 	</div>
@@ -57,10 +65,14 @@
 						{% endfor %} 
 					</ul>
 				</div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
+			</div>
+			
+			<div class="contentDesc">
+				<h3>- 소개</h3>
+				<img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images_temp/981/mockup.jpg">
+				<div>
+					{{studyInfo.VCCONTENT}}
+				</div>
 			</div>
 		</div>
 		
@@ -87,7 +99,7 @@
 							<div class="writerImg"></div>
 							<div class="writerRightBox">
 								<span class="writerID">
-									{{studyInfo.VCSTUDYMAKERID}}
+									{{studyInfo.VCMEMBERNICNAME}}
 									<div class="infoHoverMenu">
 										<ul>
 											<li><a>프로필 상세</a></li>
@@ -103,19 +115,19 @@
 				</div>
 				
 				<div class="studyPeriod">
-					<p class="checkboxTit">스터디 기간</p>
-					<p class="tabTxt">{{studyInfo.DTSTARTDATE}} ~ {{studyInfo.DTENDDATE}}<span>&nbsp;(183일)</span></p>
+					<p class="checkboxTit">스터디 기간 ({{studyInfo.duration}}일) </p>
+					<p class="tabTxt">{{studyInfo.DTSTARTDATE}} ~ {{studyInfo.DTENDDATE}}</p>
 				</div>
 				
 				<div class="studyInfoWrap">
 					<p class="checkboxTit">프로젝트 분야</p>
-					<p class="tabTxt">[사업준비] 뷰 스터디 진행</p>
+					<p class="tabTxt">[{{studyInfo.VCSUBJECT}}] {{studyInfo.VCTITLE}}</p>
 				</div>
 			</div>
 		</div>
 	</div>
 	
-	
+
 </div>
 {% endblock %}
 

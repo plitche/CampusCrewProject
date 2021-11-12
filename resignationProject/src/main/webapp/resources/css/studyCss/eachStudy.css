@@ -39,6 +39,7 @@
 .sutdyDetaileInfo .memberApplyBox ul li .positionNum {font-size: 15px; line-height: 1.3125rem; color: #ea6560; margin-right: 34px;}
 .sutdyDetaileInfo .memberApplyBox ul li .positionApplyBtn {font-size: .75rem; color: #81839c; padding: 5px 30px; border: 1px solid #81839c; border-radius: 2px; transition: all .2s; margin-left: 12px;}
 .sutdyDetaileInfo .memberApplyBox ul li .positionApplyBtn:hover {background-color: #42495b; border: 1px solid #42495b; color: #fff;}
+.studyTab {margin-bottom: 35px;}
 
 /*  작성자 정보 */
 .basicInfoWrap {border-bottom: 1px solid #e6e6e6; padding: 10px 20px;}
@@ -51,9 +52,10 @@
 .writerID .infoHoverMenu{top: 25px; color: #333;}
 .writerRightBox .writerConfirm {display: block; line-height: 30px;}
 
-.studyPeriod {border-bottom: 1px solid #e6e6e6; padding: 10px 20px;}
+.studyPeriod {border-bottom: 1px solid #e6e6e6; padding: 10px 10px;}
 .studyInfoWrap {border-bottom: 1px solid #e6e6e6; padding: 10px 20px; }
 .checkboxTit {font-size: 16px; color: #424251; font-weight: 500; display: inline-flex; flex-direction: row; align-items: center;}
 .tabTxt {font-size: 14px; line-height: 14px; color: #8e8ea2; margin: 10px 0 5px 0;}
 
-
+.contentDesc {margin-bottom: 35px;}
+.contentDesc > h3 {font-size: 1.375rem; line-height: 1.4375rem; color: #42495b; font-weight: 700; padding-bottom: 15px;}
