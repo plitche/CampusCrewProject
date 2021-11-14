@@ -54,7 +54,8 @@ function requestAjaxPOSTTxt_(url, data, callback){
 }
 
 var msg = {
-			
+		
+		// 알려드립니다 alert
 		info : function(message) {
 			
 			// 만약 로딩창이 존재한다면 로딩창을 띄우고 0.5초 후에 alert창을 띄운다.
@@ -82,6 +83,7 @@ var msg = {
 			}
 			
 		}
+		// 경고 alert - 아직 미작업
 		, warn : function(message) {
 			
 		}

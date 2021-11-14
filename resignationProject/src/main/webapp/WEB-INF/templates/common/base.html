@@ -84,10 +84,15 @@
 			</div>
 			<div class="util">
 		      <ul class="group">
-		      
+		     <!-- 로그인하지 않은 상태이면 -->
+		     {% if loginUser == null %}
 		        <li class="login"><a href="javascript:;">로그인</a></li>
 		  		<li class="join"><a href="javascript:;">사표쓰기</a></li>
-		  	  
+		  	  <!-- 로그인한 상태이면 -->
+		  	  {% else %}
+		  	  	<li class="loginOut"><a href="javascript:;">로그아웃</a></li>
+		  		<li class="MyInfo"><a href="javascript:;">내정보</a></li>
+		  	  {% endif %}
 		      </ul>
 			</div>
 		</div>
@@ -132,10 +137,9 @@
 
 
 <script>
-
-		$('.start_bt').on('click', function() {
-			$('#loading').show();
-			msg.info('로그인이 완료');
+		
+		$(function() {
+			
 		});
 		
 </script>

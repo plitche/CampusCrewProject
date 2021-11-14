@@ -104,15 +104,14 @@
 						, data : JSON.stringify(sendObj)
 						, success : function(data) {
 							// 로그인이 성공했을 시
-							$('#loading').hide();
 							if (data.success == "Y") {
 								msg.info('로그인되었습니다.');
-								console.log(data.User.loginuser);
-								// 로그인 성공 시 탭을 변경한다.
-								
+								$('.alertOkayIcon').on('click', function() {
+									location.href='/resignation';
+								});
 							// 로그인 할 수 없는 정보일때
 							} else {
-								msg.info('로그인정보가 없습니다.');
+								msg.info('로그인 정보가 일치하지 않습니다. \n다시 확인해주세요.');
 							}
 						}
 						, fail : function(failResult) {

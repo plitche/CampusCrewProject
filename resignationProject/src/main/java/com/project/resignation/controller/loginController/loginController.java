@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.resignation.service.LoginService;
 import com.project.resignation.vo.loginStepVO.LoginStep01VO;
@@ -30,11 +31,12 @@ public class loginController {
 	@ResponseBody
 	public Map<String, Object> login(@RequestBody LoginStep01VO loginStep01VO
 												  , Model model
+												  , RedirectAttributes redirect
 												  , HttpSession session) throws Exception {
 		
 		Map<String, Object> loginResultData = new HashMap<String, Object>();
 		
-		// 로그인 정보와 같은 정보가 있는지 확인한다.
+		// 로그인 정보와 같은 정보가 있는지 확인하고 있다면 회원정보를 다 가져온다.
 		LoginStep01VO loginCheckResult = loginService.loginInfoCheck(loginStep01VO);
 		
 		// 같은 정보가 있다면
@@ -42,7 +44,6 @@ public class loginController {
 			// 로그인 결과는 성공이다.
 			session.setAttribute("loginUser", loginCheckResult);
 			loginResultData.put("success", "Y");
-			loginResultData.put("User", loginCheckResult);
 		// 같은 정보가 없다면
 		} else {
 			// 로그인 할 수 없는 정보이니 로그인 실패이다.
