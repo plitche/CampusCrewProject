@@ -24,8 +24,6 @@ public class NavController {
 	public String goIndex(@PathVariable("navigationBtn") String navigationBtn,
 									Model model) throws Exception {
 		
-		List<Map<String, Object>> studyList = new ArrayList<Map<String,Object>>();
-		
 		switch(navigationBtn) {
 		case "introduction" :
 			
@@ -34,8 +32,11 @@ public class NavController {
 			
 			break;
 		case "study" : 
-			studyList = studyService.goStudyMain();
+			List<Map<String, Object>> studyList = studyService.goStudyMain();
+			Map<String, Object> filter = studyService.getStudyFilter();
+			
 			model.addAttribute("studyList", studyList);
+			model.addAttribute("filter", filter);
 			break;
 		}
 

@@ -7,7 +7,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,7 +50,11 @@ public class StudyController {
 	public @ResponseBody Map<String, Object> applyPosition(@RequestParam("iStudyNo") String iStudyNo,
 																						@RequestParam("positionName") String positionName,
 																						@RequestParam("applyID") String applyID) {
-		Map<String, Object> resultMap = new HashMap<>();
+		Map<String, Object> sendData = new HashMap<>();
+		sendData.put("iStudyNo", iStudyNo);
+		sendData.put("positionName", positionName);
+		sendData.put("applyID", applyID);
+		Map<String, Object> resultMap = studyService.setApplyPostion(sendData);
 		
 		return resultMap;
 	}
