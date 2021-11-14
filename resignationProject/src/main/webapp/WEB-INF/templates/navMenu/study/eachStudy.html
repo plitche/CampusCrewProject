@@ -14,10 +14,22 @@
 				var postData = {'iStudyNo' : {{studyInfo.ISTUDYNO}}, 
 									   'positionName' : positionName, 
 									   'applyID' : 'plitche'};
-				console.log(postData);
 				
 				requestAjaxPOST('/resignation/study/applyPosition', postData, function(data) {
-					console.log(data.iReturn);
+					switch(data.iReturn) {
+					case 0 : 
+						msg.info('포지션 지원에 성공하셨습니다.')
+						break;
+					case 1 : 
+						msg.info('해당 포지션은 더이상 남은 자리가 없습니다.')
+						break;
+					case 2 : 
+						msg.info('이미 해당 스터디의 [' + data.appliedPosition + ']포지션에 신청 했었습니다. \n다시 신청 하고 싶으시면 마이페이지에서 취소뒤 다시 시도해주세요.')						
+						break;
+					default : 
+						msg.info('오류가 발생하였습니다. 나정호씨에게 문의해주세요.')
+						break;
+					}
 				});
 			});
 		}
@@ -30,7 +42,7 @@
 	<div class="eachStudyHeader">
 		<div class="eachStudyObject">
 			<div>
-				<span>[사업준비]엔터테인먼트</span>
+				<span>[스터디/Study]  {{studyInfo.VCSUBJECT}}</span>
 			</div>
 		</div>
 		<div class="eachStudyTitle">
@@ -98,7 +110,7 @@
 						<span>{{studyInfo.NHIT}}</span>
 					</a>
 					<a class="likeCount">
-						<span>X</span>
+						<span>찜</span>
 						<span>496</span>
 					</a>
 					<a class="shareBtn">

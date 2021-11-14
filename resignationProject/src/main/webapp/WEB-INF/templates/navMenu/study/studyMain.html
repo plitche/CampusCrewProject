@@ -18,6 +18,8 @@
 		});
 		
 		console.log('{{studyList}}');
+		console.log('=====================');
+		console.log('{{filter}}');
 		
 	});
 	
@@ -49,14 +51,17 @@
 	<h2 class="filterTitle">어떤 분야의 스터디를 찾고 계시나요?</h2>
 	<div class="filter">
 		<select class="filterSelect">
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
+			<option>스터디 주제/분야</option>
+			{% for subjectFilter in filter.subjectList  %}
+				<option>{{subjectFilter.VCSUBJECT}}</option>
+			{% endfor %}
 		</select>
-		<select class="filterSelect"></select>
-		<select class="filterSelect"></select>
-		<select class="filterSelect"></select>
+		<select class="filterSelect">
+			<option>스터디 진행 장소</option>
+			{% for locationFilter in filter.locationList  %}
+				<option>{{locationFilter.VCLOCATION}}</option>
+			{% endfor %}
+		</select>
 	</div>
 	
 	<div class="section">
@@ -87,8 +92,10 @@
 								<img src="https://cdn.loud.kr/prod/LOUD_IMG/cl/no_img.jpg" alt="memberPhoto">
 							</a>
 						</div>
-						<p class="tit"><a>{{studyItem.VCMEMBERNICKNAME}}</a></p>
-						<button class="simple_btn_follow"><span>팔로우</span></button>
+						<div class="tit">
+							<a>{{studyItem.VCMEMBERNICNAME}}</a>
+							<p class="subject">[{{studyItem.VCSUBJECT}}]</p>
+						</div>
 						<ul class="win_info">
 							<li class="prize">{{studyItem.DTSTARTDATE}} ~ {{studyItem.DTENDDATE}} </li>
 							<li class="win">&nbsp; {{studyItem.VCTIME}}</li>
