@@ -98,22 +98,22 @@
 					var nickname = $('#nickname').val();
 					
 					if (email == null || email == '') {
-						alert("이메일정보를 입력해주세요.");
+						msg.info("이메일정보를 입력해주세요.");
 						return;
 					}
 					
 					if (pw == '') {
-						alert("비밀번호를 입력해주세요.");
+						msg.info("비밀번호를 입력해주세요.");
 						return;
 					}
 					
 					if (pw.length < 4) {
-						alert('비밀번호 형식이 올바르지 않습니다.');
+						msg.info('비밀번호 형식이 올바르지 않습니다.');
 						return;
 					}
 					
 					if (nickname == '') {
-						alert('닉네임을 입력해주세요.');
+						msg.info('닉네임을 입력해주세요.');
 						return;
 					}
 					
@@ -137,14 +137,14 @@
 								// 첫번재 사표수리 완료되면 Step02이동해야한다.
 								joinStep("02");
 							} else if (data.success == "N"){
-								alert("이미 존재하는 사표수리자 정보입니다..");
+								msg.info("이미 존재하는 사표수리자 정보입니다..");
 								$('#closeBtn').trigger('click');
 							} else if (data.success == "F") {
-								alert("사표수리 실패");
+								msg.info("사표수리 실패");
 							}
 						}
 						, error : function() {
-							alert('실패');
+							msg.info('실패');
 						}
 					});
 				});
@@ -189,7 +189,7 @@
 					var possibleTime2 = $('#possibleTime2').val();
 					
 					if (possibleTime1 == '' || possibleTime2 == '') {
-						alert('여유로운 시간대를 선택해주세요.');
+						msg.info('여유로운 시간대를 선택해주세요.');
 						return;
 					}
 					
@@ -217,7 +217,7 @@
 							}
 						}
 						,fail : function(failMsg) {
-							alert('실패');
+							msg.info('실패');
 						}
 					});
 					
@@ -249,13 +249,13 @@
 					var link2 = $('#link2').val();
 					
 					if (myprofile.files.length === 0) {
-						alert('프로필사진을 올려주세요.');
+						msg.info('프로필사진을 올려주세요.');
 						return;
 					}
 					
 					
 					if (address == '') {
-						alert('~동까지만 거주하는 위치를 입력해주세요.');
+						msg.info('~동까지만 거주하는 위치를 입력해주세요.');
 						return;
 					}
 					
@@ -283,7 +283,7 @@
 							}
 						}
 						,fail : function(failMsg) {
-							alert('실패');
+							msg.info('실패');
 						}
 					});
 					
@@ -373,10 +373,10 @@
 						, data : JSON.stringify(sendObj)
 						, success : function(data) {
 							if (data.success == 'Y') {
-								alert('사표처리가 완료되었습니다. 파트너를 만나보세요!')
+								msg.info('사표처리가 완료되었습니다. 파트너를 만나보세요!')
 								$('.joinPopup').hide();
 							} else {
-								alert('실패하였습니다.')
+								msg.info('실패하였습니다.')
 							}
 						}
 						, fail : function(failResult) {

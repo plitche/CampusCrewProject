@@ -1,4 +1,4 @@
-<div class="alert_box" tabindex="0" style="display: none;">
+<div class="alert_box" tabindex="0" style="display: none ;transition-duration: 0.2s;">
 	<div class="alert_container">
 		<div class="alert_header">
 			<img src="http://localhost:9090/resignation/resources/img/common/info-01.png" id="alertInfoIcon" />
@@ -6,9 +6,15 @@
 			<a href="javascript:;" class="alertOkayIcon"><img id="alertOkayIcon"src="http://localhost:9090/resignation/resources/img/common/ok.png"/></a>
 		</div>
 		<div class="alert_body">
-			<p style="margin:0;">
-				로그인 되었습니다. 파트너를 만나보세요.
+			<p id="alert_content" style="margin:0;">
+				로그인 되었습니다.
 			</p>
 		</div>
 	</div>
 </div>
+
+<script>
+$('#alertOkayIcon').off('click').on('click', function() {
+	$('.alert_box').hide();
+});
+</script>

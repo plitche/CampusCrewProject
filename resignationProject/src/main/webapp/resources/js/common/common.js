@@ -53,9 +53,41 @@ function requestAjaxPOSTTxt_(url, data, callback){
    });
 }
 
-
-
-
+var msg = {
+			
+		info : function(message) {
+			
+			// 만약 로딩창이 존재한다면 로딩창을 띄우고 0.5초 후에 alert창을 띄운다.
+			if ($('#loading').css('display') === 'block') {
+				
+				setTimeout(function() {
+					// alert창이 보이면 loading 창은 숨긴다.
+					if ($('.alert_box').css('display', 'block')) {
+						$('#loading').hide();
+					}
+					$('.alert_box').show();
+					$('.alert_box').css('transition-duration', '2s');
+					var alert = $('#alert_content').text(message);
+					alert.html(alert.html().replace(/\n/g, '<br>'));
+				}, 500);
+			
+			// 로딩창이 없다면 바로 alert창을 띄운다
+			} else {
+				
+				$('.alert_box').show();
+				$('.alert_box').css('transition-duration', '2s');
+				var alert = $('#alert_content').text(message);
+				alert.html(alert.html().replace(/\n/g, '<br>'));
+				
+			}
+			
+		}
+		, warn : function(message) {
+			
+		}
+};
+	
+	
 
 /**
  * requestFormAjaxPOST(url, data, callback)
