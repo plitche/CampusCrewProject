@@ -32,4 +32,9 @@ public class StudyServiceImpl implements StudyService {
 	public List<Map<String, Object>>  getStudyParticipants(int iStudyNo) {
 		return studyDao.getStudyParticipants(iStudyNo);
 	}
+	
+	@Override
+	public Map<String, Object> setApplyPostion(Map<String, Object> sendData) {
+		return studyDao.setApplyPostion(sendData);
+	}
 }

@@ -6,7 +6,21 @@
 
 <script>
 	$(document).ready(function() {
-		console.log({{studyInfo}});
+		var isAjaxPro = true;
+		
+		if (isAjaxPro) {
+			$('.positionApplyBtn').click(function() {
+				var positionName = $(this).siblings('.positionTxt').text();
+				var postData = {'iStudyNo' : {{studyInfo.ISTUDYNO}}, 
+									   'positionName' : positionName, 
+									   'applyID' : 'plitche'};
+				console.log(postData);
+				
+				requestAjaxPOST('/resignation/study/applyPosition', postData, function(data) {
+					console.log(data.iReturn);
+				});
+			});
+		}
 		
 	})
 </script>
@@ -80,8 +94,8 @@
 			<div>
 				<div class="heartAndShareWrap">
 					<a class="viewsCount">
-						<span>O</span>
-						<span>496</span>
+						<span>조회</span>
+						<span>{{studyInfo.NHIT}}</span>
 					</a>
 					<a class="likeCount">
 						<span>X</span>

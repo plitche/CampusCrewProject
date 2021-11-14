@@ -2,7 +2,6 @@ package com.project.resignation.daoImpl;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +20,7 @@ public class StudyDaoImpl implements StudyDao {
 	
 	@Override
 	public List<Map<String, Object>> goStudyMain() {
-		List<Map<String, Object>> studyList = sqlsession.selectList("Study.getStudyInfoList");
+		List<Map<String, Object>> studyList = sqlsession.selectList("GetStudy.getStudyInfoList");
 		
 		for (Map<String, Object> studyItem : studyList) {
 			// DB에서 조회한 date타입의 날짜를 2021. 10. 29 형태로 formatting
@@ -37,7 +36,7 @@ public class StudyDaoImpl implements StudyDao {
 	
 	@Override
 	public Map<String, Object> getEachStudyInfo(int iStudyNo) throws Exception {
-		Map<String, Object> eachStudyInfo = sqlsession.selectOne("Study.getEachStudyInfo", iStudyNo);
+		Map<String, Object> eachStudyInfo = sqlsession.selectOne("GetStudy.getEachStudyInfo", iStudyNo);
 		
 		// todo 게시글 insert시 hit 0으로 insert 시키기
 		
@@ -66,8 +65,8 @@ public class StudyDaoImpl implements StudyDao {
 	@Override
 	public List<Map<String, Object>> getStudyParticipants(int iStudyNo) {
 		List<Map<String, Object>> returnMapList = new ArrayList<Map<String,Object>>();
-		List<Map<String, Object>> needPosition = sqlsession.selectList("Study.getStudyNeedPosition", iStudyNo);
-		List<Map<String, Object>> applyPosition = sqlsession.selectList("Study.getApplyStudyPosition", iStudyNo);
+		List<Map<String, Object>> needPosition = sqlsession.selectList("GetStudy.getStudyNeedPosition", iStudyNo);
+		List<Map<String, Object>> applyPosition = sqlsession.selectList("GetStudy.getApplyStudyPosition", iStudyNo);
 		
 		if (needPosition.size() < applyPosition.size()) {
 			// todo 에러 띄우기
@@ -101,5 +100,22 @@ public class StudyDaoImpl implements StudyDao {
 		}
 
 		return returnMapList;
+	}
+	
+	@Override
+	public Map<String, Object> setApplyPostion(Map<String, Object> sendData) {
+		// 빈 자리가 있는지 확인
+		int applyCount = sqlsession.selectOne("GetStudy.getApplyStudyPosition", sendData);
+		
+		Map<String, Object> returnMap = new HashMap<>();
+		int iReturn = 0;
+		
+		if (applyCount > 0) {
+			// todo 신청하기 update
+		}
+		
+		returnMap.put("iReturn", iReturn);
+		
+		return returnMap;
 	}
 }
