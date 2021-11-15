@@ -11,5 +11,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE vcMemberId = #{email}
 		AND vcMemberPw = #{pw}
 	</select>
+	
+	<select id="memberPhoto" resultType="com.project.resignation.vo.attachmentVO.AttachmentVO"  parameterType="String">
+		SELECT *
+		FROM tbAttachment
+		WHERE NPOSTREFERINFO = #{email}
+	</select>
 
 </mapper>

@@ -25,5 +25,16 @@ public class AttachmentVO {
 	private String originFilename;
 	// 파일경로
 	private String realPath;
-
+	
+	
+	// 받을 이메일정보
+	private String nPostReferInfo;
+	// 받을 파일 타입
+	private String nFileType;
+	// 받을 저장된 파일 이름
+	private String vcFilename;
+	// 받을 오리지날 파일이름
+	private String vcOrgFilename;
+	// 받을 파일 경로
+	private String vcFilepath;
 }

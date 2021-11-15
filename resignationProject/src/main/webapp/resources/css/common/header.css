@@ -136,22 +136,27 @@ ul.group > li {
 }
 
 .util > .group > .MyInfo {
-	background: #0057ff;
-	border-radius: 30px;
-	padding: 8px 5px;
-	margin-left:10px;
-	font-weight:600;
+	border-radius: 20px;
+    overflow: hidden;
+    width: 35px;
+    height: 35px;
+    padding-left: 0px;
+    margin-left: 20px;
+    padding-right: 0px;
+    background-image: none;
 }
 
-.util > .group > .loginOut {
-	background: white;
-	border-radius: 30px;
-	padding: 8px 5px;
-	color: #191919;
-	border : 0.5px solid #e8e8e8;
-	font-weight:600;
+.util > .group > .search {
+	border-radius: 20px;
+    overflow: hidden;
+    width: 30px;
+    height: 30px;
+    padding-left: 0px;
+    margin-left: 12px;
+    margin-top:5px;
+    padding-right: 0px;
+    background-image: none;
 }
-
 
 
 .util > .group > .MyInfo > a {

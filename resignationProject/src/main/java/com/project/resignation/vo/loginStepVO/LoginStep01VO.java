@@ -39,6 +39,7 @@ public class LoginStep01VO {
 	private String vcMemberLink1;
 	// 받는 링크2
 	private String vcMemberLink2;
-	
+	// 필요한 프로필 사진(저장된 파일명_
+	private String vcFilename;
 	
 }

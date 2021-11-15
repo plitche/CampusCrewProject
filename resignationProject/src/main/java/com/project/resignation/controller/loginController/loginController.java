@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.resignation.service.LoginService;
+import com.project.resignation.vo.attachmentVO.AttachmentVO;
 import com.project.resignation.vo.loginStepVO.LoginStep01VO;
 
 @Controller
@@ -25,6 +26,7 @@ public class loginController {
 	LoginService loginService;
 	
 	// 이메일 비밀번호 입력 받은 후 존재하는지 체크 한 후 로그인
+	@SuppressWarnings("unused")
 	@RequestMapping(value="/step01"
 							   , method=RequestMethod.POST
 							   , produces="application/json; charset=UTF-8")
@@ -39,6 +41,17 @@ public class loginController {
 		// 로그인 정보와 같은 정보가 있는지 확인하고 있다면 회원정보를 다 가져온다.
 		LoginStep01VO loginCheckResult = loginService.loginInfoCheck(loginStep01VO);
 		
+		String email = loginCheckResult.getVcMemberId();
+		
+		// 로그인 정보(이메일)와 같은 프로필사진을 가져온다.
+		AttachmentVO attachmentInfo = loginService.memberPhoto(email);
+		String vcFilename = attachmentInfo.getVcFilename();
+		// 프로필사진이 존재한다면 세션에 저장할 변수에 프로필사진 파일명을 넣어준다.
+		if (attachmentInfo.getVcFilename() != null) {
+			loginCheckResult.setVcFilename(vcFilename);
+		}
+		
+		System.out.println(loginCheckResult);
 		// 같은 정보가 있다면
 		if (loginCheckResult != null) {
 			// 로그인 결과는 성공이다.
