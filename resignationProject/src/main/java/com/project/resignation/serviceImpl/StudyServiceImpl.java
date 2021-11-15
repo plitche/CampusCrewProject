@@ -21,6 +21,12 @@ public class StudyServiceImpl implements StudyService {
 		return studyDao.goStudyMain();
 	}
 	
+	// 스터디 메인 페이지 진입시 필터링 정보 가져오기
+	@Override
+	public Map<String, Object> getStudyFilter() {
+		return studyDao.getStudyFilter();
+	}
+	
 	// 각 스터디 페이지 진입시 정보 조회
 	@Override
 	public Map<String, Object> getEachStudyInfo(int iStudyNo) throws Exception {

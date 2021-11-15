@@ -1,7 +1,6 @@
 alter sequence tbStudy_Seq increment by -32
 select tbStudy_Seq.nextval from dual
 
-
 -- 회원 insert
 select * from tbMember
 delete from tbMember
@@ -35,21 +34,24 @@ INSERT INTO tbHit VALUES (tbShare_Seq.nextVal, 1, 1, 120);
 
 
 -- 스터디 참가 희망자 insert
-
-update TBNEEDPARTICIPANTS set vcNeedParticipantsId = 'ferdy' where iNeedParticipantsNo = 1
+select * from TBAPPLYPARTICIPANTS  
+delete from TBAPPLYPARTICIPANTS where iapplyParticipantsNo = 1
 
 
 
 select * from tbMember
 
-		SELECT vcPosition, Count(*)
+		SELECT Count(*) as applyCount
 		FROM tbNeedParticipants
-		WHERE nPostReferNo = 7
-			and nPostReferType = 1
-			and vcNeedParticipantsId IS NULL
-		GROUP BY vcPosition
-		ORDER BY vcPosition
-
+		WHERE nPostReferNo = 1
+			AND nPostReferType = 1
+			AND vcNeedParticipantsId IS NOT NULL
+			AND vcPosition =  '백엔드'
+			
+			select * from tbNeedParticipants
+			WHERE nPostReferNo = 1
+			AND nPostReferType = 1
+			
 		SELECT vcPosition, Count(*)
 		FROM tbNeedParticipants
 		WHERE nPostReferNo = 1
@@ -71,6 +73,10 @@ select * from tbMember
 		ORDER BY s.dtRegDate DESC
 		and istudyNo 
 
+				SELECT *
+		FROM tbStudy
+		WHERE nStatus = 1
+		
 		SELECT *
 		FROM tbStudy s join tbMember m
 			on s.vcStudyMakerId = m.vcMemberId
@@ -79,3 +85,9 @@ select * from tbMember
 		WHERE h.nPostReferType = 1
 			and s.iStudyNo = 1
 
+SELECT Count(*) as applyCount
+FROM tbNeedParticipants
+WHERE nPostReferNo = 1
+	AND nPostReferType = 1
+	AND vcNeedParticipantsId IS NOT NULL
+	AND vcPosition =  #{positionName}

@@ -17,9 +17,6 @@ public class IndexController {
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String goIndex(Model model) throws Exception {
 		
-		int test = testService.testServiceMethod1();
-		
-		model.addAttribute("test", test);
 		return "index";
 	}
 	

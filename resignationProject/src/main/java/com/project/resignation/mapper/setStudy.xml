@@ -5,6 +5,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="SetStudy">
 
-	<!--  -->
+	<!-- 스터디 상세에서 지원 하기 -->
+	<insert id="setStudyApply" parameterType="hashmap">
+		INSERT INTO tbApplyParticipants 
+		VALUES (tbApplyParticipants_Seq.nextval, #{applyID}, #{iStudyNo}, 1, SYSDATE, #{positionName})	
+	</insert>
 	
 </mapper>

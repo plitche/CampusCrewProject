@@ -17,6 +17,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY s.dtRegDate DESC
     </select>
 
+	<!--  스터디 메인 페이지 진입 시 필터링 정보 가져오기  -->
+	<select id="getSubjectList" resultType="hashmap">
+		SELECT vcSubject
+		FROM tbStudy
+		WHERE nStatus = 0
+		GROUP BY vcSubject
+	</select>
+
+	<select id="getLocationList" resultType="hashmap">
+		SELECT vcLocation
+		FROM tbStudy
+		WHERE nStatus = 0
+		GROUP BY vcLocation
+	</select>
+
 	<!-- 각 스터디 페이지 진입시 스터디/멤버 정보 조회 -->
 	<select id="getEachStudyInfo" parameterType="Integer" resultType="hashmap">
 		SELECT *
@@ -50,13 +65,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 스터디 상세 포지션 지원하기 남은 자리 정보 확인 -->
-	<select id="getCanPostionApply" parameterType="hashMap" resultType="Integer">
+	<select id="getCanPostionApply" parameterType="hashMap" resultType="hashMap">
 		SELECT Count(*) as applyCount
 		FROM tbNeedParticipants
 		WHERE nPostReferNo = #{iStudyNo}
-			and nPostReferType = 1
-			and vcNeedParticipantsId IS NOT NULL
-			and vcPosition =  #{positionName}
+			AND nPostReferType = 1
+			AND vcNeedParticipantsId IS NULL
+			AND vcPosition =  #{positionName}
+	</select>
+	
+	<!-- 지원한 적 있는 스터디인지 정보 조회 -->
+	<select id="getIsAlreadyApply" parameterType="hashMap" resultType="hashMap">
+		SELECT *
+		FROM tbApplyParticipants
+		WHERE nPostReferNo = #{iStudyNo}
+			AND nPostReferType = 1
+			AND vcApplyParticipantsId = #{applyID}
 	</select>
 	
 </mapper>

@@ -35,6 +35,17 @@ public class StudyDaoImpl implements StudyDao {
 	}
 	
 	@Override
+	public Map<String, Object> getStudyFilter() {
+		Map<String, Object> returnMap = new HashMap<>();
+		List<Map<String, Object>> subjectList = sqlsession.selectList("GetStudy.getSubjectList");
+		List<Map<String, Object>> locationList = sqlsession.selectList("GetStudy.getLocationList");
+		
+		returnMap.put("subjectList", subjectList);
+		returnMap.put("locationList", locationList);
+		return returnMap;
+	}
+	
+	@Override
 	public Map<String, Object> getEachStudyInfo(int iStudyNo) throws Exception {
 		Map<String, Object> eachStudyInfo = sqlsession.selectOne("GetStudy.getEachStudyInfo", iStudyNo);
 		
@@ -104,18 +115,31 @@ public class StudyDaoImpl implements StudyDao {
 	
 	@Override
 	public Map<String, Object> setApplyPostion(Map<String, Object> sendData) {
-		// 빈 자리가 있는지 확인
-		int applyCount = sqlsession.selectOne("GetStudy.getApplyStudyPosition", sendData);
-		
 		Map<String, Object> returnMap = new HashMap<>();
-		int iReturn = 0;
+		int iReturn = -1;
 		
-		if (applyCount > 0) {
-			// todo 신청하기 update
+		// 빈 자리가 있는지 확인
+		Map<String, Object> isEmpty= sqlsession.selectOne("GetStudy.getCanPostionApply", sendData);
+		if (Integer.parseInt(String.valueOf(isEmpty.get("APPLYCOUNT"))) <= 0) {
+			iReturn = 1;
+		}
+		
+		// 신청한 내역이 있는지 확인
+		Map<String, Object> applyInfo = sqlsession.selectOne("GetStudy.getIsAlreadyApply", sendData);
+		if (applyInfo != null) {
+			returnMap.put("appliedPosition", applyInfo.get("VCPOSITION"));
+			iReturn = 2;
+		}	
+		
+		// 위 경우 다 통과했을 때에 스터디 참가 신청 update하기
+		if (iReturn != 1 && iReturn != 2) {
+			int successApply = sqlsession.insert("SetStudy.setStudyApply", sendData);
+			if (successApply > 0) {
+				iReturn = 0;
+			} 
 		}
 		
 		returnMap.put("iReturn", iReturn);
-		
 		return returnMap;
 	}
 }
