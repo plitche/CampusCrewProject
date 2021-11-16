@@ -1,157 +1,190 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<link rel="canonical" href="https://www.Sapyo.com/">
-	<meta name="theme-color" content="#3ea094">
-	<meta property="og:site_name" content="Sapyo">
-	<meta property="og:image" content="https://assets.awwwards.com/assets/images/pages/about-certificates/awwwards.jpg">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="사이드 프로젝트, 사표">
-	<meta property="og:url" content="https://www.Sapyo.com/">
-	<link rel="icon" href="https://assets.awwwards.com/assets/images/favicon.svg" type="image/svg+xml">
-	<title>{% block title %} 사이드 프로젝트, 사표 {% endblock %}</title>
-	
-	<!-- fontawesome -->
-	<script src="https://kit.fontawesome.com/6b75fdce2b.js" crossorigin="anonymous"></script>
-	<!-- jQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<!-- sweetalert -->
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-	<!--  부트스트랩 : https://getbootstrap.com/docs/5.1/forms/validation/  -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<meta charset="UTF-8">
+<link rel="canonical" href="https://www.Sapyo.com/">
+<meta name="theme-color" content="#3ea094">
+<meta property="og:site_name" content="Sapyo">
+<meta property="og:image"
+	content="https://assets.awwwards.com/assets/images/pages/about-certificates/awwwards.jpg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="사이드 프로젝트, 사표">
+<meta property="og:url" content="https://www.Sapyo.com/">
+<link rel="icon"
+	href="https://assets.awwwards.com/assets/images/favicon.svg"
+	type="image/svg+xml">
+<title>{% block title %} 사이드 프로젝트, 사표 {% endblock %}</title>
 
-	<!--  장고 : http://frontend.diffthink.kr/2019/01/book-4-django_13.html -->
-	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/common/header.css" >
-	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/common/footer.css" >
-	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/common/common.css" >
-	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/common/index.css" >
-	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/popupCss/joinPopup.css">
-	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/popupCss/loginPopup.css">
-	<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/common/detail.css" >
-	<!--  공통 js  -->
-	<script type="text/javascript" charset="utf-8" src="http://localhost:9090/resignation/resources/js/common/main.js" ></script>
-	<script type="text/javascript" charset="utf-8" src="http://localhost:9090/resignation/resources/js/common/common.js" ></script>
-	
+<!-- fontawesome -->
+<script src="https://kit.fontawesome.com/6b75fdce2b.js"
+	crossorigin="anonymous"></script>
+<!-- jQuery -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- sweetalert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<!--  부트스트랩 : https://getbootstrap.com/docs/5.1/forms/validation/  -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+	crossorigin="anonymous">
+
+<!--  장고 : http://frontend.diffthink.kr/2019/01/book-4-django_13.html -->
+<link type="text/css" rel="stylesheet"
+	href="http://localhost:9090/resignation/resources/css/common/header.css">
+<link type="text/css" rel="stylesheet"
+	href="http://localhost:9090/resignation/resources/css/common/footer.css">
+<link type="text/css" rel="stylesheet"
+	href="http://localhost:9090/resignation/resources/css/common/common.css">
+<link type="text/css" rel="stylesheet"
+	href="http://localhost:9090/resignation/resources/css/common/index.css">
+<link type="text/css" rel="stylesheet"
+	href="http://localhost:9090/resignation/resources/css/popupCss/joinPopup.css">
+<link type="text/css" rel="stylesheet"
+	href="http://localhost:9090/resignation/resources/css/popupCss/loginPopup.css">
+<link type="text/css" rel="stylesheet"
+	href="http://localhost:9090/resignation/resources/css/common/detail.css">
+<!--  공통 js  -->
+<script type="text/javascript" charset="utf-8"
+	src="http://localhost:9090/resignation/resources/js/common/main.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="http://localhost:9090/resignation/resources/js/common/common.js"></script>
+
 </head>
 
 <script type="text/javascript">
-	$(document).ready(function () {
+	$(document).ready(function() {
 		// 공통 js init
 		main.Init();
-	});		
+	});
 </script>
 
-<body>	
+<body>
 
-	{# loading 화면 #}
-	{% include "common/loading" %}
-	
-	{# alert 화면 #}
-	{% include "common/alertBox" %}
+	{# loading 화면 #} {% include "common/loading" %} {# alert 화면 #} {%
+	include "common/alertBox" %} {% block header %}
+	<div id="header" class="sticky" style="left: 0px;">
 
-	{% block header %}
-	<div id="header" class="sticky" style="left:0px;">
-		
 		<div class="inner maxInner">
 			<div id="logoWrap">
-	      		<a href="javascript:void(0);" id="homeBtn">
-					<img src="http://localhost:9090/resignation/resources/img/logo/sapyo_logo-01.png"/>
-	      		</a>
-	    	</div>
+				<a href="javascript:void(0);" id="homeBtn"> <img
+					src="http://localhost:9090/resignation/resources/img/logo/sapyo_logo-01.png" />
+				</a>
+			</div>
 			<div id="gnb">
-	      		<ul class="group nav_ul"  id="headerNav">
-					<li class="">
-						<a class="" btnName="introduction" href="javascript:void(0);">소개</a>
-					</li>
-	        		<li class="">
-						<a class="" btnName="project"  href="javascript:void(0);">프로젝트</a>
-					</li>
-					<li class="">
-						<a class="" btnName="study"  href="javascript:void(0);">스터디</a>
-					</li>
-					<li class="">
-						<a class="" btnName="discussion"  href="javascript:void(0);">토론</a>
-					</li>
-					<li class="">
-						<a class="" btnName="ideaVote"  href="javascript:void(0);">아이디어투표</a>
-					</li>
-					<li class="">
-						<a class="" btnName="scadule"  href="javascript:void(0);">일정</a>
-					</li>
+				<ul class="group nav_ul" id="headerNav">
+					<li class=""><a class="" btnName="introduction"
+						href="javascript:void(0);">소개</a></li>
+					<li class=""><a class="" btnName="project"
+						href="javascript:void(0);">프로젝트</a></li>
+					<li class=""><a class="" btnName="study"
+						href="javascript:void(0);">스터디</a></li>
+					<li class=""><a class="" btnName="discussion"
+						href="javascript:void(0);">토론</a></li>
+					<li class=""><a class="" btnName="ideaVote"
+						href="javascript:void(0);">아이디어투표</a></li>
+					<li class=""><a class="" btnName="scadule"
+						href="javascript:void(0);">일정</a></li>
 				</ul>
 			</div>
 			<div class="util">
-		      <ul class="group">
-		     <!-- 로그인하지 않은 상태이면 -->
-		     {% if loginUser == null %}
-		        <li class="login"><a href="javascript:;">로그인</a></li>
-		  		<li class="join"><a href="javascript:;">사표쓰기</a></li>
-		  	  <!-- 로그인한 상태이면 -->
-		  	  {% else %}
-		  	  	<li class="search">
-		  	  		<img alt="" src="http://localhost:9090/resignation/resources/img/common/search.png" style="width:100%; height:100%; border-radius: 100px;"/> 
-		  	  	</li>
-		  	  	{% if loginUser.vcFilename == null %}
-		  	  	<li class="MyInfo">
-		  			<img alt="" src="resources/storage/기본프로필.png" style="width:100%; height:100%; border-radius: 100px;"/> 
-		  		</li>
-		  	  	{% else %}
-		  		<li class="MyInfo">
-		  			<img alt="" src="resources/storage/{{loginUser.vcFilename}}" style="width:100%; height:100%; border-radius: 100px;"/> 
-		  		</li>
-		  		{% endif %}
-		  	  {% endif %}
-		      </ul>
+				<ul class="group">
+					<!-- 로그인하지 않은 상태이면 -->
+					{% if loginUser == null %}
+					<li class="login"><a href="javascript:;">로그인</a></li>
+					<li class="join"><a href="javascript:;">사표쓰기</a></li>
+					<!-- 로그인한 상태이면 -->
+					{% else %}
+					<li class="search">
+						<img alt="" src="http://localhost:9090/resignation/resources/img/common/search.png" style="width: 100%; height: 100%; border-radius: 100px;" />
+					</li>
+						{% if loginUser.vcFilename == null %}
+						<li class="MyInfo">
+							<img alt="" id="MyInfo" src="resources/storage/기본프로필.png" style="width: 100%; height: 100%; border-radius: 100px;" />
+						</li>
+						{% else %}
+						<li class="MyInfo">
+							<img alt="" id="MyInfo" src="resources/storage/{{loginUser.vcFilename}}" style="width: 100%; height: 100%; border-radius: 100px;" />
+						</li>
+						 {% endif %}
+					{% endif %}
+				</ul>
+			</div>
+			<div class="popmenu_wrap popmenu_profile" style="display: none;">
+				<div class="tri_up"></div>
+				<div class="popmenu">
+					<ul>
+						<li><a href="/mate/20464">프로필</a></li>
+						<li class="team_name" style="display: none;"></li>
+						<li style="display: none;"></li>
+						<li><a href="/team/create1">새 팀 만들기</a></li>
+						<li><a href="/personal/interestmate">관심등록 확인</a></li>
+						<li><a href="/event/eventapplyconfirm">행사참가내역</a></li>
+						<li><a href="/personal/getcontact">연락처요청 확인</a></li>
+						<li><a href="/personal/invitedteam">초대 된 팀 확인</a></li>
+						<li><a href="/personal/paymanage">구매내역</a></li>
+						<li class="mobile_mainmenu_hidden"><a href="/etc/contactus">고객센터</a></li>
+						<li><a href="/personal/settingaccount">설정</a></li>
+						<li><a>로그아웃</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
-	{% endblock %}
-	
+	{% endblock %} 
 	{# 로그인을 위한 PopupStep #}
 	{% include "popup/login/loginPopupStepInit" %}
-	
 	{# 회원가입을 위한 PopupStep #}
 	{% include "popup/join/joinPopupStepInit" %}
+
+	<div id="content">{% block content %} {% endblock %}</div>
 	
-	<div id="content">
-	{% block content %}
-	
-		
-	{% endblock %}
-	</div>
 	<div id="footer">
-	{% block footer %} 
- 		<div class="footer_center_tl">
-            <span class="logo"><img src="http://localhost:9090/resignation/resources/img/logo/sapyo_logo-01.png"></span>
-            <ul class="ft_menu">
-                <li><a href="/Home/Service">서비스소개</a></li>
-                <li><a href="/etc/policymember">회원약관</a></li>
-                <li><a href="/etc/policyprivacy">개인정보처리방침</a></li>
-                <li><a href="/etc/advertising">광고문의</a></li>
-                <li><a href="/etc/contactus">고객센터</a></li>
-                <li><a target="_blank" href="https://www.facebook.com/">페이스북</a></li>
-                <li><a target="_blank" href="https://blog.naver.com/">블로그</a></li>
-            </ul>
-            <div class="company_info">
-                <strong>(주)사표</strong> &nbsp;|&nbsp;대표이사 나정호 권용수&nbsp;|&nbsp;개인정보관리책임자 권용수(privacy@sapyo.com)<br>
-				서울 강남구 언주로69길 19, 지하1층(역삼동) (주)사표&nbsp;|&nbsp;02-6713-0817 &nbsp;|&nbsp;주말 휴일<br>
-				사업자등록번호 679-87-00428&nbsp;|&nbsp;통신판매업신고번호 제2018-서울강남-02246호(사업자정보확인)&nbsp;|&nbsp;유료직업소개사업등록번호: (국내)제2020-3220237-14-5-00014호<br> 	
-            </div>
-            <span class="ft_copyright">2021 © <strong>Sapyo.</strong> All rights reserved.</span>
-        </div>
-	{% endblock %}
+		{% block footer %}
+		<div class="footer_center_tl">
+			<span class="logo">
+				<img src="http://localhost:9090/resignation/resources/img/logo/sapyo_logo-01.png">
+			</span>
+			<ul class="ft_menu">
+				<li><a href="/Home/Service">서비스소개</a></li>
+				<li><a href="/etc/policymember">회원약관</a></li>
+				<li><a href="/etc/policyprivacy">개인정보처리방침</a></li>
+				<li><a href="/etc/advertising">광고문의</a></li>
+				<li><a href="/etc/contactus">고객센터</a></li>
+				<li><a target="_blank" href="https://www.facebook.com/">페이스북</a></li>
+				<li><a target="_blank" href="https://blog.naver.com/">블로그</a></li>
+			</ul>
+			<div class="company_info">
+				<strong>(주)사표</strong> &nbsp;|&nbsp;대표이사 나정호
+				권용수&nbsp;|&nbsp;개인정보관리책임자 권용수(privacy@sapyo.com)<br> 서울 강남구
+				언주로69길 19, 지하1층(역삼동) (주)사표&nbsp;|&nbsp;02-6713-0817 &nbsp;|&nbsp;주말
+				휴일<br> 사업자등록번호 679-87-00428&nbsp;|&nbsp;통신판매업신고번호
+				제2018-서울강남-02246호(사업자정보확인)&nbsp;|&nbsp;유료직업소개사업등록번호:
+				(국내)제2020-3220237-14-5-00014호<br>
+			</div>
+			<span class="ft_copyright">2021 © <strong>Sapyo.</strong>
+				All rights reserved.
+			</span>
+		</div>
+		{% endblock %}
 	</div>
 </body>
 
 
 <script>
+	$(function() {
 		
-		$(function() {
-			
+		$('#MyInfo').off('click').on('click', function() {
+			if ($('.popmenu_profile').css('display') == 'none') {
+				$('.popmenu_profile').show();
+			} else {
+				$('.popmenu_profile').hide();
+			}
 		});
 		
+	});
 </script>
 
 
