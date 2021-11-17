@@ -120,14 +120,10 @@
 						<li class="team_name" style="display: none;"></li>
 						<li style="display: none;"></li>
 						<li><a href="/team/create1">새 팀 만들기</a></li>
-						<li><a href="/personal/interestmate">관심등록 확인</a></li>
-						<li><a href="/event/eventapplyconfirm">행사참가내역</a></li>
-						<li><a href="/personal/getcontact">연락처요청 확인</a></li>
+						<li><a href="/personal/interestmate">관심 팀 확인</a></li>
 						<li><a href="/personal/invitedteam">초대 된 팀 확인</a></li>
-						<li><a href="/personal/paymanage">구매내역</a></li>
 						<li class="mobile_mainmenu_hidden"><a href="/etc/contactus">고객센터</a></li>
-						<li><a href="/personal/settingaccount">설정</a></li>
-						<li><a>로그아웃</a></li>
+						<li><a id="logout" href="javascript:;">로그아웃</a></li>
 					</ul>
 				</div>
 			</div>
@@ -182,6 +178,29 @@
 			} else {
 				$('.popmenu_profile').hide();
 			}
+		});
+		
+		$('#logout').off('click').on('click', function() {
+			
+			$('#loading').show();
+			
+			$.ajax({
+				url :  "/resignation/login/logOut"
+				, type : 'post'
+				, contentType : 'application/json; charset=UTF-8'
+				, dataType : 'json'
+				, success : function(data) {
+					if (data.success == 'Y') {
+						location.href= '/resignation';
+					} else {
+						msg.info('로그아웃 실패하였습니다. 다시 시도해주세요.');
+						location.href= '/resignation';
+					}
+				}
+				, fail : function(failData) {
+					msg.info('로그아웃 실패');
+				}
+			});
 		});
 		
 	});

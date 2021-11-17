@@ -63,12 +63,34 @@ public class loginController {
 			loginResultData.put("success", "N");
 		}
 		
-		
-		
 		return loginResultData;
 		
 	}
 	
+	// 로그아웃
+	@RequestMapping(value="/logOut"
+							  , method=RequestMethod.POST
+							  , produces="application/json; charset=UTF-8")
+	@ResponseBody
+	public Map<String, Object> logOut(Model model
+												    , HttpSession session	) throws Exception {
+		
+		Map<String, Object> logOutResultData = new HashMap<String, Object>();
+		
+		session.removeAttribute("loginUser");
+		
+		String UserInfo = (String) session.getAttribute("loginUser");
+		
+		if (UserInfo == null || "".equals(UserInfo)) {
+			// 로그아웃 성공
+			logOutResultData.put("success", "Y");
+		} else {
+			// 로그아웃 실패
+			logOutResultData.put("success", "N");
+		}
+		
+		return logOutResultData;
+	}
 	
 
 }
