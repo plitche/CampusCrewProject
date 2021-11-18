@@ -21,6 +21,15 @@ public class StudyController {
 	@Autowired
 	StudyService studyService;
 	
+	// studyList 정보 조회
+	@RequestMapping(value="/getStudyList", method=RequestMethod.POST, produces="application/json; charset=utf-8")
+	public @ResponseBody Map<String, Object> getStudyLIst() {
+		Map<String, Object> returnMap = new HashMap<>();
+		List<Map<String, Object>> studyList = studyService.goStudyMain();
+		returnMap.put("studyList", studyList);
+		return returnMap;
+	}
+	
 	// eachStudy 정보 조회
 	@RequestMapping(value="/eachStudy", method=RequestMethod.GET)
 	public String goIndex(@RequestParam(value="iStudyNo") int iStudyNo,
@@ -46,7 +55,7 @@ public class StudyController {
 	}
 	
 	// Study상세 > 지원
-	@RequestMapping(value="/applyPosition", method=RequestMethod.POST)
+	@RequestMapping(value="/applyPosition", method=RequestMethod.POST, produces="application/json; charset=utf-8")
 	public @ResponseBody Map<String, Object> applyPosition(@RequestParam("iStudyNo") String iStudyNo,
 																						@RequestParam("positionName") String positionName,
 																						@RequestParam("applyID") String applyID) {

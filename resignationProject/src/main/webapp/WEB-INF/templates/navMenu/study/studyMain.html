@@ -3,24 +3,14 @@
 {% block content %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+<script type="text/javascript" charset="utf-8"	src="http://localhost:9090/resignation/resources/js/study/studyMain.js"></script>
 <script>
 	$(function() {
 		var mySwiper = new Swiper('.swiper-container', {});
 	});
 	
 	$(document).ready(function() {
-		$('.study_item_wrap').mouseover(function() {
-			$(this).find('.item_info').show();
-		});
-		
-		$('.study_item_wrap').mouseleave(function() {
-			$(this).find('.item_info').hide();
-		});
-		
-		console.log('{{studyList}}');
-		console.log('=====================');
-		console.log('{{filter}}');
-		
+		study.init();
 	});
 	
 	var fnGoStudyInfo = function(iStudyNo) {
