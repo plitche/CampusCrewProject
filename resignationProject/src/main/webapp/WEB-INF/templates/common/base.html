@@ -102,11 +102,11 @@
 					</li>
 						{% if loginUser.vcFilename == null %}
 						<li class="MyInfo">
-							<img alt="" id="MyInfo" src="resources/storage/기본프로필.png" style="width: 100%; height: 100%; border-radius: 100px;" />
+							<img alt="" id="MyInfo" src="http://localhost:9090/resignation/resources/storage/기본프로필.png" style="width: 100%; height: 100%; border-radius: 100px;" />
 						</li>
 						{% else %}
 						<li class="MyInfo">
-							<img alt="" id="MyInfo" src="resources/storage/{{loginUser.vcFilename}}" style="width: 100%; height: 100%; border-radius: 100px;" />
+							<img alt="" id="MyInfo" src="http://localhost:9090/resignation/resources/storage/{{loginUser.vcFilename}}" style="width: 100%; height: 100%; border-radius: 100px;" />
 						</li>
 						 {% endif %}
 					{% endif %}
