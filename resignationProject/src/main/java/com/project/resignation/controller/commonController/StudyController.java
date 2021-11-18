@@ -59,4 +59,8 @@ public class StudyController {
 		return resultMap;
 	}
 	
+	@RequestMapping(value="/registStudy", method=RequestMethod.GET)
+	public String registStudy(Model model) {
+		return "/navMenu/study/registStudy";
+	}
 }

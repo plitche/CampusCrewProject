@@ -1,0 +1,107 @@
+{% extends "common/base" %}
+
+{% block content %}
+<!--  공통 js  -->
+<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/studyCss/registStudy.css" >
+
+<script>
+	$(document).ready(function() {
+		
+		
+		
+	})
+</script>
+
+<div class="buildStudy">
+	<div class="buildStudyHeaderWrap">
+		<div class="headerContent">
+			<h3>프로젝트 생성</h3>
+			<p>언제, 어디서든 샤표를 던질수 있게 스터디로 준비해요!</p>
+		</div>
+	</div>
+	
+	<div class="buildStudyWrap">
+		<div class="progressiveBar">
+			<div></div>
+		</div>
+		<div class="buildStudyContents">
+			<div class="buildStudyDesc titleDesc">
+				<p>
+					<span>*</span>프로젝트명
+					<span>직관적인 프로젝트명을 사용하시면 참여율이 상승합니다.</span>
+				</p>
+			</div>
+			<div class="buildStudyInfo">
+				<div class="titleWrap">
+					<input type="text" minlength="3" maxlength="15" placeholder="3~15글자로 적어주세요 예)토비의 스프링 공부하실분?!"/>
+				</div>
+			</div>
+			
+			<div class="buildStudyDesc">
+				<p>
+					<span>*</span>프로젝트 동기
+				</p>
+			</div>
+			<div class="buildStudyInfo" >
+			
+			</div>
+			
+			<div class="buildStudyDesc">
+				<p>
+					<span>*</span>대표 이미지
+					<span>프로젝트 썸네일로 보여질 이미지를 선택해 주세요.</span>					
+				</p>
+			</div>
+			<div class="buildStudyInfo">
+				<div class="thumbnailWrap">
+					<div class="thumbnailBox"> 
+						<button></button>
+						<img class="thumbnailImg" alt="study_thumb_btn">
+						<input type="file" accept="image/*" style="disply: none;">
+					</div>
+					<div class="uploadBox">
+						<button>이미지 업로드</button>
+						<ul>
+							<li>가로/세로의 비율이 2:1일 때 썸네일이 가장 예쁩니다.</li>
+							<li>저작권에 위배되지 않는 파일만 업로드해주세요.</li>
+						</ul>
+					</div>
+				</div>
+				<div class="thumnailSelectBox">
+					<p>썸네일 이미지가 없으신 분들은 아래에서 이미지를 선택해주세요.</p>
+					<ul>
+						<li><img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/projectThumb_1.png" alt="project_thumb_img1"/></li>
+						<li><img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/projectThumb_2.png" alt="project_thumb_img1"/></li>
+						<li><img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/projectThumb_3.png" alt="project_thumb_img1"/></li>
+						<li><img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/projectThumb_4.png" alt="project_thumb_img1"/></li>
+						<li><img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/projectThumb_5.png" alt="project_thumb_img1"/></li>
+						<li><img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/projectThumb_6.png" alt="project_thumb_img1"/></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="buildStudyDesc">
+			<p>
+					<span>*</span>프로젝트 설명
+					<span>설명이 풍부한 프로젝트는 아닌 프로젝트에 비해 지원율이 50% 높습니다.</span>					
+				</p>
+			</div>
+			<div class="buildStudyInfo">
+				<!-- todo summernote 적용하기 -->
+			</div>
+			
+			<div class="buildStudyDesc"></div>
+			<div class="buildStudyInfo"></div>
+			
+			<div class="buildStudyDesc"></div>
+			<div class="buildStudyInfo"></div>
+			
+			<div class="buildStudyDesc"></div>
+			<div class="buildStudyInfo"></div>
+		</div>
+	</div>
+
+
+</div>
+
+{% endblock %}
