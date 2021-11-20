@@ -22,7 +22,7 @@ public class StudyController {
 	StudyService studyService;
 	
 	// studyList 정보 조회
-	@RequestMapping(value="/getStudyList", method=RequestMethod.POST, produces="application/json; charset=utf-8")
+	@RequestMapping(value="/getStudyList", method=RequestMethod.GET, produces="application/json; charset=utf-8")
 	public @ResponseBody Map<String, Object> getStudyLIst() {
 		Map<String, Object> returnMap = new HashMap<>();
 		List<Map<String, Object>> studyList = studyService.goStudyMain();

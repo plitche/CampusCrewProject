@@ -63,45 +63,6 @@
 	
 	<div class="section">
 		<div class="study_list">
-			{% for studyItem in studyList  %}
-				<div class="study_item_wrap">
-				<div class="icon_box">
-					<img src="https://cdn.loud.kr/prod/LOUD_IMG/designer/img-loudpick-label-s.png" alt="라벨">
-				</div>
-				
-				<div class="study_item">
-					<div class="thumbnail" onclick="fnGoStudyInfo({{studyItem.ISTUDYNO}})">
-						<div class="img_box">
-							<img src="https://cdn.loud.kr/prod/upload/ordersub/b_file1/thumimg2/order_sub_2851786_1_210926231452.jpg" alt="스터디이미지">
-						</div>
-						<div class="item_info">
-							<ul>
-								<li class="txt_bold">{{studyItem.VCSUBJECT}}</li>
-								<li class="txt_medium">{{studyItem.VCMEMBERADDRESS}}</li>
-							</ul>
-							<button class="btn_like"><i class="far fa-heart btn_like"></i></button>
-						</div>
-					</div>
-					
-					<div class="item_writer_info">
-						<div class="profile">
-							<a>
-								<img src="https://cdn.loud.kr/prod/LOUD_IMG/cl/no_img.jpg" alt="memberPhoto">
-							</a>
-						</div>
-						<div class="tit">
-							<a>{{studyItem.VCMEMBERNICNAME}}</a>
-							<p class="subject">[{{studyItem.VCSUBJECT}}]</p>
-						</div>
-						<ul class="win_info">
-							<li class="prize">{{studyItem.DTSTARTDATE}} ~ {{studyItem.DTENDDATE}} </li>
-							<li class="win">&nbsp; {{studyItem.VCTIME}}</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			{% endfor %}
-			
 		</div>
 	</div>
 </div>
