@@ -35,6 +35,8 @@
 <link type="text/css" rel="stylesheet"
 	href="http://localhost:9090/resignation/resources/css/common/header.css">
 <link type="text/css" rel="stylesheet"
+	href="http://localhost:9090/resignation/resources/css/common/rightSide.css">
+<link type="text/css" rel="stylesheet"
 	href="http://localhost:9090/resignation/resources/css/common/footer.css">
 <link type="text/css" rel="stylesheet"
 	href="http://localhost:9090/resignation/resources/css/common/common.css">
@@ -136,6 +138,18 @@
 	{% include "popup/join/joinPopupStepInit" %}
 
 	<div id="content">{% block content %} {% endblock %}</div>
+	<div id="rightSide">
+		{% block rightSide  %} 
+		<div id="div_main_side">
+			<div id="btn_side_toggle" class="on">
+				<a href="#">></a>
+			</div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		{% endblock %}
+	</div>
 	
 	<div id="footer">
 		{% block footer %}
