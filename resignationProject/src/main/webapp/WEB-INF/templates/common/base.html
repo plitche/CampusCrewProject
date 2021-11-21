@@ -100,6 +100,9 @@
 					<li class="search">
 						<img alt="" src="http://localhost:9090/resignation/resources/img/common/search.png" style="width: 100%; height: 100%; border-radius: 100px;" />
 					</li>
+					<li>
+						<input type="text" id ="totalSearch" placeholder="통합검색"  style="display:none;"/>
+					</li>
 						{% if loginUser.vcFilename == null %}
 						<li class="MyInfo">
 							<img alt="" id="MyInfo" src="http://localhost:9090/resignation/resources/storage/기본프로필.png" style="width: 100%; height: 100%; border-radius: 100px;" />
@@ -170,40 +173,58 @@
 
 
 <script>
-	$(function() {
+$(function() {
+	
+	var nicename = '{{ result.response.nickname }}';
+	var age = '{{ result.response.age }}';
+	var email = '{{ result.response.email }}';
+	
+	alert(nicename);
+	alert(age);
+	alert(email);
+	
 		
-		$('#MyInfo').off('click').on('click', function() {
-			if ($('.popmenu_profile').css('display') == 'none') {
-				$('.popmenu_profile').show();
-			} else {
-				$('.popmenu_profile').hide();
+	var profilePopUp = $('.popmenu_profile');
+	
+	$(document).on('click', '#MyInfo', function() {
+		if (profilePopUp.css('display') == 'none') {
+			profilePopUp.css('display', 'block');
+		} else {
+			profilePopUp.css('display', 'none');
+		}
+	});
+	$(document).mouseup(function (e){
+        if(profilePopUp.has(e.target).length==0) {
+       		profilePopUp.hide();
+        } 
+    });
+	
+	
+	
+	$('#logout').off('click').on('click', function() {
+		
+		$('#loading').show();
+		
+		$.ajax({
+			url :  "/resignation/login/logOut"
+			, type : 'post'
+			, contentType : 'application/json; charset=UTF-8'
+			, dataType : 'json'
+			, success : function(data) {
+				if (data.success == 'Y') {
+					location.href= '/resignation';
+				} else {
+					msg.info('로그아웃 실패하였습니다. 다시 시도해주세요.');
+					location.href= '/resignation';
+				}
+			}
+			, fail : function(failData) {
+				msg.info('로그아웃 실패');
 			}
 		});
-		
-		$('#logout').off('click').on('click', function() {
-			
-			$('#loading').show();
-			
-			$.ajax({
-				url :  "/resignation/login/logOut"
-				, type : 'post'
-				, contentType : 'application/json; charset=UTF-8'
-				, dataType : 'json'
-				, success : function(data) {
-					if (data.success == 'Y') {
-						location.href= '/resignation';
-					} else {
-						msg.info('로그아웃 실패하였습니다. 다시 시도해주세요.');
-						location.href= '/resignation';
-					}
-				}
-				, fail : function(failData) {
-					msg.info('로그아웃 실패');
-				}
-			});
-		});
-		
 	});
+	
+})	
 </script>
 
 

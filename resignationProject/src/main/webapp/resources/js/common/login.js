@@ -65,7 +65,20 @@
 			, event : function() {
 				
 				$('#naverLogin').off('click').on('click', function() {
-					location.href = "https://nid.naver.com/oauth2.0/authorize?response_type=code&amp;svctype=0&amp;redirect_uri=https%3A%2F%2Fsideproject.co.kr%2Foauth&amp;client_id=N6RnBkbkpWeXFM90j_dk&amp;state=Lw%253D%253D%7Cnaver%7CN%7C%7C";
+					
+					$.ajax({
+						url :  "/resignation/login/naverLogin"
+						, type : 'post'
+						, contentType : 'application/json; charset=UTF-8'
+						, dataType : 'json'
+						, success : function(data) {
+							console.log(data.url);
+							location.href = data.url;
+						}
+						, fail : function(failData) {
+							console.log("네이버로그인 실패");
+						}
+					});
 				});
 				
 				$('#kakaoLogin').off('click').on('click', function() {
