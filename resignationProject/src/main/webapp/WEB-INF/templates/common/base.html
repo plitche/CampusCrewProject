@@ -107,12 +107,18 @@
 					</li>
 						{% if loginUser.vcFilename == null %}
 						<li class="MyInfo">
-							<img alt="" id="MyInfo" src="http://localhost:9090/resignation/resources/storage/기본프로필.png" style="width: 100%; height: 100%; border-radius: 100px;" />
+							<img alt="" id="MyInfo" src="http://localhost:9090/resignation/resources/img/common/기본프로필.png" style="width: 100%; height: 100%; border-radius: 100px;" />
 						</li>
 						{% else %}
-						<li class="MyInfo">
-							<img alt="" id="MyInfo" src="http://localhost:9090/resignation/resources/storage/{{loginUser.vcFilename}}" style="width: 100%; height: 100%; border-radius: 100px;" />
-						</li>
+							{% if loginUser.loginType == '1' %}
+							<li class="MyInfo">
+								<img alt="" id="MyInfo" src="http://localhost:9090/resignation/resources/storage/{{loginUser.vcFilename}}" style="width: 100%; height: 100%; border-radius: 100px;" />
+							</li>
+							{% else %}
+							<li class="MyInfo">
+								<img alt="" id="MyInfo" src="{{loginUser.vcFilename}}" style="width: 100%; height: 100%; border-radius: 100px;" />
+							</li>
+							{% endif %}
 						 {% endif %}
 					{% endif %}
 				</ul>
@@ -189,13 +195,13 @@
 <script>
 $(function() {
 	
-	var nicename = '{{ result.response.nickname }}';
+	/* var nicename = '{{ result.response.nickname }}';
 	var age = '{{ result.response.age }}';
 	var email = '{{ result.response.email }}';
 	
 	alert(nicename);
 	alert(age);
-	alert(email);
+	alert(email); */
 	
 		
 	var profilePopUp = $('.popmenu_profile');

@@ -9,4 +9,13 @@ public interface LoginDao {
 	
 	public AttachmentVO memberPhoto(String email);
 
+	public LoginStep01VO selectNaver(LoginStep01VO loginStep01VO);
+	
+	public int insertNaverInfo(LoginStep01VO loginStep01VO);
+	
+	public int updatePhoto(LoginStep01VO loginStep01VO);
+	
+	public AttachmentVO getNaverPhoto(LoginStep01VO loginStep01VO);
+	
+	
 }

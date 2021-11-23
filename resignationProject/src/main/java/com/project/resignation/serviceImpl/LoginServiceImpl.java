@@ -24,5 +24,28 @@ public class LoginServiceImpl implements LoginService {
 		return loginDao.memberPhoto(email);
 	}
 	
+	@Override
+	public LoginStep01VO selectNaver(LoginStep01VO loginStep01VO) {
+		return loginDao.selectNaver(loginStep01VO);
+	}
+	
+	@Override
+	public int insertNaverInfo(LoginStep01VO loginStep01VO) {
+		return loginDao.insertNaverInfo(loginStep01VO);
+	}
+	
+	@Override
+	public int updatePhoto(LoginStep01VO loginStep01VO) {
+		return loginDao.updatePhoto(loginStep01VO);
+	}
+	
+	@Override
+	public AttachmentVO getNaverPhoto(LoginStep01VO loginStep01VO) {
+		return loginDao.getNaverPhoto(loginStep01VO);
+	}
+	
+	
+	
+	
 
 }

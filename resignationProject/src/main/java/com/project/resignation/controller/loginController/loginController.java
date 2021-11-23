@@ -1,6 +1,5 @@
 package com.project.resignation.controller.loginController;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,7 +8,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.github.scribejava.core.model.OAuth2AccessToken;
+import com.project.resignation.commonUtil.JsonParser;
 import com.project.resignation.service.LoginService;
 import com.project.resignation.vo.attachmentVO.AttachmentVO;
 import com.project.resignation.vo.loginStepVO.LoginStep01VO;
@@ -28,7 +27,7 @@ public class loginController {
 	
 	/* naverLoginBO */
 	private naverLoginBO naverloginbo;
-	private String apiResult = null;
+	private String naverLoginResult = null;
 	
 	@Autowired
 	private void setNaverLoginBO (naverLoginBO naverloginbo) {
@@ -66,18 +65,36 @@ public class loginController {
 	public String NaverLoginCallback(Model model
 												, @RequestParam String code
 												, @RequestParam String state
-												, HttpSession session) throws IOException {
-		
+												, HttpSession session
+												, LoginStep01VO loginStep01Vo) throws Exception {
 		
 		
 		System.out.println("여기는 callback");
+		JsonParser json = new JsonParser();
+		
 		OAuth2AccessToken oauthToken;
 		oauthToken = naverloginbo.getAccessToken(session, code, state);
-		apiResult = naverloginbo.getUserProfile(oauthToken);
-		System.out.println(apiResult);
-		
-		//session.setAttribute("loginUser", apiResult);
-		model.addAttribute("result", apiResult);
+		// 로그인 사용자 정보를 읽어온다.
+		naverLoginResult = naverloginbo.getUserProfile(session, oauthToken);
+		loginStep01Vo = json.changeJson(naverLoginResult); // loginStep01Vo에 naver에서 받아온 email, nickname, profile_image 저장
+		System.out.println("첫번째 loginStep01Vo:::::::::::::::" + loginStep01Vo);
+
+		// 네이버 정보의 이메일 정보와 같은 정보가 있으면 모든 정보가져오기 위해 선언
+		LoginStep01VO getLoginInfo = loginService.selectNaver(loginStep01Vo);
+		// 이메일로 기존에 회원가입된 정보가 있는 지 확인한다. 회원정보가 있으면 바로 session에 저장
+		if (getLoginInfo != null) {
+			getLoginInfo.setVcFilename(loginStep01Vo.getVcFilename());
+			getLoginInfo.setLoginType("2");
+			System.out.println("두번째 loginStep01Vo:::::::::::::::" + getLoginInfo);
+			session.setAttribute("loginUser", getLoginInfo);
+			
+		// 회원정보가 없으면 이메일, 닉네임, 프로필사진명을 집어넣는다.
+		} else {
+			loginService.insertNaverInfo(loginStep01Vo);
+			loginStep01Vo.setLoginType("2");
+			System.out.println("회원정보가 없을때 :::::::::" + loginStep01Vo);
+			session.setAttribute("loginUser", loginStep01Vo);
+		}
 		
 		return "index";
 	}
@@ -114,7 +131,7 @@ public class loginController {
 		if (attachmentInfo.getVcFilename() != null) {
 			loginCheckResult.setVcFilename(vcFilename);
 		}
-		
+		loginCheckResult.setLoginType("1"); // 일반회원가입으로 로그인한 것이라는 표시
 		System.out.println(loginCheckResult);
 		// 같은 정보가 있다면
 		if (loginCheckResult != null) {

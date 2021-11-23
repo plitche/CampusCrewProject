@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class LoginStep01VO {
 
-	// 이메일
+	// 이메일 / 네이버 이메일도 같이
 	private String email;
 	// 비밀번호
 	private String pw;
@@ -42,4 +42,7 @@ public class LoginStep01VO {
 	// 필요한 프로필 사진(저장된 파일명_
 	private String vcFilename;
 	
+	
+	// LoginType 지정 --> 1 : 일반회원가입으로 로그인한 타입 / 2 : 네이버로그인한 타입
+	private String loginType;
 }

@@ -17,5 +17,67 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM tbAttachment
 		WHERE NPOSTREFERINFO = #{email}
 	</select>
-
+	
+	<select id="selectNaver" resultType="com.project.resignation.vo.loginStepVO.LoginStep01VO" parameterType="com.project.resignation.vo.loginStepVO.LoginStep01VO">
+		SELECT *
+		FROM tbMember
+		WHERE vcMemberId = #{email}
+	</select>
+	
+	<insert id="insertNaverInfo" parameterType="com.project.resignation.vo.loginStepVO.LoginStep01VO">
+		INSERT INTO
+		tbMember
+		(
+		vcMemberId,
+		vcMemberPw,
+		vcMemberName,
+		vcMemberNicname,
+		vcMemberAddress,
+		vcMemberPhone,
+		vcMemberAge,
+		vcMemberMBTI,
+		vcMemberTime1,
+		vcMemberTime2,
+		vcMemberIntroduce,
+		vcMemberGender,
+		vcMemberLink1,
+		vcMemberLink2
+		)
+		VALUES
+		(
+		#{email},
+		'',
+		'',
+		#{vcMemberNickname},
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		''
+		)
+	</insert>
+	
+	<update id="updatePhoto" parameterType="com.project.resignation.vo.loginStepVO.LoginStep01VO">
+		UPDATE tbAttachment
+		SET
+		vcFileName = #{vcFilename}
+		vcOrgFilename = ''
+		vcFilePath = ''
+		WHERE nPostReferInfo = #{email}
+		AND nFileType = 4
+	</update>
+	
+	<select id="getNaverPhoto" resultType="com.project.resignation.vo.attachmentVO.AttachmentVO" parameterType="com.project.resignation.vo.loginStepVO.LoginStep01VO">
+		SELECT *
+		FROM tbAttachment
+		WHERE nFileType = 4
+		AND nPostReferInfo = #{email}
+	</select>
+	
+	
 </mapper>

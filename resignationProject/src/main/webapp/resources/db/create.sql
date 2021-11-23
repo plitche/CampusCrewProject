@@ -106,7 +106,7 @@ NOCACHE;
 -- 유저
 CREATE TABLE tbMember (
 	vcMemberId 			 	VARCHAR(50) 		PRIMARY KEY,
-	vcMemberPw 			 	VARCHAR(30) 		NOT NULL,
+	vcMemberPw 			 	VARCHAR(30) 		NULL,
 	vcMemberName 		 	VARCHAR(30) 		NULL,
 	vcMemberNicname	 	VARCHAR(50) 		NULL,
 	vcMemberAddress	 	VARCHAR(50) 		NULL,
