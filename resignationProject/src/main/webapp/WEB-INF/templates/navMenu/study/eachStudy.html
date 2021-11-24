@@ -3,11 +3,15 @@
 {% block content %}
 <!--  공통 js  -->
 <link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/studyCss/eachStudy.css" >
-
+<script type="text/javascript" charset="utf-8"	src="http://localhost:9090/resignation/resources/js/study/eachStudy.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script>
 	$(document).ready(function() {
+		study.init();
+		
 		var isAjaxPro = true;
 		
+		// 포지션 지원 ajax
 		if (isAjaxPro) {
 			$('.positionApplyBtn').click(function() {
 				var positionName = $(this).siblings('.positionTxt').text();
@@ -158,17 +162,6 @@
 {% endblock %}
 
 {% block script %}
-<script>
-	$(document).ready(function() {
-		// 작성자 마우스 오버 이벤트
-		$('.writerInfo, .writerRightBox').mouseover(function() {
-			$(this).find('.infoHoverMenu').show();
-		});
-		
-		$('.writerInfo, .writerRightBox').mouseleave(function() {
-			$(this).find('.infoHoverMenu').hide();
-		});
-	});
-</script>
+
 {% endblock %}
 
