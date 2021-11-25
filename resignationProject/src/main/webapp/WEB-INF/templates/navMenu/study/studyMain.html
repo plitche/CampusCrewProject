@@ -2,11 +2,57 @@
 
 {% block content %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+<!--  공통 js  -->
+<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/studyCss/studyMain.css" >
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
 <script type="text/javascript" charset="utf-8"	src="http://localhost:9090/resignation/resources/js/study/studyMain.js"></script>
 <script>
-	$(function() {
-		var mySwiper = new Swiper('.swiper-container', {});
+	$(function(){
+	    var mySwiper = new Swiper('.swiper-container', {
+	    	//방향 셋팅 vertical 수직, horizontal 수평 설정이 없으면 수평 
+	    	direction: 'horizontal', 
+	    	//한번에 보여지는 페이지 숫자 
+	    	slidesPerView: 1, 
+	    	//페이지와 페이지 사이의 간격 
+	    	spaceBetween: 30, 
+	    	//드레그 기능 true 사용가능 false 사용불가 
+	    	mousewheel: true, 
+	    	//반복 기능 true 사용가능 false 사용불가 
+	    	loop: true, 
+	    	//선택된 슬라이드를 중심으로 true 사용가능 false 사용불가 
+	    	centeredSlides: true, 
+
+	        // If we need pagination 
+			pagination: {
+				el: '.swiper-pagination',
+				clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
+				type: 'progressbar', // And if we need scrollbar 진행바
+			},
+	        
+			autoplay : {  // 자동 슬라이드 설정 , 비 활성화 시 false
+				  delay : 3000,   // 시간 설정
+				  disableOnInteraction : false,  // false로 설정하면 스와이프 후 자동 재생이 비활성화 되지 않음
+			},
+			
+	        // Navigation arrows 
+	        navigation: {
+	            nextEl: '.swiper-button-next',
+	            prevEl: '.swiper-button-prev',
+	        },
+	        
+	        // 반응형
+	        breakpoints: {
+	            1280: {
+	                slidesPerView: 3,
+	                slidesPerGroup: 3,
+	            },
+	            720: {
+	                slidesPerView: 1,
+	                slidesPerGroup: 1,
+	            },
+	        }
+	    })
 	});
 	
 	$(document).ready(function() {
@@ -17,16 +63,18 @@
 		location.href="/resignation/study/eachStudy?iStudyNo=" + iStudyNo;
 	}
 </script>
-<!--  공통 js  -->
-<link type="text/css" rel="stylesheet" href="http://localhost:9090/resignation/resources/css/studyCss/studyMain.css" >
 
 <div class="contentBody">
 	<div class="swiper-container">
-		<div class="study_visual swiper-wrapper" >
+		<div class="swiper-wrapper" >
 			<div class="swiper-slide"><img src="http://localhost:9090/resignation/resources/assets/images/study/studyBanner1.jpg" alt="스터디 배너 이미지" /></div>
 			<div class="swiper-slide"><img src="http://localhost:9090/resignation/resources/assets/images/study/studyBanner2.jpg" alt="스터디 배너 이미지" /></div>
 			<div class="swiper-slide"><img src="http://localhost:9090/resignation/resources/assets/images/study/studyBanner3.jpg" alt="스터디 배너 이미지" /></div>
 		</div>
+		<div class="swiper-pagination"></div>
+		<div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-scrollbar"></div>
 	</div>
 	<div class="recomandHead">
 		<div class="recomandMes"><p>[추천] 딱! 당신을 기다리는 프로젝트입니다</p></div>

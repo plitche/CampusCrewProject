@@ -8,36 +8,6 @@
 <script>
 	$(document).ready(function() {
 		study.init();
-		
-		var isAjaxPro = true;
-		
-		// 포지션 지원 ajax
-		if (isAjaxPro) {
-			$('.positionApplyBtn').click(function() {
-				var positionName = $(this).siblings('.positionTxt').text();
-				var postData = {'iStudyNo' : {{studyInfo.ISTUDYNO}}, 
-									   'positionName' : positionName, 
-									   'applyID' : 'plitche'};
-				
-				requestAjaxPOST('/resignation/study/applyPosition', postData, function(data) {
-					switch(data.iReturn) {
-					case 0 : 
-						msg.info('포지션 지원에 성공하셨습니다.')
-						break;
-					case 1 : 
-						msg.info('해당 포지션은 더이상 남은 자리가 없습니다.')
-						break;
-					case 2 : 
-						msg.info('이미 해당 스터디의 [' + data.appliedPosition + ']포지션에 신청 했었습니다. \n다시 신청 하고 싶으시면 마이페이지에서 취소뒤 다시 시도해주세요.')						
-						break;
-					default : 
-						msg.info('오류가 발생하였습니다. 나정호씨에게 문의해주세요.')
-						break;
-					}
-				});
-			});
-		}
-		
 	})
 </script>
 
@@ -84,6 +54,7 @@
 		<div class="sutdyDetaileInfo">
 			<div class="studyTab">
 				<div class="memberApplyBox">
+					<input type="hidden" id="studyNum" value={{studyInfo.ISTUDYNO}} />
 					<h3 class="tabTit">모집 현황</h3>
 					<ul>
 						{% for participantsInfo in participantsInfoList %}
