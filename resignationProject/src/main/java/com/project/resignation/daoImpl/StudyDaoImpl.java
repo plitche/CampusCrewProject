@@ -70,6 +70,13 @@ public class StudyDaoImpl implements StudyDao {
 			eachStudyInfo.put("duration", "-");
 		}
 		
+		// 조회수 1 증가 시키기
+		Map<String, Object> paramMap = new HashMap<>();
+		String memberID = "plitche"; // 세션에서 정보 조회해오기
+		paramMap.put("iStudyNo",iStudyNo);
+		paramMap.put("memberID",memberID);
+		sqlsession.update("SetStudy.addStudyView", paramMap);
+		
 		return eachStudyInfo;
 	}
 	
