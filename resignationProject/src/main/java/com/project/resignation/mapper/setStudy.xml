@@ -7,11 +7,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 조회수 증가시키기 -->
 	<!-- 아이디 떄문에 iHitNo join 해야될듯 -->
-	<update id="" parameterType="hashmap">
+	<update id="addStudyView" parameterType="hashmap">
 		UPDATE tbHit
 		SET nHit = nHit+1
 		WHERE nPostReferType = 1
 			AND nPostReferNo = #{iStudyNo}
+			AND NOT EXISTS (	SELECT *
+										FROM tbStudy
+										WHERE iStudyNo = #{iStudyNo}
+											AND vcStudyMakerId != #{memberID} )
 	</update>
 
 	<!-- 스터디 상세에서 지원 하기 -->
