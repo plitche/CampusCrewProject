@@ -38,11 +38,11 @@ public class naverLoginBO {
         setSession(session,state);        
  
         /* Scribe에서 제공하는 인증 URL 생성 기능을 이용하여 네아로 인증 URL 생성 */
-        OAuth20Service oauthService = new ServiceBuilder()                                                   
+        OAuth20Service oauthService = new ServiceBuilder()                            
                 .apiKey(CLIENT_ID)
                 .apiSecret(CLIENT_SECRET)
                 .callback(REDIRECT_URI)
-                .state(state) //앞서 생성한 난수값을 인증 URL생성시 사용함
+                .state(state)//앞서 생성한 난수값을 인증 URL생성시 사용함
                 .build(naverLoginApi.instance());
  
         return oauthService.getAuthorizationUrl();

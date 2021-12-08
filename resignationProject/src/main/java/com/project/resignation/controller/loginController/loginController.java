@@ -5,6 +5,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -72,18 +74,29 @@ public class loginController {
 		System.out.println("여기는 callback");
 		JsonParser json = new JsonParser();
 		
+		
 		OAuth2AccessToken oauthToken;
 		oauthToken = naverloginbo.getAccessToken(session, code, state);
 		// 로그인 사용자 정보를 읽어온다.
 		naverLoginResult = naverloginbo.getUserProfile(session, oauthToken);
-		loginStep01Vo = json.changeJson(naverLoginResult); // loginStep01Vo에 naver에서 받아온 email, nickname, profile_image 저장
-		System.out.println("첫번째 loginStep01Vo:::::::::::::::" + loginStep01Vo);
+		JSONParser parser = new JSONParser();
+		Object obj = parser.parse(naverLoginResult);
+		JSONObject jsonObj = (JSONObject)obj;
+		JSONObject response_obj = (JSONObject)jsonObj.get("response");
+		
+		
+		//loginStep01Vo = json.changeJson(naverLoginResult); // loginStep01Vo에 naver에서 받아온 email, nickname, profile_image 저장
+		//System.out.println("첫번째 loginStep01Vo:::::::::::::::" + loginStep01Vo);
+		System.out.println("첫번째 :::::::::::::::: " + response_obj);
+		
+		
 
 		// 네이버 정보의 이메일 정보와 같은 정보가 있으면 모든 정보가져오기 위해 선언
-		LoginStep01VO getLoginInfo = loginService.selectNaver(loginStep01Vo);
+		LoginStep01VO getLoginInfo = loginService.selectNaver(response_obj);
+		//LoginStep01VO getLoginInfo = loginService.selectNaver(loginStep01Vo);
 		// 이메일로 기존에 회원가입된 정보가 있는 지 확인한다. 회원정보가 있으면 바로 session에 저장
 		if (getLoginInfo != null) {
-			getLoginInfo.setVcFilename(loginStep01Vo.getVcFilename());
+			getLoginInfo.setVcFilename(response_obj.get("profile_image"));
 			getLoginInfo.setLoginType("2");
 			System.out.println("두번째 loginStep01Vo:::::::::::::::" + getLoginInfo);
 			session.setAttribute("loginUser", getLoginInfo);

@@ -1,5 +1,7 @@
 package com.project.resignation.service;
 
+import org.json.simple.JSONObject;
+
 import com.project.resignation.vo.attachmentVO.AttachmentVO;
 import com.project.resignation.vo.loginStepVO.LoginStep01VO;
 
@@ -12,7 +14,8 @@ public interface LoginService {
 	public AttachmentVO memberPhoto(String email);
 		
 	// 네이버이메일과 같은 아이디정보가 있는지 확인한다.
-	public LoginStep01VO selectNaver(LoginStep01VO loginStep01VO);
+	//public LoginStep01VO selectNaver(LoginStep01VO loginStep01VO);
+	public LoginStep01VO selectNaver(JSONObject response_obj);
 	
 	// 네이버 이메일과 같은 정보가 없으면 이메일, 닉네임을 삽입한다.
 	public int insertNaverInfo(LoginStep01VO loginStep01VO);

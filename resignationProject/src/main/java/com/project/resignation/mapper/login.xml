@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE NPOSTREFERINFO = #{email}
 	</select>
 	
-	<select id="selectNaver" resultType="com.project.resignation.vo.loginStepVO.LoginStep01VO" parameterType="com.project.resignation.vo.loginStepVO.LoginStep01VO">
+	<select id="selectNaver" resultType="com.project.resignation.vo.loginStepVO.LoginStep01VO" parameterType="org.json.simple.JSONObject">
 		SELECT *
 		FROM tbMember
 		WHERE vcMemberId = #{email}

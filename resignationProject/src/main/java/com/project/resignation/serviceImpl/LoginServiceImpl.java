@@ -1,5 +1,6 @@
 package com.project.resignation.serviceImpl;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,10 +24,9 @@ public class LoginServiceImpl implements LoginService {
 	public AttachmentVO memberPhoto(String email) {
 		return loginDao.memberPhoto(email);
 	}
-	
 	@Override
-	public LoginStep01VO selectNaver(LoginStep01VO loginStep01VO) {
-		return loginDao.selectNaver(loginStep01VO);
+	public LoginStep01VO selectNaver(JSONObject response_obj) {
+		return loginDao.selectNaver(response_obj);
 	}
 	
 	@Override

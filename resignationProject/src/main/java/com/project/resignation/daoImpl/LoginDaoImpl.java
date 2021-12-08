@@ -1,6 +1,7 @@
 package com.project.resignation.daoImpl;
 
 import org.apache.ibatis.session.SqlSession;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +26,8 @@ public class LoginDaoImpl implements LoginDao {
 	}
 	
 	@Override
-	public LoginStep01VO selectNaver(LoginStep01VO loginStep01VO) {
-		return sqlsession.selectOne("Login.selectNaver", loginStep01VO);
+	public LoginStep01VO selectNaver(JSONObject response_obj) {
+		return sqlsession.selectOne("Login.selectNaver", response_obj);
 	}
 	
 	@Override
