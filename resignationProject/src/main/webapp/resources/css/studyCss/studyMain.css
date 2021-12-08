@@ -39,5 +39,6 @@
 .item_writer_info .win_info {font-size: 0; margin-top: 2px;}
 .item_writer_info li {display: inline-block; height: 15px; line-height: 15px; font-size: 12px; font-weight: 500; letter-spacing: -0.5px; vertical-align: top; list-style: none;}
 
-
+.swiper-container {width: 100%; height: 100%;}
+.swiper-slide img {display: block; width: 100%; height: 100%; object-fit: cover;}
 

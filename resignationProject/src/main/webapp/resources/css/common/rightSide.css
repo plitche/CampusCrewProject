@@ -1,14 +1,20 @@
 @charset "UTF-8";
 
 #rightSide {right: 0px; position: absolute; background-color: #fff; width: 170px; height: 200%; top: 65px; box-shadow: -2px 0 4px rgba(0,0,0,.35); z-index: 801;}
-#rightSide #div_main_side {position: fixed; top: 155px; height: 832px;}
+#rightSide #div_main_side {position: fixed; top: 155px; height: 832px; width: 170px;}
 #rightSide #btn_side_toggle {position: absolute; top: 350px; left: -25px;}
 #rightSide #btn_side_toggle a {height: 90px; width: 25px; display: block; line-height: 90px; text-align: center; background-color: #fff; box-shadow: -3px 0 4px rgba(0,0,0,.35); border-radius: 6px 0 0 6px;}
 
+#scs_banner {margin: 10px; width: 141px; height: 141px; overflow: hidden; padding-bottom: 20px; margin-bottom: 0px; margin-top: 125px;}
+#div_my_stat {font-size: 14px; line-height: 19px; color: #1f2152;}
+#div_my_stat ul {padding: 0 22px;}
+#div_my_stat li {padding: 10px 0 15px; border-top: 1px solid #b7c1d9; text-align: center; display: block;}
+#div_my_stat li:first-child {border-top: 0px; padding-top: 20px;}
+#div_my_stat a span {display: block; line-height: 19px; padding-top: 4px;}
+#div_my_stat a em {font-style: normal; display: block; line-height: 19px; padding-top:4px; color: #635bca;}
 
-
-
-
-
+#btn_make {padding: 20px 15px 20px 16px; border-top: 1px solid #b7c1d9;}
+#btn_make a {display: block; font-size: 12px; color: #fff; background-color: #716ace; border-radius: 30px; line-height: 18px; padding: 6px 5px 5px 5px; height: 30px;; text-align: center; margin-top: 6px;}
+#btn_make a:first-child {margin-top: 0}
 
 
