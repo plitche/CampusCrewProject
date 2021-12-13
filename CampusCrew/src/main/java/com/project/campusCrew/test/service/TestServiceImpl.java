@@ -1,10 +1,9 @@
-package com.project.campusCrew.serviceImpl;
+package com.project.campusCrew.test.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.campusCrew.dao.TestDao;
-import com.project.campusCrew.service.TestService;
+import com.project.campusCrew.test.dao.TestDao;
 
 @Service
 public class TestServiceImpl implements TestService {

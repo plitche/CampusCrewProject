@@ -1,4 +1,4 @@
-package com.project.campusCrew.controller;
+package com.project.campusCrew.test;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.project.campusCrew.service.TestService;
+import com.project.campusCrew.test.service.TestService;
 
 /**
  * Handles requests for the application home page.
