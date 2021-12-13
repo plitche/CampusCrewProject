@@ -96,7 +96,7 @@ public class loginController {
 		//LoginStep01VO getLoginInfo = loginService.selectNaver(loginStep01Vo);
 		// 이메일로 기존에 회원가입된 정보가 있는 지 확인한다. 회원정보가 있으면 바로 session에 저장
 		if (getLoginInfo != null) {
-			getLoginInfo.setVcFilename(response_obj.get("profile_image"));
+//			getLoginInfo.setVcFilename(response_obj.get("profile_image"));
 			getLoginInfo.setLoginType("2");
 			System.out.println("두번째 loginStep01Vo:::::::::::::::" + getLoginInfo);
 			session.setAttribute("loginUser", getLoginInfo);
