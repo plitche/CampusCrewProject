@@ -41,7 +41,7 @@ public class HomeController {
 		model.addAttribute("test", testService.testServiceMethod1());
 		
 		model.addAttribute("serverTime", formattedDate );
-		
+		System.out.println("잘하자");
 		return "index";
 	}
 	
