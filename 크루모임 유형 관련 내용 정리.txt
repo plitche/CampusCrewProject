@@ -1,0 +1,43 @@
+* 예시) 크루모임유형 테이블 
+시퀀스	분야		종목				
+1			댄스		브레이크댄스	
+2			댄스		힙합댄스
+3			댄스		섹시댄스
+4			기타		우리는 여기 목록에 없는거 할래요
+
+* 예시) 크루채널 
+크루모임채널
+크루채널명 : '짱짱'
+채널소개 : '우리는 브레이크댄스를 하는 팀이에요!'
+모임유형시퀀스 : 1
+링크1 : www~~
+링크2 : www~~
+
+* 예시) 크루채널 생성 시 INSERT 
+<insert id="insert" parameterType="guestVO" >
+	-- !! 회원이 선택한 분야와 종목이 일치하는 시퀀스 가져오기 !! 
+    <selectKey keyProperty="모임유형 시퀀스" resultType="int" order="BEFORE">   
+        select 모임유형 시퀀스
+		from 모임유형 테이블
+		where 분야 = '댄스'
+		and 종목 = '브레이크댄스'
+     </selectKey>
+    
+	-- 가져온 시퀀스 토대로 INSERT하기
+    insert into 크루모임채널
+    values(#{모임유형 시퀀스},#{name},#{password},#{content},sysdate)    
+</insert>
+
+* 예시) 추후 크루채널 SELECT시
+select *
+from 크루채널 테이블 a join 모임유형 b
+on a.모임유형시퀀스 = b.모임유형시퀀스
+where ?? = ??
+
+
+* jsp 에서 select option 태그 만들시
+<select>
+	<for:each 크루모임유형List>
+		<option></option>
+	</for>
+</select>
