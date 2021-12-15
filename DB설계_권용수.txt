@@ -1,0 +1,202 @@
+	-- 1. 칼럼마다 회원 아이디 같은게 다 다를 필요가 있나?
+	
+	-- 시퀀스 삭제
+	DROP SEQUENCE tbComment_Seq;
+	DROP SEQUENCE tbCrewType_Seq;
+	DROP SEQUENCE tbApplyMember_Seq;
+	DROP SEQUENCE tbConfirmMember_Seq;
+	DROP SEQUENCE tbMessengerList_Seq;
+	DROP SEQUENCE tbMessenger_Seq;
+	DROP SEQUENCE tbMessengerMember_Seq;
+	DROP SEQUENCE tbShare_Seq;
+	DROP SEQUENCE tbGoodBad_Seq;
+	DROP SEQUENCE tbHit_Seq;
+	DROP SEQUENCE tbImage_Seq;
+	DROP SEQUENCE tbLocation_Seq;
+	DROP SEQUENCE tbNotice_Seq;
+	
+	-- 테이블 삭제
+	DROP TABLE tbComment_Seq;
+	DROP TABLE tbCrewType_Seq;
+	DROP TABLE tbApplyMember_Seq;
+	DROP TABLE tbConfirmMember_Seq;
+	DROP TABLE tbMessengerList_Seq;
+	DROP TABLE tbMessenger_Seq;
+	DROP TABLE tbMessengerMember_Seq;
+	DROP TABLE tbShare_Seq;
+	DROP TABLE tbGoodBad_Seq;
+	DROP TABLE tbHit_Seq;
+	DROP TABLE tbImage_Seq;
+	DROP TABLE tbLocation_Seq;
+	DROP TABLE tbNotice_Seq;
+	
+	-- 시퀀스 생성
+	--12. 댓글
+	CREATE SEQUENCE tbComment_Seq START WITH 1 INCREMENT BY 1 NOCACHE;
+
+	--13. 크루 모임 유형
+	CREATE SEQUENCE tbCrewType_Seq START WITH 1 INCREMENT BY 1 NOCACHE;
+	
+	-- 14. 참가 희망자 리스트(장기크루, 크루배틀)
+	CREATE SEQUENCE tbApplyMemberList_Seq START WITH 1 INCREMENT BY 1 NOCACHE;
+	
+	-- 15. 참가 확정자 리스트(단기크루, 장기크루, 크루배틀)
+	CREATE SEQUENCE tbConfirmMemberList_Seq START WITH 1 INCREMENT BY 1 NOCACHE;
+	
+	-- 16. 대화목록리스트
+	CREATE SEQUENCE tbMessengerList_Seq START WITH 1 INCREMENT BY 1 NOCACHE;
+	
+	-- 17. 대화메신저
+	CREATE SEQUENCE tbMessenger_Seq START WITH 1 INCREMENT BY 1 NOCACHE;
+	
+	-- 18. 대화참가자리스트
+	CREATE SEQUENCE tbMessengerMember_Seq START WITH 1 INCREMENT BY 1 NOCACHE;
+
+	-- 19. 공유 수
+	CREATE SEQUENCE tbShare_Seq START WITH 1 INCREMENT BY 1 NOCACHE;
+
+	-- 20. 좋아요/싫어요
+	CREATE SEQUENCE tbGoodBad_Seq START WITH 1 INCREMENT BY 1 NOCACHE;
+
+	-- 21. 조회수
+	CREATE SEQUENCE tbHit_Seq START WITH 1 INCREMENT BY 1 NOCACHE;
+
+	-- 22. 첨부파일
+	CREATE SEQUENCE tbImage_Seq START WITH 1 INCREMENT BY 1 NOCACHE;
+
+	-- 23. 위치
+	CREATE SEQUENCE tbLocation_Seq START WITH 1 INCREMENT BY 1 NOCACHE;
+
+	-- 24. 공지
+	CREATE SEQUENCE tbNotice_Seq START WITH 1 INCREMENT BY 1 NOCACHE;
+	
+	
+	-- ===========================================================================================
+	
+	-- 12. 댓글
+	CREATE TABLE tbComment (
+		nCommentSeq			NUMBER				PRIMARY KEY, 
+		vcCrewMemberId		VARCHAR(50)		PREFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+		dtRegDate				DATE					NOT NULL,
+		nCrewMainCategory	NUMBER				NOT NULL,
+		nCrewSubCategory		NUMBER				NOT NULL, 
+		vcContent				VARCHAR(2000) 	NOT NULL
+	);	
+	
+	-- 13. 모임유형
+	CREATE TABLE tbCrewType (
+		nCrewTypeSeq			NUMBER				PRIMARY KEY,
+		vcCrewChannelName	VARCAHR(50)		NULL,
+		vcCrewTypeCategory	VARCHAR(100)		NOT NULL,
+		vcCrewTypeField			VARCHAR(100)		NOT NULL,
+		vcCrewTypeDetail		VARCHAR(100)		NOT NULL
+	);
+	
+	-- 14. 참가 희망자 리스트(장기크루)
+	CREATE TABLE tbApplyMemberList (
+		nCrewApplySeq			NUMBER				PRIMARY KEY,
+		vcCrewMemberId		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+		nCrewMeetNo			NUMBER				NOT NULL,
+		nCrewMainCategory	NUMBER				NOT NULL,
+		dtRegDate				DATE					NOT NULL
+	);
+	
+	-- 15. 참가 확정자 리스트(단기크루, 장기크루)
+	CREATE TABLE tbConfirmMemberList (
+		nCrewConfirmSeq		NUMBER				PRIMARY KEY,
+		vcCrewMemberId		VARCHAR(50)		PEFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+		nCrewMeetNo			NUMBER				NOT NULL,
+		nCrewMainCategory	NUMBER				NOT NULL,
+		dtRegDate				DATE					NOT NULL
+	);
+	
+	-- 16. 대화목록리스트
+	CREATE TABLE tbMessengerList (
+		nMngListSeq				NUMBER				PRIMARY KEY,
+		nCrewMainCategory	NUMBER				NOT NULL,
+		nCrewSubCategory		NUMBER				NOT NULL,
+		dtRegDate				DATE					NOT NULL
+	);
+	
+	-- 17. 대화메신저
+	CREATE TABLE tbMessenger (
+		nMngSeq				NUMBER				PRIMARY KEY,
+		vcFromMemberID		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+		-- vcToMemberID			VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+		nMngListSeq				NUMBER				REFERENCES tbMessengerList(iMngListSeq) ON DELETE CASCADE NOT NULL,
+		vcMngContent			VARCHAR(1000)		NOT NULL,
+		dtRegDate				DATE					NOT NULL
+	);
+	
+	-- 18. 대화참가자리스트
+	CREATE TABLE tbMessengerMembers (
+		nMngMemberSeq		NUMBER				PRIMARY KEY,
+		vcCrewMemberId		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+		nMngListSeq				NUMBER				REFERENCES tbMessengerList(nMngListSeq) ON DELETE CASCADE NOT NULL,
+	);
+
+	-- 19. 공유 수
+	CREATE TABLE tbShare (
+		nShareSeq				NUMBER				PRIMARY KEY,
+		vcCrewMemberId		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+		nCrewMeetNo			NUMBER				NOT NULL,
+		nCrewMainCategory	NUMBER				NOT NULL,
+		dtRegDate				DATE					NOT NULL
+	);
+
+	-- 20. 좋아요/싫어요
+	CREATE TABLE tbGoodBad (
+		nGoodBadSeq			NUMBER				PRIMARY KEY,
+		vcCrewMemberId		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+		nCrewMeetNo			NUMBER				NOT NULL,
+		nCrewMainCategory	NUMBER				NOT NULL,
+		nGood					NUMBER				NOT NULL,
+		nBad						NUMBER				NOT NULL,
+		dtRegDate				DATE					NOT NULL
+	);
+
+	-- 21. 조회수
+	CREATE TABLE tbHit (
+		nHitSeq					NUMBER				PRIMARY KEY,
+		nCrewMeetNo			NUMBER				NOT NULL,
+		nCrewMainCategory	NUMBER				NOT NULL,
+		nHitCnt					NUMBER				NOT NULL,
+		dtRegDate				DATE					NOT NULL
+	);
+
+	-- 22. 첨부파일 (중복인듯)
+	CREATE TABLE tbImage (
+		nImageSeq				NUMBER				PRIMARY KEY,
+		vcCrewMemberId		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+		nCrewMainCategory	NUMBER				NOT NULL,
+		nCrewSubCategory		NUMBER				NOT NULL,
+		vcImagePath				VARCHAR(2000)		NOT NULL,
+		vcImgaeName			VARCHAR(100)		NOT NULL,
+		dtRegDate				DATE					NOT NULL
+	);
+	
+	-- 23. 위치
+	CREATE TABLE tbLocation (
+		nLocationSeq			NUMBER				PRIMARY KEY,
+		nCrewMeetNo			NUMBER				NOT NULL,
+		nCrewMainCategory	NUMBER				NOT NULL,
+		vcLocationDetail			VARCHAR(2000)		NOT NULL,
+		nLatitude		 			NUMBER				NOT NULL,
+		nLongitude				NUMBER				NOT NULL,
+	);
+
+	-- 24. 공지
+	CREATE TABLE tbNotice (
+		nNoticeSeq				NUMBER			PRIMARY KEY,
+		vcCrewMemberId		VARCHAR(50)	REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+		nCrewMeetNo			NUMBER			NOT NULL,
+		nCrewMainCategory	NUMBER			NOT NULL,
+		dtRegDate				DATE				NOT NULL
+	);
+	
+	
+	
+
+	
+	
+	

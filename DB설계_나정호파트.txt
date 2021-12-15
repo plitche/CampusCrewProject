@@ -1,0 +1,288 @@
+DROP TABLE tbTag;
+DROP TABLE tbInterestCrew;
+DROP TABLE tbMannerBadge;
+DROP TABLE tbAttachment;
+DROP TABLE tbCrewMemberList;
+DROP TABLE tbChallengeFeed;
+DROP TABLE tbFollower;
+DROP TABLE tbCrewBattleParticipant;
+DROP TABLE tbUserEvaluation;
+DROP TABLE tbCrewChannel;
+DROP TABLE tbCrewBattle;
+DROP TABLE tbManagerBattle;
+DROP TABLE tbLongCrew;
+DROP TABLE tbOneDayCrew;
+DROP TABLE tbCrewMemberInfo;
+-- 추가로 용수형 드랍테이블 넣어주기
+
+DROP SEQUENCE tbTag_Seq;
+DROP SEQUENCE tbInterestCrew_Seq;
+DROP SEQUENCE tbMannerBadge_Seq;
+DROP SEQUENCE tbAttachment_Seq;
+DROP SEQUENCE tbCrewMemberList_Seq;
+DROP SEQUENCE tbChallengeFeed_Seq;
+DROP SEQUENCE tbFollower_Seq;
+DROP SEQUENCE tbCrewBattleParticipant_Seq;
+DROP SEQUENCE tbUserEvaluation_Seq;
+DROP SEQUENCE tbCrewChannel_Seq;
+DROP SEQUENCE tbCrewBattle_Seq;
+DROP SEQUENCE tbManagerBattle_Seq;
+DROP SEQUENCE tbLongCrew_Seq;
+DROP SEQUENCE tbOneDayCrew_Seq;
+DROP SEQUENCE tbCrewMemberInfo_Seq;
+-- 추가로 용수형 드랍시퀀스 넣어주기
+
+-- 태그 시퀀스
+CREATE SEQUENCE tbTag_Seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE;
+-- 관심크루 시퀀스
+CREATE SEQUENCE tbInterestCrew_Seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE;
+-- 메너배지 시퀀스
+CREATE SEQUENCE tbMannerBadge_Seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE;
+-- 첨부파일 시퀀스
+CREATE SEQUENCE tbAttachment_Seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE;
+-- 크루소속명단 시퀀스
+CREATE SEQUENCE tbCrewMemberList_Seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE;
+-- 챌린지피드 스퀀스
+CREATE SEQUENCE tbChallengeFeed_Seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE;
+-- 팔로워 스퀀스
+CREATE SEQUENCE tbFollower_Seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE;
+-- 크루배틀참여팀 시퀀스
+CREATE SEQUENCE tbCrewBattleParticipant_Seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE;
+-- 유저평가 스퀀스
+CREATE SEQUENCE tbUserEvaluation_Seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE;
+-- 크루채널 스퀀스
+CREATE SEQUENCE tbCrewChannel_Seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE;
+-- 크루배틀모임 시퀀스
+CREATE SEQUENCE tbCrewBattle_Seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE;
+-- 관리자생성배틀모임 시퀀스
+CREATE SEQUENCE tbManagerBattle_Seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE;
+-- 장기크루 시퀀스
+CREATE SEQUENCE tbLongCrew_Seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE;
+-- 원데이크루 시퀀스
+CREATE SEQUENCE tbOneDayCrew_Seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE;
+-- 크루원정보 시퀀스
+CREATE SEQUENCE tbCrewMemberInfo_Seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE;
+-- 용수형 시퀀스 추가
+
+
+﻿-- 크루원정보
+CREATE TABLE tbCrewMemberInfo (
+	vcCrewMemberId	                VARCHAR(50)		PRIMARY KEY,
+	vcCrewMemberPw	                VARCHAR(50)	    NULL,
+	vcCrewMemberNick	            VARCHAR(50)		NULL,
+	vcCrewMemberAddress	        VARCHAR(100)		NULL,
+	vcCrewMemberPhone	        VARCHAR(100)		NULL,
+	vcCrewMemberAge	            VARCHAR(100)		NULL,
+	vcCrewMemberMBTI	            VARCHAR(100)		NULL,
+	vcCrewMemberFreeTime1	    VARCHAR(100)		NULL,
+	vcCrewMemberFreeTime2   	VARCHAR(100)		NULL,
+	vcCrewMemberIntroduce	    VARCHAR(100)		NULL,
+	vcCrewMemberEmail           	VARCHAR(100)		NULL,
+	vcCrewMemberGender	        VARCHAR(100)		NULL,
+	vcCrewMemberSite1              VARCHAR(100)		NULL,
+    vcCrewMemberSite2           	VARCHAR(100)		NULL,
+	vcCrewMemberJoinDate       DATE 		                NULL,
+	vcCrewMemberLastLogin      DATE		                NULL,
+	vcCrewMemberStatus	        NUMBER                NULL
+);
+
+--원데이크루모임
+CREATE TABLE tbOneDayCrew (
+	iOneDayNo	                        NUMBER		            PRIMARY KEY,
+	vcCrewMemberId              VARCHAR(50)		        REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	vcOneDayName	                VARCHAR(100)		    NULL,
+	nOneDayLimit                    	NUMBER		            NULL,
+	vcOneDayGoal	                VARCHAR(100)		    NULL,
+	vcOneDayMeetLoc	            VARCHAR(300)		    NULL,
+    vcOneDayMeetIntroduce  VARCHAR(1000)		    NULL,
+	vcOneDayMeetCreate       DATE		                    NULL,
+	vcOneDayMeetDate          VARCHAR(50)		    NULL,
+	nOneDayMeetCreateCnt   NUMBER		            NULL
+);
+
+-- 태그
+CREATE TABLE tbTag (
+	iCrewMeetTypeNo	            NUMBER		              PRIMARY KEY,
+	nCrewMeetNo	                NUMBER		              NOT NULL,
+	nCrewMeetCategory1	        NUMBER		              NOT NULL,
+	nCrewMeetCategory2	    NUMBER		              NOT NULL,
+	Tag1	                                    VARCHAR(30)		      NOT NULL,
+	Tag2	                                VARCHAR(30)		      NULL,
+	Tag3	                                VARCHAR(30)		      NULL,
+	Tag4	                                VARCHAR(30)		      NULL,
+	Tag5	                                VARCHAR(30)		      NULL
+);
+
+-- 장기크루모임
+CREATE TABLE tbLongCrew (
+	iLongCrewNo	                        NUMBER		        PRIMARY KEY,
+	vcCrewMemberId	                VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	vcLongCrewName	                VARCHAR(50)		NOT NULL,
+	vcLongCrewLimit	                VARCHAR(50)		NOT NULL,
+	vcLongCrewGoal	                VARCHAR(50)		NOT NULL,
+	vcLongCrewMeetLoc	            VARCHAR(100)		NULL,
+	vcLongCrewIntroduce	        VARCHAR(1000)		NULL,
+	vcLongCrewCreate	                DATE		                NOT NULL,
+	vcLongCrewMeetDate	        VARCHAR(50)		NULL,
+	vcLongCrewMeetCreateCnt  NUMBER		        NULL
+);
+
+--크루 채널
+CREATE TABLE tbCrewChannel (
+	vcCrewChannelName	        VARCHAR(50)		PRIMARY KEY,
+	vcCrewMemberId	                VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	vcCrewChannelIntroduce	    VARCHAR(1000)		NULL,
+	vcCrewChannelLink1              VARCHAR(100)		NULL,
+	vcCrewChannelLink2	            VARCHAR(100)		NULL,
+	nTagSeq                                  NUMBER		        NULL
+);
+
+-- 크루배틀모임
+CREATE TABLE tbCrewBattle (
+	iCrewBattleNo                       	NUMBER		        PRIMARY KEY,
+	vcCrewMemberId	                VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	vcCrewBattleTitle	                VARCHAR(50)		NOT NULL,
+	vcCrewBattleChallenge          VARCHAR(500)		NOT NULL,
+	vcCrewBattleLimit	                VARCHAR(10)		    NOT NULL,
+	vcCrewBattleSchedule1          VARCHAR(50)		NULL,
+	vcCrewBattleSchedule2	        VARCHAR(50)		NULL,
+	vcCrewBattleContent	            VARCHAR(1000)		NULL,
+	vcCrewBattleCreate	            DATE		                NOT NULL
+);
+
+-- 관리자생성배틀
+CREATE TABLE tbManagerBattle (
+	iManagerBattleNo	                NUMBER		        PRIMARY KEY,
+	vcCrewMemberId	                VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	vcManagerBattleTitle	            VARCHAR(100)		NOT NULL,
+	vcManagerBattleChallenge	VARCHAR(50)		NOT NULL,
+	vcManagerBattleLimit	        VARCHAR(50)		NOT NULL,
+	vcManagerBattleSchedule1	VARCHAR(20)		NULL,
+	vcManagerBattleSchedule2	VARCHAR(20)		NULL,
+	vcManagerBattleContent	    VARCHAR(1000)		NULL,
+	vcManagerBattleCreate	        DATE		                NULL
+);
+
+-- 챌린지피드
+CREATE TABLE tbChallengeFeed (
+	iChallengeFeedNo               	NUMBER		        PRIMARY KEY,
+	vcCrewMemberId	                VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	nCrewMeetNo	                    NUMBER		        NOT NULL,
+	nCrewMeetCategory	            NUMBER		        NOT NULL,
+	vcChallengeFeedCreate	        VARCHAR(50)		NOT NULL
+);
+
+-- 첨부파일
+CREATE TABLE tbAttachment (
+	iAttachmentNo	                    NUMBER		        PRIMARY KEY,
+	vcCrewMemberId	                VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	nCrewMeetNo	                    NUMBER		        NOT NULL,
+	nCrewMeetCategory1	            NUMBER		        NOT NULL,
+	nCrewMeetCategory2	        NUMBER		        NOT NULL,
+	vcFilename	                            VARCHAR(50)		NOT NULL,
+	vcOrgFilename	                    VARCHAR(100)		NULL,
+	vcFilePath	                            VARCHAR(100)		NULL
+);
+
+-- 관심크루모임
+CREATE TABLE tbInterestCrew (
+	iInterestCrew                          NUMBER		            PRIMARY KEY,
+	vcCrewMemberId	                VARCHAR(50)	    REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	nCrewMeetNo	                    NUMBER		        NOT NULL,
+	nCrewMeetCategory              NUMBER		        NOT NULL,
+	vcCrewMeetCreate	                DATE		                NULL
+);
+
+-- 유저평가
+CREATE TABLE tbUserEvaluation (
+	iUserEvaluationNo                  NUMBER		        PRIMARY KEY,
+	vcCrewMemberId	                VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	vcCrewMemberId2	                VARCHAR(50)		NOT NULL,
+	vcScore	                                VARCHAR(10)		    NULL,
+	vcReview	                                VARCHAR(300)		NULL,
+	nCrewMeetNo	                    NUMBER		        NOT NULL,
+	nCrewMeetCategory	            NUMBER		        NOT NULL
+);
+
+--매너평가배지
+CREATE TABLE tbMannerBadge (
+	iMannerBadgeNo	                NUMBER		        PRIMARY KEY,
+	vcCrewMemberId	                VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	vcCrewMemberId2	                VARCHAR(50)		NOT NULL,
+	vcGoodManner	                    NUMBER		        NULL,
+	vcGoodAttitude	                    NUMBER		        NULL,
+	vcKind	                                    NUMBER		        NULL,
+	vcMoodMaker	                    NUMBER		        NULL,
+	vcLikeLeader	                        NUMBER		        NULL,
+	vcLively	                                NUMBER		        NULL,
+	vcGoodEnergy	                    NUMBER		        NULL,
+	vcMeetAgain	                        NUMBER		        NULL,
+	vcKeepPromise	                    NUMBER		        NULL
+);
+
+-- 팔로워
+CREATE TABLE tbFollower (
+	iFollowerNo	                            NUMBER		        NOT NULL,
+	vcCrewMemberId	                VARCHAR(50)		NOT NULL,
+	vcCrewMemberId2	                VARCHAR(50)		NOT NULL,
+	FollowTime	                            DATE		                NULL
+);
+
+-- 크루소속명단
+CREATE TABLE tbCrewMemberList (
+	vcCrewMemberId	                VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	vcCrewChannelName	        VARCHAR(50)		REFERENCES tbCrewChannel(vcCrewChannelName) NOT NULL,
+	vcCrewChannelDate	            DATE		                NULL
+);
+
+-- 크루배틀참여팀리스트
+CREATE TABLE tbCrewBattleParticipant (
+	vcCrewChannelName	        VARCHAR(50)		REFERENCES tbCrewChannel(vcCrewChannelName) NOT NULL,
+	iCrewBattleNo               	        NUMBER		        REFERENCES tbCrewBattle(iCrewBattleNo) NOT NULL,
+	nCrewBattleCategory	            NUMBER		        NOT NULL
+);
