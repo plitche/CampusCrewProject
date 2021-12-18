@@ -116,7 +116,7 @@ function requestAjaxFormPOST_(url, data, callback){
    });
 }
 
-console.log("test");
+console.log("test수우정");
 function requestAjaxGET(url, data, callback){
    $.ajax({
       type: "GET",
