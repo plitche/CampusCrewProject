@@ -116,7 +116,6 @@ function requestAjaxFormPOST_(url, data, callback){
    });
 }
 
-
 console.log("test");
 function requestAjaxGET(url, data, callback){
    $.ajax({
