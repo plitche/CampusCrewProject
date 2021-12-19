@@ -23,7 +23,7 @@ CREATE TABLE tbCrewMemberInfo (
 	nCrewMemberStatus	            NUMBER              NULL
 );
 
--- 20. 모임유형
+-- 2. 모임유형
 CREATE TABLE tbCrewType (
 	nCrewTypeSeq			NUMBER				PRIMARY KEY,
 	vcCrewChannelName	VARCHAR(50)		NULL,
@@ -32,7 +32,7 @@ CREATE TABLE tbCrewType (
 	vcCrewTypeDetail		VARCHAR(100)		NOT NULL
 );
 
--- 5.크루 채널
+-- 3. 크루 채널
 CREATE TABLE tbCrewChannel (
 	vcCrewChannelName	        	VARCHAR(50)			PRIMARY KEY,
 	vcCrewMemberId	                VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
@@ -42,7 +42,21 @@ CREATE TABLE tbCrewChannel (
 	vcCrewChannelLink2	            VARCHAR(100)		NULL
 );
 
--- 2.원데이크루모임
+-- 4. 태그
+CREATE TABLE tbTag (
+	nCrewMeetTypeSeq	        	NUMBER		        PRIMARY KEY,
+    vcCrewMemberId              	VARCHAR(50)		    REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
+	nCrewMeetNo	                	NUMBER		        NOT NULL,
+	nCrewMainCategory	        	NUMBER		        NOT NULL,
+	nCrewSubCategory	        	NUMBER		        NOT NULL,
+	Tag1	                    	VARCHAR(30)		   	NOT NULL,
+	Tag2	                    	VARCHAR(30)		   	NULL,
+	Tag3	                    	VARCHAR(30)		    NULL,
+	Tag4	                    	VARCHAR(30)		    NULL,
+	Tag5	                    	VARCHAR(30)		    NULL
+);
+
+-- 5. 원데이크루모임
 CREATE TABLE tbOneDayCrew (
 	nOneDaySeq	                    NUMBER		        PRIMARY KEY,
 	vcCrewMemberId              	VARCHAR(50)		    REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
@@ -58,21 +72,7 @@ CREATE TABLE tbOneDayCrew (
 	nOneDayMeetCreateCnt   			NUMBER		        NULL
 );
 
--- 3.태그
-CREATE TABLE tbTag (
-	nCrewMeetTypeSeq	        	NUMBER		        PRIMARY KEY,
-    vcCrewMemberId              	VARCHAR(50)		    REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
-	nCrewMeetNo	                	NUMBER		        NOT NULL,
-	nCrewMainCategory	        	NUMBER		        NOT NULL,
-	nCrewSubCategory	        	NUMBER		        NOT NULL,
-	Tag1	                    	VARCHAR(30)		   	NOT NULL,
-	Tag2	                    	VARCHAR(30)		   	NULL,
-	Tag3	                    	VARCHAR(30)		    NULL,
-	Tag4	                    	VARCHAR(30)		    NULL,
-	Tag5	                    	VARCHAR(30)		    NULL
-);
-
--- 4.장기크루모임
+-- 6. 장기크루모임
 CREATE TABLE tbLongCrew (
 	nLongCrewSeq	                NUMBER		        PRIMARY KEY,
 	vcCrewMemberId	                VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE tbLongCrew (
 	nLongCrewMeetCreateCnt   		NUMBER		        NULL
 );
 
--- 6.크루배틀모임
+-- 7. 크루배틀모임
 CREATE TABLE tbCrewBattle (
 	nCrewBattleSeq                  NUMBER		        PRIMARY KEY,
 	vcCrewMemberId	                VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
@@ -103,7 +103,7 @@ CREATE TABLE tbCrewBattle (
 	dtCrewBattleCreate	            DATE		        NOT NULL
 );
 
--- 7.관리자생성배틀
+-- 8. 관리자생성배틀
 CREATE TABLE tbManagerBattle (
 	nManagerBattleSeq	            NUMBER		        PRIMARY KEY,
     vcCrewMemberId	                VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
@@ -118,7 +118,7 @@ CREATE TABLE tbManagerBattle (
 	dtManagerBattleCreate	        DATE		        NULL
 );
 
--- 8.챌린지피드
+-- 9. 챌린지피드
 CREATE TABLE tbChallengeFeed (
 	nChallengeFeedSeq               NUMBER		        PRIMARY KEY,
 	vcCrewMemberId	                VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
@@ -127,7 +127,7 @@ CREATE TABLE tbChallengeFeed (
 	vcChallengeFeedCreate	        VARCHAR(50)			NOT NULL
 );
 
--- 9.첨부파일
+-- 10. 첨부파일
 CREATE TABLE tbAttachment (
 	nAttachmentSeq	                NUMBER		        PRIMARY KEY,
 	vcCrewMemberId	                VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
@@ -139,7 +139,7 @@ CREATE TABLE tbAttachment (
 	vcFilePath	                    VARCHAR(100)		NULL
 );
 
--- 10.관심크루모임
+-- 11. 관심크루모임
 CREATE TABLE tbInterestCrewMeet (
 	nInterestCrewSeq                NUMBER		        PRIMARY KEY,
 	vcCrewMemberId	                VARCHAR(50)	    	REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
@@ -148,7 +148,7 @@ CREATE TABLE tbInterestCrewMeet (
 	dtCrewMeetCreate	            DATE		        NULL
 );
 
--- 13.매너평가배지
+-- 12. 매너평가배지
 CREATE TABLE tbMannerBadge (
 	nMannerBadgeSeq	                NUMBER		        PRIMARY KEY,
 	vcGoodManner	                NUMBER		        NULL,
@@ -162,7 +162,7 @@ CREATE TABLE tbMannerBadge (
 	vcKeepPromise	                NUMBER		        NULL
 );
 
--- 11.유저평가
+-- 13. 유저평가
 CREATE TABLE tbUserEvaluation (
 	nUserEvaluationSeq              NUMBER		        PRIMARY KEY,
 	vcCrewMemberId	                VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
@@ -174,7 +174,7 @@ CREATE TABLE tbUserEvaluation (
 	nCrewMeetCategory	            NUMBER		        NOT NULL
 );
 
--- 12.크루평가
+-- 14. 크루평가
 CREATE TABLE tbCrewEvaluation (
 	nCrewEvaluationSeq              NUMBER		        PRIMARY KEY,
     vcCrewChannelName	        	VARCHAR(50)			REFERENCES tbCrewChannel(vcCrewChannelName) ON DELETE CASCADE NOT NULL,
@@ -186,7 +186,7 @@ CREATE TABLE tbCrewEvaluation (
 	nCrewMeetCategory	            NUMBER		        NOT NULL
 );
 
--- 14.크루원 팔로워
+-- 15. 크루원 팔로워
 CREATE TABLE tbCrewMemberFollower (
 	nCrewMemberFollowerSeq			NUMBER		        NOT NULL,
 	vcCrewMemberId	                VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
@@ -194,7 +194,7 @@ CREATE TABLE tbCrewMemberFollower (
 	dtFollowTime	                DATE		        NULL
 );
 
--- 15.크루채널 팔로워
+-- 16. 크루채널 팔로워
 CREATE TABLE tbCrewChannelFollower (
 	nCrewChannelFollowerSeq			NUMBER		        NOT NULL,
     vcCrewChannelName            	VARCHAR(50)       	REFERENCES tbCrewChannel(vcCrewChannelName) ON DELETE CASCADE NOT NULL,
@@ -202,14 +202,14 @@ CREATE TABLE tbCrewChannelFollower (
 	dtFollowTime	                DATE		        NULL
 );
 
--- 16.크루소속명단
+-- 17. 크루소속명단
 CREATE TABLE tbCrewMemberList (
 	vcCrewMemberId	                VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
 	vcCrewChannelName	        	VARCHAR(50)			REFERENCES tbCrewChannel(vcCrewChannelName) ON DELETE CASCADE NOT NULL,
 	vcCrewChannelDate	            DATE		        NOT NULL
 );
 
--- 17.배틀참가 희망크루리스트
+-- 18. 배틀참가 희망크루리스트
 CREATE TABLE tbBattleApplyCrewList (
 	nBattleApplySeq	               	NUMBER		        PRIMARY KEY,
 	vcCrewChannelName            	VARCHAR(50)			REFERENCES tbCrewChannel(vcCrewChannelName) ON DELETE CASCADE NOT NULL,
@@ -219,7 +219,7 @@ CREATE TABLE tbBattleApplyCrewList (
     dtRegDate                       DATE                NOT NULL        
 );
 
--- 18.배틀참가 확정크루리스트
+-- 19. 배틀참가 확정크루리스트
 CREATE TABLE tbBattleConfirmCrewList (
 	nBattleConfirmSeq	            NUMBER		        PRIMARY KEY,
 	vcCrewChannelName            	VARCHAR(50)			REFERENCES tbCrewChannel(vcCrewChannelName) ON DELETE CASCADE NOT NULL,
@@ -229,7 +229,7 @@ CREATE TABLE tbBattleConfirmCrewList (
     dtRegDate                       DATE                NOT NULL   
 );
 
--- 19. 댓글
+-- 20. 댓글
 CREATE TABLE tbComment (
 	nCommentSeq			NUMBER				PRIMARY KEY, 
 	vcCrewMemberId		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
@@ -265,18 +265,18 @@ CREATE TABLE tbMessengerList (
 	dtRegDate				DATE					NOT NULL
 );
 
--- 25. 대화참가자리스트
+-- 24. 대화참가자리스트
 CREATE TABLE tbMessengerMembers (
 	nMngMemberSeq		NUMBER				PRIMARY KEY,
 	vcCrewMemberId		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
 	nMngListSeq				NUMBER				REFERENCES tbMessengerList(nMngListSeq) ON DELETE CASCADE NOT NULL
 );
 
--- 24. 대화메신저
+-- 25. 대화메신저
 CREATE TABLE tbMessenger (
 	nMngSeq				NUMBER				PRIMARY KEY,
 	vcFromMemberID		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
-	nMngListSeq				NUMBER				REFERENCES tbMessengerList(iMngListSeq) ON DELETE CASCADE NOT NULL,
+	nMngListSeq				NUMBER				REFERENCES tbMessengerList(nMngListSeq) ON DELETE CASCADE NOT NULL,
 	vcMngContent			VARCHAR(1000)		NOT NULL,
 	dtRegDate				DATE					NOT NULL
 );
@@ -317,7 +317,7 @@ CREATE TABLE tbLocation (
 	nCrewMainCategory	NUMBER				NOT NULL,
 	vcLocationDetail			VARCHAR(2000)		NOT NULL,
 	nLatitude		 			NUMBER				NOT NULL,
-	nLongitude				NUMBER				NOT NULL,
+	nLongitude				NUMBER				NOT NULL
 );
 
 -- 30. 공지
@@ -328,6 +328,3 @@ CREATE TABLE tbNotice (
 	nCrewMainCategory	NUMBER			NOT NULL,
 	dtRegDate				DATE				NOT NULL
 );
-
-	
-	
