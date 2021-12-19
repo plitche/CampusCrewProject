@@ -26,7 +26,7 @@ CREATE TABLE tbCrewMemberInfo (
 -- 20. 모임유형
 CREATE TABLE tbCrewType (
 	nCrewTypeSeq			NUMBER				PRIMARY KEY,
-	vcCrewChannelName	VARCAHR(50)		NULL,
+	vcCrewChannelName	VARCHAR(50)		NULL,
 	vcCrewTypeCategory	VARCHAR(100)		NOT NULL,
 	vcCrewTypeField			VARCHAR(100)		NOT NULL,
 	vcCrewTypeDetail		VARCHAR(100)		NOT NULL
@@ -109,7 +109,6 @@ CREATE TABLE tbManagerBattle (
     vcCrewMemberId	                VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
     vcCrewChannelName            	VARCHAR(50)      	REFERENCES tbCrewChannel(vcCrewChannelName) ON DELETE CASCADE NOT NULL,
     nCrewTypeSeq                    NUMBER              REFERENCES tbCrewType(nCrewTypeSeq) ON DELETE CASCADE NOT NULL,
-	vcCrewMemberId	                VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
 	vcManagerBattleTitle	        VARCHAR(100)		NOT NULL,
 	vcManagerBattleChallenge		VARCHAR(50)			NOT NULL,
 	vcManagerBattleLimit	        VARCHAR(50)			NOT NULL,
@@ -149,6 +148,20 @@ CREATE TABLE tbInterestCrewMeet (
 	dtCrewMeetCreate	            DATE		        NULL
 );
 
+-- 13.매너평가배지
+CREATE TABLE tbMannerBadge (
+	nMannerBadgeSeq	                NUMBER		        PRIMARY KEY,
+	vcGoodManner	                NUMBER		        NULL,
+	vcGoodAttitude	                NUMBER		        NULL,
+	vcKind	                        NUMBER		        NULL,
+	vcMoodMaker	                    NUMBER		        NULL,
+	vcLikeLeader	                NUMBER		        NULL,
+	vcLively	                    NUMBER		        NULL,
+	vcGoodEnergy	                NUMBER		        NULL,
+	vcMeetAgain	                    NUMBER		        NULL,
+	vcKeepPromise	                NUMBER		        NULL
+);
+
 -- 11.유저평가
 CREATE TABLE tbUserEvaluation (
 	nUserEvaluationSeq              NUMBER		        PRIMARY KEY,
@@ -171,20 +184,6 @@ CREATE TABLE tbCrewEvaluation (
 	vcReview	                    VARCHAR(300)		NULL,
 	nCrewMeetNo	                    NUMBER		        NOT NULL,
 	nCrewMeetCategory	            NUMBER		        NOT NULL
-);
-
--- 13.매너평가배지
-CREATE TABLE tbMannerBadge (
-	nMannerBadgeSeq	                NUMBER		        PRIMARY KEY,
-	vcGoodManner	                NUMBER		        NULL,
-	vcGoodAttitude	                NUMBER		        NULL,
-	vcKind	                        NUMBER		        NULL,
-	vcMoodMaker	                    NUMBER		        NULL,
-	vcLikeLeader	                NUMBER		        NULL,
-	vcLively	                    NUMBER		        NULL,
-	vcGoodEnergy	                NUMBER		        NULL,
-	vcMeetAgain	                    NUMBER		        NULL,
-	vcKeepPromise	                NUMBER		        NULL
 );
 
 -- 14.크루원 팔로워
@@ -233,7 +232,7 @@ CREATE TABLE tbBattleConfirmCrewList (
 -- 19. 댓글
 CREATE TABLE tbComment (
 	nCommentSeq			NUMBER				PRIMARY KEY, 
-	vcCrewMemberId		VARCHAR(50)		PREFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	vcCrewMemberId		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
 	dtRegDate				DATE					NOT NULL,
 	nCrewMainCategory	NUMBER				NOT NULL,
 	nCrewSubCategory		NUMBER				NOT NULL, 
@@ -252,7 +251,7 @@ CREATE TABLE tbApplyMemberList (
 -- 22. 참가 확정자 리스트(단기크루, 장기크루)
 CREATE TABLE tbConfirmMemberList (
 	nCrewConfirmSeq		NUMBER				PRIMARY KEY,
-	vcCrewMemberId		VARCHAR(50)		PEFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	vcCrewMemberId		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
 	nCrewMeetNo			NUMBER				NOT NULL,
 	nCrewMainCategory	NUMBER				NOT NULL,
 	dtRegDate				DATE					NOT NULL
@@ -266,21 +265,20 @@ CREATE TABLE tbMessengerList (
 	dtRegDate				DATE					NOT NULL
 );
 
--- 24. 대화메신저
-CREATE TABLE tbMessenger (
-	nMngSeq				NUMBER				PRIMARY KEY,
-	vcFromMemberID		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
-	-- vcToMemberID			VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
-	nMngListSeq				NUMBER				REFERENCES tbMessengerList(iMngListSeq) ON DELETE CASCADE NOT NULL,
-	vcMngContent			VARCHAR(1000)		NOT NULL,
-	dtRegDate				DATE					NOT NULL
-);
-
 -- 25. 대화참가자리스트
 CREATE TABLE tbMessengerMembers (
 	nMngMemberSeq		NUMBER				PRIMARY KEY,
 	vcCrewMemberId		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
-	nMngListSeq				NUMBER				REFERENCES tbMessengerList(nMngListSeq) ON DELETE CASCADE NOT NULL,
+	nMngListSeq				NUMBER				REFERENCES tbMessengerList(nMngListSeq) ON DELETE CASCADE NOT NULL
+);
+
+-- 24. 대화메신저
+CREATE TABLE tbMessenger (
+	nMngSeq				NUMBER				PRIMARY KEY,
+	vcFromMemberID		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	nMngListSeq				NUMBER				REFERENCES tbMessengerList(iMngListSeq) ON DELETE CASCADE NOT NULL,
+	vcMngContent			VARCHAR(1000)		NOT NULL,
+	dtRegDate				DATE					NOT NULL
 );
 
 -- 26. 공유 수
