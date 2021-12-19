@@ -23,6 +23,25 @@ CREATE TABLE tbCrewMemberInfo (
 	nCrewMemberStatus	            NUMBER              NULL
 );
 
+-- 20. 모임유형
+CREATE TABLE tbCrewType (
+	nCrewTypeSeq			NUMBER				PRIMARY KEY,
+	vcCrewChannelName	VARCAHR(50)		NULL,
+	vcCrewTypeCategory	VARCHAR(100)		NOT NULL,
+	vcCrewTypeField			VARCHAR(100)		NOT NULL,
+	vcCrewTypeDetail		VARCHAR(100)		NOT NULL
+);
+
+-- 5.크루 채널
+CREATE TABLE tbCrewChannel (
+	vcCrewChannelName	        	VARCHAR(50)			PRIMARY KEY,
+	vcCrewMemberId	                VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
+    nCrewTypeSeq                    NUMBER		        REFERENCES tbCrewType(nCrewTypeSeq) ON DELETE CASCADE NOT NULL,
+	vcCrewChannelIntroduce	    	VARCHAR(1000)		NULL,
+	vcCrewChannelLink1              VARCHAR(100)		NULL,
+	vcCrewChannelLink2	            VARCHAR(100)		NULL
+);
+
 -- 2.원데이크루모임
 CREATE TABLE tbOneDayCrew (
 	nOneDaySeq	                    NUMBER		        PRIMARY KEY,
@@ -67,16 +86,6 @@ CREATE TABLE tbLongCrew (
 	dtLongCrewCreate	            DATE		        NOT NULL,
 	dtLongCrewMeetDate	        	DATE                NULL,
 	nLongCrewMeetCreateCnt   		NUMBER		        NULL
-);
-
--- 5.크루 채널
-CREATE TABLE tbCrewChannel (
-	vcCrewChannelName	        	VARCHAR(50)			PRIMARY KEY,
-	vcCrewMemberId	                VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
-    nCrewTypeSeq                    NUMBER		        REFERENCES tbCrewType(nCrewTypeSeq) ON DELETE CASCADE NOT NULL,
-	vcCrewChannelIntroduce	    	VARCHAR(1000)		NULL,
-	vcCrewChannelLink1              VARCHAR(100)		NULL,
-	vcCrewChannelLink2	            VARCHAR(100)		NULL
 );
 
 -- 6.크루배틀모임
@@ -220,3 +229,107 @@ CREATE TABLE tbBattleConfirmCrewList (
 	nCrewMeetCategory	            NUMBER		        NOT NULL,
     dtRegDate                       DATE                NOT NULL   
 );
+
+-- 19. 댓글
+CREATE TABLE tbComment (
+	nCommentSeq			NUMBER				PRIMARY KEY, 
+	vcCrewMemberId		VARCHAR(50)		PREFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	dtRegDate				DATE					NOT NULL,
+	nCrewMainCategory	NUMBER				NOT NULL,
+	nCrewSubCategory		NUMBER				NOT NULL, 
+	vcContent				VARCHAR(2000) 	NOT NULL
+);	
+
+-- 21. 참가 희망자 리스트(장기크루)
+CREATE TABLE tbApplyMemberList (
+	nCrewApplySeq			NUMBER				PRIMARY KEY,
+	vcCrewMemberId		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	nCrewMeetNo			NUMBER				NOT NULL,
+	nCrewMainCategory	NUMBER				NOT NULL,
+	dtRegDate				DATE					NOT NULL
+);
+
+-- 22. 참가 확정자 리스트(단기크루, 장기크루)
+CREATE TABLE tbConfirmMemberList (
+	nCrewConfirmSeq		NUMBER				PRIMARY KEY,
+	vcCrewMemberId		VARCHAR(50)		PEFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	nCrewMeetNo			NUMBER				NOT NULL,
+	nCrewMainCategory	NUMBER				NOT NULL,
+	dtRegDate				DATE					NOT NULL
+);
+
+-- 23. 대화목록리스트
+CREATE TABLE tbMessengerList (
+	nMngListSeq				NUMBER				PRIMARY KEY,
+	nCrewMainCategory	NUMBER				NOT NULL,
+	nCrewSubCategory		NUMBER				NOT NULL,
+	dtRegDate				DATE					NOT NULL
+);
+
+-- 24. 대화메신저
+CREATE TABLE tbMessenger (
+	nMngSeq				NUMBER				PRIMARY KEY,
+	vcFromMemberID		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	-- vcToMemberID			VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	nMngListSeq				NUMBER				REFERENCES tbMessengerList(iMngListSeq) ON DELETE CASCADE NOT NULL,
+	vcMngContent			VARCHAR(1000)		NOT NULL,
+	dtRegDate				DATE					NOT NULL
+);
+
+-- 25. 대화참가자리스트
+CREATE TABLE tbMessengerMembers (
+	nMngMemberSeq		NUMBER				PRIMARY KEY,
+	vcCrewMemberId		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	nMngListSeq				NUMBER				REFERENCES tbMessengerList(nMngListSeq) ON DELETE CASCADE NOT NULL,
+);
+
+-- 26. 공유 수
+CREATE TABLE tbShare (
+	nShareSeq				NUMBER				PRIMARY KEY,
+	vcCrewMemberId		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	nCrewMeetNo			NUMBER				NOT NULL,
+	nCrewMainCategory	NUMBER				NOT NULL,
+	dtRegDate				DATE					NOT NULL
+);
+
+-- 27. 좋아요/싫어요
+CREATE TABLE tbGoodBad (
+	nGoodBadSeq			NUMBER				PRIMARY KEY,
+	vcCrewMemberId		VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	nCrewMeetNo			NUMBER				NOT NULL,
+	nCrewMainCategory	NUMBER				NOT NULL,
+	nGood					NUMBER				NOT NULL,
+	nBad						NUMBER				NOT NULL,
+	dtRegDate				DATE					NOT NULL
+);
+
+-- 28. 조회수
+CREATE TABLE tbHit (
+	nHitSeq					NUMBER				PRIMARY KEY,
+	nCrewMeetNo			NUMBER				NOT NULL,
+	nCrewMainCategory	NUMBER				NOT NULL,
+	nHitCnt					NUMBER				NOT NULL,
+	dtRegDate				DATE					NOT NULL
+);
+
+-- 29. 위치
+CREATE TABLE tbLocation (
+	nLocationSeq			NUMBER				PRIMARY KEY,
+	nCrewMeetNo			NUMBER				NOT NULL,
+	nCrewMainCategory	NUMBER				NOT NULL,
+	vcLocationDetail			VARCHAR(2000)		NOT NULL,
+	nLatitude		 			NUMBER				NOT NULL,
+	nLongitude				NUMBER				NOT NULL,
+);
+
+-- 30. 공지
+CREATE TABLE tbNotice (
+	nNoticeSeq				NUMBER			PRIMARY KEY,
+	vcCrewMemberId		VARCHAR(50)	REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	nCrewMeetNo			NUMBER			NOT NULL,
+	nCrewMainCategory	NUMBER			NOT NULL,
+	dtRegDate				DATE				NOT NULL
+);
+
+	
+	
