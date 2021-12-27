@@ -17,10 +17,10 @@ CREATE TABLE tbCrewMemberInfo (
 	vcCrewMemberEmail           	VARCHAR(100)		NULL,
 	vcCrewMemberGender	        	VARCHAR(100)		NULL,
 	vcCrewMemberSite1              	VARCHAR(100)		NULL,
-    vcCrewMemberSite2           	VARCHAR(100)		NULL,
-	dtCrewMemberJoinDate       		DATE 		        NULL,
-	dtCrewMemberLastLogin      		DATE		        NULL,
-	nCrewMemberStatus	            NUMBER              NULL
+    vcCrewMemberSite2           	VARCHAR(100)	NULL,
+	dtCrewMemberJoinDate       	DATE 		        NULL,
+	dtCrewMemberLastLogin      	DATE		        	NULL,
+	nCrewMemberStatus	        NUMBER       		NULL
 );
 
 
@@ -34,12 +34,12 @@ CREATE TABLE tbCrewType (
 
 
 CREATE TABLE tbCrewChannel (
-	vcCrewChannelName	        	VARCHAR(50)			PRIMARY KEY,
-	vcCrewMemberId	                VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
+	vcCrewChannelName	       	VARCHAR(50)		PRIMARY KEY,
+	vcCrewMemberId	                VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
     nCrewTypeSeq                    NUMBER		        REFERENCES tbCrewType(nCrewTypeSeq) ON DELETE CASCADE NOT NULL,
-	vcCrewChannelIntroduce	    	VARCHAR(1000)		NULL,
-	vcCrewChannelLink1              VARCHAR(100)		NULL,
-	vcCrewChannelLink2	            VARCHAR(100)		NULL
+	vcCrewChannelIntroduce	   	VARCHAR(1000)		NULL,
+	vcCrewChannelLink1            VARCHAR(100)		NULL,
+	vcCrewChannelLink2	        VARCHAR(100)		NULL
 );
 
 
@@ -90,32 +90,30 @@ CREATE TABLE tbLongCrew (
 
 
 CREATE TABLE tbCrewBattle (
-	nCrewBattleSeq                  NUMBER		        PRIMARY KEY,
-	vcCrewMemberId	                VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
-    vcCrewChannelName            	VARCHAR(50)       	REFERENCES tbCrewChannel(vcCrewChannelName) ON DELETE CASCADE NOT NULL,
-    nCrewTypeSeq                    NUMBER              REFERENCES tbCrewType(nCrewTypeSeq) ON DELETE CASCADE NOT NULL,
-	vcCrewBattleTitle	            VARCHAR(50)			NOT NULL,
-	vcCrewBattleChallenge          	VARCHAR(500)		NOT NULL,
-	vcCrewBattleLimit	           	VARCHAR(10)		    NOT NULL,
-	vcCrewBattleSchedule1          	VARCHAR(50)			NULL,
-	vcCrewBattleSchedule2	        VARCHAR(50)			NULL,
-	vcCrewBattleContent	            VARCHAR(1000)		NULL,
-	dtCrewBattleCreate	            DATE		        NOT NULL
+	nCrewBattleSeq                 	NUMBER		        PRIMARY KEY,
+	vcCrewMemberId	               	VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
+    nCrewTypeSeq                   	NUMBER              	REFERENCES tbCrewType(nCrewTypeSeq) ON DELETE CASCADE NOT NULL,
+	vcCrewBattleTitle	            	VARCHAR(50)		NOT NULL,
+	vcCrewBattleChallenge         VARCHAR(500)		NOT NULL,
+	vcCrewBattleLimit	           	NUMBER				NOT NULL,
+	vcCrewBattleSchedule1        	VARCHAR(50)		NULL,
+	vcCrewBattleSchedule2	        VARCHAR(50)		NULL,
+	vcCrewBattleContent	        VARCHAR(1000)		NULL,
+	dtCrewBattleCreate	            DATE		        		NOT NULL
 );
 
 
 CREATE TABLE tbManagerBattle (
 	nManagerBattleSeq	            NUMBER		        PRIMARY KEY,
-    vcCrewMemberId	                VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
-    vcCrewChannelName            	VARCHAR(50)      	REFERENCES tbCrewChannel(vcCrewChannelName) ON DELETE CASCADE NOT NULL,
-    nCrewTypeSeq                    NUMBER              REFERENCES tbCrewType(nCrewTypeSeq) ON DELETE CASCADE NOT NULL,
+    vcCrewMemberId	                VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
+    nCrewTypeSeq                    NUMBER              	REFERENCES tbCrewType(nCrewTypeSeq) ON DELETE CASCADE NOT NULL,
 	vcManagerBattleTitle	        VARCHAR(100)		NOT NULL,
-	vcManagerBattleChallenge		VARCHAR(50)			NOT NULL,
-	vcManagerBattleLimit	        VARCHAR(50)			NOT NULL,
-	vcManagerBattleSchedule1		VARCHAR(20)			NULL,
-	vcManagerBattleSchedule2		VARCHAR(20)			NULL,
-	vcManagerBattleContent	    	VARCHAR(1000)		NULL,
-	dtManagerBattleCreate	        DATE		        NULL
+	vcManagerBattleChallenge	VARCHAR(50)		NOT NULL,
+	vcManagerBattleLimit	        NUMBER				NOT NULL,
+	vcManagerBattleSchedule1	VARCHAR(20)		NULL,
+	vcManagerBattleSchedule2	VARCHAR(20)		NULL,
+	vcManagerBattleContent	    VARCHAR(1000)		NULL,
+	dtManagerBattleCreate	        DATE		        		NULL
 );
 
 
