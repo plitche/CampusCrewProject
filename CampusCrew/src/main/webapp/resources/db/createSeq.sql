@@ -81,6 +81,7 @@ CREATE SEQUENCE tbTag_Seq
 START WITH 1
 INCREMENT BY 1
 NOCACHE;
+
 -- 관심크루 시퀀스
 CREATE SEQUENCE tbInterestCrew_Seq
 START WITH 1
@@ -110,11 +111,13 @@ CREATE SEQUENCE tbChallengeFeed_Seq
 START WITH 1
 INCREMENT BY 1
 NOCACHE;
+
 -- 크루원 팔로워 스퀀스
 CREATE SEQUENCE tbCrewMemberFollower_Seq
 START WITH 1
 INCREMENT BY 1
 NOCACHE;
+
 -- 크루채널 팔로워 스퀀스
 CREATE SEQUENCE tbCrewChannelFollower_Seq
 START WITH 1
@@ -144,6 +147,7 @@ CREATE SEQUENCE tbCrewEvaluation_Seq
 START WITH 1
 INCREMENT BY 1
 NOCACHE;
+
 -- 크루채널 스퀀스
 CREATE SEQUENCE tbCrewChannel_Seq
 START WITH 1
