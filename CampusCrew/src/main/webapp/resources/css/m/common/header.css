@@ -1,0 +1,201 @@
+@charset "UTF-8";
+
+/* 화면이 500px 이상부터 웹메뉴바가 보이고 앱메뉴바는 사라짐  */
+@media (min-width : 500px) {
+	.m_bar_control {
+		display:none;
+	}
+	.m_header_bar_control {
+		display:none;
+	}
+}
+
+
+/* 웹 상단 바 */
+.w_bar {
+    position: relative;
+    height: 67px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+}
+
+/* @media (min-width: 1024px)  */
+.w_bar .w_bar_body {
+    width: 89.0625vw;
+    max-width: 1140px;
+}
+
+.w_bar .w_bar_body {
+    display: flex;
+    align-items: center;
+}
+
+.w_bar .w_bar_body img.UserNavigationBar_logo__oz0A3 {
+    width: 19px;
+    vertical-align: middle;
+}
+
+.w_bar .w_bar_body a>.UserNavigationBar_drawer-btn__HIHou {
+    display: none;
+}
+
+/* @media (min-width: 1024px)  */
+.w_bar .w_bar_body div.w_bar_menu_list {
+    margin-left: 80px;
+}
+
+.w_bar .w_bar_body div.w_bar_menu_list a {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.47;
+    letter-spacing: -.8px;
+    text-align: right;
+    color: #333;
+    margin-right: 17px;
+}
+
+.w_bar .w_bar_body div.w_bar_menu_list2 {
+    flex: 1 1;
+    justify-self: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+w_bar .w_bar_body div.w_bar_menu_list2>div, .w_bar .w_bar_body div.w_bar_menu_list2 a {
+    font-size: 15px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -.8px;
+    text-align: right;
+    color: #333;
+    cursor: pointer;
+}
+
+.w_bar .w_bar_body div.w_bar_menu_list2>div>img, .w_bar .w_bar_body div.w_bar_menu_list2 a>img {
+    width: 32px;
+    height: 32px;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.w_bar .w_bar_body div.w_bar_menu_list2 .w_bar_menu_list2_join_login {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.w_bar .w_bar_body div.w_bar_menu_list2 .w_bar_menu_list2_join_login {
+    width: 1px;
+    height: 16px;
+    background-color: #d8d8d8;
+}
+
+.w_bar .w_bar_body div.w_bar_menu_list2>div, .w_bar .w_bar_body div.w_bar_menu_list2 a {
+    font-size: 15px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -.8px;
+    text-align: right;
+    color: #333;
+    cursor: pointer;
+}
+
+
+
+/* 앱 상단 바 */
+.m_header_bar {
+    position: relative;
+    height: 67px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.m_header_bar .m_header_bar_body {
+    width: 89.0625vw;
+    max-width: 1140px;
+}
+
+.m_header_bar .m_header_bar_body {
+    display: flex;
+    align-items: center;
+}
+
+.m_header_bar .m_header_bar_body a {
+	font-size: 14px;
+}
+
+.m_header_bar .m_header_bar_body img.UserNavigationBar_logo__oz0A3 {
+    width: 19px;
+    vertical-align: middle;
+}
+
+.m_header_bar .m_header_bar_body a>.UserNavigationBar_drawer-btn__HIHou {
+    display: none;
+}
+
+.m_header_bar .m_header_bar_body div.m_header_bar_menu_list2 {
+    flex: 1 1;
+    justify-self: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.m_header_bar .m_header_bar_body div.m_header_bar_menu_list2>div, .m_header_bar .m_header_bar_body div.m_header_bar_menu_list2 a {
+    font-size: 12px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -.8px;
+    text-align: right;
+    color: #333;
+    cursor: pointer;
+}
+
+.m_header_bar .m_header_bar_body div.m_header_bar_menu_list2>div>img, .m_header_bar .m_header_bar_body div.m_header_bar_menu_list2 a>img {
+    width: 32px;
+    height: 32px;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+
+
+
+
+.m_header_bar .m_header_bar_body div.m_header_bar_menu_list2>div, .w_bar .m_header_bar_body div.m_header_bar_menu_list2 a {
+    font-size: 15px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -.8px;
+    text-align: right;
+    color: #333;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
