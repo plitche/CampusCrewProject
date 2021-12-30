@@ -1,13 +1,18 @@
 @charset "UTF-8";
 
-/* 화면이 500px 이하부터 앱메뉴바가 보이고 웹메뉴바는 사라짐  */
-@media (max-width: 500px) {
-	.m_bar_control {
+/* 화면이 500px 이하부터 앱메뉴바가 보이고 웹메뉴바는 사라짐 */
+@media (max-width: 400px) {
+	#footer {
 		display:block;
 	}
-	.m_header_bar_control {
+	#header {
 		display:block;
 	}
+}
+
+
+#footer {
+	width:100%;
 }
 
 .m_bar_control {
@@ -19,7 +24,7 @@
 
 .m_bar {
     position: relative;
-    height: 67px;
+    height: 60px;
     border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: center;
@@ -37,25 +42,37 @@
     align-items: center;
 }
 
-.m_bar .m_bar_body img.UserNavigationBar_logo__oz0A3 {
-    width: 19px;
-    vertical-align: middle;
-}
-
-.m_bar .m_bar_body a>.UserNavigationBar_drawer-btn__HIHou {
-    display: none;
-}
-
 .m_bar .m_bar_body div.m_bar_menu_list {
     margin: 0 auto;
+	display:flex;
 }
 
-.m_bar .m_bar_body div.m_bar_menu_list a {
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 1.47;
-    letter-spacing: -.8px;
-    text-align: right;
-    color: #333;
-    margin-right: 28px;
+
+.m_bar .m_bar_body div.m_bar_menu_list .home img {
+	min-width:20px;
+	max-width:20px;
+}
+
+.m_bar .m_bar_body div.m_bar_menu_list .challengeFeed img {
+	min-width:19px;
+	max-width:19px;
+    margin-left: 52px;
+}
+
+.m_bar .m_bar_body div.m_bar_menu_list .location img {
+	min-width:20px;
+	max-width:20px;
+    margin-left: 52px;
+}
+
+.m_bar .m_bar_body div.m_bar_menu_list .chat img {
+	min-width:19px;
+	max-width:19px;
+    margin-left: 52px;
+}
+
+.m_bar .m_bar_body div.m_bar_menu_list .myCrew img {
+	min-width:20px;
+	max-width:20px;
+    margin-left: 52px;
 }

@@ -12,6 +12,8 @@
 <meta property="og:url" content="https://www.CampusCrew.com">
 <link rel="icon" href="https://assets.awwwards.com/assets/images/favicon.svg" type="image/svg+xml">
 <title>{% block title %} 루키들의 모임, 캠퍼스 크루 {% endblock %}</title>
+<!-- 폰트 -->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 <!-- fontawesome -->
 <script src="https://kit.fontawesome.com/6b75fdce2b.js" crossorigin="anonymous"></script>
 <!-- jQuery -->
@@ -26,7 +28,8 @@
 <link type="text/css" rel="stylesheet" href="http://localhost:9090/campusCrew/resources/css/detail/detail.css">
 <link type="text/css" rel="stylesheet" href="http://localhost:9090/campusCrew/resources/css/m/common/header.css">
 <link type="text/css" rel="stylesheet" href="http://localhost:9090/campusCrew/resources/css/m/common/footer.css"> 
-<link type="text/css" rel="stylesheet" href="http://localhost:9090/campusCrew/resources/css/common/common.css">
+<link type="text/css" rel="stylesheet" href="http://localhost:9090/campusCrew/resources/css/m/common/common.css">
+
 
 <!-- 공통 js -->
 <script type="text/javascript" charset="utf-8" src="http://localhost:9090/campusCrew/resources/js/common/common.js"></script>
@@ -49,14 +52,14 @@
 					<div class="m_header_bar">
 						<div class="m_header_bar_body">
 							<a href="/campusCrew">
-								CAMPUSCREW
+								#신촌동 캠퍼스
 							</a>
 							<div class="m_header_bar_menu_list2">
-								<a href="/search">
-									<img src="data:image/png;base64,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"alt="search">
+								<a href="campusCrew/m/search">
+									<img alt="검색" src="http://localhost:9090/campusCrew/resources/img/common/search (1).png">
 								</a>
-								<a href="/menu">
-									메뉴
+								<a href="/campusCrew/m/alarm">
+									<img alt="알람" src="http://localhost:9090/campusCrew/resources/img/common/alarm-bell.png">
 								</a>
 							</div>
 						</div>
@@ -80,11 +83,21 @@
 					<div class="m_bar">
 						<div class="m_bar_body">
 							<div class="m_bar_menu_list">
-								<a class="" href="/crewRecruit">홈</a><!-- 위치기반으로 근처의 크루게시물들을 확인가능 -->
-								<a class="" href="/crewRecruit">챌린지피드</a><!-- 올린 피드를 확인가능 -->
-								<a class="" href="/crewBattle">크루개설</a><!-- 크루를 개설한다 (번개크루, 장기크루, 크루배틀) -->
-								<a class="" href="/challengeFeed">채팅</a><!-- 크루와의 대화내용 -->
-								<a class="" href="/challengeFeed" style="margin-right:0px;">내 크루</a><!-- 내 크루에 대한 정보 -->
+								<div>
+									<a class="home" href="/campusCrew/m"><img alt="홈" src="http://localhost:9090/campusCrew/resources/img/common/hut.png"></a><!-- 위치기반으로 근처의 크루게시물들을 확인가능 -->
+								</div>
+								<div>
+									<a class="challengeFeed" href="/campusCrew/m/challengeFeed"><img alt="챌린지피드" src="http://localhost:9090/campusCrew/resources/img/common/flag.png"></a><!-- 올린 피드를 확인가능 -->
+								</div>
+								<div>
+									<a class="location" href="/campusCrew/m/location"><img alt="내 위치" src="http://localhost:9090/campusCrew/resources/img/common/location.png"></a><!-- 크루를 개설한다 (번개크루, 장기크루, 크루배틀) -->
+								</div>
+								<div >	
+									<a class="chat" href="/campusCrew/m/chat"><img alt="채팅" src="http://localhost:9090/campusCrew/resources/img/common/chat.png"></a><!-- 크루와의 대화내용 -->
+								</div>
+								<div>
+									<a class="myCrew" href="/campusCrew/m/myCrew" style="margin-right:0px;"><img alt="내크루" src="http://localhost:9090/campusCrew/resources/img/common/user.png"></a><!-- 내 크루에 대한 정보 -->
+								</div>
 							</div>
 						</div>
 					</div>
