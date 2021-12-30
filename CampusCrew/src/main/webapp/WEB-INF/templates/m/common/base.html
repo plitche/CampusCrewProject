@@ -25,7 +25,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
 <!-- 공통 css -->
-<link type="text/css" rel="stylesheet" href="http://localhost:9090/campusCrew/resources/css/detail/detail.css">
+<link type="text/css" rel="stylesheet" href="http://localhost:9090/campusCrew/resources/css/m/common/detail.css">
 <link type="text/css" rel="stylesheet" href="http://localhost:9090/campusCrew/resources/css/m/common/header.css">
 <link type="text/css" rel="stylesheet" href="http://localhost:9090/campusCrew/resources/css/m/common/footer.css"> 
 <link type="text/css" rel="stylesheet" href="http://localhost:9090/campusCrew/resources/css/m/common/common.css">
@@ -84,19 +84,19 @@
 						<div class="m_bar_body">
 							<div class="m_bar_menu_list">
 								<div>
-									<a class="home" href="/campusCrew/m"><img alt="홈" src="http://localhost:9090/campusCrew/resources/img/common/hut.png"></a><!-- 위치기반으로 근처의 크루게시물들을 확인가능 -->
+									<a class="home" href="{{path}}/m"><img alt="홈" src="{{path}}/resources/img/common/hut.png"></a><!-- 위치기반으로 근처의 크루게시물들을 확인가능 -->
 								</div>
 								<div>
-									<a class="challengeFeed" href="/campusCrew/m/challengeFeed"><img alt="챌린지피드" src="http://localhost:9090/campusCrew/resources/img/common/flag.png"></a><!-- 올린 피드를 확인가능 -->
+									<a class="challengeFeed" href="{{path}}/m/challengeFeed"><img alt="챌린지피드" src="{{path}}/resources/img/common/flag.png"></a><!-- 올린 피드를 확인가능 -->
 								</div>
 								<div>
-									<a class="location" href="/campusCrew/m/location"><img alt="내 위치" src="http://localhost:9090/campusCrew/resources/img/common/location.png"></a><!-- 크루를 개설한다 (번개크루, 장기크루, 크루배틀) -->
+									<a class="location" href="{{path}}/m/location"><img alt="내 위치" src="{{path}}/resources/img/common/location.png"></a><!-- 크루를 개설한다 (번개크루, 장기크루, 크루배틀) -->
 								</div>
 								<div >	
-									<a class="chat" href="/campusCrew/m/chat"><img alt="채팅" src="http://localhost:9090/campusCrew/resources/img/common/chat.png"></a><!-- 크루와의 대화내용 -->
+									<a class="chat" href="{{path}}/m/chat"><img alt="채팅" src="{{path}}/resources/img/common/chat.png"></a><!-- 크루와의 대화내용 -->
 								</div>
 								<div>
-									<a class="myCrew" href="/campusCrew/m/myCrew" style="margin-right:0px;"><img alt="내크루" src="http://localhost:9090/campusCrew/resources/img/common/user.png"></a><!-- 내 크루에 대한 정보 -->
+									<a class="myCrew" href="{{path}}/m/myCrew" style="margin-right:0px;"><img alt="내크루" src="{{path}}/resources/img/common/user.png"></a><!-- 내 크루에 대한 정보 -->
 								</div>
 							</div>
 						</div>
@@ -112,9 +112,9 @@
 // {########## 메인 Script ###########}
 {% block script %}
 
-	$(function() {
-		
-	});
+	var path = '{{path}}';
+	var developer = '{{developer}}';
+	console.log(path);
 	
 {% endblock %}
 </script>

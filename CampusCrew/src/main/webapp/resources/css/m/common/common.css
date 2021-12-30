@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+/* 화면이 400px 이상부터 content 사라짐 */
+@media (min-width : 400px) {
+	#content {
+		display:none;
+	}
+}
+
 body {
 	margin : 0;
 	font-family: Gotham,"Noto Sans Kr","Roboto",sans-serif;
@@ -19,3 +26,4 @@ a {
 body #root {
 	height : 100%;
 }
+
