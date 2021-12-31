@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /* 화면이 400px 이상부터 content 사라짐 */
-@media (min-width : 400px) {
+@media (min-width : 401px) {
 	#content {
 		display:none;
 	}
@@ -19,11 +19,13 @@ body {
     text-align: left;
 }
 
-a {
+ a {
 	text-decoration: none;
 }
 
 body #root {
 	height : 100%;
 }
+
+
 

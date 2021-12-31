@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+.recruit_thunder_popup {
+	position: fixed;
+    top: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 3000;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.recruit_thunder_popup .layer_open {
+	display: block;
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+
+#recruit_popup_header {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 1001;
+}
+
+.btn_pop_close {
+    position: absolute;
+    top: 21px;
+    right: 24px;
+    width: 16px;
+    height: 16px;
+    z-index: 5;
+    background-size: 16px auto;
+    font-size: 0px;
+}
+
+.btn_pop_close img {
+    height: 16px;
+}

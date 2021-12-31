@@ -42,6 +42,7 @@
     align-items: center;
 }
 
+/* 하단 바 설정 시작 */
 .m_bar .m_bar_body div.m_bar_menu_list {
     margin: 0 auto;
 	display:flex;
@@ -76,3 +77,40 @@
 	max-width:20px;
     margin-left: 52px;
 }
+/* 하단 바 설정 끝 */
+
+
+/* 하단 바 새로운 설정 시작 */
+.category_box {
+    position: sticky;
+    top: 111px;
+    width: calc(100% - 40px);
+    z-index: 99;
+}
+
+.category_box li:first-child {
+    margin-left: 0px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.category_box li {
+    float: left;
+    margin-left: 13px;
+    width: calc(25% - 10px);
+}
+
+.category_box li a {
+    display: block;
+    width: 100%;
+    height: 80px;
+    padding: 14px 5px 10px;
+    border-radius: 18px;
+    text-align: center;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    min-width: 82px;
+}
+/* 하단 바 새로운 설정 끝 */
+

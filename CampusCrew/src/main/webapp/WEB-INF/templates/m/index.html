@@ -6,8 +6,10 @@
 {# 홈 Content #}
 {% block content %}
 
-	{# index의 css, js 포함시켜둔 html을 포함 #}
+	{########## index의 css, js 포함시켜둔 html을 포함 ##########}
 	{% include "m/indexBase" %}
+	{########## 크루모집 팝업프로세스 화면 ##########}
+	{% include "m/popup/crewRecruit_popup/crewRecruit_thunder/crewRecruit_thunder_init"%}
 	
 	<!-- 크루모집유형선택 -->
 	<div class="crewRecruit_list" style="display:none;">
@@ -33,7 +35,7 @@
 	<!-- 크루모집 버튼 -->
 	<div class="crewRecruit_plusBtn">
 		<a href="javascript:;" id="">
-			<img alt="크루모집" id="crewRecruit_plusBtn" src="{{path}}/resources/img/common/plus.png">
+			<img alt="크루모집" id="crewRecruit_plusBtn" src="{{path}}/resources/img/common/plusBtn-01.png">
 		</a>
 	</div>
 

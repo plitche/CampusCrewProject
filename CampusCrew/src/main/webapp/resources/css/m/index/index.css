@@ -1,33 +1,17 @@
 @charset "UTF-8";
 
-.crewRecruit_plusBtn {
-	position:fixed;
-	width:45px;
-	height:45px;
-	border-radius:100px;
-	background:#2B00FF;
-	bottom:80px;
-	right:25px;
-	color:white;
-	text-align: center;
-	/* background: url(http://localhost:9090/campusCrew/resources/img/common/plus.png?21) no-repeat center center;
-    background-size: 100% 100%;
- */	z-index: 998;
-}
-
 #crewRecruit_plusBtn {
 	position:fixed;
-	width:45px;
-	height:45px;
+	width:40px;
+	height:40px;
 	border-radius:100px;
 	background:#2B00FF;
 	bottom:80px;
 	right:25px;
 	color:white;
 	text-align: center;
-	/* background: url(http://localhost:9090/campusCrew/resources/img/common/plus.png?21) no-repeat center center;
-    background-size: 100% 100%;
- */	z-index: 998;
+	box-shadow: 1px 1px 1px 1px lightgray;
+	z-index: 998;
 }
 
 .crewRecruit_list {
