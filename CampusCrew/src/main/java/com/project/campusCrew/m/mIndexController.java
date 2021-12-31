@@ -1,7 +1,5 @@
 package com.project.campusCrew.m;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -11,21 +9,22 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+// 모바일 indexController
 @Controller
+@RequestMapping(value="/m")
 public class mIndexController {
 
 	private static final Logger logger = LoggerFactory.getLogger(mIndexController.class);
 	
-	@RequestMapping(value = "/m", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) throws Exception {
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String path = "/campusCrew";
+		String developer = "나정호/권용수/이해림";
 		
-		String formattedDate = dateFormat.format(date);
+		model.addAttribute("path", path );
+		model.addAttribute("developer", developer );
 		
-		model.addAttribute("serverTime", formattedDate );
-		System.out.println("잘하자");
 		return "m/index";
 	}
 	
