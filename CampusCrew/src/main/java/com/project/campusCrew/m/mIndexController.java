@@ -28,5 +28,4 @@ public class mIndexController {
 		return "m/index";
 	}
 	
-	
 }
