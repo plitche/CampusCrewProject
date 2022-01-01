@@ -8,8 +8,11 @@
 
 	{########## index의 css, js 포함시켜둔 html을 포함 ##########}
 	{% include "m/indexBase" %}
-	{########## 크루모집 팝업프로세스 화면 ##########}
+	{########## 번개크루모집 팝업프로세스 화면 ##########}
 	{% include "m/popup/crewRecruit_popup/crewRecruit_thunder/crewRecruit_thunder_init"%}
+	{########## 정기크루모집 팝업프로세스 화면 ##########}
+	
+	{########## 배틀크루모집 팝업프로세스 화면 ##########}
 
 	<!-- 크루모집유형선택 -->
 	<div class="crewRecruit_list" style="display:none;">
@@ -26,7 +29,7 @@
 			</a>
 		</div>
 		<div class="crewRecruit_battle">
-			<a href="m/crewBattle" id="crewRecruit_battle" >
+			<a href="javascript:;" id="crewRecruit_battle" >
 				<span>크루배틀</span>
 				<img alt="크루배틀" src="{{path}}/resources/img/common/fist.png">
 			</a>
