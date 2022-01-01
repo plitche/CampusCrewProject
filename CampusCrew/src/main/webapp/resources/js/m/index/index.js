@@ -1,5 +1,5 @@
 /**
- * 
+ * 홈 js
  * 
  */
 
@@ -13,16 +13,17 @@ $(function(){
 	});
 	
 	$('.crewRecruit_thunder').off('click').on('click', function() {
-		console.log('번개크루 팝업화면 열자!');
-		$('#thunderStep01').addClass('layer_open');
+		console.log('번개크루 팝업');
+		thunderStep("01");
+		$('.crewRecruit_list').hide();
 	});
 
 	$('.crewRecruit_regular').off('click').on('click', function() {
-		console.log('정기크루 팝업화면 열자!');
+		console.log('정기크루 팝업');
 	});
 
 	$('.crewRecruit_battle').off('click').on('click', function() {
-		console.log('배틀크루 팝업화면 열자!');
+		console.log('배틀크루 팝업');
 	});
 	
 	

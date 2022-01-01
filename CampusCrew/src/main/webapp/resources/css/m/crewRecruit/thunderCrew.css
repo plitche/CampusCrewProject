@@ -1,42 +1,24 @@
 @charset "UTF-8";
 
-.recruit_thunder_popup {
-	position: fixed;
-    top: 100%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    visibility: hidden;
-    opacity: 0;
-    z-index: 3000;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    overflow: hidden;
-}
 
-.recruit_thunder_popup .layer_open {
-	display: block;
-    top: 0;
-    visibility: visible;
-    opacity: 1;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    overflow: hidden;
-}
-
-
-#recruit_popup_header {
-	position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+/***************** 번개크루 step01 *******************/
+#thunderStep01{background:white;position:fixed;top:100%;bottom:0;left:0;right:0;width:100%;height:100%;visibility: hidden;opacity:0; z-index:3000; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out;overflow:hidden;}
+#thunderStep01.layer_open{display:block;top:0;visibility:visible;opacity:1;-webkit-transition: all 0.3s ease-in-out;-moz-transition: all 0.3s ease-in-out;transition: all 0.3s ease-in-out;overflow:hidden;}
+#recruit_popup_contents{
+	width: 100%;
     background: #fff;
-    z-index: 1001;
+    height: 100%;
 }
+
+#recruit_popup_header{
+	height:55px;
+	top:0;
+	left:0;
+	width:100%;
+	/* background: #fff; */
+	z-index:21;
+}
+
 
 .btn_pop_close {
     position: absolute;
@@ -52,3 +34,79 @@
 .btn_pop_close img {
     height: 16px;
 }
+
+.btn_pop_previous {
+	 position: absolute;
+    top: 21px;
+    left: 24px;
+    width: 16px;
+    height: 16px;
+    z-index: 5;
+    background-size: 16px auto;
+    font-size: 0px;
+}
+
+.btn_pop_previous img {
+    height: 16px;
+}
+
+.recruit_popup_border {
+	width: 100%;
+    height: 0.5px;
+    background: #dcdde2;
+}
+
+#recruit_popup_content {
+	height:100%;	
+}
+
+#recruit_popup_content #title {
+	padding: 15px 22px;
+	font-family: 'Black Han Sans', sans-serif;
+	font-size:16px;
+	color: #2B00FF;
+}
+
+#recruit_popup_content #content div {
+	width: 90%;
+	height:30px;
+	margin: 0 auto 10px;
+	background: #eeeeee;
+	margin
+}
+
+#recruit_popup_footer {
+	position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 40px 24px 20px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.0) 1%, rgba(255, 255, 255) 40%, #ffffff);
+    text-align: center;
+    z-index: 21;
+}
+
+#recruit_popup_footer #btnThunderNext1 {
+	display: block;
+    height: 45px;
+    padding: 10px 10px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle; 
+    border: 0px solid; 
+    border-radius: 57px; 
+    background: #dbdbdb;
+    cursor: pointer; 
+    width: 100%;
+    box-shadow: 0 9px 9px 3px rgb(219 219 219 / 70%);
+}
+
+
+
+
+/***************** 번개크루 step02 *******************/
+#thunderStep02{background:white;position:fixed;top:100%;bottom:0;left:0;right:0;width:100%;height:100%;visibility: hidden;opacity:0; z-index:3000; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out;overflow:hidden;}
+#thunderStep02.layer_open{display:block;top:0;visibility:visible;opacity:1;-webkit-transition: all 0.3s ease-in-out;-moz-transition: all 0.3s ease-in-out;transition: all 0.3s ease-in-out;overflow:hidden;}
+
+
