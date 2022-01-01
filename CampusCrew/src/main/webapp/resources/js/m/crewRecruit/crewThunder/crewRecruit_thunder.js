@@ -2,13 +2,13 @@
  *  번개크루 js
  */
 
-	var thunderChangeDiv = function(openStep) {
+	var thunderChangeDiv = (openStep) => {
 		$('.recruit_thunder_popup').removeClass('layer_open');
 		
 		$('#thunderStep' + openStep).addClass('layer_open');
 	}
 	
-	var thunderStep = function(number) {
+	var thunderStep = (number) => {
 		
 		// 번개크루 step별 html, js 변화
 		switch(number) {
@@ -37,12 +37,12 @@
 		step01 : {
 			
 			info : new Object()
-			, init : function() {
+			, init : () => {
 				
 				thunderUtil.step01.event();
 				
 			}
-			, event : function() {
+			, event : () => {
 				
 				$('.btn_pop_close').off('click').on('click', function() {
 					console.log('닫기');
@@ -68,24 +68,24 @@
 		
 		step02 : {
 			info : new Object()
-			, init : function() {
+			, init : () => {
 				
 				thunderUtil.step02.event();
 				
 			}
-			, event : function() {
+			, event : () => {
 				
-				$('.btn_pop_close').off('click').on('click', function() {
+				$('.btn_pop_close').off('click').on('click', () => {
 					console.log('닫기');
 					$('#thunderStep02').removeClass('layer_open');
 				});
 				
-				$('.btn_pop_previous').off('click').on('click', function() {
+				$('.btn_pop_previous').off('click').on('click', () => {
 					console.log('이전');
 					thunderStep("01");
 				});
 				
-				$('.btnThunderNext2').off('click').on('click', function() {
+				$('.btnThunderNext2').off('click').on('click', () => {
 					console.log('다음');
 					thunderStep("03");
 				});

@@ -57,25 +57,25 @@
 .m_bar .m_bar_body div.m_bar_menu_list .challengeFeed img {
 	min-width:19px;
 	max-width:19px;
-    margin-left: 52px;
+     margin-left: 54px;
 }
 
 .m_bar .m_bar_body div.m_bar_menu_list .location img {
 	min-width:20px;
 	max-width:20px;
-    margin-left: 52px;
+     margin-left: 54px;
 }
 
 .m_bar .m_bar_body div.m_bar_menu_list .chat img {
-	min-width:19px;
+	in-width:19px;
 	max-width:19px;
-    margin-left: 52px;
+    margin-left: 54px;
 }
 
 .m_bar .m_bar_body div.m_bar_menu_list .myCrew img {
 	min-width:20px;
 	max-width:20px;
-    margin-left: 52px;
+    margin-left: 54px;
 }
 /* 하단 바 설정 끝 */
 
