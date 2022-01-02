@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value="/m")
 public class mIndexController {
 
-	private static final Logger logger = LoggerFactory.getLogger(mIndexController.class);
+	private static Logger log = LoggerFactory.getLogger(mIndexController.class);
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) throws Exception {
@@ -24,6 +24,8 @@ public class mIndexController {
 		
 		model.addAttribute("path", path );
 		model.addAttribute("developer", developer );
+		
+		log.info("홈 화면");
 		
 		return "m/index";
 	}
