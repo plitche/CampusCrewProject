@@ -1,4 +1,4 @@
-package com.project.campusCrew.m;
+package com.project.campusCrew.m.feed;
 
 import java.util.Locale;
 
@@ -9,15 +9,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-// 모바일 indexController
+/**
+ * 
+ * @author 나정호 
+ * @describe 모바일 피드 컨트롤러
+ *
+ */
+
 @Controller
 @RequestMapping(value="/m")
-public class mIndexController {
+public class FeedController {
 
-	private static Logger log = LoggerFactory.getLogger(mIndexController.class);
+	private static Logger log = LoggerFactory.getLogger(FeedController.class);
 	
-	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) throws Exception {
+	@RequestMapping(value="/feed", method = RequestMethod.GET) 
+	public String feedMain(Locale locale, Model model) throws Exception {
 		
 		String path = "/campusCrew";
 		String developer = "나정호/권용수/이해림";
@@ -25,9 +31,11 @@ public class mIndexController {
 		model.addAttribute("path", path );
 		model.addAttribute("developer", developer );
 		
-		log.info("홈 화면");
+		log.info("피드 화면");
 		
-		return "m/index";
+		return "m/feed/feed";
 	}
+	
+	
 	
 }

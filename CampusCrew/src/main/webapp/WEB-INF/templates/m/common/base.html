@@ -71,7 +71,24 @@
 		{########## 메인 Content ##########}
 		<div id="content">
 			{% block content %}
-			
+				
+				
+			{% endblock %}
+		</div>
+		
+		{########## 로그인/회원가입 ##########}
+		<div id="login_join">
+			{% block login %}
+			<div id="login_title">
+				3초만에 시작				
+			</div>
+			<div id="login_join_content">
+				<a href="javascript:;" id="loginOrjoin">
+					<span>
+						가입/로그인
+					</span>
+				</a>
+			</div>
 			{% endblock %}
 		</div>
 	
@@ -87,7 +104,7 @@
 									<a class="home" href="{{path}}/m"><img alt="홈" src="{{path}}/resources/img/common/hut.png"></a>
 								</div>
 								<div>
-									<a class="challengeFeed" href="{{path}}/m/challengeFeed"><img alt="챌린지피드" src="{{path}}/resources/img/common/flag.png"></a>
+									<a class="challengeFeed" href="{{path}}/m/feed"><img alt="챌린지피드" src="{{path}}/resources/img/common/flag.png"></a>
 								</div>
 								<div>
 									<a class="location" href="{{path}}/m/location"><img alt="내 위치" src="{{path}}/resources/img/common/location.png"></a>
@@ -112,9 +129,15 @@
 // {########## 메인 Script ###########}
 {% block script %}
 
-	var path = '{{path}}';
-	var developer = '{{developer}}';
+	let path = '{{path}}';
+	let developer = '{{developer}}';
 	console.log(path);
+	
+	
+	$('#loginOrjoin').off('click').on('click', () => {
+		console.log('로그인 팝업 - 카카오/네이버 로그인');
+	});
+	
 	
 {% endblock %}
 </script>

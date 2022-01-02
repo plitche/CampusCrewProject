@@ -45,17 +45,17 @@
 			}
 			, event : () => {
 				
-				$('.btn_pop_close').off('click').on('click', function() {
+				$('.btn_pop_close').off('click').on('click', () => {
 					console.log('닫기');
 					$('#thunderStep01').removeClass('layer_open');
 				});
 				
-				$('.btn_pop_previous').off('click').on('click', function() {
+				$('.btn_pop_previous').off('click').on('click', () => {
 					console.log('이전');
 					$('#thunderStep01').removeClass('layer_open');
 				});
 				
-				$('#btnThunderNext1').off('click').on('click', function() {
+				$('#btnThunderNext1').off('click').on('click', () => {
 					console.log('다음');
 					thunderStep("02");
 				});

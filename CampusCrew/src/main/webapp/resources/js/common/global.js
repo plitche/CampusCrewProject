@@ -39,7 +39,7 @@ document.location.href = strUrl;
             {*/
                 let Frame = encodeURIComponent(strFrame);
                 let Url = encodeURIComponent("https://" + strHostName + strUrl);
-document.location.href = "https://" + strHostName + "/scripting/scriptProc?url=" + Url + "&scriptFlag="+strFrame;
+                document.location.href = "https://" + strHostName + "/scripting/scriptProc?url=" + Url + "&scriptFlag="+strFrame;
             //}
         }
       else
@@ -59,11 +59,11 @@ location.href = "https://" + strHostName + strUrl;
             {*/
                 let Frame = encodeURIComponent(strFrame);
                 let Url = encodeURIComponent("https://" + strUrl);
-location.href = "https://" + strHostName + "/Pub/Inc/RedirectFrame.asp?Frame=" + strFrame + "&Url=" + Url;
+                location.href = "https://" + strHostName + "/Pub/Inc/RedirectFrame.asp?Frame=" + strFrame + "&Url=" + Url;
             //}
         }
       else
-location.href = "https://" + strUrl;
+    	  	location.href = "https://" + strUrl;
    }
 
    //===============================================================
@@ -99,8 +99,8 @@ location.href = "https://" + strUrl;
 
       try
       {
-document.forms[iFormNum].action = "https://" + strHotName  + strAction;
-document.forms[iFormNum].autocomplete = "off"; // 자동완성기능 해지
+    	  document.forms[iFormNum].action = "https://" + strHotName  + strAction;
+    	  document.forms[iFormNum].autocomplete = "off"; // 자동완성기능 해지
       }
       catch(e)
       {
@@ -170,7 +170,7 @@ document.forms[iFormNum].autocomplete = "off"; // 자동완성기능 해지
       let strHotName = "";
       strHotName =document.location.hostname;
 
-document.location.href = "https://" +  strHotName + strUrl;
+      document.location.href = "https://" +  strHotName + strUrl;
    }
    //===============================================================
 
@@ -226,7 +226,7 @@ document.cookie = objName + "="+strPopup+"; path=/" + "; expires=" + todayDate.t
 
       let todayDate = newDate();
       todayDate.setDate(todayDate.getDate() + 30);
-document.cookie = objName + "="+strPopup+"; path=/" + "; expires=" + todayDate.toGMTString() + "; domain=" + ASPDOMAIN;
+      document.cookie = objName + "="+strPopup+"; path=/" + "; expires=" + todayDate.toGMTString() + "; domain=" + ASPDOMAIN;
    }
 
    //===============================================================
@@ -246,7 +246,7 @@ document.cookie = objName + "="+strPopup+"; path=/" + "; expires=" + todayDate.t
 
       let todayDate = newDate();
       todayDate.setDate(todayDate.getDate() + 1);
-document.cookie = objName + "="+strPopup+"; path=/" + "; expires=" + todayDate.toGMTString() + "; domain=" + ASPDOMAIN;
+      document.cookie = objName + "="+strPopup+"; path=/" + "; expires=" + todayDate.toGMTString() + "; domain=" + ASPDOMAIN;
    }
 
    //===============================================================
@@ -374,7 +374,7 @@ document.cookie = objName + "="+strPopup+"; path=/" + "; expires=" + todayDate.t
    function fncRedirectWithConfirm(strMsg, strUrl)
    {
       if (confirm(strMsg))
-document.location.href=strUrl;
+    	  document.location.href=strUrl;
    }
 
    //===============================================================
@@ -383,7 +383,7 @@ document.location.href=strUrl;
    function fncRedirectWithAlert(strMsg, strUrl)
    {
       alert(strMsg);
-document.location.href=strUrl;
+      document.location.href=strUrl;
    }
    //===============================================================
 
@@ -561,7 +561,7 @@ document.all(id)(i).checked = true;
    //===============================================================
    function fncAttachEvent(objCtrlID, objEventType, objEventName)
    {
-document.getElementById(objCtrlID).attachEvent(objEventType, objEventName);
+	   document.getElementById(objCtrlID).attachEvent(objEventType, objEventName);
    }
 
    //===============================================================
@@ -702,7 +702,7 @@ document.getElementById(objCtrlID).attachEvent(objEventType, objEventName);
             if (strCookieChild.substring(0, objCookie.length + 1) == objCookie + "=")
             {
                strAfterCookie = strCookieChild.replace(objName + "=" + strBeforeValue, objName + "=" + objValue);
-document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
+               document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
                bCreated = true;
             }
          }

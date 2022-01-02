@@ -1,0 +1,31 @@
+<!-- 
+	feed 메인 화면
+ -->
+{% extends "m/common/base" %}
+
+{# 피드 Header #}
+{% block header %}
+	<!-- 앱 상단 바 -->
+	<div class="m_header_bar_control" style="background-color: rgb(255, 255, 255);">
+		<div class="m_header_bar">
+			<div class="m_header_bar_body">
+				<a href="{{path}}/m">
+					#크루활동
+				</a>
+				<div class="m_header_bar_menu_list2">
+					<a href="{{path}}/m/search">
+						<img alt="활동검색" src="{{path}}/resources/img/common/search (1).png">
+					</a>
+					<a href="{{path}}/m/alarm">
+						<img alt="활동인증" src="{{path}}/resources/img/feed/photo-camera.png">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{# 피드 Content #}
+{% block content %}
+
+{% endblock %}
