@@ -2,7 +2,7 @@
 
 /***************** 로그인/회원가입 step01 *******************/
 #loginJoinStep01{background:white;position:fixed;top:100%;bottom:0;left:0;right:0;width:100%;height:100%;visibility: hidden;opacity:0; z-index:3000; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out;overflow:hidden;}
-#loginJoinStep01 .layer_open{display:block;top:0;visibility:visible;opacity:1;-webkit-transition: all 0.3s ease-in-out;-moz-transition: all 0.3s ease-in-out;transition: all 0.3s ease-in-out;overflow:hidden;}
+#loginJoinStep01.layer_open{display:block;top:0;visibility:visible;opacity:1;-webkit-transition: all 0.3s ease-in-out;-moz-transition: all 0.3s ease-in-out;transition: all 0.3s ease-in-out;overflow:hidden;}
 #recruit_popup_contents{
 	width: 100%;
     background: #fff;
