@@ -1,1 +1,75 @@
 @charset "UTF-8";
+
+/***************** 로그인/회원가입 step01 *******************/
+#loginJoinStep01{background:white;position:fixed;top:100%;bottom:0;left:0;right:0;width:100%;height:100%;visibility: hidden;opacity:0; z-index:3000; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out;overflow:hidden;}
+#loginJoinStep01 .layer_open{display:block;top:0;visibility:visible;opacity:1;-webkit-transition: all 0.3s ease-in-out;-moz-transition: all 0.3s ease-in-out;transition: all 0.3s ease-in-out;overflow:hidden;}
+#recruit_popup_contents{
+	width: 100%;
+    background: #fff;
+    height: 100%;
+}
+
+#loginJoin_popup_content{
+	height:55px;
+	top:0;
+	left:0;
+	width:100%;
+	/* background: #fff; */
+	z-index:21;
+}
+
+
+.btn_pop_close {
+    position: absolute;
+    top: 21px;
+    right: 24px;
+    width: 16px;
+    height: 16px;
+    z-index: 5;
+    background-size: 16px auto;
+    font-size: 0px;
+}
+
+.btn_pop_close img {
+    height: 16px;
+}
+
+.btn_pop_previous {
+	 position: absolute;
+    top: 21px;
+    left: 24px;
+    width: 16px;
+    height: 16px;
+    z-index: 5;
+    background-size: 16px auto;
+    font-size: 0px;
+}
+
+.btn_pop_previous img {
+    height: 16px;
+}
+
+.recruit_popup_border {
+	width: 100%;
+    height: 0.5px;
+    background: #dcdde2;
+}
+
+#loginJoin_popup_content {
+	height:100%;	
+}
+
+#loginJoin_popup_content #title {
+	padding: 15px 22px;
+	font-family: 'Black Han Sans', sans-serif;
+	font-size:16px;
+	color: #2B00FF;
+}
+
+#loginJoin_popup_content #content div {
+	width: 90%;
+	height:30px;
+	margin: 0 auto 10px;
+	background: #eeeeee;
+	margin
+}

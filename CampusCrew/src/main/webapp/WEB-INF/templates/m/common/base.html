@@ -76,7 +76,9 @@
 			{% endblock %}
 		</div>
 		
-		{########## 로그인/회원가입 ##########}
+		{########## 로그인/회원가입 팝업 프로세스  ##########}
+		{% include "m/popup/loginJoin_popup/loginJoin_init" %}
+		{########## 로그인/회원가입 접근버튼 ##########}
 		<div id="login_join">
 			{% block login %}
 			<div id="login_title">
