@@ -6,17 +6,17 @@
  *@paramcallback
 */
 function requestAjaxPOST(url, data, callback){
-   var ajaxPOST;
+   let ajaxPOST;
    if(ajaxPOST) clearTimeout(ajaxPOST);
    ajaxPOST = setTimeout(function(){ requestAjaxPOST_(url, data, callback); },200);
 }
 function requestAjaxPOST2(url, data, callback){
-   var ajaxPOST2;
+   let ajaxPOST2;
    if(ajaxPOST2) clearTimeout(ajaxPOST);
    ajaxPOST2 = setTimeout(function(){ requestAjaxPOST_(url, data, callback); },200);
 }
 function requestAjaxPOSTTxt(url, data, callback){
-   var ajaxPOST;
+   let ajaxPOST;
    if(ajaxPOST) clearTimeout(ajaxPOST);
    ajaxPOST = setTimeout(function(){ requestAjaxPOSTTxt_(url, data, callback); },200);
 }
@@ -53,7 +53,7 @@ function requestAjaxPOSTTxt_(url, data, callback){
    });
 }
 
-var msg = {
+let msg = {
 		
 		// 알려드립니다 alert
 		info : function(message) {
@@ -68,7 +68,7 @@ var msg = {
 					}
 					$('.alert_box').show();
 					$('.alert_box').css('transition-duration', '2s');
-					var alert = $('#alert_content').text(message);
+					let alert = $('#alert_content').text(message);
 					alert.html(alert.html().replace(/\n/g, '<br>'));
 				}, 500);
 			
@@ -77,7 +77,7 @@ var msg = {
 				
 				$('.alert_box').show();
 				$('.alert_box').css('transition-duration', '2s');
-				var alert = $('#alert_content').text(message);
+				let alert = $('#alert_content').text(message);
 				alert.html(alert.html().replace(/\n/g, '<br>'));
 				
 			}
@@ -99,7 +99,7 @@ var msg = {
 *@paramcallback
 */
 function requestFormAjaxPOST(url, data, callback){
-   var ajaxPOST;
+   let ajaxPOST;
    if(ajaxPOST) clearTimeout(ajaxPOST);
    ajaxPOST = setTimeout(function(){ requestAjaxFormPOST_(url, data, callback); },200);
 }
@@ -134,7 +134,7 @@ function requestAjaxGET(url, data, callback){
 CommonScript = {
    setTableRow: function(id, results, options, blankDataText, blankClass) {
 
-      var tbody = $(id);
+      let tbody = $(id);
       tbody.html("");
 
       if (results == "" || results == undefined) {
@@ -149,22 +149,22 @@ CommonScript = {
          return;
       }
 
-      var newRow = "";
-      var newColumn = "";
-      var newData = "";
-      var optionAlign = "";
-      var optionType = "";
-      var optionTemp = "";
-      var optionIsUrl = false;
-      var optionClass = "";
-      var optionUrlText = "";
+      let newRow = "";
+      let newColumn = "";
+      let newData = "";
+      let optionAlign = "";
+      let optionType = "";
+      let optionTemp = "";
+      let optionIsUrl = false;
+      let optionClass = "";
+      let optionUrlText = "";
 
       $.each(results, function(i, row) {
 
          newColumn = "";
          newData = "";
 
-         for (var j = 0; j < options.length; j++){
+         for (let j = 0; j < options.length; j++){
 
             optionUrlText = "";
             optionAlign = $.trim(options[j][1]);
@@ -262,9 +262,9 @@ document.location.reload();
     },
     windowOpen: function(url, name, width, height, position, isscroll) {
 
-        var scroll;
-        var left;
-        var top;
+        let scroll;
+        let left;
+        let top;
 
         if (position == 0) {
             left = 0;
@@ -286,7 +286,7 @@ document.location.reload();
             scroll = 'no';
         }
 
-        var win =window.open(url, name, "width=" + width + "px, height=" + height + "px, top=" + top + ", left=" + left + ", scrollbars=" + scroll + ", resizable=no, toolbar=no, menubar=no, location=no");
+        let win =window.open(url, name, "width=" + width + "px, height=" + height + "px, top=" + top + ", left=" + left + ", scrollbars=" + scroll + ", resizable=no, toolbar=no, menubar=no, location=no");
         win.focus();
     },
    setLinkUrl: function(protocol, url, isopener) {
@@ -395,11 +395,11 @@ function callbackPageSimple(){
 */
 function getToday() {
 
-   var date = newDate();
+   let date = newDate();
 
-    var year   = date.getFullYear();
-    var month  = date.getMonth() + 1;
-    var day    = date.getDate();
+    let year   = date.getFullYear();
+    let month  = date.getMonth() + 1;
+    let day    = date.getDate();
 
     if (("" + month).length == 1) { month = "0" + month; }
     if (("" + day).length  == 1) { day  = "0" + day;  }
@@ -409,11 +409,11 @@ function getToday() {
 
 function getToday2(argFlag) {
    if(typeof(argFlag) == "undefined") argFlag = "/";
-   var date = newDate();
+   let date = newDate();
 
-    var year   = date.getFullYear();
-    var month  = date.getMonth() + 1;
-    var day    = date.getDate();
+    let year   = date.getFullYear();
+    let month  = date.getMonth() + 1;
+    let day    = date.getDate();
 
     if (("" + month).length == 1) { month = "0" + month; }
     if (("" + day).length  == 1) { day  = "0" + day;  }
@@ -425,8 +425,8 @@ function getToday2(argFlag) {
  *현재 시(hour)가져오기
 */
 function getHour() {
-   var date = newDate();
-   var hour = date.getHours();
+   let date = newDate();
+   let hour = date.getHours();
    if(hour < 10)
       hour = '0' + hour;
 
@@ -437,8 +437,8 @@ function getHour() {
  *현재 분(minute)가져오기
 */
 function getMinute() {
-   var date = newDate();
-   var minute = date.getMinutes();
+   let date = newDate();
+   let minute = date.getMinutes();
    if(minute<10)
       minute = '0' + minute;
 
@@ -449,7 +449,7 @@ function getMinute() {
  *留덉�留��좎쭨 由ы꽩
 */
 function getLastDay(year, month) {
-   var newDay = newDate(year, month, "");
+   let newDay = newDate(year, month, "");
     return newDay.getDate();
 }
 
@@ -463,14 +463,14 @@ function getLastDay(year, month) {
 function popupWindow(url, name, width, height) {
 	
 
-   var top    = (screen.height / 2) - (height / 2);
-   var left   = (screen.width / 2) - (width /2);
+   let top    = (screen.height / 2) - (height / 2);
+   let left   = (screen.width / 2) - (width /2);
 
    if (name == null) {
       name = "_blank";
    }
 
-   var popupWin =window.open(url,name,"toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=no,resizable=1,width="+width+",height="+height+",top=" + top + ",left = " + left);
+   let popupWin =window.open(url,name,"toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=no,resizable=1,width="+width+",height="+height+",top=" + top + ",left = " + left);
 
    popupWin.focus();
 }
@@ -494,8 +494,8 @@ location.href = "/help/helpMainView";
 
 function logoutProc(){
     if (confirm("濡쒓렇�꾩썐 �섏떆寃좎뒿�덇퉴?")) {
-      var url = "/login/logoutMngProc";
-      var data = {};
+      let url = "/login/logoutMngProc";
+      let data = {};
 
       requestAjaxGET(url, data, logOutDirectPage);
       //location.href = "/member/logoutMngProc";
@@ -503,14 +503,14 @@ function logoutProc(){
 }
 
 function logoutProc2(){
-    var url = "/login/logoutMngProc";
-   var data = {};
+    let url = "/login/logoutMngProc";
+   let data = {};
    requestAjaxGET(url, data, logOutDirectPage);
 }
 
 function logOutDirectPage(data){
-   var errCode = data.errCode;
-   var msg = "�꾩씠�쒕쿋�대� �댁슜�댁＜��怨좉컼�섍퍡 媛먯궗�쒕┰�덈떎.\n��긽 怨좉컼���꾪빐 理쒖꽑���ㅽ븯��(二��꾩씠�쒕쿋�닿� �섍쿋�듬땲��";
+   let errCode = data.errCode;
+   let msg = "�꾩씠�쒕쿋�대� �댁슜�댁＜��怨좉컼�섍퍡 媛먯궗�쒕┰�덈떎.\n��긽 怨좉컼���꾪빐 理쒖꽑���ㅽ븯��(二��꾩씠�쒕쿋�닿� �섍쿋�듬땲��";
 
    if(errCode == "0"){
       alert("濡쒓렇�꾩썐 �ㅽ뙣");
@@ -522,50 +522,50 @@ location.href = "/main/mainView";
 }
 
 function fncGetDepositPopup(strMenuName, strInflux, strPaymentType){
-   var iPopWidth =screen.width;
-    var iPopHeight =screen.height;
+   let iPopWidth =screen.width;
+    let iPopHeight =screen.height;
 
     if (parseInt(iPopHeight) < 900){
         if ($.browser.msie){
             if ($.browser.version > 6.0){
-               var iWidth = 688;
+               let iWidth = 688;
             }else{
-               var iWidth = 686;
+               let iWidth = 686;
             }
-            var iHeight = 700;
+            let iHeight = 700;
         }else{
-            var iWidth = 698;
-            var iHeight = 720;
+            let iWidth = 698;
+            let iHeight = 720;
         }
 
-        var objScrollbars = "yes";
+        let objScrollbars = "yes";
     }else{
         if ($.browser.msie){
-            var iWidth = 670;
-            var iHeight = 725;
+            let iWidth = 670;
+            let iHeight = 725;
         } else{
-            var iWidth = 670;
-            var iHeight = 740;
+            let iWidth = 670;
+            let iHeight = 740;
         }
 
-        var objScrollbars = "no";
+        let objScrollbars = "no";
     }
 
-    var iLeftWidth = (iPopWidth / 2) - (iWidth / 2);
-    var iTopHeight = (iPopHeight / 2) - (iHeight / 2);
-    var strHost =document.location.hostname;
+    let iLeftWidth = (iPopWidth / 2) - (iWidth / 2);
+    let iTopHeight = (iPopHeight / 2) - (iHeight / 2);
+    let strHost =document.location.hostname;
 
     /*
     if (strHost.toUpperCase() == "WWW.ITEMBAY.KR"){
        strHost = "www.itembay.com";
     }
     */
-    //var url = "/mybay/mileageMng/popupAccountDepositView?cPaymentType=" + strPaymentType + "&vcInflux=ITEMBAY&menuName=ACCOUNT";
-    //var url = DepositPopup.fucGetDepositLink(strMenuName) + "?cPaymentType=" + strPaymentType + "&vcInflux=" + strInflux;
-    //var url = "https://" + strHost + DepositPopup.fucGetDepositLink(strMenuName) + "?cPaymentType=" + strPaymentType + "&vcInflux=" + strInflux;
-    var url = "/mileageMng/popupAccountDepositView?cPaymentType=" + strPaymentType + "&vcInflux=" + strInflux + "&menuName=" + strMenuName;
+    //let url = "/mybay/mileageMng/popupAccountDepositView?cPaymentType=" + strPaymentType + "&vcInflux=ITEMBAY&menuName=ACCOUNT";
+    //let url = DepositPopup.fucGetDepositLink(strMenuName) + "?cPaymentType=" + strPaymentType + "&vcInflux=" + strInflux;
+    //let url = "https://" + strHost + DepositPopup.fucGetDepositLink(strMenuName) + "?cPaymentType=" + strPaymentType + "&vcInflux=" + strInflux;
+    let url = "/mileageMng/popupAccountDepositView?cPaymentType=" + strPaymentType + "&vcInflux=" + strInflux + "&menuName=" + strMenuName;
 
-    var objDepositPopup =window.open(url, "MileageCharge", "width=" + iWidth + ",height=" + iHeight + ",left=" + iLeftWidth + ",top=" + iTopHeight + ",toolbar=no, status=no, menubar=no, scrollbars=" + objScrollbars + ", resize=no, resizable=no, location=no, directories=no");
+    let objDepositPopup =window.open(url, "MileageCharge", "width=" + iWidth + ",height=" + iHeight + ",left=" + iLeftWidth + ",top=" + iTopHeight + ",toolbar=no, status=no, menubar=no, scrollbars=" + objScrollbars + ", resize=no, resizable=no, location=no, directories=no");
 
     if (objDepositPopup == null){
        alert("충전 창이 차단 되었습니다. 팝업 허용 설정을 해 주십시오.");
@@ -587,8 +587,8 @@ window.resizeTo(iW, iH);
     else
     {
        // 가운데 정렬
-      var top_position =screen.width / 2 - iW / 2;
-      var left_position =screen.height / 2 - iH / 2;
+      let top_position =screen.width / 2 - iW / 2;
+      let left_position =screen.height / 2 - iH / 2;
 
 window.moveTo(top_position, left_position);
     }
@@ -600,9 +600,9 @@ window.moveTo(top_position, left_position);
 
 function fncWindowOpen(url, name, width, height, position, isscroll) {
 
-    var scroll;
-    var left;
-    var top;
+    let scroll;
+    let left;
+    let top;
 
     if (position == 0) {
         left = 0;
@@ -624,11 +624,11 @@ function fncWindowOpen(url, name, width, height, position, isscroll) {
         scroll = 'no';
     }
 
-    var win =window.open(url, name, "width=" + width + ", height=" + height + ", top=" + top + ", left=" + left + ", resizable=1, scrollbars=" + scroll);
+    let win =window.open(url, name, "width=" + width + ", height=" + height + ", top=" + top + ", left=" + left + ", resizable=1, scrollbars=" + scroll);
     win.focus();
 }
 function createComboBox(group, selectID, style, eventValue, selectName,  firstValue, selectedValue ) {
-   var uri = "/comboBox/comboBoxMain" ;
+   let uri = "/comboBox/comboBoxMain" ;
    if ( selectID == undefined  ){
       selectID = "" ;
    }
@@ -647,7 +647,7 @@ function createComboBox(group, selectID, style, eventValue, selectName,  firstVa
    if ( selectedValue == undefined  ){
       selectedValue = "" ;
    }
-   var data = {group:group ,
+   let data = {group:group ,
             selectID : selectID ,
              style : style,
              eventValue : eventValue,
@@ -657,27 +657,27 @@ function createComboBox(group, selectID, style, eventValue, selectName,  firstVa
    requestAjaxPOST(uri, data,  resultComboBoxCallBack) ;
 }
 function resultComboBoxCallBack(data) {
-   var group = data.group;
-   var selectID = data.selectID ;
-   var style = data.style ;
-   var selectedName = data.selectedName ;
-   var firstValue = data.firstValue ;
-   var selectedValue = data.selectedValue;
-   var eventValue = data.eventValue;
+   let group = data.group;
+   let selectID = data.selectID ;
+   let style = data.style ;
+   let selectedName = data.selectedName ;
+   let firstValue = data.firstValue ;
+   let selectedValue = data.selectedValue;
+   let eventValue = data.eventValue;
 
-   var code = "" ;
-   var codeName = "" ;
-   var selected = "" ;
-   var rowNum =  0 ;
+   let code = "" ;
+   let codeName = "" ;
+   let selected = "" ;
+   let rowNum =  0 ;
    if(data == "" ||  data.list == "" || data.list == undefined ) {
       rowNum =  0 ;
    }else {
       rowNum = data.list.length ;
    }
-   var optionHtml = "" ;
-   var selectHtml = "" ;
+   let optionHtml = "" ;
+   let selectHtml = "" ;
 
-   for(var inx = 0; inx < rowNum; inx++) {
+   for(let inx = 0; inx < rowNum; inx++) {
       code =  data.list[inx].code ;
       codeName = data.list[inx].codeName ;
       if( code == selectedValue) {
@@ -717,17 +717,17 @@ window.external.AddFavorite(SERVERURL + "/shortCut/intro?strRedirectType=b", 'it
 }
 
 function MM_swapImgRestore() { //v3.0
-   var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+   let i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
 }
 
 function MM_preloadImages() { //v3.0
-   var d=document; if(d.images){ if(!d.MM_p) d.MM_p=newArray();
-    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+   let d=document; if(d.images){ if(!d.MM_p) d.MM_p=newArray();
+    let i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
     if (a[i].indexOf("#")!=0){ d.MM_p[j]=newImage; d.MM_p[j++].src=a[i];}}
 }
 
 function MM_findObj(n, d) { //v4.01
-   var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+   let p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
     d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
    if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
    for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
@@ -735,7 +735,7 @@ function MM_findObj(n, d) { //v4.01
 }
 
 function MM_swapImage() { //v3.0
-   var i,j=0,x,a=MM_swapImage.arguments;document.MM_sr=newArray; for(i=0;i<(a.length-2);i+=3)
+   let i,j=0,x,a=MM_swapImage.arguments;document.MM_sr=newArray; for(i=0;i<(a.length-2);i+=3)
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
 
@@ -750,11 +750,11 @@ document.getElementById(objId).className = objClass;
 //팝업창 브라우져별로 body 값 계산해서 리사이징
 function PopupAutoResize() {
 window.resizeTo(100, 100);
-   var thisX = parseInt(document.body.scrollWidth);
-   var thisY = parseInt(document.body.scrollHeight);
-   var maxThisX =screen.width - 50;
-   var maxThisY =screen.height - 50;
-   var marginY = 0;
+   let thisX = parseInt(document.body.scrollWidth);
+   let thisY = parseInt(document.body.scrollHeight);
+   let maxThisX =screen.width - 50;
+   let maxThisY =screen.height - 50;
+   let marginY = 0;
    //alert(thisX + "===" + thisY);
    //alert("임시 브라우저 확인 : " + navigator.userAgent);
    // 브라우저별 높이 조절.
@@ -792,8 +792,8 @@ document.location.href = "/login/loginAdult?returnUrl=" + encodeURI(document.loc
 
 //애드 서버 배너 노출 여부 확인
 function fncAdServerBannerShow(bannerKey, renderSelector, adKoreaClose) {
-   var $renderSelector = $(renderSelector);
-   var htmlTag = "";
+   let $renderSelector = $(renderSelector);
+   let htmlTag = "";
 
    if($renderSelector.length == 0){
       return false;
@@ -852,8 +852,8 @@ function fncAdServerBannerShow(bannerKey, renderSelector, adKoreaClose) {
 // 특정 게임에 대한 서버리스트 리턴 (비동기)
 // param : {gameSeq, randomParam, success, error, complete}
 function getServersByGameSeq(obj) {
-   var randomParam = obj.js_ibnp_common ? obj.js_ibnp_common :Math.floor(Math.random()*1000);
-   var url = "/resources/js/json/Game"+ obj.gameSeq +".js?v=" + randomParam;
+   let randomParam = obj.js_ibnp_common ? obj.js_ibnp_common :Math.floor(Math.random()*1000);
+   let url = "/resources/js/json/Game"+ obj.gameSeq +".js?v=" + randomParam;
    $.ajax({
       type: "GET",
       url: url,
@@ -882,7 +882,7 @@ function getServersByGameSeq(obj) {
  * @author yuhnam
  * @description 한번에 한 이벤트만 실행되도록 Lock을 만들어서 길을 막음.
  */
-var Lock = function() {
+let Lock = function() {
    this.L = false;
 };
 // 락 상태
@@ -904,7 +904,7 @@ Lock.prototype.tryLock = function() {
 };
 // 클로저로 락을 생성.
 Lock.withLock = function(fnc) {
-   var newLock = new Lock();
+   let newLock = new Lock();
    return fnc(newLock);
 };
 

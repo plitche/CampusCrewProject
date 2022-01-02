@@ -9,7 +9,7 @@
    // strUrl : URL
    // bDelay : Delay 사용 여부(true 사용, false 미사용)
    //===============================================================
-   varblnDelay= true;
+   letblnDelay= true;
 
    function fncTryRedirect(strUrl, bDelay)
    {
@@ -37,8 +37,8 @@ document.location.href = strUrl;
              objFrame.location.href = strProtocal + "://" + strHostName + strUrl;
             else
             {*/
-                var Frame = encodeURIComponent(strFrame);
-                var Url = encodeURIComponent("https://" + strHostName + strUrl);
+                let Frame = encodeURIComponent(strFrame);
+                let Url = encodeURIComponent("https://" + strHostName + strUrl);
 document.location.href = "https://" + strHostName + "/scripting/scriptProc?url=" + Url + "&scriptFlag="+strFrame;
             //}
         }
@@ -57,8 +57,8 @@ location.href = "https://" + strHostName + strUrl;
              objFrame.location.href = strProtocal + "://" + strHostName + strUrl;
             else
             {*/
-                var Frame = encodeURIComponent(strFrame);
-                var Url = encodeURIComponent("https://" + strUrl);
+                let Frame = encodeURIComponent(strFrame);
+                let Url = encodeURIComponent("https://" + strUrl);
 location.href = "https://" + strHostName + "/Pub/Inc/RedirectFrame.asp?Frame=" + strFrame + "&Url=" + Url;
             //}
         }
@@ -144,7 +144,7 @@ document.forms[iFormNum].autocomplete = "off"; // 자동완성기능 해지
    //===============================================================
    function fncSetLink(strProtocol, strHotName, strAction)
    {
-      var strLink = "";
+      let strLink = "";
 
       if (strHotName == "www.itembay.kr")
          strHotName = "www.itembay.com";
@@ -167,7 +167,7 @@ document.forms[iFormNum].autocomplete = "off"; // 자동완성기능 해지
    //===============================================================
    function fncSetLinkUrl(strProtocol, strUrl)
    {
-      var strHotName = "";
+      let strHotName = "";
       strHotName =document.location.hostname;
 
 document.location.href = "https://" +  strHotName + strUrl;
@@ -179,7 +179,7 @@ document.location.href = "https://" +  strHotName + strUrl;
    //===============================================================
    function fncGetReplaceString(objReplaceString, strReplaceBeforeMark, strReplaceAfterMark)
    {
-      for (var i=0; i < objReplaceString.length; i++)
+      for (let i=0; i < objReplaceString.length; i++)
       {
          if (objReplaceString.search(strReplaceBeforeMark) == -1)
             break;
@@ -196,15 +196,15 @@ document.location.href = "https://" +  strHotName + strUrl;
    //===============================================================
    function fncDisPopup(objName)
    {
-      var strPopup = "";
-      var obj =document.all(objName);
+      let strPopup = "";
+      let obj =document.all(objName);
 
       if(obj.checked)
          strPopup = "1";
       else
          strPopup = "0";
 
-      var todayDate = newDate();
+      let todayDate = newDate();
       todayDate.setDate(todayDate.getDate() + 1);
 document.cookie = objName + "="+strPopup+"; path=/" + "; expires=" + todayDate.toGMTString() + "; domain=" + ASPDOMAIN;
    }
@@ -216,15 +216,15 @@ document.cookie = objName + "="+strPopup+"; path=/" + "; expires=" + todayDate.t
    //===============================================================
    function fncDisPopupMonth(objName)
    {
-      var strPopup = "";
-      var obj =document.all(objName);
+      let strPopup = "";
+      let obj =document.all(objName);
 
       if(obj.checked)
          strPopup = "1";
       else
          strPopup = "0";
 
-      var todayDate = newDate();
+      let todayDate = newDate();
       todayDate.setDate(todayDate.getDate() + 30);
 document.cookie = objName + "="+strPopup+"; path=/" + "; expires=" + todayDate.toGMTString() + "; domain=" + ASPDOMAIN;
    }
@@ -236,15 +236,15 @@ document.cookie = objName + "="+strPopup+"; path=/" + "; expires=" + todayDate.t
    //===============================================================
    function fncDisPopupDay(objName)
    {
-      var strPopup = "";
-      var obj =document.all(objName);
+      let strPopup = "";
+      let obj =document.all(objName);
 
       if(obj.checked)
          strPopup = "1";
       else
          strPopup = "0";
 
-      var todayDate = newDate();
+      let todayDate = newDate();
       todayDate.setDate(todayDate.getDate() + 1);
 document.cookie = objName + "="+strPopup+"; path=/" + "; expires=" + todayDate.toGMTString() + "; domain=" + ASPDOMAIN;
    }
@@ -256,23 +256,23 @@ document.cookie = objName + "="+strPopup+"; path=/" + "; expires=" + todayDate.t
    //===============================================================
    function fncOpenWin(strUrl, intW, intH, blnPos, blnScroll)
    {
-      var Win;
-      var strScroll;
+      let Win;
+      let strScroll;
 
       if (blnPos == 0)
       {
-         var strLeft = 0;   // 새창을 화면 왼쪽으로 위치하게(가로위치)
-         var strTop = 0;    // 새창을 화면 위쪽으로 위치하게(세로위치)
+         let strLeft = 0;   // 새창을 화면 왼쪽으로 위치하게(가로위치)
+         let strTop = 0;    // 새창을 화면 위쪽으로 위치하게(세로위치)
       }
       else if (blnPos == 2)
       {
-         var strLeft = (window.screen.width +500) + intW;   // 새창을 화면 가운데로 위치하게(가로위치)
-         var strTop = (window.screen.height +500) + intH;   // 새창을 화면 가운데로 위치하게(세로위치)
+         let strLeft = (window.screen.width +500) + intW;   // 새창을 화면 가운데로 위치하게(가로위치)
+         let strTop = (window.screen.height +500) + intH;   // 새창을 화면 가운데로 위치하게(세로위치)
       }
       else
       {
-         var strLeft = (window.screen.width / 2) - (intW / 2);  // 새창을 화면 가운데로 위치하게(가로위치)
-         var strTop = (window.screen.height / 2) - (intH / 2);  // 새창을 화면 가운데로 위치하게(세로위치)
+         let strLeft = (window.screen.width / 2) - (intW / 2);  // 새창을 화면 가운데로 위치하게(가로위치)
+         let strTop = (window.screen.height / 2) - (intH / 2);  // 새창을 화면 가운데로 위치하게(세로위치)
       }
 
       if (blnScroll == 0)
@@ -290,23 +290,23 @@ document.cookie = objName + "="+strPopup+"; path=/" + "; expires=" + todayDate.t
    //===============================================================
    function fncOpenWinName(strUrl, strName, intW, intH, blnPos, blnScroll)
    {
-      var Win;
-      var strScroll;
+      let Win;
+      let strScroll;
 
       if (blnPos == 0)
       {
-         var strLeft = 0;   // 새창을 화면 왼쪽으로 위치하게(가로위치)
-         var strTop = 0;    // 새창을 화면 위쪽으로 위치하게(세로위치)
+         let strLeft = 0;   // 새창을 화면 왼쪽으로 위치하게(가로위치)
+         let strTop = 0;    // 새창을 화면 위쪽으로 위치하게(세로위치)
       }
       else if (blnPos == 2)
       {
-         var strLeft = (window.screen.width +500) + intW;   // 새창을 화면 가운데로 위치하게(가로위치)
-         var strTop = (window.screen.height +500) + intH;   // 새창을 화면 가운데로 위치하게(세로위치)
+         let strLeft = (window.screen.width +500) + intW;   // 새창을 화면 가운데로 위치하게(가로위치)
+         let strTop = (window.screen.height +500) + intH;   // 새창을 화면 가운데로 위치하게(세로위치)
       }
       else
       {
-         var strLeft = (window.screen.width / 2) - (intW / 2);  // 새창을 화면 가운데로 위치하게(가로위치)
-         var strTop = (window.screen.height / 2) - (intH / 2);  // 새창을 화면 가운데로 위치하게(세로위치)
+         let strLeft = (window.screen.width / 2) - (intW / 2);  // 새창을 화면 가운데로 위치하게(가로위치)
+         let strTop = (window.screen.height / 2) - (intH / 2);  // 새창을 화면 가운데로 위치하게(세로위치)
       }
 
       if(blnScroll == 0)
@@ -324,24 +324,24 @@ document.cookie = objName + "="+strPopup+"; path=/" + "; expires=" + todayDate.t
    //===============================================================
    function fncOpenFormWinName(strUrl, strName, intW, intH, blnPos, blnScroll)
    {
-      var Win;
-      var strScroll;
-      var form =document.Form1;
+      let Win;
+      let strScroll;
+      let form =document.Form1;
 
       if (blnPos == 0)
       {
-         var strLeft = 0;   // 새창을 화면 왼쪽으로 위치하게(가로위치)
-         var strTop = 0;    // 새창을 화면 위쪽으로 위치하게(세로위치)
+         let strLeft = 0;   // 새창을 화면 왼쪽으로 위치하게(가로위치)
+         let strTop = 0;    // 새창을 화면 위쪽으로 위치하게(세로위치)
       }
       else if (blnPos == 2)
       {
-         var strLeft = (window.screen.width +500) + intW;   // 새창을 화면 가운데로 위치하게(가로위치)
-         var strTop = (window.screen.height +500) + intH;   // 새창을 화면 가운데로 위치하게(세로위치)
+         let strLeft = (window.screen.width +500) + intW;   // 새창을 화면 가운데로 위치하게(가로위치)
+         let strTop = (window.screen.height +500) + intH;   // 새창을 화면 가운데로 위치하게(세로위치)
       }
       else
       {
-         var strLeft = (window.screen.width / 2) - (intW / 2);  // 새창을 화면 가운데로 위치하게(가로위치)
-         var strTop = (window.screen.height / 2) - (intH / 2);  // 새창을 화면 가운데로 위치하게(세로위치)
+         let strLeft = (window.screen.width / 2) - (intW / 2);  // 새창을 화면 가운데로 위치하게(가로위치)
+         let strTop = (window.screen.height / 2) - (intH / 2);  // 새창을 화면 가운데로 위치하게(세로위치)
       }
 
       if (blnScroll == 0)
@@ -392,12 +392,12 @@ document.location.href=strUrl;
    //===============================================================
    function fncSetValueById(id, val)
    {
-      var strID = id;
-      var strVal = val;
+      let strID = id;
+      let strVal = val;
 
       if (strVal != "")
       {
-         var obj =document.getElementById(id);
+         let obj =document.getElementById(id);
          obj.value = strVal;
       }
    }
@@ -408,8 +408,8 @@ document.location.href=strUrl;
    //===============================================================
    function fncGetValueById(id)
    {
-      var strID = id;
-      var obj =document.getElementById(id);
+      let strID = id;
+      let obj =document.getElementById(id);
       return obj.value;
    }
    //===============================================================
@@ -421,7 +421,7 @@ document.location.href=strUrl;
    {
       if (jQuery.browser.msie)
       {
-         for (var i=0;i<document.all(id).length;i++)
+         for (let i=0;i<document.all(id).length;i++)
          {
             if (document.all(id)(i).value == val)
             {
@@ -441,7 +441,7 @@ document.all(id)(i).checked = true;
    //===============================================================
    function fncSetRadioValue(id)
    {
-      for (var i=0;i<document.all(id).length;i++)
+      for (let i=0;i<document.all(id).length;i++)
       {
          if (document.all(id)(i).checked)
             returndocument.all(id)(i).value;
@@ -453,7 +453,7 @@ document.all(id)(i).checked = true;
    //===============================================================
    function fncGetRadioIndex(id)
    {
-      for (var i=0;i<document.all(id).length;i++)
+      for (let i=0;i<document.all(id).length;i++)
       {
          if (document.all(id)(i).checked)
             return i;
@@ -463,9 +463,9 @@ document.all(id)(i).checked = true;
    // Checked 유무 리턴
    function fncRadioCheck(id)
    {
-      var bState = false;
+      let bState = false;
 
-      for (var i=0;i<document.all(id).length;i++)
+      for (let i=0;i<document.all(id).length;i++)
       {
          if (document.all(id)(i).checked)
          {
@@ -485,7 +485,7 @@ document.all(id)(i).checked = true;
    {
       if (typeof(obj.length) == "number")
       {
-         for (var i=0;i<obj.length;i++)
+         for (let i=0;i<obj.length;i++)
             obj(i).checked = bState;
       }
       else
@@ -526,12 +526,12 @@ document.all(id)(i).checked = true;
    function fnc_Validation_Select(obj, val)
    {
       if(obj.createTextRange) {
-         var rang = obj.createTextRange();
+         let rang = obj.createTextRange();
 
          rang.findText(val);
          rang.select();
       } else {
-         var startIdx = $(obj).val().indexOf(val)
+         let startIdx = $(obj).val().indexOf(val)
             , endIdx = startIdx + val.length;
 
          obj.selectionStart = startIdx;
@@ -546,7 +546,7 @@ document.all(id)(i).checked = true;
    //===============================================================
    function fncGetSelectedIndex(obj, strValue)
    {
-      for (var i=0;i<obj.length;i++)
+      for (let i=0;i<obj.length;i++)
       {
          if (obj[i].value == parseInt(strValue))
             break;
@@ -581,18 +581,18 @@ document.getElementById(objCtrlID).attachEvent(objEventType, objEventName);
    //===============================================================
    function fncFormatDateTime(date, namedFormat)
    {
-      var strDate = "";
+      let strDate = "";
 
       switch(namedFormat)
       {
          case 0:
          {
-            var strYear = date.getYear();
-            var strMonth = date.getMonth()+1;
-            var strDay = date.getDate();
-            var strHour = date.getHours();
-            var strMinute = date.getMinutes();
-            var strSecond = date.getMilliseconds();
+            let strYear = date.getYear();
+            let strMonth = date.getMonth()+1;
+            let strDay = date.getDate();
+            let strHour = date.getHours();
+            let strMinute = date.getMinutes();
+            let strSecond = date.getMilliseconds();
 
             if (strMonth < 10) strMonth = "0" + strMonth;
             if (strDay < 10) strDay = "0" + strDay;
@@ -605,11 +605,11 @@ document.getElementById(objCtrlID).attachEvent(objEventType, objEventName);
          }
          case 1:
          {
-            var strYear = newString(date.getYear());
-            var strMonth = date.getMonth()+1;
-            var strDay = date.getDate();
-            var strHour = date.getHours();
-            var strMinute = date.getMinutes();
+            let strYear = newString(date.getYear());
+            let strMonth = date.getMonth()+1;
+            let strDay = date.getDate();
+            let strHour = date.getHours();
+            let strMinute = date.getMinutes();
 
             strYear = strYear.substring(2, 4);
             if (strMonth < 10) strMonth = "0" + strMonth;
@@ -631,17 +631,17 @@ document.getElementById(objCtrlID).attachEvent(objEventType, objEventName);
    //===============================================================
    function fncGetCookieValue(objCookie, objName)
    {
-      var strCookie =document.cookie;
-      var arrCookie = "";
-      var arrCookieChild = "";
-      var arrCookieLastChild = "";
-      var objValue = null;
+      let strCookie =document.cookie;
+      let arrCookie = "";
+      let arrCookieChild = "";
+      let arrCookieLastChild = "";
+      let objValue = null;
 
       if (strCookie.indexOf(";") > -1)
       {
          arrCookie = strCookie.split(";");
 
-         for (var i=0;i<arrCookie.length;i++)
+         for (let i=0;i<arrCookie.length;i++)
          {
             strCookieChild = arrCookie[i].replace(" ", "");
 
@@ -653,7 +653,7 @@ document.getElementById(objCtrlID).attachEvent(objEventType, objEventName);
                {
                   arrCookieChild = strCookieChild.split("&");
 
-                  for (var j=0;j<arrCookieChild.length;j++)
+                  for (let j=0;j<arrCookieChild.length;j++)
                   {
                      arrCookieLastChild = arrCookieChild[j].split("=");
                      if (arrCookieLastChild[0] == objName)
@@ -683,19 +683,19 @@ document.getElementById(objCtrlID).attachEvent(objEventType, objEventName);
    //===============================================================
    function fncSetCookieValue(objCookie, objName, objValue)
    {
-      var strCookie =document.cookie;
-      var arrCookie = "";
-      var arrCookieChild = "";
-      var strBeforeCookie = "";
-      var strAfterCookie = "";
-      var strBeforeValue = fncGetCookieValue(objCookie, objName);
-      var bCreated = false;
+      let strCookie =document.cookie;
+      let arrCookie = "";
+      let arrCookieChild = "";
+      let strBeforeCookie = "";
+      let strAfterCookie = "";
+      let strBeforeValue = fncGetCookieValue(objCookie, objName);
+      let bCreated = false;
 
       if (strCookie.indexOf(";") > -1)
       {
          arrCookie = strCookie.split(";");
 
-         for (var i=0;i<arrCookie.length;i++)
+         for (let i=0;i<arrCookie.length;i++)
          {
             strCookieChild = arrCookie[i].replace(" ", "");
 
@@ -714,8 +714,8 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    // cookie에 사용할 도메인 정보 리턴
    //===============================================================
    function fncGetCookieDomain() {
-        var d =document.domain.toLowerCase();
-        var i = d.indexOf(".itembay");
+        let d =document.domain.toLowerCase();
+        let i = d.indexOf(".itembay");
 
         if (i > -1) {
             return d.substr(i, d.length - 1);
@@ -763,27 +763,27 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    function fncGetOSVersion()
    {
       if (navigator.userAgent.indexOf('IRIX') != -1)
-         var OpSys = "Irix";
+         let OpSys = "Irix";
       else if ((navigator.userAgent.indexOf('Win') != -1) && (navigator.userAgent.indexOf('98') != -1))
-         var OpSys = "Windows 98";
+         let OpSys = "Windows 98";
       else if ((navigator.userAgent.indexOf('Win') != -1) && (navigator.userAgent.indexOf('95') != -1))
-         var OpSys = "Windows 95";
+         let OpSys = "Windows 95";
       else if (navigator.appVersion.indexOf("16") !=-1)
-         var OpSys = "Windows 3.1";
+         let OpSys = "Windows 3.1";
       else if (navigator.appVersion.indexOf("NT") !=-1)
-         var OpSys= "Windows NT";
+         let OpSys= "Windows NT";
       else if (navigator.appVersion.indexOf("SunOS") !=-1)
-         var OpSys = "SunOS";
+         let OpSys = "SunOS";
       else if (navigator.appVersion.indexOf("Linux") !=-1)
-         var OpSys = "Linux";
+         let OpSys = "Linux";
       else if (navigator.userAgent.indexOf('Mac') != -1)
-         var OpSys = "Macintosh";
+         let OpSys = "Macintosh";
       else if (navigator.appName=="WebTV Internet Terminal")
-         var OpSys="WebTV";
+         let OpSys="WebTV";
       else if (navigator.appVersion.indexOf("HP") !=-1)
-         var OpSys="HP-UX";
+         let OpSys="HP-UX";
       else
-         var OpSys = "other";
+         let OpSys = "other";
 
       return OpSys;
    }
@@ -837,7 +837,7 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    //===============================================================
    function fncToggleLayerDisplay(strID)
    {
-      var objLayer = document.getElementById(strID);
+      let objLayer = document.getElementById(strID);
 
       if (objLayer.style.display != "none")
          objLayer.style.display = "none";
@@ -850,7 +850,7 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    //===============================================================
    function fncSetCookie( name, value, expiredays )
    {
-      var todayDate = new Date();
+      let todayDate = new Date();
       todayDate.setDate( todayDate.getDate() + expiredays );
       //document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"  //브라우저를 닫아도 일정기간 쿠키값을 기억합니다.
       document.cookie = name + "=" + escape( value ) + "; path=/;";  // 브라우저를 닫으면 쿠키값이 사라집니다.
@@ -861,12 +861,12 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    //===============================================================
    function fncGetCookie(name)
    {
-      var nameOfCookie = name + "=";
-      var x = 0;
+      let nameOfCookie = name + "=";
+      let x = 0;
 
       while (x <= document.cookie.length)
       {
-         var y = (x+nameOfCookie.length);
+         let y = (x+nameOfCookie.length);
 
          if (document.cookie.substring( x, y ) == nameOfCookie)
          {
@@ -890,10 +890,10 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    //===============================================================
    function fncShowTogleLayer(objDiv)
    {
-      var objDiv1   = document.getElementById("tblGameInfo");
-      var objDiv2   = document.getElementById("spnShowButton");
-      var state1 = "block";
-      var state2 = "<img src='/image/sell/btn_hide.gif' border='0' onClick=\"fncShowTogleLayer('tblGameInfo');\" style='display:block; cursor:hand'>";
+      let objDiv1   = document.getElementById("tblGameInfo");
+      let objDiv2   = document.getElementById("spnShowButton");
+      let state1 = "block";
+      let state2 = "<img src='/image/sell/btn_hide.gif' border='0' onClick=\"fncShowTogleLayer('tblGameInfo');\" style='display:block; cursor:hand'>";
 
       if (objDiv == "tblGameInfo")
       {
@@ -933,10 +933,10 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    //=================================================================
    function fncCreateRandomCode()
    {
-      var arrString = "0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z".split(",");
-      var strRandom = "";
+      let arrString = "0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z".split(",");
+      let strRandom = "";
 
-      for (var j=0; j<11; j++)
+      for (let j=0; j<11; j++)
          strRandom += arrString[Math.floor(Math.random() * arrString.length)];
 
       return strRandom;
@@ -946,10 +946,10 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    // 지정된 Byte수 만큼 문자열을 리턴함
    //===============================================================
    String.prototype.cut = function(len) {
-      var str = this;
-      var l = 0;
+      let str = this;
+      let l = 0;
 
-      for (var i=0; i<str.length; i++)
+      for (let i=0; i<str.length; i++)
       {
          l += (str.charCodeAt(i) > 128) ? 2 : 1;
          if (l > len) return str.substring(0,i);
@@ -963,10 +963,10 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    // 문자열의 Byte수를 리턴함
    //===============================================================
    String.prototype.bytes = function() {
-      var str = this;
-      var l = 0;
+      let str = this;
+      let l = 0;
 
-      for (var i=0; i<str.length; i++)
+      for (let i=0; i<str.length; i++)
          l += (str.charCodeAt(i) > 128) ? 2 : 1;
 
       return l;
@@ -978,7 +978,7 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    //===============================================================
    function fncHTTPObjectInit()
    {
-      var xmlhttp;
+      let xmlhttp;
 
       if (xmlhttp && xmlhttp.readyState!=0)
       {
@@ -1011,8 +1011,8 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    //===============================================================
    function fncDateDiff(date1, date2)
    {
-      var arrDate1 = date1.split("-");
-      var arrDate2 = date2.split("-");
+      let arrDate1 = date1.split("-");
+      let arrDate2 = date2.split("-");
 
       day1 = new Date(arrDate1[0],arrDate1[1]-1,arrDate1[2]).getTime();
       day2 = new Date(arrDate2[0],arrDate2[1]-1,arrDate2[2]).getTime();
@@ -1026,7 +1026,7 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    //===============================================================
    function fncCreateRemoteDOMDoc(strPath)
    {
-      var xmlDoc;
+      let xmlDoc;
       xmlDoc = new ActiveXObject("Msxml2.DOMDocument.3.0");
       xmlDoc.async = false;
       xmlDoc.loadXML(strPath);
@@ -1039,7 +1039,7 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    //===============================================================
    function fncCreateDOMDoc(strPath)
    {
-      var xmlDoc;
+      let xmlDoc;
       xmlDoc = new ActiveXObject("Msxml2.DOMDocument.3.0");
       xmlDoc.async = false;
       xmlDoc.load(strPath);
@@ -1053,7 +1053,7 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    //===============================================================
    function fncCreateFreeThreadedDOMDoc(strPath)
    {
-      var xslDoc;
+      let xslDoc;
       xslDoc = new ActiveXObject('MSXML2.FreeThreadedDOMDocument.3.0');
       xslDoc.async = false;
       xslDoc.load(strPath);
@@ -1066,8 +1066,8 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    //===============================================================
    function fncCreateXSLTemplate(objXML, objXSL, arrParam)
    {
-      var xslTemplate;
-      var xslProc;
+      let xslTemplate;
+      let xslProc;
 
       xslTemplate = new ActiveXObject('MSXML2.XSLTemplate');
       xslTemplate.stylesheet = objXSL;
@@ -1075,7 +1075,7 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
       xslProc = xslTemplate.createProcessor();
       xslProc.input = objXML;
 
-      for (var i=0;i<arrParam.length;i++)
+      for (let i=0;i<arrParam.length;i++)
          xslProc.addParameter(arrParam[i][0], arrParam[i][1]); // 인자이름, 인자값
 
       /*
@@ -1109,10 +1109,10 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    //===============================================================
    function fncSetWingBannerPosition(iTop, vcDivWingBannerID)
    {
-      var iTopPosition;     //배너의 상단위치
-      var iBodyWidth;       //창의 넓이
-      var iMainTableWidth;  //메인 테이블의 넓이
-      var iLeftPosition;    //창 좌측 끝과 배너와의 간격
+      let iTopPosition;     //배너의 상단위치
+      let iBodyWidth;       //창의 넓이
+      let iMainTableWidth;  //메인 테이블의 넓이
+      let iLeftPosition;    //창 좌측 끝과 배너와의 간격
 
       iMainTableHeight = document.getElementById("mainTable").height;
 
@@ -1136,10 +1136,10 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    // 판매 수수료 정보 가져오기 (현재는 최대 수수료만 가져옴, 추후 필요 시 개선)
    //===============================================================
    function fncGetCommissionObj() {
-      var now = new Date();
-      var year = now.getFullYear();
-      var month = now.getMonth() + 1;
-      var day = now.getDate();
+      let now = new Date();
+      let year = now.getFullYear();
+      let month = now.getMonth() + 1;
+      let day = now.getDate();
 
       if ((month + '').length < 2) {
          month = '0' + month;
@@ -1149,9 +1149,9 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
          day = '0' + day;
       }
 
-      var eventStartDate = '20200501';
-      var today = year + '' + month + '' + day;
-      var commissionObj = {
+      let eventStartDate = '20200501';
+      let today = year + '' + month + '' + day;
+      let commissionObj = {
          'maxCommission' : {
             'moreThan' : 940000
             , 'amount' : 47000
@@ -1182,6 +1182,6 @@ document.cookie = strAfterCookie + ";path=/;domain=" + fncGetCookieDomain();
    // 내용의 값을 공백을 trim하기 위한것(앞/뒤)
    // 사용: String값.trim()
    String.prototype.trim = function() {
-      var TRIM_PATTERN = /(^\s*)|(\s*$)/g;
+      let TRIM_PATTERN = /(^\s*)|(\s*$)/g;
       return this.replace(TRIM_PATTERN, "");
    }
