@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 // 모바일 indexController
 @Controller
 @RequestMapping(value="/m/crewBattle")
-public class crewBattleController {
+public class CrewBattleController {
 
-    private static final Logger logger = LoggerFactory.getLogger(crewBattleController.class);
+    private static final Logger logger = LoggerFactory.getLogger(CrewBattleController.class);
 
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public String crewBattleMain(Locale locale, Model model) throws Exception {
