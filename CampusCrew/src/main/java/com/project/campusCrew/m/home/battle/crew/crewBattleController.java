@@ -1,4 +1,4 @@
-package com.project.campusCrew.m.battle.crew;
+package com.project.campusCrew.m.home.battle.crew;
 
 import java.util.Locale;
 
