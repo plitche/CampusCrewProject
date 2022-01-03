@@ -1,4 +1,4 @@
-package com.project.campusCrew.m.home.battle.manager;
+package com.project.campusCrew.m.home.battle;
 
 import java.util.Locale;
 
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 // 모바일 indexController
 @Controller
-@RequestMapping(value="/m/managerBattle")
-public class ManagerBattleController {
+@RequestMapping(value="/m/battle")
+public class CommonBattleController {
 
-    private static final Logger logger = LoggerFactory.getLogger(ManagerBattleController.class);
+    private static final Logger logger = LoggerFactory.getLogger(CommonBattleController.class);
 
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public String crewBattleMain(Locale locale, Model model) throws Exception {
