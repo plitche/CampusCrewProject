@@ -10,20 +10,20 @@
 	
 	let loginJoinStep = (number) => {
 		
-		// 번개크루 step별 html, js 변화
+		// 로그인/회원가입 step별 html, js 변화
 		switch(number) {
 		
-		// 번개크루 1단계 
+		// 로그인/회원가입 1단계 
 		case "01":
 			loginJoinChangeDiv(number);
 			loginJoinUtil.step01.init();
 			break;
-		// 번개크루 2단계 	
+		// 로그인/회원가입 2단계 	
 		case "02":
 			loginJoinChangeDiv(number);
 			loginJoinUtil.step02.init();
 			break;
-		// 번개크루 3단계 		
+		// 로그인/회원가입 3단계 		
 		case "03":
 			loginJoinChangeDiv(number);
 			loginJoinUtil.step03.init();
@@ -34,7 +34,7 @@
 	
 	let loginJoinUtil = {
 		
-		// 번개크루모집 step01
+		// 로그인/회원가입 step01
 		step01 : {
 			
 			info : new Object()
@@ -62,7 +62,7 @@
 			
 		},
 		
-		// 번개크루모집 step02
+		// 로그인/회원가입 step02
 		step02 : {
 			info : new Object()
 			, init : () => {

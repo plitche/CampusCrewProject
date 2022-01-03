@@ -37,7 +37,7 @@ body #root {
 	position: fixed;
 	font-size: 10px;
     border: 1px solid lightgray;
-    padding: 5px 7px;
+    padding: 7px 9px;
     border-radius: 50px;
 	bottom: 50px;
 	z-index: 20;
@@ -47,8 +47,8 @@ body #root {
 }
 
 #login_join_content {
-	padding: 10px;
-    background: blue;
+	padding: 10px 13px;
+    background: #2B00FF;
     border-radius: 50px;
 }
 

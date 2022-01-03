@@ -1,9 +1,6 @@
 <div class="loginJoin_popup" id="loginJoinStep01" style="z-index:21;" tabindex="0">
 	<div id="loginJoin_popup_contents">
 		<div id="loginJoin_popup_header">
-			<a href="javascript:;" class="btn_pop_previous" >
-				<img src="{{path}}/resources/img/common/left-arrow.png" alt="이전">
-			</a>
 			<a href="javascript:;" class="btn_pop_close" >
 				<img src="{{path}}/resources/img/common/close (2).png" alt="닫기">
 			</a>
@@ -12,16 +9,26 @@
 		<div class="loginJoin_popup_border"></div>
 		
 		<div id="loginJoin_popup_content">
-			<div id="title">카카오/네이버 로그인 연동 팝업</div>
+			<div id="title">로그인/회원가입</div>
 			<div id="content">
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
+				<div>
+					<input type="text" id="email" placeholder="이메일"/>
+				</div>
+				<div>
+					<input type="text" id="pw" placeholder="비밀번호"/>
+				</div>
+				<div style="margin-top: 60px;">
+					<button id="loginBtn">로그인</button>
+				</div>
+				<div style="text-align:center;font-size:12px; color:gray; padding:10px;">
+					또는
+				</div>
+				<div>
+					<button id="kakaoBtn">카카오로 시작</button>
+				</div>
+				<div>
+					<button id="naverBtn">네이버로 시작</button>
+				</div>
 			</div>
 		</div>	
 		
