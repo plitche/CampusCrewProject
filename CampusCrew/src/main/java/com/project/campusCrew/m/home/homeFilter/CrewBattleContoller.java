@@ -16,13 +16,20 @@ public class CrewBattleContoller {
 
     @RequestMapping(value = "/crewList", method = RequestMethod.GET)
     public String crewBattleList(Locale locale, Model model) throws Exception {
-        
+    	// todo path 설정 하기
+    	model.addAttribute("path", "/campusCrew");
+    	
+    	
+    	
         return "m/home/homeFilter/crewBattleList";
     }
     
     @RequestMapping(value = "/managerList", method = RequestMethod.GET)
     public String managerBattleList(Locale locale, Model model) throws Exception {
-        
+    	// todo path 설정 하기
+    	model.addAttribute("path", "/campusCrew");
+    	
+    	
         return "m/home/homeFilter/managerBattleList";
     }
 }
