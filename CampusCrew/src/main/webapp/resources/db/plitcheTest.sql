@@ -24,6 +24,13 @@ INSERT INTO tbCrewBattle VALUES (tbCrewBattle_Seq.nextval, 'Plitche1', 1, '우�
 INSERT INTO tbManagerBattle VALUES (tbManagerBattle_Seq.nextval, 'admin', 1, '댄스 배틀1', '누가 최강자인지?', 4, '2021.12.31 3시', '2022.01.15 3시', '댄스 배틀할꺼에요!!', SYSDATE);
 INSERT INTO tbManagerBattle VALUES (tbManagerBattle_Seq.nextval, 'admin', 1, '댄스 배틀2', '우리가 더 쎄', 2, '2022.01.01 12시', '2022.01.02 12시', '댄스 배틀할꺼에요!!', SYSDATE);
 
+-- 필터 정보 insert
+INSERT INTO tbFilterTab VALUES (tbFilterTab_Seq.nextVal, '투데이', 1, SYSDATE);
+INSERT INTO tbFilterTab VALUES (tbFilterTab_Seq.nextVal, '내주변', 1, SYSDATE);
+INSERT INTO tbFilterTab VALUES (tbFilterTab_Seq.nextVal, '단기크루', 1, SYSDATE);
+INSERT INTO tbFilterTab VALUES (tbFilterTab_Seq.nextVal, '장기크루', 1, SYSDATE);
+INSERT INTO tbFilterTab VALUES (tbFilterTab_Seq.nextVal, '크루활동', 1, SYSDATE);
+
 
 select *
 from tbCrewType
