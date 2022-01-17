@@ -2,6 +2,7 @@
  *  로그인/회원가입 팝업 js
  */
 
+
 	let loginJoinChangeDiv = (openStep) => {
 		$('.loginJoin_popup').removeClass('layer_open');
 		
@@ -32,6 +33,20 @@
 		
 	}
 	
+	let KakaoLogin = () => {
+		
+		$.ajax({
+			url : '/campusCrew/login/getKakaoAuthUrl',
+			type : 'get',
+			async : false,
+			dataType : 'text',
+			success : (res) => {
+				location.href = res;
+			}
+		});
+		
+	}
+	
 	let loginJoinUtil = {
 		
 		// 로그인/회원가입 step01
@@ -44,7 +59,7 @@
 				
 			}
 			, event : () => {
-				
+			
 				$('.btn_pop_close').off('click').on('click', () => {
 					console.log('닫기');
 					$('#loginJoinStep01').removeClass('layer_open');
@@ -55,8 +70,11 @@
 					$('#loginJoinStep01').removeClass('layer_open');
 				});
 				
+				$('#kakaoBtn').off('click').on('click', ()=> {
+					KakaoLogin();
+				});
 				
-				// 데이터 넘기는거나 이벤트처리는 여기 실행하시면 됩니다.
+				
 				
 			}
 			
