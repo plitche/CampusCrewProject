@@ -1,14 +1,20 @@
 package com.project.campusCrew.m.home;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.project.campusCrew.m.home.service.HomeService;
 
 /**
  * 
@@ -22,6 +28,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
 	private static Logger log = LoggerFactory.getLogger(HomeController.class);
+
+	@Autowired
+	HomeService homeService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String homeMain(Locale locale, Model model) throws Exception {
@@ -37,4 +46,18 @@ public class HomeController {
 		return "m/home/home";
 	}
 	
+	/**
+	 * @author 권용수 
+	 * @describe 모바일 홈 필터 텝 가져오기 ajax
+	 */
+	@RequestMapping(value="getFilterTabList", method=RequestMethod.GET, produces="application/json; charset=utf-8")
+	public @ResponseBody Map<String, Object> getFilterTabList() {
+		List<Map<String, Object>> filterTabList = homeService.getFIlterTabList(); 
+		
+		Map<String, Object> returnMap = new HashMap<>();
+		if (filterTabList.size() != 0 || filterTabList != null) {
+			returnMap.put("filterTabList", filterTabList);
+		}
+		return returnMap;
+	}
 }

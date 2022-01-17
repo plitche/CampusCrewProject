@@ -308,3 +308,10 @@ CREATE TABLE tbNotice (
 	nCrewMainCategory					NUMBER			NOT NULL,
 	dtRegDate								DATE					NOT NULL
 );
+
+CREATE TABLE tbFIlterTab (
+	nFilterSeq								NUMBER				PRIMARY KEY,
+	vcFilterName							VARCHAR(50)			NOT NULL,
+	nStatus									NUMBER				NOT NULL,
+	dtRegDate								DATE						NOT NULL
+)

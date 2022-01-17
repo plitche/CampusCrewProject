@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+#activityTap {display: flex;}
+#activityTap div {width: 45%; height: 30px; text-align: center;}
+#activityTap div:nth-child(1) {background-color: green; margin-left: 4%; margin-right: 2%}
+#activityTap div:nth-child(2) {background-color: red; margin-right: 4%;}

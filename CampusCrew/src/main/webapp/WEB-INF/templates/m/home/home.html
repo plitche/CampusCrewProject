@@ -8,11 +8,17 @@
 
 	{########## index의 css, js 포함시켜둔 html을 포함 ##########}
 	{% include "m/home/homeBase" %}
+	
+	{########## 필터 베이스 include ##########}
+	{% include "m/home/homeFilter/filterBase"%}
+	
 	{########## 번개크루모집 팝업프로세스 화면 ##########}
 	{% include "m/home/popup/crewThunder/crewRecruit_thunder_init"%}
 	{########## 정기크루모집 팝업프로세스 화면 ##########}
 	
 	{########## 배틀크루모집 팝업프로세스 화면 ##########}
+	
+	
 	
 	<!-- 크루모집유형선택 -->
 	<div class="crewRecruit_list" style="display:none;">
@@ -41,6 +47,6 @@
 			<img alt="크루모집" id="crewRecruit_plusBtn" src="{{path}}/resources/img/common/plusBtn-01.png">
 		</a>
 	</div>
-
+	
 
 {% endblock %}
