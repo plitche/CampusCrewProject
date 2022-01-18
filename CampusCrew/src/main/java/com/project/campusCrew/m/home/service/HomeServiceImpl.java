@@ -1,5 +1,7 @@
 package com.project.campusCrew.m.home.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +31,34 @@ public class HomeServiceImpl implements HomeService {
 	 */
 	@Override
 	public List<Map<String, Object>> getHomeCrewList(String filterName) {
-		List<Map<String, Object>> returnMap = sqlsession.selectList("Home.GetCrewList", filterName);
+		List<Map<String, Object>> returnMap = new ArrayList<Map<String,Object>>();
+		Map<String, Object> sendData = new HashMap<String, Object>();
+		
+		switch(filterName) {
+		case "투데이" : 
+			returnMap = sqlsession.selectList("Home.GetCrewList", filterName);
+			break;
+		case "내주변" : 
+			returnMap = sqlsession.selectList("Home.GetCrewList", filterName);
+			break;
+		case "단기크루" : 
+			returnMap = sqlsession.selectList("Home.GetCrewList", filterName);
+			break;
+		case "장기크루" : 
+			returnMap = sqlsession.selectList("Home.GetCrewList", filterName);
+			break;
+		case "크루활동" : 
+			
+			break;
+		default :  
+			
+			break;
+		}
+		
+		
+		
+		
+		
 		return returnMap;
 	}
 }

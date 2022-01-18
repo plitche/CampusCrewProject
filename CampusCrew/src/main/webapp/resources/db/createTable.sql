@@ -213,8 +213,8 @@ CREATE TABLE tbBattleApplyCrewList (
 
 CREATE TABLE tbBattleConfirmCrewList (
 	nBattleConfirmSeq	            	NUMBER		        PRIMARY KEY,
-	vcCrewChannelName            	VARCHAR(50)		REFERENCES tbCrewChannel(vcCrewChannelName) ON DELETE CASCADE NOT NULL,
-	vcCrewMemberId	                	VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
+	vcCrewChannelName            	VARCHAR(50)			REFERENCES tbCrewChannel(vcCrewChannelName) ON DELETE CASCADE NOT NULL,
+	vcCrewMemberId	                	VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) ON DELETE CASCADE NOT NULL,
     nCrewMeetNo	                    	NUMBER		        NOT NULL,
 	nCrewMeetCategory	            	NUMBER		        NOT NULL,
     dtRegDate                       		DATE                		NOT NULL   
@@ -222,7 +222,7 @@ CREATE TABLE tbBattleConfirmCrewList (
 
 CREATE TABLE tbComment (
 	nCommentSeq						NUMBER				PRIMARY KEY, 
-	vcCrewMemberId						VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	vcCrewMemberId						VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
 	dtRegDate								DATE						NOT NULL,
 	nCrewMainCategory					NUMBER				NOT NULL,
 	nCrewSubCategory					NUMBER				NOT NULL, 
@@ -231,7 +231,7 @@ CREATE TABLE tbComment (
 
 CREATE TABLE tbApplyMemberList (
 	nCrewApplySeq						NUMBER				PRIMARY KEY,
-	vcCrewMemberId						VARCHAR(50)		REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
+	vcCrewMemberId						VARCHAR(50)			REFERENCES tbCrewMemberInfo(vcCrewMemberId) NOT NULL,
 	nCrewMeetNo							NUMBER				NOT NULL,
 	nCrewMainCategory					NUMBER				NOT NULL,
 	dtRegDate								DATE						NOT NULL

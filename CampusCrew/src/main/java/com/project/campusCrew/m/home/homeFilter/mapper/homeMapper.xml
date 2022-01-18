@@ -13,8 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="GetCrewList" resultType="hashMap" parameterType="String">
 		SELECT *
-		FROM tb
-	
+		FROM tbOneDayCrew
 	</select>
 	
 
