@@ -45,7 +45,7 @@
 			}
 			, event : () => {
 				
-				$('.btn_pop_close').off('click').on('click', () => {
+				$('.thunder_btn_pop_close').off('click').on('click', () => {
 					console.log('닫기');
 					$('#thunderStep01').removeClass('layer_open');
 				});
@@ -77,7 +77,7 @@
 			}
 			, event : () => {
 				
-				$('.btn_pop_close').off('click').on('click', () => {
+				$('.thunder_btn_pop_close').off('click').on('click', () => {
 					console.log('닫기');
 					$('#thunderStep02').removeClass('layer_open');
 				});
