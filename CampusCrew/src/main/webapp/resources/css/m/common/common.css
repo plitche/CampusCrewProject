@@ -17,13 +17,63 @@
 	font-family: 'Pretendard Black';
 	font-weight: 900;
 	font-display: swap;
-	src: local('Pretendard Black'), url('../font/Pretendard-Black.otf');
+	src: local('Pretendard Black'), url('http://localhost:9090/campusCrew/resources/font/Pretendard-Black.otf');
 }
+
+@font-face {
+	font-family: 'Pretendard ExtraBold';
+	font-weight: 800;
+	font-display: swap;
+	src: local('Pretendard ExtraBold'), url('http://localhost:9090/campusCrew/resources/font/Pretendard-ExtraBold.otf');
+}
+
+@font-face {
+	font-family: 'Pretendard Bold';
+	font-weight: 700;
+	font-display: swap;
+	src: local('Pretendard Bold'), url('http://localhost:9090/campusCrew/resources/font/Pretendard-Bold.otf');
+}
+
+@font-face {
+	font-family: 'Pretendard SemiBold';
+	font-weight: 600;
+	font-display: swap;
+	src: local('Pretendard SemiBold'), url('http://localhost:9090/campusCrew/resources/font/Pretendard-SemiBold.otf');
+}
+
+@font-face {
+	font-family: 'Pretendard Medium';
+	font-weight: 500;
+	font-display: swap;
+	src: local('Pretendard Medium'), url('http://localhost:9090/campusCrew/resources/font/Pretendard-Medium.otf');
+}
+
+@font-face {
+	font-family: 'Pretendard Regular';
+	font-weight: 400;
+	font-display: swap;
+	src: local('Pretendard Regular'), url('http://localhost:9090/campusCrew/resources/font/Pretendard-Regular.otf');
+}
+
+@font-face {
+	font-family: 'Pretendard Light';
+	font-weight: 300;
+	font-display: swap;
+	src: local('Pretendard Light'), url('http://localhost:9090/campusCrew/resources/font/Pretendard-Light.otf');
+}
+
+@font-face {
+	font-family: 'Pretendard ExtraLight';
+	font-weight: 300;
+	font-display: swap;
+	src: local('Pretendard ExtraLight'), url('http://localhost:9090/campusCrew/resources/font/Pretendard-ExtraLight.otf');
+}
+
 
 
 body {
 	margin : 0;
-	font-family: Gotham,"Noto Sans Kr","Roboto",sans-serif;
+	font-family: 'Pretendard Regular';
 	min-width: 320px;
     height: 100%;
     font-size: 1rem;
@@ -88,7 +138,6 @@ body #root {
 .crewRecruit_list div a span{
 	color:#828393;
 	font-size:12px;
-	font-family: Gotham,"Noto Sans Kr","Roboto",sans-serif;
 }
 
 .crewRecruit_list div a img {
