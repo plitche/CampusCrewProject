@@ -46,18 +46,26 @@
 }
 
 #recruit_popup_content #title {
-	padding: 15px 22px;
-	font-family: 'Black Han Sans', sans-serif;
-	font-size:16px;
-	color: #2B00FF;
+	padding: 20px 20px 45px 20px;
 }
 
-#recruit_popup_content #content div {
-	width: 90%;
-	height:30px;
-	margin: 0 auto 10px;
-	background: #eeeeee;
-	margin
+#recruit_popup_content #title .title_contents {
+	font-family: "Pretendard Black";
+	font-size: 20px;
+	font-weight:900;
+	color: black;
+}
+
+#recruit_popup_content #content span {
+	color:#c5c5c5; 
+	font-size: 14px;
+	padding:10px 15px;
+	border-radius:30px;
+	border: 0.5px solid #dadada; 
+}
+
+#recruit_popup_content #content {
+	padding: 0 20px;
 }
 
 #recruit_popup_footer {
@@ -65,7 +73,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    padding: 40px 24px 20px;
+    padding: 40px 24px 30px;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.0) 1%, rgba(255, 255, 255) 40%, #ffffff);
     text-align: center;
     z-index: 21;
@@ -73,18 +81,18 @@
 
 #recruit_popup_footer #btnThunderNext1 {
 	display: block;
-    height: 45px;
+    height: 60px;
     padding: 10px 10px;
     font-size: 14px;
-    color: #fff;
+    color: #acacac;
     text-align: center;
     vertical-align: middle; 
     border: 0px solid; 
-    border-radius: 57px; 
-    background: #dbdbdb;
+    border-radius: 10px; 
+    background: #ececec; 
+    font-weight:900;
     cursor: pointer; 
     width: 100%;
-    box-shadow: 0 9px 9px 3px rgb(219 219 219 / 70%);
 }
 
 

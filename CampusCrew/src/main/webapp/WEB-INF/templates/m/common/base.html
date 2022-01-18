@@ -94,6 +94,37 @@
 			</div>
 			{% endblock %}
 		</div>
+		
+		{########## 번개크루모집 팝업프로세스 화면 ##########}
+		{% include "m/home/popup/crewThunder/crewRecruit_thunder_init"%}
+		{########## 정기크루모집 팝업프로세스 화면 ##########}
+		
+		{########## 배틀크루모집 팝업프로세스 화면 ##########}
+		
+		<!-- 크루모집유형선택 -->
+		<div class="crewRecruit_list" style="display:none;">
+		{% block crewRecruit %}
+			<div class="crewRecruit_thunder">
+				<a href="javascript:;" id="crewRecruit_thunder" >
+					<span>번개크루</span>
+					<img alt="번개크루" src="{{path}}/resources/img/common/thunder.png">
+				</a>
+			</div>
+			<div class="crewRecruit_regular">
+				<a href="javascript:;" id="crewRecruit_regular">
+					<span>정기크루</span>
+					<img alt="정기크루" src="{{path}}/resources/img/common/deal.png">
+				</a>
+			</div>
+			<div class="crewRecruit_battle">
+				<a href="javascript:;" id="crewRecruit_battle" >
+					<span>크루배틀</span>
+					<img alt="크루배틀" src="{{path}}/resources/img/common/fist.png">
+				</a>
+			</div>
+			{% endblock %}
+		</div>
+		
 	
 		{########## 메인 Footer ##########}
 		<div id="footer">
@@ -110,7 +141,7 @@
 									<a class="challengeFeed" href="{{path}}/m/feed"><img alt="챌린지피드" src="{{path}}/resources/img/common/flag.png"></a>
 								</div>
 								<div>
-									<a class="location" href="{{path}}/m/location"><img alt="내 위치" src="{{path}}/resources/img/common/location.png"></a>
+									<a class="crewRecruit_plusBtn" id="crewRecruit_plusBtn" href="javascript:;"><img alt="크루개설" src="{{path}}/resources/img/common/plusBtn-01.png"></a>
 								</div>
 								<div >	
 									<a class="chat" href="{{path}}/m/chat"><img alt="채팅" src="{{path}}/resources/img/common/chat.png"></a>
@@ -136,10 +167,34 @@
 	let developer = '{{developer}}';
 	console.log(path);
 	
-	
-	$('#loginOrjoin').off('click').on('click', () => {
-		console.log('로그인 팝업 - 카카오/네이버 로그인');
-		loginJoinStep("01");
+	// 로딩되고 실행할 이벤트
+	$(function(){
+		
+		$('#loginOrjoin').off('click').on('click', () => {
+			console.log('로그인 팝업 - 카카오/네이버 로그인');
+			loginJoinStep("01");
+		});
+		
+		// 크루개설버튼 클릭 시 크루리스트
+		$('.crewRecruit_plusBtn').off('click').on('click', ()=> {
+			$('.crewRecruit_list').toggle();
+		});
+		
+		$('.crewRecruit_thunder').off('click').on('click', ()=> {
+			console.log('번개크루 팝업');
+			thunderStep("01");
+			$('.crewRecruit_list').hide();
+		});
+
+		$('.crewRecruit_regular').off('click').on('click', ()=> {
+			console.log('정기크루 팝업');
+		});
+
+		$('.crewRecruit_battle').off('click').on('click', ()=> {
+			console.log('배틀크루 팝업');
+		});
+		
+		
 	});
 	
 	
