@@ -23,4 +23,13 @@ public class HomeServiceImpl implements HomeService {
 		return returnMap;
 	}
 	
+	/**
+	 * @author 권용수 
+	 * @describe 모바일 홈 리스트 가져오기 ajax
+	 */
+	@Override
+	public List<Map<String, Object>> getHomeCrewList(String filterName) {
+		List<Map<String, Object>> returnMap = sqlsession.selectList("Home.GetCrewList", filterName);
+		return returnMap;
+	}
 }

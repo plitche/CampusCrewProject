@@ -1,47 +1,5 @@
 @charset "UTF-8";
 
-#crewRecruit_plusBtn {
-	position:fixed;
-	width:40px;
-	height:40px;
-	border-radius:100px;
-	background:#2B00FF;
-	bottom:80px;
-	right:25px;
-	color:white;
-	text-align: center;
-	box-shadow: 1px 1px 1px 1px lightgray;
-	z-index: 20;
-}
-
-.crewRecruit_list {
-	position:fixed;
-	bottom:130px;
-	right:25px;
-	width:125px;
-	height:100px;
-	background:white;
-	box-shadow: 1px 2px 6px 1px #dcdde4;
-	z-index: 20;
-}
-
-.crewRecruit_list div {
-	border-bottom: 0.5px solid #dcdde4;
-	padding:4.5px;
-}
-
-.crewRecruit_list div a span{
-	color:#828393;
-	font-size:12px;
-	font-family: Gotham,"Noto Sans Kr","Roboto",sans-serif;
-}
-
-.crewRecruit_list div a img {
-	margin-left: 35px;
-	min-width:18px;
-	max-width:18px;
-}
-
 /* 홈 필터 */
 .filterTab ul {display: flex;}
 .filterTab ul li {padding: 5px 3px;}

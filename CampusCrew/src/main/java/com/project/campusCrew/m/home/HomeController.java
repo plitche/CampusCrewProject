@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -60,4 +61,20 @@ public class HomeController {
 		}
 		return returnMap;
 	}
+	
+	/**
+	 * @author 권용수 
+	 * @describe 모바일 홈 리스트 가져오기 ajax
+	 */
+	@RequestMapping(value="getHomeCrewList", method=RequestMethod.GET, produces="application/json; charset=utf-8")
+	public @ResponseBody Map<String, Object> getHomeCrewList(@PathVariable String filterName) {
+		List<Map<String, Object>> homeCrewList = homeService.getHomeCrewList(filterName);
+		
+		Map<String, Object> returnMap = new HashMap<>();
+		
+		
+		
+		return returnMap;
+	}
+	
 }
