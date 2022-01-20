@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.campusCrew.m.home.service.HomeService;
@@ -67,12 +68,13 @@ public class HomeController {
 	 * @describe 모바일 홈 리스트 가져오기 ajax
 	 */
 	@RequestMapping(value="getHomeCrewList", method=RequestMethod.GET, produces="application/json; charset=utf-8")
-	public @ResponseBody Map<String, Object> getHomeCrewList(@PathVariable String filterName) {
+	public @ResponseBody Map<String, Object> getHomeCrewList(@RequestParam(value="filterName") String filterName) {
 		List<Map<String, Object>> homeCrewList = homeService.getHomeCrewList(filterName);
+		for (Map<String, Object> temp : homeCrewList) {
+			System.out.println(temp);
+		}
 		
 		Map<String, Object> returnMap = new HashMap<>();
-		
-		
 		
 		return returnMap;
 	}

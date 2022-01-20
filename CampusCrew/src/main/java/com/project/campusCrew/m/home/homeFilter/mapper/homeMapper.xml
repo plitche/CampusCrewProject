@@ -11,10 +11,92 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE nStatus = 1
 	</select>
 
-	<select id="GetCrewList" resultType="hashMap" parameterType="String">
-		SELECT *
-		FROM tbOneDayCrew
+	<select id="GetTodayList" resultType="hashMap">
+		SELECT b.*
+		FROM (
+			SELECT a.*, ROWNUM rn
+			FROM (
+				SELECT *
+				FROM tbOneDayCrew
+				WHERE dtRegDate >= to_char(SYSDATE, 'YYYYMMDD')
+				
+				UNION ALL
+				
+				SELECT *
+				FROM tbLongCrew
+				WHERE dtRegDate >= to_char(SYSDATE, 'YYYYMMDD')
+				
+				UNION ALL
+				
+				SELECT *
+				FROM tbCrewBattle
+				WHERE dtCrewBattleCreate >= to_char(SYSDATE, 'YYYYMMDD')
+				
+				UNION ALL
+				
+				SELECT *
+				FROM tbManagerBattle
+				WHERE dtManagerBattleCreate >= to_char(SYSDATE, 'YYYYMMDD')
+				) a
+			) b
+			<![CDATA[WHERE b.rn <= 30]]> 
 	</select>
 	
-
+	<select id="GetCrewList" resultType="hashMap" parameterType="hashMap">
+		SELECT a.*
+		FROM (
+			SELECT *, ROWNUM rn
+			FROM #{tableName}
+			) a
+		<![CDATA[WHERE a.rn <= 30]]>
+	</select>
+	
+	<select id="GetCrewActivityList" resultType="hashMap">
+		SELECT b.*
+		FROM (
+			SELECT a.*, ROWNUM rn
+			FROM (
+				SELECT *
+				FROM tbCrewBattle
+				
+				UNION ALL
+				
+				SELECT *
+				FROM tbManagerBattle
+				) a
+			) b
+			<![CDATA[WHERE b.rn <= 30]]> 
+	</select>
+	
+	<select id="getListByFilterName" resultType="hashMap" parameterType="hashMap">
+		SELECT b.*
+		FROM (
+			SELECT a.*, ROWNUM rn
+			FROM (
+				SELECT *
+				FROM tbOneDayCrew
+				WHERE vcOneDayName LIKE '%#{filterName}%'
+				
+				UNION ALL
+				
+				SELECT *
+				FROM tbLongCrew
+				WHERE vcLongCrewName LIKE '%#{filterName}%'
+				
+				UNION ALL
+				
+				SELECT *
+				FROM tbCrewBattle
+				WHERE vcCrewBattleTitle LIKE '%#{filterName}%'
+				
+				UNION ALL
+				
+				SELECT *
+				FROM tbManagerBattle
+				WHERE vcManagerBattleTitle LIKE '%#{filterName}%'
+				) a
+			) b
+			<![CDATA[WHERE b.rn <= 30]]>
+	</select>
+	
 </mapper>
