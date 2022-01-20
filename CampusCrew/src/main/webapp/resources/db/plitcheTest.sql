@@ -38,3 +38,29 @@ from tbCrewType
 select *
 from tbCrewChannel
 
+select 1 
+from dual 
+where sysdate < to_char(sysdate, 'YYYYMMDD')
+
+				SELECT b.*
+		FROM (
+			SELECT a.*, ROWNUM rn
+			FROM (
+				SELECT *
+				FROM tbOneDayCrew
+				WHERE dtRegDate >= to_char(SYSDATE, 'YYYYMMDD')
+				
+				UNION ALL
+				
+				SELECT *
+				FROM tbOneDayCrew
+				WHERE dtRegDate >= to_char(SYSDATE, 'YYYYMMDD')
+				
+				UNION ALL
+				
+				SELECT *
+				FROM tbOneDayCrew
+				WHERE dtRegDate >= to_char(SYSDATE, 'YYYYMMDD')
+				) a
+			) b
+			<![CDATA[WHERE b.rn <= 30]]> 

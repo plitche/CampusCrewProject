@@ -69,7 +69,8 @@ CREATE TABLE tbOneDayCrew (
     vcOneDayMeetIntroduce  			VARCHAR(1000)		NULL,
 	dtOneDayMeetCreate       		DATE		        		NULL,
 	dtOneDayMeetDate          		DATE                		NULL,
-	nOneDayMeetCreateCnt   		NUMBER		        NULL
+	nOneDayMeetCreateCnt   		NUMBER		        NULL,
+	dtRegDate							DATE						NOT NULL
 );
 
 
@@ -85,7 +86,8 @@ CREATE TABLE tbLongCrew (
 	vcLongCrewIntroduce	        	VARCHAR(1000)		NULL,
 	dtLongCrewCreate	            	DATE		        		NOT NULL,
 	dtLongCrewMeetDate	        	DATE                		NULL,
-	nLongCrewMeetCreateCnt   		NUMBER		        NULL
+	nLongCrewMeetCreateCnt   		NUMBER		        NULL,
+	dtRegDate							DATE						NOT NULL
 );
 
 
