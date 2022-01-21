@@ -52,7 +52,12 @@ let fn_getCrewList = (filterName) => {
 		success: function(data) {
 			console.log(data)
 			
-			
+			let listHtml = '';
+			$.each(data.homeCrewList, function(index, value) {
+				listHtml += `
+					
+				`;
+			})
 		},
 		error: function() {
 			alert('리스트 가져오기 오류');

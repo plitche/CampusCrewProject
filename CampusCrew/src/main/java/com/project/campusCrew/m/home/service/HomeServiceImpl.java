@@ -37,7 +37,7 @@ public class HomeServiceImpl implements HomeService {
 		
 		switch(filterName) {
 		case "투데이" : 
-			returnList = sqlsession.selectList("Home.GetTodayList", sendData);
+			// returnList = sqlsession.selectList("Home.GetTodayList", sendData);
 			break;
 		case "내주변" : 
 			

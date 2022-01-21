@@ -70,11 +70,8 @@ public class HomeController {
 	@RequestMapping(value="getHomeCrewList", method=RequestMethod.GET, produces="application/json; charset=utf-8")
 	public @ResponseBody Map<String, Object> getHomeCrewList(@RequestParam(value="filterName") String filterName) {
 		List<Map<String, Object>> homeCrewList = homeService.getHomeCrewList(filterName);
-		for (Map<String, Object> temp : homeCrewList) {
-			System.out.println(temp);
-		}
-		
 		Map<String, Object> returnMap = new HashMap<>();
+		returnMap.put("homeCrewList", homeCrewList);
 		
 		return returnMap;
 	}
