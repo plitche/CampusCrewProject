@@ -42,25 +42,16 @@ select 1
 from dual 
 where sysdate < to_char(sysdate, 'YYYYMMDD')
 
-				SELECT b.*
+		SELECT b.*
 		FROM (
 			SELECT a.*, ROWNUM rn
 			FROM (
 				SELECT *
-				FROM tbOneDayCrew
-				WHERE dtRegDate >= to_char(SYSDATE, 'YYYYMMDD')
+				FROM tbCrewBattle
 				
 				UNION ALL
 				
 				SELECT *
-				FROM tbOneDayCrew
-				WHERE dtRegDate >= to_char(SYSDATE, 'YYYYMMDD')
-				
-				UNION ALL
-				
-				SELECT *
-				FROM tbOneDayCrew
-				WHERE dtRegDate >= to_char(SYSDATE, 'YYYYMMDD')
+				FROM tbManagerBattle
 				) a
 			) b
-			<![CDATA[WHERE b.rn <= 30]]> 
