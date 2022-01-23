@@ -30,6 +30,10 @@ INSERT INTO tbBattleApplyCrewList VALUES (tbBattleApplyCrewList_Seq.nextval, '�
 INSERT INTO tbBattleApplyCrewList VALUES (tbBattleApplyCrewList_Seq.nextval, '크루채널1', 'Plitche6', 1, 3, SYSDATE);
 INSERT INTO tbBattleApplyCrewList VALUES (tbBattleApplyCrewList_Seq.nextval, '크루채널1', 'Plitche7', 1, 3, SYSDATE);
 
+INSERT INTO tbBattleConfirmCrewList VALUES (tbBattleApplyCrewList_Seq.nextval, '크루채널1', 'Plitche5', 1, 3, SYSDATE);
+INSERT INTO tbBattleConfirmCrewList VALUES (tbBattleApplyCrewList_Seq.nextval, '크루채널1', 'Plitche5', 1, 4, SYSDATE);
+INSERT INTO tbBattleConfirmCrewList VALUES (tbBattleApplyCrewList_Seq.nextval, '크루채널1', 'Plitche6', 1, 3, SYSDATE);
+INSERT INTO tbBattleConfirmCrewList VALUES (tbBattleApplyCrewList_Seq.nextval, '크루채널1', 'Plitche7', 1, 3, SYSDATE);
 
 
 -- 필터 정보 insert
