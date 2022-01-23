@@ -41,11 +41,10 @@ INSERT INTO tbFilterTab VALUES (tbFilterTab_Seq.nextVal, '크루활동', 1, SYSD
 
 
 
-select *
-from tbCrewChannel
+select * from tbCrewChannel
 
-select *
-from tbCrewBattle
+select * from tbCrewBattle
+select * from tbBattleApplyCrewList
 
 select 1 
 from dual 
@@ -93,10 +92,38 @@ where sysdate < to_char(sysdate, 'YYYYMMDD')
 		WHERE cb.nCrewBattleSeq = 1 
 		
 		
-		
-		
-		
-		
+		SELECT b.*
+		FROM (
+			SELECT a.*, ROWNUM rn
+			FROM (
+				SELECT
+				vcCrewBattleTitle
+				, vcCrewBattleLimit
+				, (
+					SELECT COUNT(*)
+					FROM tbBattleApplyCrewList ba
+					WHERE ba.nCrewMeetCategory = 3
+					AND ba.nBattleApplySeq = cb.nCrewBattleSeq
+				) AS applyCount
+				, '크루활동' as tableInfo
+				FROM tbCrewBattle cb
+				 
+				UNION ALL
+				
+				SELECT   
+				vcManagerBattleTitle
+				, vcManagerBattleLimit
+				, (
+					SELECT COUNT(*)
+					FROM tbBattleApplyCrewList ba
+					WHERE ba.nCrewMeetCategory = 4
+					AND ba.nBattleApplySeq = mb.nManagerBattleSeq
+				) AS applyCount
+				, '크루활동' as tableInfo
+				FROM tbManagerBattle mb
+			) a
+		) b
+		WHERE b.rn <= 30
 		
 		
 		

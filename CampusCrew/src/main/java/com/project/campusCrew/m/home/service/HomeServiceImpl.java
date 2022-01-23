@@ -51,6 +51,8 @@ public class HomeServiceImpl implements HomeService {
 			returnList = sqlsession.selectList("Home.GetCrewList", tableData);
 			break;
 		case "크루활동" :
+			returnList = sqlsession.selectList("Home.GetCrewActivityList", tableData);
+			/*
 			List<Map<String, Object>> tempList = new ArrayList<Map<String,Object>>();
 			// 크루 활동
 			tempList = sqlsession.selectList("Home.GetCrewActivityList", tableData);
@@ -70,6 +72,7 @@ public class HomeServiceImpl implements HomeService {
 			}
 			
 			returnList.addAll(tempList);
+			*/
 			break;
 		default :  
 			returnList = sqlsession.selectList("Home.getListByFilterName", tableData);

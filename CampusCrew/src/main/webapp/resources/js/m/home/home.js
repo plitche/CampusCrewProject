@@ -66,8 +66,8 @@ let fn_getCrewList = (filterName) => {
 						<span>A B C</span>
 						<div>
 							<span>사람</span>
-							<span class="currentApply">6</span>&nbsp;/
-							<span class="needApply">10</span>
+							<span class="currentApply">`+value.APPLYCOUNT+`</span>&nbsp;/
+							<span class="needApply">`+value.VCCREWBATTLELIMIT+`</span>
 						</div>
 					</div>
 				</div>
