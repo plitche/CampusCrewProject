@@ -32,8 +32,8 @@ public class HomeServiceImpl implements HomeService {
 	@Override
 	public List<Map<String, Object>> getHomeCrewList(String filterName) {
 		List<Map<String, Object>> returnList = new ArrayList<Map<String,Object>>();
-		Map<String, Object> sendData = new HashMap<String, Object>();
-		sendData.put("filterName", filterName);
+		Map<String, Object> tableData = new HashMap<String, Object>();
+		tableData.put("filterName", filterName);
 		
 		switch(filterName) {
 		case "투데이" : 
@@ -43,18 +43,18 @@ public class HomeServiceImpl implements HomeService {
 			
 			break;
 		case "단기크루" :
-			sendData.put("tableName", "tbOneDayCrew");
-			returnList = sqlsession.selectList("Home.GetCrewList", sendData);
+			tableData.put("tableName", "tbOneDayCrew");
+			returnList = sqlsession.selectList("Home.GetCrewList", tableData);
 			break;
 		case "장기크루" :
-			sendData.put("tableName", "tbLongCrew");
-			returnList = sqlsession.selectList("Home.GetCrewList", sendData);
+			tableData.put("tableName", "tbLongCrew");
+			returnList = sqlsession.selectList("Home.GetCrewList", tableData);
 			break;
 		case "크루활동" : 
-			returnList = sqlsession.selectList("Home.GetCrewActivityList", sendData);
+			returnList = sqlsession.selectList("Home.GetCrewActivityList", tableData);
 			break;
 		default :  
-			returnList = sqlsession.selectList("Home.getListByFilterName", sendData);
+			returnList = sqlsession.selectList("Home.getListByFilterName", tableData);
 			break;
 		}
 		

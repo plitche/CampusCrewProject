@@ -55,9 +55,26 @@ let fn_getCrewList = (filterName) => {
 			let listHtml = '';
 			$.each(data.homeCrewList, function(index, value) {
 				listHtml += `
-					
+				<div class="eachCrewList">
+					<div class="filterName">`+value.TABLEINFO+`</div>
+					<div class="listTag">
+						<span>#테니스</span>
+						<span>#대학생</span>
+					</div>
+					<div class="listTitle">`+value.VCCREWBATTLETITLE+`</div>
+					<div class="listFooter">
+						<span>A B C</span>
+						<div>
+							<span>사람</span>
+							<span class="currentApply">6</span>&nbsp;/
+							<span class="needApply">10</span>
+						</div>
+					</div>
+				</div>
 				`;
 			})
+			
+			$('.homeCrewList').html(listHtml);
 		},
 		error: function() {
 			alert('리스트 가져오기 오류');

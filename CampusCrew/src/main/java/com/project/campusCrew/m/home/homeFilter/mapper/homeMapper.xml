@@ -52,7 +52,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="GetCrewActivityList" resultType="hashMap">
-		SELECT b.*
+		SELECT b.*, '크루활동' as tableInfo
 		FROM (
 			SELECT a.*, ROWNUM rn
 			FROM (
