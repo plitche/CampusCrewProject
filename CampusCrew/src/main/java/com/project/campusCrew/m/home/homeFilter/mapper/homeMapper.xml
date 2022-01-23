@@ -57,15 +57,55 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			SELECT a.*, ROWNUM rn
 			FROM (
 				SELECT *
-				FROM tbCrewBattle
-				
+				FROM tbCrewBattle cb
+				ON cb.nCrewBattleSeq = ap.nCrewMeetNo
+				WHERE ap.nCrewMeetCategory = 3
+				 
 				UNION ALL
 				
 				SELECT *
-				FROM tbManagerBattle
+				FROM tbManagerBattle mb
+				ON mb.nManagerBattleSeq = ap.nCrewMeetNo
+				WHERE ap.nCrewMeetCategory = 4
+				) a
+			) b
+			<![CDATA[WHERE b.rn <= 30]]>
+			
+		SELECT   
+		
+		(
+			SELECT COUNT(*)
+			FROM tbBattleApplyCrewList ba
+			WHERE ba.nCrewMeetCategory = 3
+			AND ba.nBattleApplySeq = #{sequence}
+		) AS applyCount
+		FROM tbCrewBattle cb
+		WHERE cb.nCrewBattleSeq = #{sequence}
+	</select>
+	
+	<select id="GetManagerActivityList" resultType="hashMap">
+		SELECT b.*, '크루활동' as tableInfo
+		FROM (
+			SELECT a.*, ROWNUM rn
+			FROM (
+				SELECT *
+				FROM tbCrewBattle cb
+				ON cb.nCrewBattleSeq = ap.nCrewMeetNo
+				WHERE ap.nCrewMeetCategory = 3
+				 
+				UNION ALL
+				
+				SELECT *
+				FROM tbManagerBattle mb
+				ON mb.nManagerBattleSeq = ap.nCrewMeetNo
+				WHERE ap.nCrewMeetCategory = 4
 				) a
 			) b
 			<![CDATA[WHERE b.rn <= 30]]> 
+	</select>
+	
+	<select id="GetManagerActivityList" resultType="hashMap">
+		
 	</select>
 	
 	<select id="getListByFilterName" resultType="hashMap" parameterType="hashMap">

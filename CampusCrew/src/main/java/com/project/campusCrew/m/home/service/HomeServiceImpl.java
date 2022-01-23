@@ -50,8 +50,26 @@ public class HomeServiceImpl implements HomeService {
 			tableData.put("tableName", "tbLongCrew");
 			returnList = sqlsession.selectList("Home.GetCrewList", tableData);
 			break;
-		case "크루활동" : 
-			returnList = sqlsession.selectList("Home.GetCrewActivityList", tableData);
+		case "크루활동" :
+			List<Map<String, Object>> tempList = new ArrayList<Map<String,Object>>();
+			// 크루 활동
+			tempList = sqlsession.selectList("Home.GetCrewActivityList", tableData);
+			for (int i=0; i<tempList.size(); i++) {
+				String sequence = (String)tempList.get(i).get("nCrewBattleSeq");
+				int count = sqlsession.selectOne("Home.GetActivityApplyCount", sequence);
+				tempList.get(i).put("APPLYCOUNT", count);
+			}
+			
+			returnList.addAll(tempList);
+			
+			// 매니저 활동
+			for (int i=0; i<tempList.size(); i++) {
+				String sequence = (String)tempList.get(i).get("nCrewBattleSeq");
+				int count = sqlsession.selectOne("Home.GetActivityApplyCount", sequence);
+				tempList.get(i).put("APPLYCOUNT", count);
+			}
+			
+			returnList.addAll(tempList);
 			break;
 		default :  
 			returnList = sqlsession.selectList("Home.getListByFilterName", tableData);

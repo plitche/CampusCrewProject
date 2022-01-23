@@ -24,6 +24,14 @@ INSERT INTO tbCrewBattle VALUES (tbCrewBattle_Seq.nextval, 'Plitche1', 1, '우�
 INSERT INTO tbManagerBattle VALUES (tbManagerBattle_Seq.nextval, 'admin', 1, '댄스 배틀1', '누가 최강자인지?', 4, '2021.12.31 3시', '2022.01.15 3시', '댄스 배틀할꺼에요!!', SYSDATE);
 INSERT INTO tbManagerBattle VALUES (tbManagerBattle_Seq.nextval, 'admin', 1, '댄스 배틀2', '우리가 더 쎄', 2, '2022.01.01 12시', '2022.01.02 12시', '댄스 배틀할꺼에요!!', SYSDATE);
 
+-- 참가자 정보 insert
+INSERT INTO tbBattleApplyCrewList VALUES (tbBattleApplyCrewList_Seq.nextval, '크루채널1', 'Plitche5', 1, 3, SYSDATE);
+INSERT INTO tbBattleApplyCrewList VALUES (tbBattleApplyCrewList_Seq.nextval, '크루채널1', 'Plitche5', 1, 4, SYSDATE);
+INSERT INTO tbBattleApplyCrewList VALUES (tbBattleApplyCrewList_Seq.nextval, '크루채널1', 'Plitche6', 1, 3, SYSDATE);
+INSERT INTO tbBattleApplyCrewList VALUES (tbBattleApplyCrewList_Seq.nextval, '크루채널1', 'Plitche7', 1, 3, SYSDATE);
+
+
+
 -- 필터 정보 insert
 INSERT INTO tbFilterTab VALUES (tbFilterTab_Seq.nextVal, '투데이', 1, SYSDATE);
 INSERT INTO tbFilterTab VALUES (tbFilterTab_Seq.nextVal, '내주변', 1, SYSDATE);
@@ -32,11 +40,12 @@ INSERT INTO tbFilterTab VALUES (tbFilterTab_Seq.nextVal, '장기크루', 1, SYSD
 INSERT INTO tbFilterTab VALUES (tbFilterTab_Seq.nextVal, '크루활동', 1, SYSDATE);
 
 
-select *
-from tbCrewType
 
 select *
 from tbCrewChannel
+
+select *
+from tbCrewBattle
 
 select 1 
 from dual 
@@ -47,11 +56,51 @@ where sysdate < to_char(sysdate, 'YYYYMMDD')
 			SELECT a.*, ROWNUM rn
 			FROM (
 				SELECT *
-				FROM tbCrewBattle
+				FROM tbCrewBattle cb
+				inner join tbBattleApplyCrewList ap
+				on cb.nCrewBattleSeq = ap.nCrewMeetNo
+				where ap.nCrewMeetCategory = 3
 				
 				UNION ALL
 				
 				SELECT *
-				FROM tbManagerBattle
+				FROM tbManagerBattle mb
+				inner join tbBattleApplyCrewList ap
+				on mb.nManagerBattleSeq = ap.nCrewMeetNo
+				where ap.nCrewMeetCategory = 4
 				) a
 			) b
+
+			
+			
+		SELECT *
+		FROM tbCrewBattle cb
+		WHERE cb.nCrewBattleSeq =1 
+		AND cb.vcCrewBattleLimit > (
+														SELECT COUNT(*) AS applyCount
+														FROM tbBattleApplyCrewList ba
+														WHERE ba.nCrewMeetCategory = 3
+														AND ba.nBattleApplySeq = 1
+													)
+													
+													
+		SELECT
+						(SELECT COUNT(*) 
+						FROM tbBattleApplyCrewList ba
+						WHERE ba.nCrewMeetCategory = 3
+						AND ba.nBattleApplySeq = 1) AS applyCount
+		FROM tbCrewBattle cb
+		WHERE cb.nCrewBattleSeq = 1 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
