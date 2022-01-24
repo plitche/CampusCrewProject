@@ -74,7 +74,7 @@
 	margin:10px;
 }
 
-#recruit_popup_content #content input[type=radio] + label {
+#recruit_popup_content #content .crewTypeContent {
 	display: inline-block;
 	margin:0px;
 	padding: 8px 19px;
@@ -85,11 +85,11 @@
 	color:#acacac;
 }
 
-#recruit_popup_content #content input[type=radio] + label .on {
+.on {
 	display: inline-block;
 	margin:0px;
 	padding: 8px 19px;
-	border: 1px solid #2B00FF
+	border: 1px solid #2B00FF;
 	font-size: 16px;
 	text-align:center;
 	border-radius: 30px;

@@ -55,9 +55,9 @@
 					$('#thunderStep01').removeClass('layer_open');
 				});
 				
-				$('input[name="crewType"]').click( ()=> {
-					console.log($('input[name="crewType"]:checked').val());
-					$(this).addClass('on');
+				$("input[name=crewType]").on("click", ()=> {
+					console.log($('input[name=crewType]:checked').val());
+					$('input[name=crewType]:checked').next().addClass('on');
 				});
 				
 				$('#btnThunderNext1').off('click').on('click', () => {
