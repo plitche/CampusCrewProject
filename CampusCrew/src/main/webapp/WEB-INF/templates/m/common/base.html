@@ -34,6 +34,7 @@
 <!-- 공통 js -->
 <script type="text/javascript" charset="utf-8" src="http://localhost:9090/campusCrew/resources/js/common/common.js"></script>
 
+
 </head>
 <body>
 
@@ -100,6 +101,7 @@
 		{########## 정기크루모집 팝업프로세스 화면 ##########}
 		
 		{########## 배틀크루모집 팝업프로세스 화면 ##########}
+		{% include "m/home/popup/crewActivity/createActivity_init"%}
 		
 		<!-- 크루모집유형선택 -->
 		<div class="crewRecruit_list" style="display:none;">
@@ -190,11 +192,12 @@
 			console.log('정기크루 팝업');
 		});
 
+		/* 
 		$('.crewRecruit_battle').off('click').on('click', ()=> {
 			console.log('배틀크루 팝업');
 		});
-		
-		
+		 */
+		 
 	});
 	
 	
