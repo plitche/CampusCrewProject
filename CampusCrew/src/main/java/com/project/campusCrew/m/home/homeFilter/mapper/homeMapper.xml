@@ -61,7 +61,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				, vcCrewBattleLimit
 				, (
 					SELECT COUNT(*)
-					FROM tbBattleConfirmCrewList
+					FROM tbBattleConfirmCrewList bc
 					WHERE bc.nCrewMeetCategory = 3
 					AND bc.nCrewMeetNo = cb.nCrewBattleSeq
 				) AS applyCount
