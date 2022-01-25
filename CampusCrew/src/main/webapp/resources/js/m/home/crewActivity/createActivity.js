@@ -9,15 +9,20 @@ let createActivity = (function() {
 			},
 			
 			Template : {
-				
+				showCreateStpe: function(stepLevel) {
+					$('.recruit_thunder_popup').removeClass('layer_open');
+					$('#createActivityStep' + stepLevel).addClass('layer_open');
+				}
 			},
 			
 			Event : {
 				createStep : function() {
 					$('.crewRecruit_battle').click(function() {
-						alert('11111111');
+						that.Template.showCreateStpe('01');
+						$('.crewRecruit_list').hide();
 					})
 				}
+			
 				,
 				
 				
