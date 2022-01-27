@@ -55,12 +55,24 @@
 					$('#thunderStep01').removeClass('layer_open');
 				});
 				
-				$("input[name=crewType]").on("click", ()=> {
-					console.log($('input[name=crewType]:checked').val());
-					$('input[name=crewType]:checked').next().addClass('on');
+				$('input:radio[name="crewType"]').off('click').on('click', ()=> {
+					var chkRadio = $('input:radio[name="crewType"]:checked');
+					$('.crewTypeContent').removeClass('on');
+					$('input:radio[name="crewType"]:checked').next().addClass('on');
+					if (chkRadio.length == 1	) {
+						$('#btnThunderNext1').addClass('blue');
+					} else {
+						$('#btnThunderNext1').removeClass('blue');
+					}
 				});
 				
+				
+				
 				$('#btnThunderNext1').off('click').on('click', () => {
+					if ($('input:radio[name="crewType"]:checked').length == 0) {
+						msg.info('크루유형을 선택해주세요.');
+						return;
+					}
 					console.log('다음');
 					thunderStep("02");
 				});
