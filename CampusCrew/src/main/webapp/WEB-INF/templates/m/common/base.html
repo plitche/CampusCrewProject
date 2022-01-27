@@ -222,6 +222,12 @@
 		// 크루개설버튼 클릭 시 크루리스트
 		$('.crewRecruit_plusBtn').off('click').on('click', ()=> {
 			$('.crewRecruit_list').addClass('layer_open');
+			$('.crewRecruit_box').addClass('dark');
+		});
+		
+		$('.crewRecruit_box').off('click').on('click', ()=> {
+			$('.crewRecruit_list').removeClass('layer_open');
+			$('.crewRecruit_box').removeClass('dark');
 		});
 		
 		$('.crewRecruit_thunder').off('click').on('click', ()=> {

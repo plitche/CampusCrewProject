@@ -120,9 +120,17 @@ body #root {
 	font-weight:700;
 }
 
-
-.crewRecruit_list {background:white;position:fixed;top:100%;bottom:0;left:0;right:0;width:100%;height:100%;visibility: hidden;opacity:0; z-index:3000; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out;overflow:hidden;}
-.crewRecruit_list.layer_open {display:block;top:55%;visibility:visible;opacity:1;-webkit-transition: all 0.3s ease-in-out;-moz-transition: all 0.3s ease-in-out;transition: all 0.3s ease-in-out;overflow:hidden;}
+ .crewRecruit_box.dark{
+	background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    z-index: 21;
+}
+.crewRecruit_list {background:white; border-radius: 21px;position:fixed;top:100%;bottom:0;left:0;right:0;width:100%;height:100%;visibility: hidden;opacity:0; z-index:3000; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out;overflow:hidden;}
+.crewRecruit_list.layer_open {display:block; border-radius: 21px;top:55%;visibility:visible;opacity:1;-webkit-transition: all 0.3s ease-in-out;-moz-transition: all 0.3s ease-in-out;transition: all 0.3s ease-in-out;overflow:hidden;}
 
 .crewRecruit_list div {
 	padding:11px 0px;
