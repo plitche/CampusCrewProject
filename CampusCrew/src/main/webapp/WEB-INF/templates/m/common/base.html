@@ -108,23 +108,23 @@
 		
 			<div class="crewRecruit_list" style="z-index:21;" tabindex="0">
 			{% block crewRecruit %}
-				<div class="crewRecruit_thunder">
-					<a href="javascript:;" id="crewRecruit_thunder" >
-						<span>번개크루</span>
+				<div class="close_line"></div>
+				<div class="crewRecruit_list_content">
+					<div class="crewRecruit_thunder">
 						<img alt="번개크루" src="{{path}}/resources/img/common/thunder.png">
-					</a>
-				</div>
-				<div class="crewRecruit_regular">
-					<a href="javascript:;" id="crewRecruit_regular">
-						<span>정기크루</span>
+						<span>번개크루</span>
+						<button id="crewRecruit_thunder">개설</button>
+					</div>
+					<div class="crewRecruit_regular">
 						<img alt="정기크루" src="{{path}}/resources/img/common/deal.png">
-					</a>
-				</div>
-				<div class="crewRecruit_battle">
-					<a href="javascript:;" id="crewRecruit_battle" >
-						<span>크루배틀</span>
-						<img alt="크루배틀" src="{{path}}/resources/img/common/fist.png">
-					</a>
+						<span>장기크루</span>
+						<button id="crewRecruit_regular">개설</button>
+					</div>
+					<div class="crewRecruit_battle">
+						<img alt="크루연합" src="{{path}}/resources/img/common/fist.png">
+						<span>크루연합</span>
+						<button id="crewRecruit_battle">개설</button>
+					</div>
 				</div>
 				{% endblock %}
 			</div>
@@ -197,14 +197,14 @@
 			crewRecruitClose();
 		});
 		
-		// 번개크루 클릭하면 스텝으로 이동한다.
-		$('.crewRecruit_thunder').off('click').on('click', ()=> {
+		// 번개크루개설버튼 클릭하면 스텝으로 이동한다.
+		$('#crewRecruit_thunder').off('click').on('click', ()=> {
 			console.log('번개크루 팝업');
 			thunderStep("01");
 			crewRecruitClose();
 		});
-
-		$('.crewRecruit_regular').off('click').on('click', ()=> {
+		// 장기크루개설버튼 클릭하면 스텝으로 이동한다.
+		$('#crewRecruit_regular').off('click').on('click', ()=> {
 			console.log('정기크루 팝업');
 		});
 

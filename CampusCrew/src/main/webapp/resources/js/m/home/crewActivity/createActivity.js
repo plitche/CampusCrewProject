@@ -17,7 +17,7 @@ let createActivity = (function() {
 			
 			Event : {
 				createStep : function() {
-					$('.crewRecruit_battle').click(function() {
+					$('#crewRecruit_battle').click(function() {
 						that.Template.showCreateStpe('01');
 						$('.crewRecruit_list').hide();
 					})
