@@ -21,6 +21,17 @@ function requestAjaxPOSTTxt(url, data, callback){
    ajaxPOST = setTimeout(function(){ requestAjaxPOSTTxt_(url, data, callback); },200);
 }
 
+
+function crewRecruitOpen() {
+	$('.crewRecruit_list').addClass('layer_open');
+	$('.crewRecruit_box').addClass('dark');
+}
+
+function crewRecruitClose() {
+	$('.crewRecruit_list').removeClass('layer_open');
+	$('.crewRecruit_box').removeClass('dark');
+}
+
 /**
  * requestAjaxPOST_(url, data, callback)
  * Ajax Post Submit

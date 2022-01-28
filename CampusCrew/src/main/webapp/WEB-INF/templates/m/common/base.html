@@ -103,44 +103,6 @@
 		{########## 배틀크루모집 팝업프로세스 화면 ##########}
 		{% include "m/home/popup/crewActivity/createActivity_init"%}
 		
-		
-		<!-- <div class="loginJoin_popup" id="loginJoinStep01" style="z-index:21;" tabindex="0">
-			<div id="loginJoin_popup_contents">
-				<div id="loginJoin_popup_header">
-					<a href="javascript:;" class="btn_pop_close" >
-						<img src="{{path}}/resources/img/common/close (2).png" alt="닫기">
-					</a>
-				</div>
-				
-				<div class="loginJoin_popup_border"></div>
-				
-				<div id="loginJoin_popup_content">
-					<div id="title">로그인/회원가입</div>
-					<div id="content">
-						<div>
-							<input type="text" id="email" placeholder="이메일"/>
-						</div>
-						<div>
-							<input type="text" id="pw" placeholder="비밀번호"/>
-						</div>
-						<div style="margin-top: 60px;">
-							<button id="loginBtn">로그인</button>
-						</div>
-						<div style="text-align:center;font-size:12px; color:gray; padding:10px;">
-							또는
-						</div>
-						<div>
-							<button id="kakaoBtn">카카오로 시작</button>
-						</div>
-						<div>
-							<button id="naverBtn">네이버로 시작</button>
-						</div>
-					</div>
-				</div>	
-				
-			</div>
-		</div> -->
-		
 		<!-- 크루모집유형선택 -->
 		<div class="crewRecruit_box" tabindex="0">
 		
@@ -221,30 +183,31 @@
 		
 		// 크루개설버튼 클릭 시 크루리스트
 		$('.crewRecruit_plusBtn').off('click').on('click', ()=> {
-			$('.crewRecruit_list').addClass('layer_open');
-			$('.crewRecruit_box').addClass('dark');
+			// 플러스 버튼 클릭 시 layer_open 클래스가 존재하면 닫고
+			if ($('.crewRecruit_list').hasClass('layer_open') == true) {
+				crewRecruitClose();
+			// 플러스 버튼 클릭 시 layer_open 클래스가 존재하지 않으면 연다
+			} else {
+				crewRecruitOpen();
+			}
 		});
 		
+		// 어둠 배경을 클릭하면 닫는다.
 		$('.crewRecruit_box').off('click').on('click', ()=> {
-			$('.crewRecruit_list').removeClass('layer_open');
-			$('.crewRecruit_box').removeClass('dark');
+			crewRecruitClose();
 		});
 		
+		// 번개크루 클릭하면 스텝으로 이동한다.
 		$('.crewRecruit_thunder').off('click').on('click', ()=> {
 			console.log('번개크루 팝업');
 			thunderStep("01");
-			$('.crewRecruit_list').hide();
+			crewRecruitClose();
 		});
 
 		$('.crewRecruit_regular').off('click').on('click', ()=> {
 			console.log('정기크루 팝업');
 		});
 
-		/* 
-		$('.crewRecruit_battle').off('click').on('click', ()=> {
-			console.log('배틀크루 팝업');
-		});
-		 */
 		 
 	});
 	

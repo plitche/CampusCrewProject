@@ -66,8 +66,6 @@
 					}
 				});
 				
-				
-				
 				$('#btnThunderNext1').off('click').on('click', () => {
 					if ($('input:radio[name="crewType"]:checked').length == 0) {
 						msg.info('크루유형을 선택해주세요.');
