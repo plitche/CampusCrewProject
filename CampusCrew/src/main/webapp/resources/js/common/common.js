@@ -32,6 +32,7 @@ function crewRecruitClose() {
 	$('.crewRecruit_box').removeClass('dark');
 }
 
+
 /**
  * requestAjaxPOST_(url, data, callback)
  * Ajax Post Submit
