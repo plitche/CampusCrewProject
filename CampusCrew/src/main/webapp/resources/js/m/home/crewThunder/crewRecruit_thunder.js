@@ -2,6 +2,24 @@
  *  번개크루 js
  */
 
+	let thunderInit = () => {
+		$('.crewTypeContent').removeClass('on');
+		$('.thunderNextBtn').removeClass('blue');
+		$('input[type=radio]').attr('checked', 'false');
+		// 아마 계속 추가 될것임.
+	}
+
+	let thunderPopClose = () => {
+		$('.thunder_btn_pop_close').off('click').on('click', () => {
+			console.log('닫기');
+			msg.info('개설을 취소하면 모든 정보는 사라집니다.\n개설 취소 하시겠어요?');
+			$('#alertOkayIcon').on('click', ()=> {
+				thunderInit();
+				$('.recruit_thunder_popup').removeClass('layer_open');
+			});
+		});
+	}
+
 	let thunderChangeDiv = (openStep) => {
 		$('.recruit_thunder_popup').removeClass('layer_open');
 		
@@ -40,15 +58,13 @@
 			info : new Object()
 			, init : () => {
 				
+				//thunderInit();
 				thunderUtil.step01.event();
 				
 			}
 			, event : () => {
 				
-				$('.thunder_btn_pop_close').off('click').on('click', () => {
-					console.log('닫기');
-					$('#thunderStep01').removeClass('layer_open');
-				});
+				thunderPopClose();
 				
 				$('.btn_pop_previous').off('click').on('click', () => {
 					console.log('이전');
@@ -66,17 +82,42 @@
 					}
 				});
 				
-				$('#btnThunderNext1').off('click').on('click', () => {
+				// 다음 버튼 클릭시 크루유형 값을 데이터 insert
+				$('#btnThunderNext1').off('click').on('click', ()=> {
+					
 					if ($('input:radio[name="crewType"]:checked').length == 0) {
 						msg.info('크루유형을 선택해주세요.');
 						return;
 					}
-					console.log('다음');
-					thunderStep("02");
+					
+					var chkRadioVal = $('input:radio[name="crewType"]:checked').val();
+
+					var sendObj = {
+							"crewType" : chkRadioVal
+					}
+					
+					$.ajax({
+						url :  "/campusCrew/thunder/step01"
+						, type : 'post'
+						, contentType : 'application/json; charset=UTF-8'
+						, dataType : 'json'
+						, data : JSON.stringify(sendObj)
+						, success : function(data) {
+							console.log(data.results);
+							if (data.results == 'Y') {
+								// 시퀀스 번호과 유형값만 가져온다. 
+								// 시퀀스 번호는 이전으로 돌아갔을때 update 하기 위한 체크 용도로 사용하고,
+								// 유형값은 step02로 갔을 때, 유형별로 보여주는 분야값들을 다르게 설정한다.
+								thunderStep("02");
+							} else {
+								console.log('데이터 삽입 실패!');
+							}
+						}
+						, fail : function(failData) {
+							console.log("데이터 삽입 실패");
+						}
+					});
 				});
-				
-				
-				// 데이터 넘기는거나 이벤트처리는 여기 실행하시면 됩니다.
 				
 			}
 			
@@ -87,15 +128,13 @@
 			info : new Object()
 			, init : () => {
 				
+				//thunderInit();
 				thunderUtil.step02.event();
 				
 			}
 			, event : () => {
 				
-				$('.thunder_btn_pop_close').off('click').on('click', () => {
-					console.log('닫기');
-					$('#thunderStep02').removeClass('layer_open');
-				});
+				thunderPopClose();
 				
 				$('.btn_pop_previous').off('click').on('click', () => {
 					console.log('이전');

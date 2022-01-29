@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="thunder">
+
+	<insert id="insertCrewType" parameterType="com.project.campusCrew.m.crewRecruit.thunder.vo.ThunderStep01VO" >
+		INSERT INTO
+		tbCrewType
+		(
+		nCrewTypeSeq,
+		vcCrewChannelName,
+		vcCrewTypeCategory,
+		vcCrewTypeField,
+		vcCrewTypeDetail
+		)
+		VALUES
+		(
+		tbCrewType_Seq.NEXTVAL,
+		'',
+		#{crewType},
+		'',
+		''
+		)
+	</insert>
+
+</mapper>

@@ -28,8 +28,8 @@ CREATE TABLE tbCrewType (
 	nCrewTypeSeq						NUMBER				PRIMARY KEY,
 	vcCrewChannelName				VARCHAR(50)		NULL,
 	vcCrewTypeCategory				VARCHAR(100)		NOT NULL,
-	vcCrewTypeField						VARCHAR(100)		NOT NULL,
-	vcCrewTypeDetail					VARCHAR(100)		NOT NULL
+	vcCrewTypeField						VARCHAR(100)		NULL,
+	vcCrewTypeDetail					VARCHAR(100)		NULL
 );
 
 
