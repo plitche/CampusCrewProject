@@ -171,6 +171,132 @@
     background: #00FFA3;
 }
 
+#recruit_popup_content #content_1 span {
+	color:#c5c5c5; 
+	font-size: 16px;
+	border-radius:30px;
+}
+
+
+
+#recruit_popup_content #content_1 {
+	padding: 0 20px;
+}
+
+#recruit_popup_content #content_1 input[type=radio] {
+	display:none;
+	margin:10px;
+}
+
+#recruit_popup_content #content_1 .crewFieldContent {
+	display: inline-block;
+	margin:0px;
+	padding: 8px 19px;
+	border: 1px solid #ccc;
+	font-size: 16px;
+	text-align:center;
+	border-radius: 30px;
+	color:#acacac;
+	margin-bottom:10px;
+}
+
+#recruit_popup_content #content_1 .crewFieldContent.on {
+	display: inline-block;
+	margin:0px;
+	padding: 8px 19px;
+	border: 1px solid #2B00FF;
+	background:#2B00FF;
+	font-size: 16px;
+	text-align:center;
+	border-radius: 30px;
+	color:white;
+	margin-bottom:10px;
+}
+
+#recruit_popup_content #content_2 span {
+	color:#c5c5c5; 
+	font-size: 16px;
+	border-radius:30px;
+}
+
+
+
+#recruit_popup_content #content_2 {
+	padding: 0 20px;
+}
+
+#recruit_popup_content #content_2 input[type=radio] {
+	display:none;
+	margin:10px;
+}
+
+#recruit_popup_content #content_2 .crewFieldContent {
+	display: inline-block;
+	margin:0px;
+	padding: 8px 19px;
+	border: 1px solid #ccc;
+	font-size: 16px;
+	text-align:center;
+	border-radius: 30px;
+	color:#acacac;
+	margin-bottom:10px;
+}
+
+#recruit_popup_content #content_2 .crewFieldContent.on {
+	display: inline-block;
+	margin:0px;
+	padding: 8px 19px;
+	border: 1px solid #2B00FF;
+	background:#2B00FF;
+	font-size: 16px;
+	text-align:center;
+	border-radius: 30px;
+	color:white;
+	margin-bottom:10px;
+}
+
+#recruit_popup_content #content_3 span {
+	color:#c5c5c5; 
+	font-size: 16px;
+	border-radius:30px;
+}
+
+
+
+#recruit_popup_content #content_3 {
+	padding: 0 20px;
+}
+
+#recruit_popup_content #content_3 input[type=radio] {
+	display:none;
+	margin:10px;
+}
+
+#recruit_popup_content #content_3 .crewFieldContent {
+	display: inline-block;
+	margin:0px;
+	padding: 8px 19px;
+	border: 1px solid #ccc;
+	font-size: 16px;
+	text-align:center;
+	border-radius: 30px;
+	color:#acacac;
+	margin-bottom:10px;
+}
+
+#recruit_popup_content #content_3 .crewFieldContent.on {
+	display: inline-block;
+	margin:0px;
+	padding: 8px 19px;
+	border: 1px solid #2B00FF;
+	background:#2B00FF;
+	font-size: 16px;
+	text-align:center;
+	border-radius: 30px;
+	color:white;
+	margin-bottom:10px;
+}
+
 #recruit_popup_footer #btnThunderNext2 {
 	display: block;
     height: 60px;
@@ -187,3 +313,30 @@
     width: 100%;
 }
 
+#recruit_popup_footer #btnThunderNext2.blue {
+	display: block;
+    height: 60px;
+    padding: 10px 10px;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    vertical-align: middle; 
+    border: 0px solid; 
+    border-radius: 10px; 
+    background: #2B00FF; 
+    font-weight:900;
+    cursor: pointer; 
+    width: 100%;
+}
+
+/** 번개크루 step03 - 크루제목 **/
+/***************** 번개크루 step02 *******************/
+#thunderStep03{background:white;position:fixed;top:100%;bottom:0;left:0;right:0;width:100%;height:100%;visibility: hidden;opacity:0; z-index:3000; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out;overflow:hidden;}
+#thunderStep03.layer_open{display:block;top:0;visibility:visible;opacity:1;-webkit-transition: all 0.3s ease-in-out;-moz-transition: all 0.3s ease-in-out;transition: all 0.3s ease-in-out;overflow:hidden;}
+
+
+.recruit_popup_border_3 {
+	width: 37.5%;
+    height: 10px;
+    background: #00FFA3;
+}

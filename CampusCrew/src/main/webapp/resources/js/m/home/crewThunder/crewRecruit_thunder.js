@@ -2,10 +2,13 @@
  *  번개크루 js
  */
 
+	let thunderFinalInsertData = new Object();
+
 	let thunderInit = () => {
-		$('.crewTypeContent').removeClass('on');
-		$('.thunderNextBtn').removeClass('blue');
-		$('input[type=radio]').attr('checked', 'false');
+		$('.crewTypeContent').removeClass('on'); // step01의 label class 삭제
+		$('.crewFieldContent').removeClass('on'); // step02의 label class 삭제
+		$('.thunderNextBtn').removeClass('blue'); // 다음 버튼의 class 삭제
+		$('input[type=radio]').attr('checked', 'false'); // radio 선택 값 checked 풀기
 		// 아마 계속 추가 될것임.
 	}
 
@@ -72,7 +75,7 @@
 				});
 				
 				$('input:radio[name="crewType"]').off('click').on('click', ()=> {
-					var chkRadio = $('input:radio[name="crewType"]:checked');
+					let chkRadio = $('input:radio[name="crewType"]:checked');
 					$('.crewTypeContent').removeClass('on');
 					$('input:radio[name="crewType"]:checked').next().addClass('on');
 					if (chkRadio.length == 1	) {
@@ -90,33 +93,13 @@
 						return;
 					}
 					
-					var chkRadioVal = $('input:radio[name="crewType"]:checked').val();
-
-					var sendObj = {
-							"crewType" : chkRadioVal
-					}
+					let thunderStep01Val = $('input:radio[name="crewType"]:checked').val();
 					
-					$.ajax({
-						url :  "/campusCrew/thunder/step01"
-						, type : 'post'
-						, contentType : 'application/json; charset=UTF-8'
-						, dataType : 'json'
-						, data : JSON.stringify(sendObj)
-						, success : function(data) {
-							console.log(data.results);
-							if (data.results == 'Y') {
-								// 시퀀스 번호과 유형값만 가져온다. 
-								// 시퀀스 번호는 이전으로 돌아갔을때 update 하기 위한 체크 용도로 사용하고,
-								// 유형값은 step02로 갔을 때, 유형별로 보여주는 분야값들을 다르게 설정한다.
-								thunderStep("02");
-							} else {
-								console.log('데이터 삽입 실패!');
-							}
-						}
-						, fail : function(failData) {
-							console.log("데이터 삽입 실패");
-						}
-					});
+					// 번개크루 step01 데이터 저장
+					thunderFinalInsertData.crewType = thunderStep01Val
+					console.log(thunderFinalInsertData);
+					thunderStep("02");
+					
 				});
 				
 			}
@@ -134,20 +117,86 @@
 			}
 			, event : () => {
 				
+				console.log(thunderFinalInsertData.crewType);
+				
+				// step02 팝업이 열리면 크루유형에 맞는 분야를 보여준다.
+				if ($('#thunderStep02').hasClass('layer_open') == true) {
+					switch(thunderFinalInsertData.crewType) {
+					// step01에서 진로탐색이면
+					case "0":
+						$('.thunderStep02Content').hide();
+						$('#content_1').css('display', 'block');
+						break;
+						// step01에서 자기계발이면
+					case "1":
+						$('.thunderStep02Content').hide();
+						$('#content_2').css('display', 'block');
+						break;
+						// step01에서 기타이면
+					case "2":
+						$('.thunderStep02Content').hide();
+						$('#content_3').css('display', 'block');
+						break;
+					}
+				}
+				
 				thunderPopClose();
 				
 				$('.btn_pop_previous').off('click').on('click', () => {
-					console.log('이전');
+					$('.crewFieldContent').removeClass('on');
+					$('input[name=crewField]').attr('checked', 'false');
+					$('#btnThunderNext2').removeClass('blue');
 					thunderStep("01");
 				});
 				
-				$('.btnThunderNext2').off('click').on('click', () => {
+				$('input:radio[name="crewField"]').off('click').on('click', ()=> {
+					let chkRadio = $('input:radio[name="crewField"]:checked');
+					$('.crewFieldContent').removeClass('on');
+					$('input:radio[name="crewField"]:checked').next().addClass('on');
+					if (chkRadio.length == 1	) {
+						$('#btnThunderNext2').addClass('blue');
+					} else {
+						$('#btnThunderNext2').removeClass('blue');
+					}
+				});
+				
+				$('#btnThunderNext2').off('click').on('click', ()=> {
+					
+					if ($('input:radio[name="crewField"]:checked').length == 0) {
+						msg.info('크루분야를 선택해주세요.');
+						return;
+					}
+					
+					let thunderStep02Val = $('input:radio[name="crewField"]:checked').val();
+					
+					// 번개크루 step01 데이터 저장
+					thunderFinalInsertData.crewField = thunderStep02Val
+					console.log(thunderFinalInsertData);
+					
 					console.log('다음');
 					thunderStep("03");
 				});
 				
+				
+				
 			}
-		}
+		},
+		
+		step03 : {
+			info : new Object()
+			, init : () => {
+				
+				//thunderInit();
+				thunderUtil.step03.event();
+				
+			}
+			, event : () => {
+				
+				
+				
+			}
+			
+		},
 		
 	
 	}
