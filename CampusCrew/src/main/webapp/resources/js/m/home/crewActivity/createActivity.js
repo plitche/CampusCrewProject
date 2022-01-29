@@ -6,6 +6,7 @@ let createActivity = (function() {
 				that.Event.selectType();
 				that.Event.stepOneNext();
 				that.Event.prevBtnAction();
+				that.Event.titleSet();
 				
 			},
 			
@@ -52,6 +53,7 @@ let createActivity = (function() {
 					})
 				}
 				
+				// stop 1 start
 				,selectType : function() {
 					$('.crewTypeContent').click(function() {
 						if ($(this).hasClass('on')) {
@@ -88,20 +90,40 @@ let createActivity = (function() {
 						if (count > 0) {
 							that.Template.showCreateStep('1', 'next');
 						} else {
-							msg.info('크루유형을 선택해주세요.');
+							msg.info('크루연합 유형을 선택해주세요.');
 						}
 					})
 				}
 				
-				
-				
-				
+				// step 2 start
 				,titleSet : function() {
-					
+					$('#createActivityStep2 textarea').on('change keyup paste', function() {
+						let content = $(this).val();
+						
+						if (content.length > 200) {
+							$(this).val($(this).val().substring(0, 200));
+						}
+						
+						$('#createActivityStep2 #titleContent span').text(content.length);
+						
+						if (content.length > 0) {
+							$('.activity_popup_footer #activityBtnNext2').addClass('on');
+						} else {
+							$('.activity_popup_footer #activityBtnNext2').removeClass('on');
+						}
+					})
 				}
 				
 				,setTwoNext : function() {
-					
+					$('#activityBtnNext2').on('click', function() {
+						let titleVal = $('#createActivityStep2 textarea').text();
+						
+						if (titleVal == '') {
+							msg.info('크루연합 제목을 작성해주세요.');
+						} else {
+							
+						}
+					})
 				}
 			},
 	}

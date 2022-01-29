@@ -1,52 +1,53 @@
 @charset "UTF-8";
 
 /***************** 크루활동 공통 *******************/
+.create_activity_popup{background:white; position:fixed; top:100%; bottom:0; left:0;right:0; width:100%; height:100%;visibility: hidden;opacity:0; z-index:3000; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; overflow:hidden;}
+.create_activity_popup.layer_open{display:block; top:0; visibility:visible; opacity:1; -webkit-transition: all 0.3s ease-in-out;-moz-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; overflow:hidden;}
+.create_activity_popup input {border: none;}
+.create_activity_popup input:focus {outline: none;}
+.create_activity_popup textarea {border: none;}
+.create_activity_popup textarea:focus {outline: none;}
+
+
+.btn_pop_previous {position: absolute; top: 28px; left: 24px; width: 16px; height: 16px; z-index: 5; background-size: 16px auto;  font-size: 0px;}
+.activity_btn_pop_close {position: absolute; top: 28px; right: 24px; width: 16px; height: 16px; z-index: 5; background-size: 16px auto; font-size: 0px;}
+.activity_btn_pop_close img {height: 16px;}
+
+.on {display: inline-block; margin:0px; padding: 8px 19px; border: 1px solid #2B00FF; font-size: 16px;	text-align:center;	border-radius: 30px;	color:#2B00FF;}
+
+
+.activity_popup_footer {position: fixed; left: 0; bottom: 0; width: 100%; padding: 40px 24px 30px; text-align: center; z-index: 21; background: linear-gradient(to bottom, rgba(255, 255, 255, 0.0) 1%, rgba(255, 255, 255) 40%, #ffffff);}
+.activity_popup_footer button {display: block; height: 60px; padding: 10px 10px; font-size: 14px; color: #acacac; text-align: center; vertical-align: middle; border: 0px solid; border-radius: 10px; background: #ececec; font-weight:900; cursor: pointer; width: 100%;}
+.activity_popup_footer button.on {display: block; height: 60px; padding: 10px 10px; font-size: 14px; color: white; text-align: center;  vertical-align: middle; border: 0px solid; border-radius: 10px; background: #2B00FF; font-weight:900; cursor: pointer; width: 100%;}
+
+
 
 
 /***************** 크루활동 step01 *******************/
-#createActivityStep1{background:white; position:fixed; top:100%; bottom:0; left:0;right:0; width:100%; height:100%;visibility: hidden;opacity:0; z-index:3000; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; overflow:hidden;}
-#createActivityStep1.layer_open{display:block; top:0; visibility:visible; opacity:1; -webkit-transition: all 0.3s ease-in-out;-moz-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; overflow:hidden;}
 #activity_popup_contents{width: 100%; background: #fff; height: 100%;}
-.activity_popup_border {width: 14%; height: 10px; background: #00FFA3;}
 #activity_popup_header{height:55px; top:0; left:0; width:100%; z-index:21;}
-.activity_btn_pop_close {position: absolute; top: 28px; right: 24px; width: 16px; height: 16px; z-index: 5; background-size: 16px auto; font-size: 0px;}
-.activity_btn_pop_close img {height: 16px;}
 #activity_popup_content {height:100%;}
 #activity_popup_content #title {padding: 20px 20px 45px 20px;}
 #activity_popup_content #title .title_contents {font-family: "Pretendard Bold"; font-size: 22px; color: black;}
-#activity_popup_content #content span {color:#c5c5c5; font-size: 16px; padding:10px 15px; border-radius:30px; border: 0.5px solid #dadada;}
+/* #activity_popup_content #content span {color:#c5c5c5; font-size: 16px; padding:10px 15px; border-radius:30px; border: 0.5px solid #dadada;} */
 #activity_popup_content #content {	padding: 0 20px;}
 #activity_popup_content #content input[type=radio] {display:none; margin:10px;}
 #activity_popup_content #content .crewTypeContent {display: inline-block; margin:0px; padding: 8px 19px; border: 1px solid #ccc;	font-size: 16px; text-align:center; border-radius: 30px; color:#acacac;}
-.on {display: inline-block; margin:0px; padding: 8px 19px; border: 1px solid #2B00FF; font-size: 16px;	text-align:center;	border-radius: 30px;	color:#2B00FF;}
 #activity_popup_content #content input[type=radio]+ label {margin-bottom:10px;}
 #activity_popup_content #content input[type=radio]+ label:not(:first-child){margin-left:5px;}
-#activity_popup_footer {position: fixed; left: 0; bottom: 0; width: 100%; padding: 40px 24px 30px; text-align: center; z-index: 21; background: linear-gradient(to bottom, rgba(255, 255, 255, 0.0) 1%, rgba(255, 255, 255) 40%, #ffffff);}
-#activity_popup_footer #activityBtnNext1 {display: block; height: 60px; padding: 10px 10px; font-size: 14px; color: #acacac; text-align: center; vertical-align: middle; border: 0px solid; border-radius: 10px; background: #ececec; font-weight:900; cursor: pointer; width: 100%;}
 #activity_popup_content #content .crewTypeContent.on {display: inline-block; margin:0px; padding: 8px 19px; border: 1px solid #2B00FF; background:#2B00FF; font-size: 16px; text-align:center; border-radius: 30px; color:white; margin-bottom:10px;}
-
-#activity_popup_footer #activityBtnNext1.on {
-	display: block;
-    height: 60px;
-    padding: 10px 10px;
-    font-size: 14px;
-    color: white;
-    text-align: center;
-    vertical-align: middle; 
-    border: 0px solid; 
-    border-radius: 10px; 
-    background: #2B00FF; 
-    font-weight:900;
-    cursor: pointer; 
-    width: 100%;
-}
+.activity_popup_border_1 {width: 14%; height: 10px; background: #00FFA3;}
 
 
 /***************** 번개크루 step02 *******************/
-#createActivityStep2{background:white; position:fixed; top:100%; bottom:0; left:0;right:0; width:100%; height:100%;visibility: hidden;opacity:0; z-index:3000; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; overflow:hidden;}
-#createActivityStep2.layer_open{display:block; top:0; visibility:visible; opacity:1; -webkit-transition: all 0.3s ease-in-out;-moz-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; overflow:hidden;}
+.activity_popup_border_2 {width: 25%; height: 10px; background: #00FFA3;}
+#createActivityStep2 #titleContent {border-radius: 15px; border: 2px solid #ececec; height: 150px; padding: 15px;}
+#createActivityStep2 #titleContent textarea {width: 100%; height: 70%; resize: none;}
+#createActivityStep2 input {border-radius: 15px; border: 2px solid #ececec; width: 100%; margin-top: 20px; padding: 15px;}
+#createActivityStep2 #titleContent p {color: gray; text-align: right;}
 
-.btn_pop_previous {position: absolute; top: 28px; left: 24px; width: 16px; height: 16px; z-index: 5; background-size: 16px auto;  font-size: 0px;
-}
+
+
+
 
 
