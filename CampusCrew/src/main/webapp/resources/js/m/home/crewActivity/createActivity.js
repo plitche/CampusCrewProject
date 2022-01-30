@@ -3,10 +3,16 @@ let createActivity = (function() {
 			init : function() {
 				that.Event.createStep();
 				that.Event.closePopup();
+				
 				that.Event.selectType();
 				that.Event.stepOneNext();
+				
 				that.Event.prevBtnAction();
 				that.Event.titleSet();
+				that.Event.setTwoNext();
+				
+				that.Event.setThreeNext();
+				that.Event.setStepThreeNext();
 				
 			},
 			
@@ -116,16 +122,71 @@ let createActivity = (function() {
 				
 				,setTwoNext : function() {
 					$('#activityBtnNext2').on('click', function() {
-						let titleVal = $('#createActivityStep2 textarea').text();
+						let titleVal = $('#createActivityStep2 textarea').val();
 						
 						if (titleVal == '') {
 							msg.info('크루연합 제목을 작성해주세요.');
 						} else {
-							
+							that.Template.showCreateStep('2', 'next');
 						}
 					})
 				}
+				
+				// step 3 start
+				,setStepThreeNext : function() {
+					$('#createActivityStep3 textarea').on('change keyup paste', function() {
+						let content = $(this).val();
+						
+						if (content.length > 200) {
+							$(this).val($(this).val().substring(0, 200));
+						}
+						
+						$('#createActivityStep3 #titleContent span').text(content.length);
+						
+						let ImgVal = $('#createActivityImg').val();
+						
+						if (content.length > 0 && ImgVal != '') {
+							$('.activity_popup_footer #activityBtnNext3').addClass('on');
+						} else {
+							$('.activity_popup_footer #activityBtnNext3').removeClass('on');
+						}
+					})
+					
+					$('#createActivityImg').on('change', function() {
+						let goalVal = $('#createActivityStep3 textarea').val();
+						
+						if (goalVal != '' && $(this).val() != '') {
+							$('.activity_popup_footer #activityBtnNext3').addClass('on');
+						} else {
+							$('.activity_popup_footer #activityBtnNext3').removeClass('on');
+						}
+					})
+				}
+				
+				,setThreeNext : function() {
+					$('#activityBtnNext3').on('click', function() {
+						let goalVal = $('#createActivityStep3 textarea').val();
+						let ImgVal = $('#createActivityImg').val();
+						
+						if (goalVal == '') {
+							msg.info('크루연합 목표를 작성해주세요..');
+							return;
+						}
+						
+						if (ImgVal == '') {
+							msg.info('크루연합 사진을 업로드 해주세요.');
+							return;
+						}
+						
+						that.Template.showCreateStep('3', 'next');
+			
+					});
+				}
+				
+				
+				
 			},
 	}
 	return that;
 }) ();;
+

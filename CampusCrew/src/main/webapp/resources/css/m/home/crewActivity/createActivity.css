@@ -47,7 +47,16 @@
 #createActivityStep2 #titleContent p {color: gray; text-align: right;}
 
 
+/***************** 번개크루 step03 *******************/
+.activity_popup_border_3 {width: 38%; height: 10px; background: #00FFA3;}
+#createActivityStep3 #titleContent {border-radius: 15px; border: 2px solid #ececec; height: 150px; padding: 15px;}
+#createActivityStep3 #titleContent textarea {width: 100%; height: 70%; resize: none;}
+#createActivityStep3 label {border-radius: 15px; border: 2px solid #ececec; width: 100%; margin-top: 20px; margin-bottom: 10px; padding: 10px; color: gray; text-align: center; font-weight: bold; background-color: #ececec; font-size: 1.2rem;}
+#createActivityStep3 p {color: gray;}
+#createActivityStep3 #titleContent p {text-align: right;}
 
+/***************** 번개크루 step03 *******************/
+.activity_popup_border_4 {width: 52%; height: 10px; background: #00FFA3;}
 
 
 
