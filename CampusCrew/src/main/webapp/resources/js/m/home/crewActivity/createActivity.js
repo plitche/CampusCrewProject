@@ -3,16 +3,19 @@ let createActivity = (function() {
 			init : function() {
 				that.Event.createStep();
 				that.Event.closePopup();
+				that.Event.prevBtnAction();
 				
 				that.Event.selectType();
 				that.Event.stepOneNext();
 				
-				that.Event.prevBtnAction();
-				that.Event.titleSet();
 				that.Event.setTwoNext();
 				
+				that.Event.titleSet();
 				that.Event.setThreeNext();
-				that.Event.setStepThreeNext();
+				
+				that.Event.setStepFourBtn();
+				that.Event.setFourNext();
+				
 				
 			},
 			
@@ -102,38 +105,15 @@ let createActivity = (function() {
 				}
 				
 				// step 2 start
-				,titleSet : function() {
-					$('#createActivityStep2 textarea').on('change keyup paste', function() {
-						let content = $(this).val();
-						
-						if (content.length > 200) {
-							$(this).val($(this).val().substring(0, 200));
-						}
-						
-						$('#createActivityStep2 #titleContent span').text(content.length);
-						
-						if (content.length > 0) {
-							$('.activity_popup_footer #activityBtnNext2').addClass('on');
-						} else {
-							$('.activity_popup_footer #activityBtnNext2').removeClass('on');
-						}
-					})
-				}
 				
 				,setTwoNext : function() {
 					$('#activityBtnNext2').on('click', function() {
-						let titleVal = $('#createActivityStep2 textarea').val();
-						
-						if (titleVal == '') {
-							msg.info('크루연합 제목을 작성해주세요.');
-						} else {
-							that.Template.showCreateStep('2', 'next');
-						}
-					})
+						that.Template.showCreateStep('2', 'next');
+					});
 				}
 				
 				// step 3 start
-				,setStepThreeNext : function() {
+				,titleSet : function() {
 					$('#createActivityStep3 textarea').on('change keyup paste', function() {
 						let content = $(this).val();
 						
@@ -143,19 +123,7 @@ let createActivity = (function() {
 						
 						$('#createActivityStep3 #titleContent span').text(content.length);
 						
-						let ImgVal = $('#createActivityImg').val();
-						
-						if (content.length > 0 && ImgVal != '') {
-							$('.activity_popup_footer #activityBtnNext3').addClass('on');
-						} else {
-							$('.activity_popup_footer #activityBtnNext3').removeClass('on');
-						}
-					})
-					
-					$('#createActivityImg').on('change', function() {
-						let goalVal = $('#createActivityStep3 textarea').val();
-						
-						if (goalVal != '' && $(this).val() != '') {
+						if (content.length > 0) {
 							$('.activity_popup_footer #activityBtnNext3').addClass('on');
 						} else {
 							$('.activity_popup_footer #activityBtnNext3').removeClass('on');
@@ -165,7 +133,50 @@ let createActivity = (function() {
 				
 				,setThreeNext : function() {
 					$('#activityBtnNext3').on('click', function() {
-						let goalVal = $('#createActivityStep3 textarea').val();
+						let titleVal = $('#createActivityStep2 textarea').val();
+						
+						if (titleVal == '') {
+							msg.info('크루연합 제목을 작성해주세요.');
+						} else {
+							that.Template.showCreateStep('3', 'next');
+						}
+					})
+				}
+				
+				// step 4 start
+				,setStepFourBtn : function() {
+					$('#createActivityStep4 textarea').on('change keyup paste', function() {
+						let content = $(this).val();
+						
+						if (content.length > 200) {
+							$(this).val($(this).val().substring(0, 200));
+						}
+						
+						$('#createActivityStep4 #titleContent span').text(content.length);
+						
+						let ImgVal = $('#createActivityImg').val();
+						
+						if (content.length > 0 && ImgVal != '') {
+							$('.activity_popup_footer #activityBtnNext4').addClass('on');
+						} else {
+							$('.activity_popup_footer #activityBtnNext4').removeClass('on');
+						}
+					})
+					
+					$('#createActivityImg').on('change', function() {
+						let goalVal = $('#createActivityStep4 textarea').val();
+						
+						if (goalVal != '' && $(this).val() != '') {
+							$('.activity_popup_footer #activityBtnNext4').addClass('on');
+						} else {
+							$('.activity_popup_footer #activityBtnNext4').removeClass('on');
+						}
+					})
+				}
+				
+				,setFourNext : function() {
+					$('#activityBtnNext4').on('click', function() {
+						let goalVal = $('#createActivityStep4 textarea').val();
 						let ImgVal = $('#createActivityImg').val();
 						
 						if (goalVal == '') {
@@ -178,7 +189,7 @@ let createActivity = (function() {
 							return;
 						}
 						
-						that.Template.showCreateStep('3', 'next');
+						that.Template.showCreateStep('4', 'next');
 			
 					});
 				}

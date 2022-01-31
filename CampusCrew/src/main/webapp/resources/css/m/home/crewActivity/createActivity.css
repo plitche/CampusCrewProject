@@ -24,6 +24,7 @@
 
 
 /***************** 크루활동 step01 *******************/
+.activity_popup_border_1 {width: 16%; height: 10px; background: #00FFA3;}
 #activity_popup_contents{width: 100%; background: #fff; height: 100%;}
 #activity_popup_header{height:55px; top:0; left:0; width:100%; z-index:21;}
 #activity_popup_content {height:100%;}
@@ -36,27 +37,30 @@
 #activity_popup_content #content input[type=radio]+ label {margin-bottom:10px;}
 #activity_popup_content #content input[type=radio]+ label:not(:first-child){margin-left:5px;}
 #activity_popup_content #content .crewTypeContent.on {display: inline-block; margin:0px; padding: 8px 19px; border: 1px solid #2B00FF; background:#2B00FF; font-size: 16px; text-align:center; border-radius: 30px; color:white; margin-bottom:10px;}
-.activity_popup_border_1 {width: 14%; height: 10px; background: #00FFA3;}
-
 
 /***************** 번개크루 step02 *******************/
-.activity_popup_border_2 {width: 25%; height: 10px; background: #00FFA3;}
-#createActivityStep2 #titleContent {border-radius: 15px; border: 2px solid #ececec; height: 150px; padding: 15px;}
-#createActivityStep2 #titleContent textarea {width: 100%; height: 70%; resize: none;}
-#createActivityStep2 input {border-radius: 15px; border: 2px solid #ececec; width: 100%; margin-top: 20px; padding: 15px;}
-#createActivityStep2 #titleContent p {color: gray; text-align: right;}
+.activity_popup_border_2 {width: 33%; height: 10px; background: #00FFA3;}
+#createActivityStep2 {}
 
 
 /***************** 번개크루 step03 *******************/
-.activity_popup_border_3 {width: 38%; height: 10px; background: #00FFA3;}
+.activity_popup_border_3 {width: 49%; height: 10px; background: #00FFA3;}
 #createActivityStep3 #titleContent {border-radius: 15px; border: 2px solid #ececec; height: 150px; padding: 15px;}
 #createActivityStep3 #titleContent textarea {width: 100%; height: 70%; resize: none;}
-#createActivityStep3 label {border-radius: 15px; border: 2px solid #ececec; width: 100%; margin-top: 20px; margin-bottom: 10px; padding: 10px; color: gray; text-align: center; font-weight: bold; background-color: #ececec; font-size: 1.2rem;}
-#createActivityStep3 p {color: gray;}
-#createActivityStep3 #titleContent p {text-align: right;}
+#createActivityStep3 input {border-radius: 15px; border: 2px solid #ececec; width: 100%; margin-top: 20px; padding: 15px;}
+#createActivityStep3 #titleContent p {color: gray; text-align: right;}
 
-/***************** 번개크루 step03 *******************/
-.activity_popup_border_4 {width: 52%; height: 10px; background: #00FFA3;}
+
+/***************** 번개크루 step04 *******************/
+.activity_popup_border_4 {width: 66%; height: 10px; background: #00FFA3;}
+#createActivityStep4 #titleContent {border-radius: 15px; border: 2px solid #ececec; height: 150px; padding: 15px;}
+#createActivityStep4 #titleContent textarea {width: 100%; height: 70%; resize: none;}
+#createActivityStep4 label {border-radius: 15px; border: 2px solid #ececec; width: 100%; margin-top: 20px; margin-bottom: 10px; padding: 10px; color: gray; text-align: center; font-weight: bold; background-color: #ececec; font-size: 1.2rem;}
+#createActivityStep4 p {color: gray;}
+#createActivityStep4 #titleContent p {text-align: right;}
+
+/***************** 번개크루 step05 *******************/
+.activity_popup_border_5 {width: 82%; height: 10px; background: #00FFA3;}
 
 
 
