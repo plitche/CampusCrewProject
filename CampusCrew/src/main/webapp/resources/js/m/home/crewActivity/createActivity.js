@@ -182,25 +182,10 @@ let createActivity = (function() {
 						}
 					})
 					
-					$('#' + that.StepThreeImg).on('change', function() {
-						let thisImgID = $(this).prop('id');
-						let lastIndex = thisImgID.charAt(thisImgID.length-1);
-						let nextIndex = parseInt(lastIndex)+1;
-						
-						if (!$('#createActivityImg' + nextIndex).length) {
-							let html = `
-								<label for="`+ 'createActivityImg'+nextIndex +`">+</label>
-								<input type="file" id="`+ 'createActivityImg'+nextIndex +`" class="createActivityImg" name="`+ 'createActivityImg'+nextIndex +`" style="display: none;">
-							`;
-							
-							$('#content div:nth-child(1)').append(html);
-							$('label[for="'+thisImgID+'"]').css('display', 'none');
-							
-							that.Template.setImageFromFile(this, 'img.'+thisImgID+'');
-						} else {
-							alert('1111');
-						}
-						
+					$('#createActivityImg').on('change', function() {						
+						that.Template.setImageFromFile(this, '#previewImg');
+						$('#createActivityStep3 label').addClass('on');
+						$('#createActivityStep3 label').text('사 진 수 정');
 						
 						let goalVal = $('#createActivityStep3 textarea').val();
 						
@@ -210,9 +195,6 @@ let createActivity = (function() {
 							$('.activity_popup_footer #activityBtnNext3').removeClass('on');
 						}
 						
-						console.log(that.StepThreeImg)
-						that.StepThreeImg = 'createActivityImg'+nextIndex
-						console.log(that.StepThreeImg)
 					})
 				}
 				

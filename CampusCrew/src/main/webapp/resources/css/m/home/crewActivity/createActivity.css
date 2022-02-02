@@ -47,13 +47,16 @@
 
 /***************** 번개크루 step03 *******************/
 .activity_popup_border_3 {width: 49%; height: 10px; background: #00FFA3;}
-#createActivityStep3 #content img {display: none; width: 60px; height: 60px; border-radius: 15px; background-size: cover; background-repeat: no-repeat; margin: 0 10px 22px 0;}
-#createActivityStep3 label {border-radius: 10px; border: 2px solid #333; width: 60px; height: 60px; margin-bottom: 10px; padding: 10px; color: #333; text-align: center; font-size: 3rem; line-height: 30px; margin-right: 10px;}
+#createActivityStep3 #previewWrap {background: #F0F0F0; width: 100%; height: 230px; border-radius: 15px; margin-bottom: 10px;}
+#createActivityStep3 #content img {display:none; width: 100%; height: 230px; border-radius: 15px; background-size: cover; background-repeat: no-repeat; margin: 0 auto;}
+#createActivityStep3 label {border-radius: 15px; border: 1px solid #ccc; color: #ccc; width: 100%; height: 45px; padding: 10px; text-align: center; font-size: 1.2rem; line-height: 25px;}
+#createActivityStep3 label.on {border-radius: 15px; border: 2px solid #2b00ff; color: #2b00ff; width: 100%; height: 45px; padding: 10px; text-align: center; font-size: 1.2rem; line-height: 25px;}
 
+#createActivityStep3 p {color: gray;}
 #createActivityStep3 #titleContent {border-radius: 15px; border: 2px solid #ececec; height: 150px; padding: 15px;}
 #createActivityStep3 #titleContent.on {border-radius: 15px; border: 2px solid #2b00ff; height: 150px; padding: 15px;}
 #createActivityStep3 #titleContent textarea {width: 100%; height: 70%; resize: none;}
-#createActivityStep3 p {color: gray;}
+
 #createActivityStep3 #titleContent p {text-align: right;}
 
 
