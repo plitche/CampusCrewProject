@@ -15,8 +15,7 @@
 .activity_btn_pop_close {position: absolute; top: 28px; right: 24px; width: 16px; height: 16px; z-index: 5; background-size: 16px auto; font-size: 0px;}
 .activity_btn_pop_close img {height: 16px;}
 
-.on {display: inline-block; margin:0px; padding: 8px 19px; border: 1px solid #2B00FF; font-size: 16px;	text-align:center;	border-radius: 30px;	color:#2B00FF;}
-
+/* .on {display: inline-block; margin:0px; padding: 8px 19px; border: 1px solid #2B00FF; font-size: 16px;	text-align:center;	border-radius: 30px;	color:#2B00FF;} */
 
 .activity_popup_footer {position: fixed; left: 0; bottom: 0; width: 100%; padding: 40px 24px 30px; text-align: center; z-index: 21; background: linear-gradient(to bottom, rgba(255, 255, 255, 0.0) 1%, rgba(255, 255, 255) 40%, #ffffff);}
 .activity_popup_footer button {display: block; height: 60px; padding: 10px 10px; font-size: 14px; color: #acacac; text-align: center; vertical-align: middle; border: 0px solid; border-radius: 10px; background: #ececec; font-weight:900; cursor: pointer; width: 100%;}
@@ -41,29 +40,29 @@
 
 /***************** 번개크루 step02 *******************/
 .activity_popup_border_2 {width: 33%; height: 10px; background: #00FFA3;}
-#createActivityStep2 #titleContent {border-radius: 15px; border: 2px solid #ececec; height: 150px; padding: 15px;}
-#createActivityStep2 #titleContent textarea {width: 100%; height: 70%; resize: none;}
-#createActivityStep2 input {border-radius: 15px; border: 2px solid #ececec; width: 100%; margin-top: 20px; padding: 15px;}
-#createActivityStep2 #titleContent p {color: gray; text-align: right;}
+#createActivityStep2 #crewActivityTitle {border-bottom: 2px solid #ececec; width: 100%; padding: 15px;}
+#createActivityStep2 #crewActivityTitle.on {border-bottom: 2px solid #2b00ff; width: 100%; padding: 15px;}
+#createActivityStep2 #titleContent p {margin-top: 10px;;color: gray; text-align: right;}
 
 
 /***************** 번개크루 step03 *******************/
 .activity_popup_border_3 {width: 49%; height: 10px; background: #00FFA3;}
-
+#createActivityStep3 #titleContent {border-radius: 15px; border: 2px solid #ececec; height: 150px; padding: 15px;}
+#createActivityStep3 #titleContent textarea {width: 100%; height: 70%; resize: none;}
+#createActivityStep3 label {border-radius: 15px; border: 2px solid #ececec; width: 100%; margin-top: 20px; margin-bottom: 10px; padding: 10px; color: gray; text-align: center; font-weight: bold; background-color: #ececec; font-size: 1.2rem;}
+#createActivityStep3 p {color: gray;}
+#createActivityStep3 #titleContent p {text-align: right;}
 
 
 /***************** 번개크루 step04 *******************/
 .activity_popup_border_4 {width: 66%; height: 10px; background: #00FFA3;}
-#createActivityStep4 #titleContent {border-radius: 15px; border: 2px solid #ececec; height: 150px; padding: 15px;}
-#createActivityStep4 #titleContent textarea {width: 100%; height: 70%; resize: none;}
-#createActivityStep4 label {border-radius: 15px; border: 2px solid #ececec; width: 100%; margin-top: 20px; margin-bottom: 10px; padding: 10px; color: gray; text-align: center; font-weight: bold; background-color: #ececec; font-size: 1.2rem;}
-#createActivityStep4 p {color: gray;}
-#createActivityStep4 #titleContent p {text-align: right;}
+
 
 /***************** 번개크루 step05 *******************/
 .activity_popup_border_5 {width: 82%; height: 10px; background: #00FFA3;}
 
-/***************** 번개크루 step05 *******************/
+
+/***************** 번개크루 step06 *******************/
 .activity_popup_border_6 {width: 82%; height: 10px; background: #00FFA3;}
 
 

@@ -110,19 +110,21 @@ let createActivity = (function() {
 				
 				// step 2 start
 				,titleSet : function() {
-					$('#createActivityStep2 textarea').on('change keyup paste', function() {
+					$('#createActivityStep2 input').on('change keyup paste', function() {
 						let content = $(this).val();
 						
-						if (content.length > 200) {
-							$(this).val($(this).val().substring(0, 200));
+						if (content.length > 20) {
+							$(this).val($(this).val().substring(0, 20));
 						}
 						
 						$('#createActivityStep2 #titleContent span').text(content.length);
 						
 						if (content.length > 0) {
 							$('.activity_popup_footer #activityBtnNext2').addClass('on');
+							$('#crewActivityTitle').addClass('on');
 						} else {
 							$('.activity_popup_footer #activityBtnNext2').removeClass('on');
+							$('#crewActivityTitle').removeClass('on');
 						}
 					})
 				}
