@@ -1,5 +1,7 @@
 let createActivity = (function() {
 	let that = {
+			StepThreeImg : 'createActivityImg1',
+			
 			init : function() {
 				that.Event.createStep();
 				that.Event.closePopup();
@@ -36,6 +38,17 @@ let createActivity = (function() {
 					} else if (direction == 'next') {
 						$('#createActivityStep' + (parseInt(stepLevel)+1)).addClass('layer_open');
 					}
+				}
+			
+				,setImageFromFile: function(input, expression) {
+					 if (input.files && input.files[0]) {
+					        var reader = new FileReader();
+					        reader.onload = function (e) {
+					            $(expression).attr('src', e.target.result);
+					            $(expression).show();
+					        }
+					        reader.readAsDataURL(input.files[0]);
+					    }
 				}
 			},
 			
@@ -131,7 +144,7 @@ let createActivity = (function() {
 				
 				,setTwoNext : function() {
 					$('#activityBtnNext2').on('click', function() {
-						let titleVal = $('#createActivityStep2 textarea').val();
+						let titleVal = $('#crewActivityTitle').val();
 						
 						if (titleVal == '') {
 							msg.info('크루연합 제목을 작성해주세요.');
@@ -148,20 +161,47 @@ let createActivity = (function() {
 						
 						if (content.length > 200) {
 							$(this).val($(this).val().substring(0, 200));
+						} else if (content.length == 200) {
+							// $('#createActivityStep3 p ').css('color', 'red');
 						}
 						
 						$('#createActivityStep3 #titleContent span').text(content.length);
 						
 						let ImgVal = $('#createActivityImg').val();
 						
-						if (content.length > 0 && ImgVal != '') {
-							$('.activity_popup_footer #activityBtnNext3').addClass('on');
+						if (content.length > 0) {
+							$('#createActivityStep3 #titleContent').addClass('on');
+							
+							if (ImgVal != '') {
+								$('.activity_popup_footer #activityBtnNext3').addClass('on');
+							} else {
+								$('.activity_popup_footer #activityBtnNext3').removeClass('on');	
+							}
 						} else {
-							$('.activity_popup_footer #activityBtnNext3').removeClass('on');
+							$('#createActivityStep3 #titleContent').removeClass('on');
 						}
 					})
 					
-					$('#createActivityImg').on('change', function() {
+					$('#' + that.StepThreeImg).on('change', function() {
+						let thisImgID = $(this).prop('id');
+						let lastIndex = thisImgID.charAt(thisImgID.length-1);
+						let nextIndex = parseInt(lastIndex)+1;
+						
+						if (!$('#createActivityImg' + nextIndex).length) {
+							let html = `
+								<label for="`+ 'createActivityImg'+nextIndex +`">+</label>
+								<input type="file" id="`+ 'createActivityImg'+nextIndex +`" class="createActivityImg" name="`+ 'createActivityImg'+nextIndex +`" style="display: none;">
+							`;
+							
+							$('#content div:nth-child(1)').append(html);
+							$('label[for="'+thisImgID+'"]').css('display', 'none');
+							
+							that.Template.setImageFromFile(this, 'img.'+thisImgID+'');
+						} else {
+							alert('1111');
+						}
+						
+						
 						let goalVal = $('#createActivityStep3 textarea').val();
 						
 						if (goalVal != '' && $(this).val() != '') {
@@ -169,6 +209,10 @@ let createActivity = (function() {
 						} else {
 							$('.activity_popup_footer #activityBtnNext3').removeClass('on');
 						}
+						
+						console.log(that.StepThreeImg)
+						that.StepThreeImg = 'createActivityImg'+nextIndex
+						console.log(that.StepThreeImg)
 					})
 				}
 				
