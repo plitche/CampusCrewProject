@@ -62,7 +62,8 @@
 
 /***************** 번개크루 step04 *******************/
 .activity_popup_border_4 {width: 66%; height: 10px; background: #00FFA3;}
-
+#createActivityStep4 #addNeedPosition {width: 100%; height: 50px; margin: 40px 20px 35px 20px; padding: 15px 108px; border-radius: 10px; box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2); background-color: #2b25ff; font-size: 18px; font-weight: bold; color: #fff;}
+#createActivityStep4 #needPositionList {}
 
 /***************** 번개크루 step05 *******************/
 .activity_popup_border_5 {width: 82%; height: 10px; background: #00FFA3;}

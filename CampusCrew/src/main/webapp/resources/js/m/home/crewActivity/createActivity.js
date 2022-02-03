@@ -202,14 +202,14 @@ let createActivity = (function() {
 					$('#activityBtnNext3').on('click', function() {
 						let goalVal = $('#createActivityStep3 textarea').val();
 						let ImgVal = $('#createActivityImg').val();
-						
-						if (goalVal == '') {
-							msg.info('크루연합 목표를 작성해주세요..');
+
+						if (ImgVal == '') {
+							msg.info('크루연합 사진을 업로드 해주세요.');
 							return;
 						}
 						
-						if (ImgVal == '') {
-							msg.info('크루연합 사진을 업로드 해주세요.');
+						if (goalVal == '') {
+							msg.info('크루연합 목표를 작성해주세요..');
 							return;
 						}
 						
@@ -220,8 +220,10 @@ let createActivity = (function() {
 				// step 4 start
 				,setFourNext : function() {
 					$('#activityBtnNext4').on('click', function() {
-					
 						
+						
+						
+						that.Template.showCreateStep('4', 'next');
 					});
 				}
 				
