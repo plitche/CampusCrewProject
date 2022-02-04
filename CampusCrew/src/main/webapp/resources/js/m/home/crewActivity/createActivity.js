@@ -18,8 +18,9 @@ let createActivity = (function() {
 				
 				that.Event.setStepThreeBtn();
 				that.Event.setThreeNext();
+
 				
-				
+				that.Event.addPositionAction ();
 				that.Event.setFourNext();
 				
 				
@@ -209,7 +210,7 @@ let createActivity = (function() {
 						}
 						
 						if (goalVal == '') {
-							msg.info('크루연합 목표를 작성해주세요..');
+							msg.info('크루연합 목표를 작성해주세요.');
 							return;
 						}
 						
@@ -218,6 +219,29 @@ let createActivity = (function() {
 				}
 				
 				// step 4 start
+				,addPositionAction : function() {
+					$('#createActivityStep4 #addNeedPosition').on('click', function() {
+						let positionName = prompt('연합에 필요한 포지션을 입력하세요.');
+						
+						if (positionName == '' || positionName == 'undefine') {
+							msg.info('연합에 필요한 포지션을 정확하게 입력하세요.');
+							return;
+						}
+						 
+						let html = `
+						<div>
+							<p class="eachPosition">`+positionName+`</p>
+							<p class="reduceBtn">-</p>
+							<p><span class="needCount">0</span>명</p>
+							<p class="addBtn">+</p>
+						</div>
+						`;
+						
+						$('#createActivityStep4 #needPositionList').html(html);
+						
+					})
+				}
+				
 				,setFourNext : function() {
 					$('#activityBtnNext4').on('click', function() {
 						
