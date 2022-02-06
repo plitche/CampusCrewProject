@@ -21,7 +21,6 @@ let createActivity = (function() {
 
 				
 				that.Event.addPositionAction();
-				that.Event.plusMinusBtnAction();
 				that.Event.setFourNext();
 				
 				
@@ -223,6 +222,7 @@ let createActivity = (function() {
 				,addPositionAction : function() {
 					$('#createActivityStep4 #addNeedPosition').on('click', function() {
 						let positionName = prompt('연합에 필요한 포지션을 입력하세요.');
+						positionName = positionName.replace(/ /gi, '') // 공백 제거
 						
 						if (positionName == '' || positionName == 'undefine' || positionName == null) {
 							msg.info('연합에 필요한 포지션을 정확하게 입력하세요.');
@@ -247,7 +247,6 @@ let createActivity = (function() {
 							$('#activityBtnNext4').removeClass('on');
 						}
 						
-						// that.Event.plusMinusBtnAction();
 					})
 				}
 				
