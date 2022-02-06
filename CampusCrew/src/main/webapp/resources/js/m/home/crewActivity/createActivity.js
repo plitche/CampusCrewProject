@@ -20,7 +20,8 @@ let createActivity = (function() {
 				that.Event.setThreeNext();
 
 				
-				that.Event.addPositionAction ();
+				that.Event.addPositionAction();
+				that.Event.plusMinusBtnAction();
 				that.Event.setFourNext();
 				
 				
@@ -237,17 +238,66 @@ let createActivity = (function() {
 						</div>
 						`;
 						
-						$('#createActivityStep4 #needPositionList').html(html);
+						$('#createActivityStep4 #needPositionList').append(html);
 						
+						let isCount = that.Event.isExistsCount();
+						if (isCount) {
+							$('#activityBtnNext4').addClass('on');
+						} else {
+							$('#activityBtnNext4').removeClass('on');
+						}
+						
+						// that.Event.plusMinusBtnAction();
 					})
+				}
+				
+				,plusMinusBtnAction : function() {
+					$('.reduceBtn, .addBtn').on('click', function() {
+						let current = $(this).parent().find('.needCount').text();
+						console.log(current);
+						if ($(this).hasClass('reduceBtn')) {
+							if (current <= 0) {
+								return;
+							} else {
+								$(this).parent().find('.needCount').text(parseInt(current)-1);
+							}
+						} else if ($(this).hasClass('addBtn')) {
+							$(this).parent().find('.needCount').text(parseInt(current)+1);
+						}
+						
+						let isCount = that.Event.isExistsCount();
+						if (isCount) {
+							$('#activityBtnNext4').addClass('on');
+						} else {
+							$('#activityBtnNext4').removeClass('on');
+						}
+					})
+				}
+				
+				,isExistsCount : function() {
+					let positionList = $('#needPositionList span');
+					let isCount = false;
+					
+					$.each(positionList, function(index, value) {
+						if (value.innerText != 0) {
+							isCount = true;
+							return;
+						}
+					})
+					
+					return isCount;
 				}
 				
 				,setFourNext : function() {
 					$('#activityBtnNext4').on('click', function() {
+						let isCount = that.Event.isExistsCount();
+
+						if (isCount) {
+							that.Template.showCreateStep('4', 'next');
+						} else {
+							msg.info('연합에 필요한 포지션 및 인원을 추가해주세요.');
+						}
 						
-						
-						
-						that.Template.showCreateStep('4', 'next');
 					});
 				}
 				
