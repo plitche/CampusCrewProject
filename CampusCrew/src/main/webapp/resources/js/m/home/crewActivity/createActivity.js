@@ -224,7 +224,7 @@ let createActivity = (function() {
 					$('#createActivityStep4 #addNeedPosition').on('click', function() {
 						let positionName = prompt('연합에 필요한 포지션을 입력하세요.');
 						
-						if (positionName == '' || positionName == 'undefine') {
+						if (positionName == '' || positionName == 'undefine' || positionName == null) {
 							msg.info('연합에 필요한 포지션을 정확하게 입력하세요.');
 							return;
 						}
@@ -232,9 +232,9 @@ let createActivity = (function() {
 						let html = `
 						<div>
 							<p class="eachPosition">`+positionName+`</p>
-							<p class="reduceBtn">-</p>
+							<p class="reduceBtn" onclick="createActivity.Event.plusMinusBtnAction(this);">-</p>
 							<p><span class="needCount">0</span>명</p>
-							<p class="addBtn">+</p>
+							<p class="addBtn" onclick="createActivity.Event.plusMinusBtnAction(this);">+</p>
 						</div>
 						`;
 						
@@ -251,27 +251,25 @@ let createActivity = (function() {
 					})
 				}
 				
-				,plusMinusBtnAction : function() {
-					$('.reduceBtn, .addBtn').on('click', function() {
-						let current = $(this).parent().find('.needCount').text();
-						console.log(current);
-						if ($(this).hasClass('reduceBtn')) {
-							if (current <= 0) {
-								return;
-							} else {
-								$(this).parent().find('.needCount').text(parseInt(current)-1);
-							}
-						} else if ($(this).hasClass('addBtn')) {
-							$(this).parent().find('.needCount').text(parseInt(current)+1);
-						}
-						
-						let isCount = that.Event.isExistsCount();
-						if (isCount) {
-							$('#activityBtnNext4').addClass('on');
+				,plusMinusBtnAction : function(thisTag) {
+					let current = $(thisTag).parent().find('.needCount').text();
+					console.log(current);
+					if ($(thisTag).hasClass('reduceBtn')) {
+						if (current <= 0) {
+							return;
 						} else {
-							$('#activityBtnNext4').removeClass('on');
+							$(thisTag).parent().find('.needCount').text(parseInt(current)-1);
 						}
-					})
+					} else if ($(thisTag).hasClass('addBtn')) {
+						$(thisTag).parent().find('.needCount').text(parseInt(current)+1);
+					}
+					
+					let isCount = that.Event.isExistsCount();
+					if (isCount) {
+						$('#activityBtnNext4').addClass('on');
+					} else {
+						$('#activityBtnNext4').removeClass('on');
+					}
 				}
 				
 				,isExistsCount : function() {
