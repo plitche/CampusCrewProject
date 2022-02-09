@@ -24,8 +24,8 @@
 
 
 
-/***************** 크루활동 step01 *******************/
-.activity_popup_border_1 {width: 16%; height: 10px; background: #00FFA3;}
+/***************** 크루연합 step01 *******************/
+.activity_popup_border_1 {width: 20%; height: 10px; background: #00FFA3;}
 #activity_popup_contents{width: 100%; background: #fff; height: 100%;}
 #activity_popup_content {height:100%;}
 #activity_popup_content #title {padding: 20px 20px 45px 20px;}
@@ -38,15 +38,15 @@
 #activity_popup_content #content input[type=radio]+ label:not(:first-child){margin-left:5px;}
 #activity_popup_content #content .crewTypeContent.on {display: inline-block;  font-weight: bold; margin:0px; padding: 8px 19px; border: 2px solid #2b00ff; background-color: #deebff; font-size: 16px; text-align:center; border-radius: 30px; color:#2b00ff; margin-bottom:10px; box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.05);}
 
-/***************** 번개크루 step02 *******************/
-.activity_popup_border_2 {width: 33%; height: 10px; background: #00FFA3;}
+/***************** 크루연합 step02 *******************/
+.activity_popup_border_2 {width: 40%; height: 10px; background: #00FFA3;}
 #createActivityStep2 #crewActivityTitle {border-bottom: 2px solid #ececec; width: 100%; padding: 15px;}
 #createActivityStep2 #crewActivityTitle.on {border-bottom: 2px solid #2b00ff; width: 100%; padding: 15px;}
 #createActivityStep2 #titleContent p {margin-top: 10px;;color: gray; text-align: right;}
 
 
-/***************** 번개크루 step03 *******************/
-.activity_popup_border_3 {width: 49%; height: 10px; background: #00FFA3;}
+/***************** 크루연합 step03 *******************/
+.activity_popup_border_3 {width: 60%; height: 10px; background: #00FFA3;}
 #createActivityStep3 #previewWrap {background: #F0F0F0; width: 100%; height: 230px; border-radius: 15px; margin-bottom: 10px;}
 #createActivityStep3 #content img {display:none; width: 100%; height: 230px; border-radius: 15px; background-size: cover; background-repeat: no-repeat; margin: 0 auto;}
 #createActivityStep3 label {border-radius: 15px; border: 1px solid #ccc; color: #ccc; width: 100%; height: 45px; padding: 10px; text-align: center; font-size: 1.2rem; line-height: 25px;}
@@ -56,12 +56,11 @@
 #createActivityStep3 #titleContent {border-radius: 15px; border: 2px solid #ececec; height: 150px; padding: 15px;}
 #createActivityStep3 #titleContent.on {border-radius: 15px; border: 2px solid #2b00ff; height: 150px; padding: 15px;}
 #createActivityStep3 #titleContent textarea {width: 100%; height: 70%; resize: none;}
-
 #createActivityStep3 #titleContent p {text-align: right;}
 
 
-/***************** 번개크루 step04 *******************/
-.activity_popup_border_4 {width: 66%; height: 10px; background: #00FFA3;}
+/***************** 크루연합 step04 *******************/
+.activity_popup_border_4 {width: 80%; height: 10px; background: #00FFA3;}
 #createActivityStep4 #addNeedPosition {width: 100%; height: 50px; margin-bottom: 35px; padding: 15px 108px; border-radius: 10px; box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2); background-color: #2b25ff; font-size: 18px; font-weight: bold; color: #fff;}
 #createActivityStep4 #needPositionList > div {display: flex; width: 100%; height: 30px; position: relative; margin-bottom: 25px;}
 #createActivityStep4 #needPositionList > div .eachPosition {position: absolute; left: 0; color: #111; font-weight: 500; font-size: 18px; line-height: 1.17;}
@@ -71,11 +70,15 @@
 
 
 
-/***************** 번개크루 step05 *******************/
-.activity_popup_border_5 {width: 82%; height: 10px; background: #00FFA3;}
+/***************** 크루연합 step05 *******************/
+.activity_popup_border_5 {width: 100%; height: 10px; background: #00FFA3;}
+#createActivityStep5 p {color: gray;}
+#createActivityStep5 #titleContent {border-radius: 15px; border: 2px solid #ececec; height: 210px; padding: 15px;}
+#createActivityStep5 #titleContent.on {border-radius: 15px; border: 2px solid #2b00ff; height: 210px; padding: 15px;}
+#createActivityStep5 #titleContent textarea {width: 100%; height: 80%; resize: none;}
+#createActivityStep5 #titleContent p {text-align: right;}
 
+/***************** 크루연합 step06 *******************/
 
-/***************** 번개크루 step06 *******************/
-.activity_popup_border_6 {width: 82%; height: 10px; background: #00FFA3;}
 
 

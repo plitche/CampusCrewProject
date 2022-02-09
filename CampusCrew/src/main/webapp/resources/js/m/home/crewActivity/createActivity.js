@@ -24,6 +24,9 @@ let createActivity = (function() {
 				that.Event.setFourNext();
 				
 				
+				that.Event.setStepFiveBtn();
+				that.Event.createActivityDone();
+				
 			},
 			
 			Ajax : {
@@ -298,8 +301,44 @@ let createActivity = (function() {
 					});
 				}
 				
+				,setStepFiveBtn : function() {
+					$('#createActivityStep5 textarea').on('change keyup paste', function() {
+						let content = $(this).val();
+						
+						if (content.length > 200) {
+							$(this).val($(this).val().substring(0, 200));
+						} else if (content.length == 200) {
+							// $('#createActivityStep3 p ').css('color', 'red');
+						}
+						
+						$('#createActivityStep5 #titleContent span').text(content.length);
+						
+						let ImgVal = $('#createActivityImg').val();
+						
+						if (content.length > 0) {
+							$('#createActivityStep5 #titleContent').addClass('on');
+							$('.activity_popup_footer #activityDoneBtn').addClass('on');
+						} else {
+							$('#createActivityStep5 #titleContent').removeClass('on');
+							$('.activity_popup_footer #activityDoneBtn').removeClass('on');
+						}
+					})
+				}
 				
-				
+				,createActivityDone : function() {
+					$('#activityDoneBtn').on('click', function() {
+						let introduceVal = $('#createActivityStep5 textarea').val();
+						
+						if (introduceVal == '' || introduceVal == null) {
+							msg.info('크루연합의 상세 내용을 입력해 주세요.');
+						} else {
+							alert('완료!');
+							$('.create_activity_popup').removeClass('layer_open');
+						}
+						
+					})
+					
+				}
 			},
 	}
 	return that;
